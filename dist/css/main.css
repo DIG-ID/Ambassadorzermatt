@@ -1368,26 +1368,110 @@ video {
 .z-50{
   z-index: 50;
 }
+.col-span-2{
+  grid-column: span 2 / span 2;
+}
+.my-8{
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
 .mb-12{
   margin-bottom: 3rem;
 }
 .mt-auto{
   margin-top: auto;
 }
+.mt-12{
+  margin-top: 3rem;
+}
 .flex{
   display: flex;
+}
+.h-\[6\.25rem\]{
+  height: 6.25rem;
 }
 .w-full{
   width: 100%;
 }
+.w-\[6\.25rem\]{
+  width: 6.25rem;
+}
+.grid-cols-4{
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
 .flex-col{
   flex-direction: column;
+}
+.gap-4{
+  gap: 1rem;
+}
+.gap-y-5{
+  row-gap: 1.25rem;
+}
+.gap-y-20{
+  row-gap: 5rem;
+}
+.gap-x-20{
+  -moz-column-gap: 5rem;
+       column-gap: 5rem;
+}
+.space-y-10 > :not([hidden]) ~ :not([hidden]){
+  --tw-space-y-reverse: 0;
+  margin-top: calc(2.5rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(2.5rem * var(--tw-space-y-reverse));
 }
 .overflow-hidden{
   overflow: hidden;
 }
+.rounded-\[6rem\]{
+  border-radius: 6rem;
+}
+.rounded-xl{
+  border-radius: 0.75rem;
+}
+.rounded-full{
+  border-radius: 9999px;
+}
+.rounded-b-full{
+  border-bottom-right-radius: 9999px;
+  border-bottom-left-radius: 9999px;
+}
+.border-l{
+  border-left-width: 1px;
+}
+.border-Dark{
+  --tw-border-opacity: 1;
+  border-color: rgb(37 33 30 / var(--tw-border-opacity));
+}
+.bg-Dark{
+  --tw-bg-opacity: 1;
+  background-color: rgb(37 33 30 / var(--tw-bg-opacity));
+}
+.bg-Brown{
+  --tw-bg-opacity: 1;
+  background-color: rgb(118 106 102 / var(--tw-bg-opacity));
+}
+.bg-LightGray{
+  --tw-bg-opacity: 1;
+  background-color: rgb(231 229 229 / var(--tw-bg-opacity));
+}
+.bg-white{
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+.bg-White{
+  --tw-bg-opacity: 1;
+  background-color: rgb(243 243 243 / var(--tw-bg-opacity));
+}
+.px-8{
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
 .pb-12{
   padding-bottom: 3rem;
+}
+.pb-16{
+  padding-bottom: 4rem;
 }
 .pt-12{
   padding-top: 3rem;
@@ -1398,9 +1482,15 @@ video {
 .text-center{
   text-align: center;
 }
+.font-noto{
+  font-family: Noto Sans, sans-serif;
+}
 .text-sm{
   font-size: 0.875rem;
   line-height: 1.25rem;
+}
+.text-\[58px\]{
+  font-size: 58px;
 }
 .font-bold{
   font-weight: 700;
@@ -1444,6 +1534,46 @@ html.lenis {
   pointer-events: none;
 }
 
+body{
+  font-family: Noto Sans, sans-serif;
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 2rem;
+  letter-spacing: 0.03125rem;
+}
+
+a{
+  transition-property: all;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+h1{
+  font-family: Amethysta, sans-serif;
+  font-size: 8rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-style: normal;
+  line-height: 7.25rem;
+  letter-spacing: 0.03125rem;
+}
+
+h2{
+  font-family: Inria Serif, serif;
+  font-size: 3.75rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-style: italic;
+  line-height: 4.6875rem;
+  letter-spacing: 0.03125rem;
+}
+
+@media (min-width: 768px){
+  .md\:col-span-2{
+    grid-column: span 2 / span 2;
+  }
+}
+
 @media (min-width: 1024px){
   .lg\:pb-48{
     padding-bottom: 12rem;
@@ -1459,6 +1589,9 @@ html.lenis {
 @media (min-width: 1280px){
   .xl\:-bottom-7{
     bottom: -1.75rem;
+  }
+  .xl\:col-span-4{
+    grid-column: span 4 / span 4;
   }
 }
 

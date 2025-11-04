@@ -12,7 +12,9 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      //montserrat: ['Montserrat', 'sans-serif'],
+      amethysta: ['Amethysta', 'sans-serif'],
+      noto: ['Noto Sans', 'sans-serif'],
+      inria: ['Inria Serif', 'serif'],
     },
 
     extend: {
@@ -21,7 +23,10 @@ module.exports = {
         //wider: '.06em',
       },
       colors: {
-        
+        'Dark': '#25211E',
+        'Brown': '#766A66',
+        'LightGray': '#E7E5E5',
+        'White': '#F3F3F3',
       },
       transitionTimingFunction: {
         //'out-expo': 'cubic-bezier(0.16, 1, 0.3, 1)',
