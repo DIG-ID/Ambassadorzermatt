@@ -12,9 +12,8 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      amethysta: ['Amethysta', 'sans-serif'],
-      noto: ['Noto Sans', 'sans-serif'],
-      inria: ['Inria Serif', 'serif'],
+      noto: ['noto-sans', 'sans-serif'],
+      inria: ['inria-serif', 'serif'],
     },
 
     extend: {

@@ -66,7 +66,7 @@ if ( ! function_exists( 'ambassadorzermatt_get_font_face_styles' ) ) :
 	 */
 	function ambassadorzermatt_get_font_face_styles() {
 		return "
-			@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Prata&display=swap');
+			@import url('https://use.typekit.net/yjm6usa.css');
 		";
 	}
 endif;
@@ -77,8 +77,7 @@ if ( ! function_exists( 'ambassadorzermatt_preload_webfonts' ) ) :
 	 */
 	function ambassadorzermatt_preload_webfonts() {
 		?>
-		<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link rel="preconnect" href="use.typekit.net" crossorigin>
 		<?php
 	}
 endif;
