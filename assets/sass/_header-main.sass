@@ -8,12 +8,12 @@
           @apply mr-11
         &:hover
           a
-            @apply underline underline-offset-1
+            @apply underline underline-offset-2
 
 // Hamburger Menu
 .menu-toggle
   &__button
-    @apply flex items-center px-1 py-[3.5px]
+    @apply flex items-center
   &__bars
     @apply flex flex-col items-start justify-center overflow-hidden relative w-[28px]
   &__bar
@@ -36,3 +36,20 @@
         &:last-child
           @apply -rotate-45 -translate-y-[13px]
         
+// Sticky Header
+
+/* when sticky is showing */
+html.sticky-active #header-main
+  --fade-dur: 400ms
+  --fade-ease: ease-out
+  opacity: 0
+  pointer-events: none
+  transition-delay: 100ms
+
+/* default */
+#header-main
+  --fade-dur: 1200ms
+  --fade-ease: cubic-bezier(.22,.61,.36,1)
+  opacity: 1
+  transition: opacity var(--fade-dur) var(--fade-ease)
+  transition-delay: 300ms
