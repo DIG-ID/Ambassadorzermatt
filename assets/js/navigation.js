@@ -30,3 +30,246 @@
 
   io.observe(trigger);
 })();
+
+
+
+// resources/js/menu-offcanvas.js
+import gsap from "gsap";
+gsap.defaults({ overwrite: "auto" });
+
+export function ambassadorzermattInitOffcanvasMenuGsap() {
+  const btns = gsap.utils.toArray(document.querySelectorAll(".menu-toggle__button"));
+  const wrap = document.querySelector("#menu-offcanvas");
+  if (!btns.length || !wrap) return;
+
+  let cols = gsap.utils.toArray(wrap.querySelectorAll("[data-menu-col]"));
+  if (!cols.length) cols = gsap.utils.toArray(wrap.querySelectorAll('[class*="col-span-"]'));
+
+  const targets = [document.body, document.documentElement];
+  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const polygonStart = "polygon(0 0, 100% 0, 100% 0, 0 0)";        // top edge only
+  const polygonEnd   = "polygon(0 0, 100% 0, 100% 100%, 0 100%)";  // full rect
+
+  // initial state
+  gsap.set(wrap, {
+    x: 0, y: 0, xPercent: 0, yPercent: -100,
+    clipPath: polygonStart, webkitClipPath: polygonStart,
+    willChange: "transform, clip-path", force3D: true
+  });
+  gsap.set(cols, { autoAlpha: 0, y: -20 });
+  cols.forEach((col) => gsap.set(col.querySelectorAll("li"), { autoAlpha: 0, y: -10 }));
+
+  const setA11y = (open) => {
+    btns.forEach(b => {
+      b.setAttribute("aria-expanded", open ? "true" : "false");
+      // ensure all buttons claim control over the same element
+      b.setAttribute("aria-controls", "menu-offcanvas");
+    });
+    wrap.setAttribute("aria-hidden", open ? "false" : "true");
+    if (open) {
+      wrap.removeAttribute("inert");
+      targets.forEach((el) => el.classList.add("menu-open"));
+    } else {
+      wrap.setAttribute("inert", "");
+      targets.forEach((el) => el.classList.remove("menu-open"));
+    }
+  };
+
+  const tl = gsap.timeline({
+    paused: true,
+    defaults: { ease: "power2.out" },
+    onReverseComplete() {
+      document.documentElement.classList.remove("lenis-stopped");
+      gsap.set(wrap, { yPercent: -100, clipPath: polygonStart, webkitClipPath: polygonStart });
+      setA11y(false);
+      btns.forEach(b => b.classList.remove("menu-open"));
+    }
+  });
+
+  tl.addLabel("ambassadorzermattWrapStart", 0)
+    .to(wrap, { yPercent: 0, duration: 0.32, ease: "power4.inOut" }, "ambassadorzermattWrapStart")
+    .to(wrap, {
+      clipPath: polygonEnd,
+      webkitClipPath: polygonEnd,
+      duration: 0.32,
+      ease: "power2.out"
+    }, "ambassadorzermattWrapStart") // start together for a clean “roll down”
+    .fromTo(cols, { autoAlpha: 0, y: -20 }, { autoAlpha: 1, y: 0, duration: 0.4, stagger: 0.06, ease: "power2.out", immediateRender: false }, "ambassadorzermattWrapStart+=0.40");
+
+  const ambassadorzermattAllItems = cols.flatMap(col => Array.from(col.querySelectorAll("li")));
+  if (ambassadorzermattAllItems.length) {
+    tl.fromTo(ambassadorzermattAllItems, { autoAlpha: 0, y: -8 }, { autoAlpha: 1, y: 0, duration: 0.3, stagger: { each: 0.06, from: 0 }, ease: "power2.out", immediateRender: false }, "ambassadorzermattWrapStart+=0.30");
+  }
+
+  const openMenu = () => {
+    btns.forEach(b => b.classList.add("menu-open"));
+    setA11y(true);
+    if (prefersReduced) {
+      gsap.set(wrap, { yPercent: 0, clipPath: polygonEnd, webkitClipPath: polygonEnd });
+      return;
+    }
+    tl.timeScale(1).play(0);
+  };
+
+  const closeMenu = () => {
+    if (![...btns].some(b => b.classList.contains("menu-open"))) return;
+    btns.forEach(b => b.classList.remove("menu-open"));
+    if (prefersReduced) {
+      gsap.set(wrap, { yPercent: -100, clipPath: polygonStart, webkitClipPath: polygonStart });
+      setA11y(false);
+      return;
+    }
+    tl.timeScale(1.1).reverse();
+  };
+
+  // Wire both buttons
+  btns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const isOpen = btn.classList.contains("menu-open");
+      isOpen ? closeMenu() : openMenu();
+    });
+  });
+
+  // ESC to close
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeMenu(); });
+
+  // Outside click (include .menu-toggle wrapper to avoid accidental closes)
+  document.addEventListener("click", (e) => {
+    const insideToggle = e.target.closest(".menu-toggle, .menu-toggle__button");
+    const insideMenu   = e.target.closest("#menu-offcanvas");
+    if (!insideToggle && !insideMenu) closeMenu();
+  });
+
+  // Close when clicking any menu link
+  wrap.addEventListener("click", (e) => {
+    if (e.target.closest("a")) closeMenu();
+  });
+}
+
+document.addEventListener("DOMContentLoaded", ambassadorzermattInitOffcanvasMenuGsap);
+
+
+
+/*MEGA MENU TRIGGERS*/
+function ambassadorBindMegaPanels() {
+  const root = document.querySelector('#menu-offcanvas');
+  if (!root) return;
+
+  const mainLinks = Array.from(root.querySelectorAll('.main-menu-col .mega-toplink'));
+  const panels    = Array.from(root.querySelectorAll('.sub-menu-col .submenu-panel'));
+  const empty     = root.querySelector('.sub-menu-col [data-empty]');
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // --- layout: lock a comfortable height (tallest panel) to prevent jumps ---
+  const col = root.querySelector('.sub-menu-col');
+  if (col) {
+    let maxH = 0;
+    // temporarily make panels measurable
+    panels.concat(empty || []).forEach(p => {
+      const prev = p.style.display;
+      p.style.display = 'block';
+      p.style.position = 'absolute';
+      p.style.inset = '0';
+      maxH = Math.max(maxH, p.scrollHeight);
+      p.style.display = prev; // revert
+    });
+    if (maxH) col.style.minHeight = maxH + 'px';
+    // ensure sub-menu-col is relative (CSS)
+  }
+
+  // --- initial states: pure fade (no y), keep display:block for all ---
+  panels.forEach(p => {
+    gsap.set(p, { autoAlpha: 0 });  // opacity:0, visibility:hidden
+    p.setAttribute('aria-hidden','true');
+    p.classList.remove('is-visible');
+  });
+  if (empty) {
+    gsap.set(empty, { autoAlpha: 0 });
+    empty.setAttribute('aria-hidden','true');
+    empty.classList.remove('is-visible');
+  }
+
+  const DUR_IN  = 0.25;
+  const DUR_OUT = 0.20;
+  const EASE    = 'power2.out';
+  const HOVER_DELAY_MS = 100;
+
+  let activeLink = null;
+  let activePanel = null;
+  let hoverTimer = null;
+
+  const showEl = (el) => {
+    gsap.killTweensOf(el);
+    el.classList.add('is-visible');
+    if (prefersReduced) {
+      gsap.set(el, { autoAlpha: 1 });
+    } else {
+      gsap.to(el, { autoAlpha: 1, duration: DUR_IN, ease: EASE });
+    }
+    el.setAttribute('aria-hidden','false');
+  };
+
+  const hideEl = (el) => {
+    gsap.killTweensOf(el);
+    if (prefersReduced) {
+      gsap.set(el, { autoAlpha: 0 });
+    } else {
+      gsap.to(el, { autoAlpha: 0, duration: DUR_OUT, ease: EASE, onComplete: () => el.classList.remove('is-visible') });
+    }
+    el.setAttribute('aria-hidden','true');
+  };
+
+  const clearUnderline = () => {
+    mainLinks.forEach(a => {
+      a.classList.remove('is-active');
+      a.setAttribute('aria-expanded', 'false');
+    });
+  };
+
+  const deactivate = () => {
+    clearUnderline();
+    if (activePanel) hideEl(activePanel);
+    if (empty) hideEl(empty);
+    activeLink = null;
+    activePanel = null;
+  };
+
+  const activate = (link) => {
+    if (link === activeLink) return;
+    if (hoverTimer) { clearTimeout(hoverTimer); hoverTimer = null; }
+
+    clearUnderline();
+    link.classList.add('is-active');
+
+    const pid = link.getAttribute('data-parent-id');
+    const nextPanel = pid ? panels.find(p => p.dataset.parentId === String(pid)) : null;
+
+    // show new first, then fade out old (prevents “gap”)
+    if (nextPanel) {
+      showEl(nextPanel);
+      if (empty) hideEl(empty);
+    } else if (empty) {
+      showEl(empty);
+    }
+    if (activePanel && activePanel !== nextPanel) hideEl(activePanel);
+
+    link.setAttribute('aria-expanded', nextPanel ? 'true' : 'false');
+    activeLink = link;
+    activePanel = nextPanel || null;
+  };
+
+  mainLinks.forEach(link => {
+    link.addEventListener('mouseenter', () => {
+      if (hoverTimer) clearTimeout(hoverTimer);
+      hoverTimer = setTimeout(() => activate(link), HOVER_DELAY_MS);
+    });
+    link.addEventListener('focus', () => activate(link));
+  });
+
+  root.addEventListener('mouseleave', () => {
+    if (hoverTimer) { clearTimeout(hoverTimer); hoverTimer = null; }
+    deactivate();
+  });
+}
+document.addEventListener('DOMContentLoaded', ambassadorBindMegaPanels);

@@ -15,9 +15,9 @@
   &__button
     @apply flex items-center
   &__bars
-    @apply flex flex-col items-start justify-center overflow-hidden relative w-[28px]
+    @apply flex flex-col items-start justify-center overflow-visible relative w-[28px] h-[19px]
   &__bar
-    @apply w-full h-[1px] rounded-md bg-Brown transition-all duration-500 ease-in-out translate-x-0 rotate-0 opacity-100
+    @apply w-full h-px rounded-md bg-Brown transition-all duration-500 ease-in-out translate-x-0 rotate-0 opacity-100 origin-center
     &:not(:last-child)
       @apply mb-[8px]
     &:first-child
@@ -26,15 +26,16 @@
       @apply w-5
     &:last-child
       @apply w-full
+
 .menu-toggle__button.menu-open
-    .menu-toggle__bars
-      .menu-toggle__bar
-        &:first-child
-          @apply rotate-45 translate-y-[13px]
-        &:nth-child(2)
-          @apply opacity-0 -translate-x-full
-        &:last-child
-          @apply -rotate-45 -translate-y-[13px]
+  .menu-toggle__bars
+    .menu-toggle__bar
+      &:first-child
+        @apply w-full rotate-45 translate-y-[9px]
+      &:nth-child(2)
+        @apply opacity-0 scale-x-0
+      &:last-child
+        @apply w-full -rotate-45 -translate-y-[9px]
         
 // Sticky Header
 

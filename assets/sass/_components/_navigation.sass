@@ -1,0 +1,65 @@
+// Menu offcanvas
+.menu-offcanvas
+  @apply fixed left-0 top-0 w-full h-dvh bg-White text-Brown z-30 overflow-auto max-h-dvh overflow-y-auto
+  clip-path: polygon(40% 0, 60% 0, 100% 0, 0 0)
+  transform: translate3d(0, -100%, 0)
+  will-change: transform, clip-path
+  -webkit-overflow-scrolling: touch
+  [data-menu-col]
+    @apply min-h-0
+  
+
+.main-menu-col
+  .menu-offcanvas__main-mega-menu
+    li.menu-item
+      @apply font-inria text-6xl italic text-Brown font-normal tracking-[0.03125rem]
+      &:not(:last-child)
+        @apply mb-16
+      &:hover
+        a
+          text-decoration-line: underline
+          text-decoration-style: solid
+          text-decoration-skip-ink: none
+          text-decoration-thickness: 4px
+          text-underline-offset: auto
+          text-underline-position: from-font
+
+.sub-menu-col
+  @apply relative
+  .submenu-panel
+    li.submenu-item
+      @apply font-inria text-[1.5625rem] font-normal leading-[2.34375rem] tracking-[-0.02969rem]
+      &:not(:last-child)
+        @apply mb-14
+      &:hover
+        a
+          text-decoration-line: underline
+          text-decoration-style: solid
+          text-decoration-skip-ink: none
+          text-decoration-thickness: 1.4px
+          text-underline-offset: 7px
+          text-underline-position: from-font
+
+.menu-open #menu-offcanvas
+  pointer-events: auto
+
+/* Ensure hidden panels are really hidden */
+.sub-menu-col .submenu-panel,
+.sub-menu-col [data-empty]
+  @apply absolute inset-0 pointer-events-none
+  will-change: opacity
+
+.sub-menu-col .is-visible
+  pointer-events: auto
+
+/* Optional polish */
+.main-menu-col .mega-toplink.is-active
+  text-decoration-line: underline
+  text-decoration-style: solid
+  text-decoration-skip-ink: none
+  text-decoration-thickness: 4px
+  text-underline-offset: auto
+  text-underline-position: from-font
+.submenu-panel .submenu-link
+  display:inline-block
+  padding:.25rem 0

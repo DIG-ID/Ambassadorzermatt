@@ -2,7 +2,7 @@
   <div class="theme-container">
     <div class="grid grid-cols-3">
       <div class="col-span-1 flex items-center justify-start">
-        <nav id="primary-nav" class="primary-nav" aria-label="<?php esc_attr_e( 'Main Menu', 'ambassadorzermatt' ); ?>" role="navigation">
+        <nav id="primary-nav-header" class="primary-nav" aria-label="<?php esc_attr_e( 'Main Menu', 'ambassadorzermatt' ); ?>" role="navigation">
           <?php
           if ( has_nav_menu( 'main-menu' ) ) :
             wp_nav_menu(
@@ -31,7 +31,7 @@
           <?php do_action('wpml_add_language_selector'); ?>
         </div>
         <div class="menu-toggle">
-          <button class="menu-toggle__button" aria-label="Menu Toggle" aria-controls="mega-menu-nav">
+          <button class="menu-toggle__button" aria-label="Menu Toggle" aria-controls="menu-offcanvas" aria-expanded="false">
             <span class="menu-toggle__bars">
               <span class="menu-toggle__bar menu-toggle__bar--top"></span>
               <span class="menu-toggle__bar menu-toggle__bar--middle"></span>
@@ -70,7 +70,7 @@
         </div>
 
         <div class="menu-toggle">
-          <button class="menu-toggle__button" aria-label="Menu Toggle (Sticky)" aria-controls="mega-menu-nav">
+          <button class="menu-toggle__button" aria-label="Menu Toggle (Sticky)" aria-controls="menu-offcanvas" aria-expanded="false">
             <span class="menu-toggle__bars">
               <span class="menu-toggle__bar menu-toggle__bar--top"></span>
               <span class="menu-toggle__bar menu-toggle__bar--middle"></span>
@@ -82,3 +82,4 @@
     </div>
   </div>
 </header>
+<?php get_template_part( 'template-parts/navigation/mega','menu' ); ?>
