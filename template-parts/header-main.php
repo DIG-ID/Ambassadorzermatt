@@ -70,7 +70,7 @@
         </div>
 
         <div class="menu-toggle">
-          <button class="menu-toggle__button" aria-label="Menu Toggle (Sticky)" aria-controls="menu-offcanvas" aria-expanded="false">
+          <button class="menu-toggle__button !outline-none" aria-label="Menu Toggle (Sticky)" aria-controls="menu-offcanvas" aria-expanded="false">
             <span class="menu-toggle__bars">
               <span class="menu-toggle__bar menu-toggle__bar--top"></span>
               <span class="menu-toggle__bar menu-toggle__bar--middle"></span>
