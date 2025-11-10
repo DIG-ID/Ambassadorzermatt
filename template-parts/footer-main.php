@@ -33,7 +33,7 @@
                     <?php
                         wp_nav_menu(
                             array(
-                            'theme_location' => 'hotel-menu',
+                            'theme_location' => 'footer-hotel-menu',
                             'container'      => false,
                             'menu_class'     => 'footer-hotel-menu',
                             'items_wrap'     => '<ul id="%1$s" class="%2$s">%3$s</ul>',
@@ -49,7 +49,7 @@
                     <?php
                         wp_nav_menu(
                             array(
-                            'theme_location' => 'zermatt-erleben-menu',
+                            'theme_location' => 'footer-zermatt-erleben-menu',
                             'container'      => false,
                             'menu_class'     => 'footer-zermatt-erleben-menu',
                             'items_wrap'     => '<ul id="%1$s" class="%2$s">%3$s</ul>',
@@ -76,7 +76,7 @@
                     <?php
                         wp_nav_menu(
                             array(
-                            'theme_location' => 'gastronomie-menu',
+                            'theme_location' => 'footer-gastronomie-menu',
                             'container'      => false,
                             'menu_class'     => 'footer-gastronomie-menu',
                             'items_wrap'     => '<ul id="%1$s" class="%2$s">%3$s</ul>',
@@ -92,7 +92,7 @@
                     <?php
                         wp_nav_menu(
                             array(
-                            'theme_location' => 'uber-uns-menu',
+                            'theme_location' => 'footer-uber-uns-menu',
                             'container'      => false,
                             'menu_class'     => 'uber-uns-hotel-menu',
                             'items_wrap'     => '<ul id="%1$s" class="%2$s">%3$s</ul>',
@@ -116,7 +116,7 @@
                     <?php
                         wp_nav_menu(
                             array(
-                            'theme_location' => 'copyright-menu',
+                            'theme_location' => 'footer-copyright-menu',
                             'container'      => false,
                             'menu_class'     => 'footer-copyright-menu',
                             'items_wrap'     => '<ul id="%1$s" class="%2$s">%3$s</ul>',

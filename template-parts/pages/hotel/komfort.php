@@ -1,7 +1,7 @@
-<section id="Komfort" class="Komfort bg-LightGray xl:pt-[5.56rem] xl:pb-[5.63rem]">
+<section id="Komfort" class="Komfort bg-LightGray pt-[2.19rem] md:pt-[5.81rem] md:pb-[5.75rem] xl:pt-[5.56rem] xl:pb-[5.63rem]">
     <div class="theme-container">
         <div class="theme-grid">
-            <div class="col-start-1 col-span-2 md:col-start-1 md:col-span-4 xl:col-start-8 xl:col-span-5 self-center">
+            <div class="col-start-2 col-span-1 md:col-start-5 md:col-span-2 xl:col-start-8 xl:col-span-5 self-center relative pb-[1.25rem] md:pb-0 order-3 md:order-none">
             <?php
                     $imgLogo = get_field('komfort_image_right');
                     $size  = 'full';
@@ -12,7 +12,7 @@
                     $size,
                     false,
                     [
-                    'class'    => 'w-auto h-full object-cover',
+                    'class'    => 'relative w-auto h-full object-cover',
                     'loading'  => 'eager',
                     'decoding' => 'async',
                     ]
@@ -20,17 +20,15 @@
                     }
                 ?>
             </div>
-            <div class="col-start-1 col-span-2 md:col-start-1 md:col-span-4 xl:col-start-2 xl:col-span-6">
+            <div class="col-start-1 col-span-2 md:col-start-1 md:col-span-4 xl:col-start-1 xl:col-span-6 order-1 md:order-none">
                 <div class="title-main text-Dark">
                     <h1><?php the_field( 'komfort_title' ); ?></h1>
                 </div>
-                <div class="body text-Dark xl:pt-[1.87rem] xl:max-w-[37.06rem]">
+                <div class="body text-Dark pt-[1.25rem] md:pt-[1.87rem] xl:pt-[1.87rem] xl:max-w-[37.06rem]">
                     <?php the_field( 'komfort_text' ); ?>
                 </div>
             </div>
-        </div>
-        <div class="theme-grid">
-            <div class="col-start-1 col-span-2 md:col-start-1 md:col-span-4 xl:col-start-2 xl:col-span-5">
+            <div class="col-start-1 col-span-2 md:col-start-1 md:col-span-4 xl:col-start-1 xl:col-span-5 order-2 md:order-none">
                 <?php
                     $link = get_field('komfort_button');
                     if ($link):
@@ -38,11 +36,12 @@
                     $link_title = $link['title'];
                     $link_target = $link['target'] ? $link['target'] : '_self';
                     ?>
-                <a href="<?php echo esc_url($link_url); ?>" target="<?php echo esc_attr($link_target); ?>" class="btn btn-primary xl:mt-[4.1875rem]">
+                <a href="<?php echo esc_url($link_url); ?>" target="<?php echo esc_attr($link_target); ?>" class="btn btn-primary mb-[2.44rem] md:mb-[3.75rem] xl:mb-0 mt-[2.5rem] md:mt-[3.75rem] xl:mt-[4.1875rem]">
                         <?php echo esc_html($link_title); ?>
                 </a>
                     <?php endif;  ?>
-                <div class="xl:pt-[8.62rem] relative">
+            </div>
+                <div class="pb-[2.25rem] xl:pt-[8.62rem] relative col-start-1 col-span-2 md:col-start-1 md:col-span-5 xl:col-start-1 xl:col-span-5 order-4 md:order-none">
                     <?php
                         $imgLogo = get_field('komfort_image_left');
                         $size  = 'full';

@@ -1,7 +1,7 @@
 <section id="restaurant-carbon" class="restaurant-carbon bg-Dark pt-[6.63rem] pb-[8.36rem]">
     <div class="theme-container">
         <div class="theme-grid">
-            <div class="col-start-1 col-span-2 md:col-span-2 xl:col-span-3 pt-[26.5rem] relative -translate-x-[17.5rem] h-full">
+            <div class="col-start-1 col-span-2 md:col-span-2 xl:col-span-3 pt-[26.5rem] relative h-full">
                     <?php
                         $imgLogo = get_field('restaurant_carbon_image_left');
                         $size  = 'full';

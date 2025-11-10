@@ -8,11 +8,11 @@ function ambassadorzermatt_theme_setup() {
 		array(
 			'main-menu'      => __( 'Main Menu', 'ambassadorzermatt' ),
 			'main-mega-menu' => __( 'Main Mega Menu', 'ambassadorzermatt' ),
-			'copyright-menu' => __( 'Copyright Menu', 'ambassadorzermatt' ),
-			'hotel-menu' => __( 'Hotel Menu', 'ambassadorzermatt' ),
-			'gastronomie-menu' => __( 'Gastronomie Menu', 'ambassadorzermatt' ),
-			'uber-uns-menu' => __( 'Uber Uns Menu', 'ambassadorzermatt' ),
-			'zermatt-erleben-menu' => __( 'Zermatt Erleben Menu', 'ambassadorzermatt' ),
+			'footer-copyright-menu' => __( 'Footer Copyright Menu', 'ambassadorzermatt' ),
+			'footer-hotel-menu' => __( 'Footer Hotel Menu', 'ambassadorzermatt' ),
+			'footer-gastronomie-menu' => __( 'Footer Gastronomie Menu', 'ambassadorzermatt' ),
+			'footer-uber-uns-menu' => __( 'Footer Uber Uns Menu', 'ambassadorzermatt' ),
+			'footer-zermatt-erleben-menu' => __( 'Footer Zermatt Erleben Menu', 'ambassadorzermatt' ),
 		)
 	);
 
