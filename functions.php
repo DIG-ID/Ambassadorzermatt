@@ -9,6 +9,10 @@ function ambassadorzermatt_theme_setup() {
 			'main-menu'      => __( 'Main Menu', 'ambassadorzermatt' ),
 			'main-mega-menu' => __( 'Main Mega Menu', 'ambassadorzermatt' ),
 			'copyright-menu' => __( 'Copyright Menu', 'ambassadorzermatt' ),
+			'hotel-menu' => __( 'Hotel Menu', 'ambassadorzermatt' ),
+			'gastronomie-menu' => __( 'Gastronomie Menu', 'ambassadorzermatt' ),
+			'uber-uns-menu' => __( 'Uber Uns Menu', 'ambassadorzermatt' ),
+			'zermatt-erleben-menu' => __( 'Zermatt Erleben Menu', 'ambassadorzermatt' ),
 		)
 	);
 
