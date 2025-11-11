@@ -40,7 +40,7 @@
             bg-gradient-to-b from-white/10 to-black/10
             backdrop-blur-xl backdrop-saturate-150">
     <div class="col-span-12 flex justify-center md:justify-around items-center pt-7 pb-8">
-      <a href="<?php the_field( 'general_booking_url','option' ); ?>" class="btn btn-primary-light max-w-56"><?php esc_html_e( 'Jetzt buchen','ambassadorzermatt' ); ?></a>
-      <a href="<?php the_field( 'general_table_reservation_url','option' ); ?>" class="btn btn-primary-light max-w-56"><?php esc_html_e( 'Tisch reservieren','ambassadorzermatt' ); ?></a>
+      <a href="<?php the_field( 'general_booking_url','option' ); ?>" target="_blank" class="btn btn-primary-light max-w-56"><?php esc_html_e( 'Jetzt buchen','ambassador' ); ?></a>
+      <a href="<?php the_field( 'general_table_reservation_url','option' ); ?>" target="_blank" class="btn btn-primary-light max-w-56"><?php esc_html_e( 'Tisch reservieren','ambassador' ); ?></a>
     </div>
 </div>
