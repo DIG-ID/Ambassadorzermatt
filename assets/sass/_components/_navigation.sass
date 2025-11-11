@@ -1,6 +1,6 @@
 // Menu offcanvas
 .menu-offcanvas
-  @apply fixed left-0 top-0 w-full h-dvh bg-White text-Brown z-30 overflow-auto max-h-dvh overflow-y-auto
+  @apply fixed left-0 top-0 w-full h-dvh bg-White text-Brown z-40 overflow-auto max-h-dvh overflow-y-auto
   clip-path: polygon(40% 0, 60% 0, 100% 0, 0 0)
   transform: translate3d(0, -100%, 0)
   will-change: transform, clip-path
@@ -14,7 +14,7 @@
     li.menu-item
       @apply font-inria text-6xl italic text-Brown font-normal tracking-[0.03125rem]
       &:not(:last-child)
-        @apply mb-16
+        @apply mb-14
       &:hover
         a
           text-decoration-line: underline

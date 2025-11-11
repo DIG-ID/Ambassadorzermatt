@@ -1,5 +1,5 @@
 <div id="menu-offcanvas" class="menu-offcanvas" aria-hidden="true" inert>
-  <nav id="mega-menu-nav" class="primary-nav theme-container theme-grid mt-32 md:mt-44 xl:mt-40 2xl:mt-44 overflow-visible"
+  <nav id="mega-menu-nav" class="primary-nav theme-container theme-grid md:mb-32 xl:mb-[74px] mt-32 md:mt-44 xl:mt-40 2xl:mt-44 overflow-visible"
        aria-label="<?php esc_attr_e( 'Main Menu', 'ambassadorzermatt' ); ?>" role="navigation">
     
     <!-- Left column: top-level only -->
@@ -43,7 +43,7 @@
               // align to start of column, bleed to the right as needed
               'xl:w-auto',
               // never wider than viewport (tweak 85vw/900px to taste)
-              'xl:max-w-[min(85vw,500px)]',
+              'xl:max-w-[min(85vw,460px)]',
               // keep image from exceeding viewport height (leave room for header)
               'xl:max-h-[calc(100vh-6rem)]'
             ))
@@ -53,11 +53,12 @@
       </div>
     </div>
   </nav>
-
-  <div class="theme-container theme-grid mb-16 md:mb-0 md:mt-32 xl:mt-[74px] border-t border-Brown">
+  <hr class="border-t border-Brown">
+  <div class="theme-container theme-grid mb-16 md:mb-0">
     <div class="col-span-12 flex flex-col md:flex-row justify-center items-center md:justify-between md:items-center py-6 md:pt-9 text-Brown gap-y-4">
-      <div class="flex flex-col md:flex-row items-center">
-        <?php if ( function_exists( 'dynamic_sidebar' ) ) { dynamic_sidebar( 'header_ls' ); } ?>
+      <div class="flex flex-col md:flex-row items-center justify-around w-full">
+        <a href="<?php the_field( 'general_booking_url','option' ); ?>" class="btn btn-primary max-w-60"><?php esc_html_e( 'Jetzt buchen','ambassadorzermatt' ); ?></a>
+        <a href="<?php the_field( 'general_table_reservation_url','option' ); ?>" class="btn btn-primary max-w-60"><?php esc_html_e( 'Tisch reservieren','ambassadorzermatt' ); ?></a>
       </div>
     </div>
   </div>
