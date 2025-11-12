@@ -11,7 +11,8 @@ if ( have_posts() ) :
 			get_template_part( 'template-parts/modules/section','hero' );
             get_template_part( 'template-parts/modules/section','intro' );
             get_template_part( 'template-parts/pages/gastronomie/restaurant-carbon' );
-			get_template_part( 'template-parts/pages/gastronomie/fondue-bar' );
+			get_template_part( 'template-parts/pages/gastronomie/fondue' );
+			get_template_part( 'template-parts/pages/gastronomie/bar' );
 		do_action( 'after_main_content' );
 	endwhile;
 endif;

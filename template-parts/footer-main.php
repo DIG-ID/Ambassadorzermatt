@@ -104,10 +104,12 @@
             </div>
         </div>
          <!-- Separator -->
-        <div class="relative">
-            <div class="footer-separator absolute left-1/2 w-screen h-[1px] bg-White -translate-x-1/2">
-            </div>
+    </div>
+    <div class="relative">
+        <div class="footer-separator absolute w-full h-[1px] bg-White">
         </div>
+    </div>
+    <div class="theme-container">
         <!-- Copyright menu -->
         <!-- Datenschutz and AGB  -->
         <div class="theme-grid xl:pt-[1.75rem] xl:pb-[1.56rem]">

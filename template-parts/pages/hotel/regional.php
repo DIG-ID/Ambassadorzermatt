@@ -20,7 +20,7 @@
                         }
                     ?>
             </div>
-            <div class="col-start-1 col-span-2 md:col-start-2 md:col-span-5 xl:col-start-7 relative order-1 xl:order-none">
+            <div class="col-start-1 col-span-2 md:col-start-2 md:col-span-5 xl:col-start-7 xl:w-screen relative order-1 xl:order-none">
                     <?php
                         $imgLogo = get_field('regional_image_right');
                         $size  = 'full';
