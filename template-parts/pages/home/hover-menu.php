@@ -32,7 +32,7 @@
               ?>
 
               <!-- Dark overlay (below text, below icon) -->
-              <span class="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-700 group-hover/item:opacity-80 z-10" style="background: linear-gradient(to bottom, rgba(13,13,13,0) 0%, #0D0D0D 68%, #0D0D0D 100%);"></span>
+              <span class="dark-overlay pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-700 group-hover/item:opacity-80 z-10"></span>
 
               <?php
               $icon_id = (int) get_sub_field('icon'); // always ID
@@ -62,14 +62,14 @@
 
               <!-- Text overlay (bottom, fades in on hover) -->
               <span class="pointer-events-none absolute inset-0 flex flex-col justify-end items-center opacity-0 transition-opacity duration-700 group-hover/item:opacity-100 z-20 pb-6 md:pb-8">
-                <span class="max-w-[38ch] min-w-[38ch] text-center text-white px-6 opacity-0 translate-y-2 transition-all duration-700 group-hover/item:opacity-100 group-hover/item:translate-y-0">
+                <span class="max-w-[38ch] min-w-[38ch] text-center text-white px-6 opacity-0 transition-all duration-700 group-hover/item:opacity-100 group-hover/item:translate-y-0">
                   <?php if ( $title ) : ?>
-                    <strong class="block text-xl md:text-2xl font-semibold mb-3">
+                    <span class="block title-secondary text-LightGray !font-bold">
                       <?php echo esc_html($title); ?>
-                    </strong>
+                    </span>
                   <?php endif; ?>
                   <?php if ( $desc ) : ?>
-                    <span class="block text-sm md:text-base leading-relaxed">
+                    <span class="block text-LightGray">
                       <?php echo esc_html($desc); ?>
                     </span>
                   <?php endif; ?>
