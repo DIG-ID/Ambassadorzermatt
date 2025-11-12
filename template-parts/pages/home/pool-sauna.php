@@ -5,17 +5,17 @@
         <p class="title-secondary text-Dark"><?php the_field('pool_sauna_overtitle'); ?></p>
         <h2 class="title-main text-Dark md:pt-5 xl:pt-4 md:mb-7 xl:mb-0"><?php the_field('pool_sauna_title'); ?></h2>
         <p class="text-Dark pt-4 md:pt-0 xl:pt-8 pb-16"><?php the_field( 'pool_sauna_description' ); ?></p>
-            <?php
-              $link = get_field('pool_sauna_button');
-              if ($link):
-              $link_url = $link['url'];
-              $link_title = $link['title'];
-              $link_target = $link['target'] ? $link['target'] : '_self';
-            ?>
-            <a href="<?php echo esc_url($link_url); ?>" target="<?php echo esc_attr($link_target); ?>" class="btn btn-primary mb-10 md:mb-0 xl:mb-16">
-              <?php echo esc_html($link_title); ?>
-            </a>
-            <?php endif; ?>
+        <?php
+          $link = get_field('pool_sauna_button');
+          if ($link):
+          $link_url = $link['url'];
+          $link_title = $link['title'];
+          $link_target = $link['target'] ? $link['target'] : '_self';
+        ?>
+        <a href="<?php echo esc_url($link_url); ?>" target="<?php echo esc_attr($link_target); ?>" class="btn btn-primary mb-10 md:mb-0 xl:mb-16">
+          <?php echo esc_html($link_title); ?>
+        </a>
+        <?php endif; ?>
       </div>
       <div class="col-span-2 md:col-span-6 xl:col-span-6 col-start-1 md:col-start-1 xl:col-start-7">
         <?php

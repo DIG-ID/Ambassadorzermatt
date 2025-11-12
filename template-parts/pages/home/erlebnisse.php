@@ -1,4 +1,4 @@
-<section id="section-erlebnisse" class="section-erlebnisse bg-LightGray py-11 md:py-16 xl:pt-16 xl:pb-24">
+<section id="section-erlebnisse" class="section-erlebnisse bg-LightGray py-11 md:py-16 xl:pt-16 xl:pb-36">
   <div class="theme-container">
     <div class="theme-grid">
       <div class="col-span-2 md:col-span-6 xl:col-span-12">
