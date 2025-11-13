@@ -3,7 +3,7 @@
        aria-label="<?php esc_attr_e( 'Main Menu', 'ambassador' ); ?>" role="navigation">
     
     <!-- Left column: top-level only -->
-    <div class="main-menu-col col-span-2 xl:col-span-6" data-menu-col>
+    <div class="main-menu-col col-span-2 md:col-span-6 xl:col-span-6" data-menu-col>
       <?php
       if ( has_nav_menu( 'main-mega-menu' ) ) :
         wp_nav_menu( array(
@@ -22,14 +22,14 @@
     </div>
 
     <!-- Right column: submenu panels (pre-rendered, hidden) -->
-    <div class="sub-menu-col col-span-2 xl:col-span-3" data-menu-col>
+    <div class="sub-menu-col col-span-2 xl:col-span-3 hidden xl:block" data-menu-col>
       <?php ambassador_render_megamenu_panels( 'main-mega-menu' ); ?>
       <div class="submenu-empty-state text-sm opacity-70" data-empty hidden>
         <?php esc_html_e('No sub-items', 'ambassador'); ?>
       </div>
     </div>
 
-    <div class="col-span-2 xl:col-span-3 overflow-visible" data-menu-col>
+    <div class="col-span-2 xl:col-span-3 overflow-visible hidden xl:block" data-menu-col>
       <div class="relative flex justify-start overflow-visible">
         <?php
         $mega_menu_image = get_field('mega_menu_image','option');
