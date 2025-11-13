@@ -1,5 +1,5 @@
 <?php if ( 'full' === get_field( 'hero_section_type' ) ) : ?>
-	<section id="section-hero" class="section-hero relative h-[calc(100dvh-98px)] md:h-[calc(100dvh-98px)] w-full z-10">
+	<section id="section-hero" class="section-hero relative xl:h-[calc(100dvh-98px)] w-full z-10">
   <?php $bg_id  = get_field('hero_image'); ?>
   <?php if ( $bg_id ) : ?>
     <picture aria-hidden="true" class="pointer-events-none">
