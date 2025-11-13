@@ -1,4 +1,6 @@
 .language-selector
+  & > .wpml-ls
+    @apply hidden md:block
   .wpml-ls-legacy-list-horizontal
     @apply border-none m-0 p-0
     ul
@@ -16,3 +18,8 @@
         a.wpml-ls-link
           span.wpml-ls-native
             @apply text-Brown underline underline-offset-2
+
+#header-sticky
+  .language-selector
+    & > .wpml-ls
+      @apply hidden xl:block

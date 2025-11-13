@@ -2,7 +2,7 @@
   <div class="theme-container">
     <div class="grid grid-cols-3">
       <div class="col-span-1 flex items-center justify-start">
-        <nav id="primary-nav-header" class="primary-nav" aria-label="<?php esc_attr_e( 'Main Menu', 'ambassadorzermatt' ); ?>" role="navigation">
+        <nav id="primary-nav-header" class="primary-nav hidden xl:block" aria-label="<?php esc_attr_e( 'Main Menu', 'ambassadorzermatt' ); ?>" role="navigation">
           <?php
           if ( has_nav_menu( 'main-menu' ) ) :
             wp_nav_menu(
@@ -19,14 +19,19 @@
           endif;
           ?>
         </nav>
+        <div class="language-selector flex xl:hidden items-center py-3 md:py-5 xl:pt-[1px]">
+          <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/Ambassador-Zermatt-globe.svg"
+               class="mr-2" alt="Language Selector Globe Icon" title="Language Selector Globe Icon" />
+          <?php do_action('wpml_add_language_selector'); ?>
+        </div>
       </div>
       <div class="col-span-1 flex items-center justify-center">
-        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="header-logo absolute top-0 max-w-80 transition-all duration-500 ease-in-out" itemprop="url">
+        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="header-logo absolute top-0 max-w-36 md:max-w-56 xl:max-w-80 transition-all duration-500 ease-in-out" itemprop="url">
           <?php do_action( 'theme_logo' ); ?>
         </a>
       </div>
       <div class="col-span-1 flex items-center justify-end">
-        <div class="language-selector flex flex-row items-center mr-16">
+        <div class="language-selector hidden xl:flex flex-row items-center mr-16">
           <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/Ambassador-Zermatt-globe.svg" class="mr-3" alt="Language Selector Globe Icon" title="Language Selector Globe Icon" />
           <?php do_action('wpml_add_language_selector'); ?>
         </div>
@@ -52,18 +57,25 @@
          transition-transform ease-in-out
          bg-White" aria-hidden="true" inert data-active="false" itemscope itemtype="http://schema.org/WebSite">
   <div class="theme-container">
-    <div class="grid grid-cols-2 py-[25px]">
-      <div class="col-span-1 flex justify-start">
+    <div class="grid grid-cols-3 md:grid-cols-5 xl:grid-cols-2 py-3 md:py-[22px] xl:py-[25px]">
+      <div class="col-span-1 md:col-span-1 block xl:hidden">
+        <div class="language-selector flex xl:hidden items-center pt-[1px]">
+          <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/Ambassador-Zermatt-globe.svg"
+               class="mr-2" alt="Language Selector Globe Icon" title="Language Selector Globe Icon" />
+          <?php do_action('wpml_add_language_selector'); ?>
+        </div>
+      </div>
+      <div class="col-span-1 md:col-span-3 xl:col-span-1 flex justify-center md:justify-start">
         <a href="<?php echo esc_url( home_url( '/' ) ); ?>"
            rel="home"
-           class="header-logo absolute top-0 max-w-40 transition-all duration-300 ease-in-out"
+           class="header-logo absolute top-0 transition-all duration-300 ease-in-out"
            itemprop="url">
           <?php do_action( 'theme_logo_sticky' ); ?>
         </a>
       </div>
 
-      <div class="col-span-1 flex items-center justify-end gap-6">
-        <div class="language-selector hidden lg:flex items-center pt-[1px]">
+      <div class="col-span-1 md:col-span-1 xl:col-span-1 flex items-center justify-end gap-6">
+        <div class="language-selector hidden xl:flex items-center pt-[1px]">
           <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/Ambassador-Zermatt-globe.svg"
                class="mr-2" alt="Language Selector Globe Icon" title="Language Selector Globe Icon" />
           <?php do_action('wpml_add_language_selector'); ?>
