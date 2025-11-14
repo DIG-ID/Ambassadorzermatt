@@ -1,16 +1,16 @@
-<section id="section-erlebnisse" class="section-erlebnisse bg-LightGray py-11 md:py-16 xl:pt-16 xl:pb-36">
+<section id="section-erlebnisse" class="section-erlebnisse bg-LightGray py-11 md:pt-11 md:pb-16 xl:pt-16 xl:pb-36">
   <div class="theme-container">
     <div class="theme-grid">
       <div class="col-span-2 md:col-span-6 xl:col-span-12">
         <p class="title-secondary text-Dark"><?php the_field('erlebnisse_overtitle'); ?></p>
         <h2 class="title-main text-Dark md:pt-5 xl:pt-4 md:mb-7 xl:mb-0"><?php the_field('erlebnisse_title'); ?></h2>
       </div>
-      <div class="col-span-2 md:col-span-6 xl:col-span-5">
+      <div class="col-span-2 md:col-span-4 xl:col-span-5">
         <p class="text-Dark pt-4 md:pt-0 xl:pt-8 pb-10 md:pb-16 xl:pb-24"><?php the_field( 'erlebnisse_description' ); ?></p>
       </div>
       <div class="col-span-2 md:col-span-6 xl:col-span-12">
         <?php if ( have_rows('erlebnisse_activities') ) : ?>
-          <div class="group flex flex-col md:flex-row gap-5 md:gap-8 xl:gap-x-16" aria-label="<?php esc_attr_e('Highlight menu', 'ambassador'); ?>"
+          <div class="group grid grid-cols-2 md:flex md:flex-row gap-5 md:gap-8 xl:gap-x-16" aria-label="<?php esc_attr_e('Highlight menu', 'ambassador'); ?>"
           >
             <?php while ( have_rows('erlebnisse_activities') ) : the_row();
               $image_id = (int) get_sub_field('image');
@@ -21,7 +21,7 @@
               $alt_meta = $image_id ? get_post_meta($image_id, '_wp_attachment_image_alt', true) : '';
               $alt      = $alt_meta ? esc_attr($alt_meta) : esc_attr($title);
             ?>
-              <a href="<?php echo $href; ?>"<?php echo $target; ?> class="group/item relative odd:mt-10 even:mb-10 flex duration-700 ease-in-out hover:z-10">
+              <a href="<?php echo $href; ?>"<?php echo $target; ?> class="group/item col-span-1 relative md:odd:mt-10 md:even:mb-10 flex duration-700 ease-in-out hover:z-10">
                 <div class="z-0">
                   <?php
                     if ( $image_id ) {

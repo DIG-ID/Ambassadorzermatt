@@ -1,28 +1,22 @@
-<section id="section-tradition" class="section-tradition bg-LightGray relative h-[100dvh] md:h-screen w-full z-20 flex flex-col justify-center">
+<section id="section-tradition" class="section-tradition bg-LightGray relative h-[90dvh] md:h-screen w-full z-20 flex flex-col justify-end md:justify-center">
   <picture>
-    <source
-      media="(max-width: 767px)"
-      srcset="<?php echo esc_attr(
-        wp_get_attachment_image_srcset( $id, 'hero-mobile' )
-        ?: wp_get_attachment_image_url( $id, 'hero-mobile' )
-      ); ?>"
-      sizes="100vw" />
+    
     <?php echo wp_get_attachment_image(
       get_field('tradition_image'),
       'full',
       false,
       [
-        'class'          => 'absolute inset-0 w-full h-full object-cover -z-10',
+        'class'          => 'absolute inset-0 w-full h-1/2 md:h-full object-cover -z-10',
         'sizes'          => '100vw',
         'fetchpriority'  => 'high',
         'decoding'       => 'async',
       ]
     ); ?>
   </picture>
-  <div class="bg-[linear-gradient(#F3F3F3,#F3F3F3)] bg-[length:50%_100%] bg-right bg-no-repeat xl:pt-16 xl:pb-12">
+  <div class="bg-[linear-gradient(#F3F3F3,#F3F3F3)] md:bg-[length:70%_100%] xl:bg-[length:50%_100%] bg-right bg-no-repeat pt-8 pb-16 md:py-16 xl:pt-16 xl:pb-12">
     <div class="theme-container">
       <div class="theme-grid">
-        <div class="col-span-2 md:col-span-6 xl:col-span-5 col-start-1 md:col-start-1 xl:col-start-8">
+        <div class="col-span-2 md:col-span-4 xl:col-span-5 col-start-1 md:col-start-3 xl:col-start-8">
           <h2 class="title-main text-Dark"><?php the_field('tradition_title'); ?></h2>
           <p class="text-Dark pt-4 md:pt-0 xl:pt-8 pb-16"><?php the_field( 'tradition_description' ); ?></p>
           <?php

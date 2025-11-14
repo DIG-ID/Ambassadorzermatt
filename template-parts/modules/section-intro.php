@@ -9,7 +9,7 @@
             </div>
             <?php endif; ?>
             <?php if ( is_front_page() ) : ?>
-                <div class="col-start-1 col-span-2 md:col-start-1 md:col-span-4 xl:col-start-2 xl:col-span-6">
+                <div class="col-start-1 col-span-2 md:col-start-1 md:col-span-6 xl:col-start-2 xl:col-span-6">
             <?php else : ?>
                 <div class="col-start-1 col-span-2 md:col-start-1 md:col-span-4 xl:col-start-2 xl:col-span-4">
             <?php endif; ?>

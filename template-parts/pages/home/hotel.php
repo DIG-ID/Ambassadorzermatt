@@ -8,7 +8,7 @@
       <div class="col-span-2 md:col-span-6 xl:col-span-12 grid grid-cols-2 md:grid-cols-6 xl:grid-cols-12 gap-x-5">
         <div class="col-span-2 md:col-span-4 xl:col-span-8 grid grid-cols-2 md:grid-cols-6 xl:grid-cols-8 gap-x-5">
           <div class="col-span-2 md:col-span-6 xl:col-span-5">
-            <p class="text-Dark pt-4 md:pt-0 xl:pt-8 pb-16"><?php the_field( 'hotel_description' ); ?></p>
+            <p class="text-Dark pt-4 md:pt-0 xl:pt-8 pb-8 lg:pb-16"><?php the_field( 'hotel_description' ); ?></p>
             <?php
               $link = get_field('hotel_button');
               if ($link):
@@ -37,7 +37,7 @@
             $imgHotel2 = get_field('hotel_image_2');
             if ($imgHotel2) {
               echo wp_get_attachment_image($imgHotel2, 'full', false, [
-                'class' => 'w-full h-auto object-cover',
+                'class' => 'w-full h-auto object-cover object-left md:object-center float-right md:float-none max-h-[25dvh] md:max-h-none max-w-[80%] md:max-w-none',
               ]);
             }
           ?>
@@ -47,7 +47,7 @@
             $imgHotel1 = get_field('hotel_image_1');
             if ($imgHotel1) {
               echo wp_get_attachment_image($imgHotel1, 'full', false, [
-                'class' => 'w-full h-auto object-cover mt-8',
+                'class' => 'w-full h-auto object-cover mt-5 md:mt-8',
               ]);
             }
           ?>

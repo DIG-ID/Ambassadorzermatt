@@ -1,9 +1,9 @@
-<section id="hover-menu" class="hover-menu bg-White pb-[6.25rem] md:pb-[6.25rem] xl:pb-[9.38rem] pt-8">
+<section id="hover-menu" class="hover-menu bg-White pb-[6.25rem] md:pb-[6.25rem] xl:pb-[9.38rem]">
   <div class="theme-container">
     <div class="theme-grid">
     <?php if ( have_rows('hover_menu') ) : ?>
       <div
-        class="col-start-1 xl:col-start-2 col-span-2 md:col-span-6 xl:col-span-10 group flex flex-col md:flex-row h-[80vh] md:h-[70vh] max-h-[546px] overflow-visible gap-[20px]" aria-label="<?php esc_attr_e('Highlight menu', 'ambassador'); ?>"
+        class="col-start-1 xl:col-start-2 col-span-2 md:col-span-6 xl:col-span-10 group flex flex-row h-[80vh] md:h-[80vh] max-h-[240px] md:max-h-[340px] xl:max-h-[546px] overflow-visible gap-1 md:gap-3 xl:gap-5" aria-label="<?php esc_attr_e('Highlight menu', 'ambassador'); ?>"
       >
         <?php while ( have_rows('hover_menu') ) : the_row();
           $image_id = (int) get_sub_field('image');
@@ -62,7 +62,7 @@
 
               <!-- Text overlay (bottom, fades in on hover) -->
               <span class="pointer-events-none absolute inset-0 flex flex-col justify-end items-center opacity-0 transition-opacity duration-700 group-hover/item:opacity-100 z-20 pb-6 md:pb-8">
-                <span class="max-w-[38ch] min-w-[38ch] text-center text-white px-6 opacity-0 transition-all duration-700 group-hover/item:opacity-100 group-hover/item:translate-y-0">
+                <span class="max-w-[18ch] min-w-[18ch] md:max-w-[34ch] md:min-w-[34ch] xl:max-w-[38ch] xl:min-w-[38ch] text-center text-white px-6 opacity-0 transition-all duration-700 group-hover/item:opacity-100 group-hover/item:translate-y-0">
                   <?php if ( $title ) : ?>
                     <span class="block title-secondary text-LightGray !font-bold">
                       <?php echo esc_html($title); ?>
