@@ -1,7 +1,6 @@
-.header-main
+.header-main, #header-sticky
   .primary-nav
     .main-menu-header
-      @apply py-[37px]
       li.menu-item
         @apply font-inria text-[15px] text-Brown font-normal leading-6 tracking-[0.03125rem] uppercase
         &:not(:last-child)
@@ -9,6 +8,16 @@
         &:hover
           a
             @apply underline underline-offset-2
+
+.header-main
+  .primary-nav
+    .main-menu-header
+      @apply py-[37px]
+
+#header-sticky
+  .primary-nav
+    .main-menu-header
+      @apply justify-center
 
 // Hamburger Menu
 .menu-toggle

@@ -57,7 +57,7 @@
          transition-transform ease-in-out
          bg-White" aria-hidden="true" inert data-active="false" itemscope itemtype="http://schema.org/WebSite">
   <div class="theme-container">
-    <div class="grid grid-cols-3 md:grid-cols-5 xl:grid-cols-2 py-3 md:py-[22px] xl:py-[25px]">
+    <div class="grid grid-cols-3 md:grid-cols-5 xl:grid-cols-3 py-3 md:py-[22px] xl:py-[25px]">
       <div class="col-span-1 md:col-span-1 block xl:hidden">
         <div class="language-selector flex xl:hidden items-center pt-[1px]">
           <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/Ambassador-Zermatt-globe.svg"
@@ -73,7 +73,25 @@
           <?php do_action( 'theme_logo_sticky' ); ?>
         </a>
       </div>
-
+      <div class="col-span-1 md:col-span-1 xl:col-span-1 hidden xl:block">
+        <nav id="primary-nav-header" class="primary-nav hidden xl:block" aria-label="<?php esc_attr_e( 'Main Menu', 'ambassadorzermatt' ); ?>" role="navigation">
+          <?php
+          if ( has_nav_menu( 'main-menu' ) ) :
+            wp_nav_menu(
+							array(
+								'theme_location'  => 'main-menu',
+								'menu_id'         => 'main-menu',
+								'menu_class'      => 'main-menu-header flex flex-col lg:flex-row',
+								'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+								'fallback_cb'     => '__return_false',
+							)
+						);
+          else :
+            echo '<span>' . esc_html__( 'Please assign a menu to the Main Menu location', 'ambassadorzermatt' ) . '</span>';
+          endif;
+          ?>
+        </nav>
+      </div>
       <div class="col-span-1 md:col-span-1 xl:col-span-1 flex items-center justify-end gap-6">
         <div class="language-selector hidden xl:flex items-center pt-[1px]">
           <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/Ambassador-Zermatt-globe.svg"

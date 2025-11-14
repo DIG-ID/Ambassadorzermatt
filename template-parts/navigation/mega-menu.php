@@ -30,7 +30,7 @@
     </div>
 
     <div class="col-span-2 xl:col-span-3 overflow-visible hidden xl:block" data-menu-col>
-      <div class="relative flex justify-start overflow-visible">
+      <div class="relative h-full flex justify-start overflow-visible">
         <?php
         $mega_menu_image = get_field('mega_menu_image','option');
         echo wp_get_attachment_image(
@@ -39,13 +39,13 @@
           false,
           array(
             'class' => implode(' ', array(
-              'block', 'max-w-none', 'h-auto', 'object-contain', 'select-none',
+              'block', 'max-w-full', 'h-full', 'object-cover', 'select-none',
               // align to start of column, bleed to the right as needed
-              'xl:w-auto',
+              '2xl:w-auto', '2xl:object-contain',
               // never wider than viewport (tweak 85vw/900px to taste)
-              'xl:max-w-[min(85vw,460px)]',
+              '2xl:max-w-[min(85vw,460px)]',
               // keep image from exceeding viewport height (leave room for header)
-              'xl:max-h-[calc(100vh-6rem)]'
+              '2xl:max-h-[calc(100vh-6rem)]'
             ))
           )
         );
