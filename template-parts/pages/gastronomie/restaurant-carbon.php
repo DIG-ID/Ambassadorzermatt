@@ -1,8 +1,8 @@
 <section id="restaurant-carbon" class="restaurant-carbon relative w-full bg-Dark pt-[3.63rem] pb-[3.56rem] md:pt-[4.75rem] md:pb-[4.85rem] xl:pt-[6.63rem] xl:pb-[8.36rem]">
     <div class="theme-container">
         <div class="theme-grid">
-            <div class="col-start-1 col-span-2 md:col-span-2 xl:col-span-3 md:pt-[19.5rem] xl:pt-[20.06rem] relative h-full order-3 md:order-none">
-                <div class="relative flex justify-end overflow-visible">
+            <div class="col-start-1 col-span-2 md:col-span-2 xl:col-span-3 md:pt-[19.5rem] xl:pt-[20.06rem] block relative h-full order-3 md:order-none">
+                <div class="block relative md:flex justify-end overflow-visible">
                     <?php
                         $imgLogo = get_field('restaurant_carbon_image_left');
                         $size  = 'full';
@@ -13,7 +13,7 @@
                         $size,
                         false,
                         [
-                        'class'    => 'block relative xl:absolute w-auto max-w-none max-h-[58.75rem] object-contain select-none',
+                        'class'    => 'block relative xl:absolute w-full h-auto bleed-left-full',
                         'loading'  => 'eager',
                         'decoding' => 'async',
                         ]
@@ -22,7 +22,7 @@
                     ?>
                 </div>
             </div>
-            <div class="col-start-1 col-span-2 md:col-start-3 md:col-span-4 xl:col-start-4 md:w-screen relative order-1 md:order-none">
+            <div class="col-start-1 col-span-2 md:col-start-3 md:col-span-4 xl:col-start-4 xl:col-span-9 relative order-1 md:order-none">
                     <?php
                         $imgLogo = get_field('restaurant_carbon_image_right');
                         $size  = 'full';
@@ -33,7 +33,7 @@
                         $size,
                         false,
                         [
-                        'class'    => 'w-full md:max-h-[31.875rem] xl:max-h-[43.19rem]',
+                        'class'    => 'w-full h-auto bleed-right-full',
                         'loading'  => 'eager',
                         'decoding' => 'async',
                         ]

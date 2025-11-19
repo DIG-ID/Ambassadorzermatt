@@ -1,0 +1,61 @@
+// Max width of .theme-container on xl
+$container-max: 1360px
+
+// Anything that bleeds can overflow and ignore max-width limits
+.bleed-left-full,
+.bleed-right-full,
+.bleed-left-half,
+.bleed-right-half
+  max-width: none
+  overflow: visible
+
+// ===============================
+// TABLET & DESKTOP
+// ===============================
+@media (min-width: 768px)
+  // Shared variables for all bleed types
+  .bleed-left-full,
+  .bleed-right-full,
+  .bleed-left-half,
+  .bleed-right-half
+    // gap between viewport edge and container edge
+    --edge-gap: max(0px, calc((100vw - #{$container-max}) / 2))
+    // container horizontal padding on md: px-16 = 64px
+    --container-pad: 64px
+    // theme-grid gap-x-5 = 1.25rem = 20px
+    --grid-gap: 20px
+    // full bleed distance = edge gap + container padding + half grid gap
+    --spread: calc(var(--edge-gap) + var(--container-pad) + (var(--grid-gap) / 2))
+
+  // FULL BLEED RIGHT
+  .bleed-right-full
+    width: calc(100% + var(--spread))
+
+  // FULL BLEED LEFT
+  .bleed-left-full
+    margin-left: calc(-1 * var(--spread))
+    width: calc(100% + var(--spread))
+
+  // HALF BLEED RIGHT
+  .bleed-right-half
+    --half-spread: calc(var(--spread) / 2)
+    width: calc(100% + var(--half-spread))
+
+  // HALF BLEED LEFT
+  .bleed-left-half
+    --half-spread: calc(var(--spread) / 2)
+    margin-left: calc(-1 * var(--half-spread))
+    width: calc(100% + var(--half-spread))
+
+// ===============================
+// DESKTOP (xl and up)
+//  - container has no horizontal padding (xl:px-0)
+// ===============================
+@media (min-width: 1280px)
+  .bleed-left-full,
+  .bleed-right-full,
+  .bleed-left-half,
+  .bleed-right-half
+    // only override container padding to 0;
+    // --spread and --half-spread will pick up the new value
+    --container-pad: 0px

@@ -1,92 +1,163 @@
 <section id="unsere-kuche" class="unsere-kuche bg-Dark pb-[6.26rem] md:pb-[6.32rem] xl:pb-[9.5rem]">
-    <div class="theme-container">
-        <div class="theme-grid">
-            <div class="col-start-1 col-span-2 md:col-span-6 xl:col-start- xl:col-span-8 xl:pt-[25.06rem] xl:pb-[4.38rem]">
-                    <?php
-                        $imgLogo = get_field('unsere_kuche_image_top_left');
-                        $size  = 'full';
+  <div class="theme-container">
 
-                        if ( $imgLogo ) {
-                        echo wp_get_attachment_image(
-                        $imgLogo,
-                        $size,
-                        false,
-                        [
-                        'class'    => 'w-full max-h-auto',
-                        'loading'  => 'eager',
-                        'decoding' => 'async',
-                        ]
-                        );
-                        }
-                    ?>
-            </div>
-            <div class=" col-span-2 md:col-span-6 xl:col-start-9 xl:col-span-4">
-                    <?php
-                        $imgLogo = get_field('unsere_kuche_image_top_right');
-                        $size  = 'full';
+    <!-- FIRST GRID: images + title/text/schedule + bottom-right image -->
+    <div class="theme-grid">
+      <!-- Top left image -->
+      <div class="col-span-2 md:col-span-3 xl:col-start-1 xl:col-span-8 md:pt-[20.37rem] xl:pt-[25.06rem] xl:pb-[4.38rem]">
+        <?php
+          $imgLogo = get_field('unsere_kuche_image_top_left');
+          if ( $imgLogo ) {
+            echo wp_get_attachment_image(
+              $imgLogo,
+              'full',
+              false,
+              [
+                'class'    => 'w-full h-auto object-cover bleed-left-full',
+                'loading'  => 'eager',
+                'decoding' => 'async',
+              ]
+            );
+          }
+        ?>
+      </div>
 
-                        if ( $imgLogo ) {
-                        echo wp_get_attachment_image(
-                        $imgLogo,
-                        $size,
-                        false,
-                        [
-                        'class'    => 'w-full max-h-auto',
-                        'loading'  => 'eager',
-                        'decoding' => 'async',
-                        ]
-                        );
-                        }
-                    ?>
-            </div>
-            <div class="col-start-1 col-span-2 md:col-span-6 xl:col-span-5 xl:pt-[1.94rem]">
-                    <?php
-                        $imgLogo = get_field('unsere_kuche_image_bottom_left');
-                        $size  = 'full';
+      <!-- Top right image -->
+      <div class="col-span-2 md:col-span-3 xl:col-start-9 xl:col-span-4 pt-[1.875rem] md:pt-0">
+        <?php
+          $imgLogo = get_field('unsere_kuche_image_top_right');
+          if ( $imgLogo ) {
+            echo wp_get_attachment_image(
+              $imgLogo,
+              'full',
+              false,
+              [
+                'class'    => 'w-full h-auto object-cover bleed-right-full',
+                'loading'  => 'eager',
+                'decoding' => 'async',
+              ]
+            );
+          }
+        ?>
+      </div>
 
-                        if ( $imgLogo ) {
-                        echo wp_get_attachment_image(
-                        $imgLogo,
-                        $size,
-                        false,
-                        [
-                        'class'    => 'w-full max-h-auto',
-                        'loading'  => 'eager',
-                        'decoding' => 'async',
-                        ]
-                        );
-                        }
-                    ?>
-            </div>
-            <div class=" xl:col-start-7 xl:col-span-5">
-                <div class="title-main text-LightGray">
-                <h1><?php the_field( 'unsere_kuche_title' ); ?></h1>
-                </div>
-                <div class="body text-LightGray xl:pt-[1.88rem] ">
-                    <p><?php the_field( 'unsere_kuche_text' ); ?></p>
-                </div>
-                <div class="title-secondary text-LightGray xl:pt-[2.81rem]">
-                    <p><?php the_field( 'unsere_kuche_schedule' ); ?></p>
-                </div>
-            <div class=" xl:pt-[4.69rem] xl:pb-[8.25rem]">
-                    <?php
-                        $imgLogo = get_field('unsere_kuche_image_bottom_right');
-                        $size  = 'full';
+      <!-- Bottom left image -->
+      <div class="col-span-2 xl:col-span-5 pt-[1.87rem] md:pt-[4.06rem] xl:pt-[1.94rem]">
+        <?php
+          $imgLogo = get_field('unsere_kuche_image_bottom_left');
+          if ( $imgLogo ) {
+            echo wp_get_attachment_image(
+              $imgLogo,
+              'full',
+              false,
+              [
+                'class'    => 'w-full h-auto object-cover bleed-left-full',
+                'loading'  => 'eager',
+                'decoding' => 'async',
+              ]
+            );
+          }
+        ?>
+      </div>
 
-                        if ( $imgLogo ) {
-                        echo wp_get_attachment_image(
-                        $imgLogo,
-                        $size,
-                        false,
-                        [
-                        'class'    => 'w-screen max-h-auto',
-                        'loading'  => 'eager',
-                        'decoding' => 'async',
-                        ]
-                        );
-                        }
-                    ?>
-            </div>
+      <!-- Text block (title, text, schedule) + bottom right image -->
+      <div class="col-span-2 md:col-start-3 md:col-span-4 xl:col-start-7 xl:col-span-5 md:pt-[4.06rem] xl:pt-0">
+        <!-- Title -->
+        <div class="title-main text-LightGray pt-[1.85rem] md:pt-0">
+          <h1><?php the_field( 'unsere_kuche_title' ); ?></h1>
         </div>
-    </div>
+
+        <!-- Description text -->
+        <div class="body text-LightGray pt-[1.87rem] xl:pt-[1.88rem]">
+          <p><?php the_field( 'unsere_kuche_text' ); ?></p>
+        </div>
+
+        <!-- Schedule -->
+        <div class="title-secondary text-LightGray pt-[1.9rem] md:pt-[1.87rem] xl:pt-[2.81rem]">
+          <p><?php the_field( 'unsere_kuche_schedule' ); ?></p>
+        </div>
+
+        <!-- Bottom right image -->
+        <div class="pt-[1.88rem] pb-[6.24rem] md:pt-[4.82rem] md:pb-[6.19rem] xl:pt-[4.69rem] xl:pb-[8.25rem]">
+          <?php
+            $imgLogo = get_field('unsere_kuche_image_bottom_right');
+            if ( $imgLogo ) {
+              echo wp_get_attachment_image(
+                $imgLogo,
+                'full',
+                false,
+                [
+                  'class'    => 'w-screen h-auto bleed-right-full',
+                  'loading'  => 'eager',
+                  'decoding' => 'async',
+                ]
+              );
+            }
+          ?>
+        </div>
+      </div>
+    </div> <!-- /first theme-grid -->
+
+    <!-- SECOND GRID: hover cards -->
+    <?php if ( have_rows('unsere_kuche_hover') ) : ?>
+      <div class="theme-grid">
+        <div
+          class="col-start-1 xl:col-start-2 col-span-2 md:col-span-6 xl:col-span-10 group flex flex-col md:flex-row h-[80vh] md:h-[70vh] max-h-[546px] overflow-visible gap-[20px]"
+          aria-label="<?php esc_attr_e('Highlight menu', 'ambassador'); ?>"
+        >
+          <?php while ( have_rows('unsere_kuche_hover') ) : the_row();
+            $image_id = (int) get_sub_field('image');
+            $desc     = (string) get_sub_field('text');
+            $alt_meta = $image_id ? get_post_meta($image_id, '_wp_attachment_image_alt', true) : '';
+            // Avoid using $title (undefined); fall back to image title if alt is empty.
+            $fallback_title = $image_id ? get_the_title($image_id) : '';
+            $alt = $alt_meta ? esc_attr($alt_meta) : esc_attr($fallback_title);
+          ?>
+            <div class="group/item relative flex-1 transition-[flex] duration-700 ease-in-out hover:flex-[2] group-hover:[&:not(:hover)]:flex-[1] hover:z-10">
+              <div class="absolute left-0 right-0 bottom-0 top-0 z-0 transition-[top] duration-700 group-hover/item:-top-[40px] will-change-[top]">
+                <?php
+                  if ( $image_id ) {
+                    echo wp_get_attachment_image(
+                      $image_id,
+                      'full',
+                      false,
+                      [
+                        'class'   => 'absolute inset-0 w-full h-full object-cover origin-bottom',
+                        'alt'     => $alt,
+                        'loading' => 'lazy',
+                      ]
+                    );
+                  }
+                ?>
+
+                <!-- Dark overlay -->
+                <span class="dark-overlay pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-700 group-hover/item:opacity-80 z-10"></span>
+
+                <!-- Text + Arrow overlay -->
+                <span class="pointer-events-none absolute inset-0 flex flex-row justify-between items-end opacity-0 transition-opacity duration-700 group-hover/item:opacity-100 z-20 pb-1 md:pb-3">
+
+                <!-- LEFT: Description text -->
+                <span class="pl-5 max-w-[45ch] min-w-[45ch] text-left text-white opacity-0 translate-y-2 transition-all duration-700 group-hover/item:opacity-100 group-hover/item:translate-y-0">
+                    <?php if ( $desc ) : ?>
+                    <span class="block title-secondary text-LightGray">
+                        <?php echo esc_html( $desc ); ?>
+                    </span>
+                    <?php endif; ?>
+                </span>
+
+                <!-- RIGHT: Arrow icon -->
+                <span class="pr-5 opacity-0 translate-y-2 transition-all duration-700 md:pb-[0.7rem] group-hover/item:opacity-100 group-hover/item:translate-y-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="23" viewBox="0 0 25 23" fill="none">
+                    <path d="M0.673828 1H23.6738M23.6738 1V22M23.6738 1L0.673828 22" stroke="#E7E5E5" stroke-width="2"/>
+                    </svg>
+                </span>
+
+                </span>
+              </div>
+            </div>
+          <?php endwhile; ?>
+        </div>
+      </div>
+    <?php endif; ?>
+  </div>
 </section>

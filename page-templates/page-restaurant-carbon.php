@@ -12,7 +12,7 @@ if ( have_posts() ) :
             get_template_part( 'template-parts/pages/restaurant-carbon/intro' );
             get_template_part( 'template-parts/pages/restaurant-carbon/unsere-kuche' );
 			get_template_part( 'template-parts/pages/restaurant-carbon/chefs' );
-            get_template_part( 'template-parts/pages/restaurant-carbon/ambassador-bar' );
+            get_template_part( 'template-parts/modules/section', 'outro' );
 		do_action( 'after_main_content' );
 	endwhile;
 endif;
