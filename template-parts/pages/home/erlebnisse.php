@@ -1,4 +1,13 @@
-<section id="section-erlebnisse" class="section-erlebnisse bg-LightGray py-11 md:pt-11 md:pb-16 xl:pt-16 xl:pb-36">
+<?php
+$bg_image_id = get_field( 'erlebnisse_background' );
+$bg_image_url = '';
+
+if ( $bg_image_id ) {
+  $bg_image_url = wp_get_attachment_image_url( $bg_image_id, 'full' );
+}
+?>
+
+<section id="section-erlebnisse" class="section-erlebnisse bg-LightGray py-11 md:pt-11 md:pb-16 xl:pt-16 xl:pb-36" <?php if ( $bg_image_url ) : ?> style="background-image: url('<?php echo esc_url( $bg_image_url ); ?>'); background-repeat:no-repeat; background-size:cover; background-position:center;" <?php endif; ?> >
   <div class="theme-container">
     <div class="theme-grid">
       <div class="col-span-2 md:col-span-6 xl:col-span-12">

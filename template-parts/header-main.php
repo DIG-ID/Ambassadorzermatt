@@ -73,7 +73,7 @@
           <?php do_action( 'theme_logo_sticky' ); ?>
         </a>
       </div>
-      <div class="col-span-1 md:col-span-1 xl:col-span-1 hidden xl:block">
+      <div class="col-span-1 md:col-span-1 xl:col-span-1 hidden xl:flex items-center justify-center">
         <nav id="primary-nav-header" class="primary-nav hidden xl:block" aria-label="<?php esc_attr_e( 'Main Menu', 'ambassadorzermatt' ); ?>" role="navigation">
           <?php
           if ( has_nav_menu( 'main-menu' ) ) :

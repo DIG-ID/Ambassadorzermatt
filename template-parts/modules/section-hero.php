@@ -31,4 +31,4 @@
     <?php endif; ?>
 	</section>
 <?php endif; ?>
-<?php get_template_part( 'template-parts/modules/booking','bar' ); ?>
+<?php get_template_part( 'template-parts/components/booking','bar' ); ?>
