@@ -35,4 +35,7 @@ export function ambassadorInitLenisCinematic() {
   return ambassadorLenis;
 }
 
+// init
+const ambassadorLenis = ambassadorInitLenisCinematic();
+
 

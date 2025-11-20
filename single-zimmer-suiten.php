@@ -7,6 +7,8 @@ if ( have_posts() ) :
 			get_template_part( 'template-parts/posts/zimmer-suiten/hero' );
 			get_template_part( 'template-parts/posts/zimmer-suiten/intro' );
 			get_template_part( 'template-parts/posts/zimmer-suiten/details' );
+			get_template_part( 'template-parts/posts/zimmer-suiten/slider-room-images' );
+			get_template_part( 'template-parts/posts/zimmer-suiten/services' );
 			get_template_part( 'template-parts/modules/section','outro' );
 		do_action( 'after_main_content' );
 	endwhile;

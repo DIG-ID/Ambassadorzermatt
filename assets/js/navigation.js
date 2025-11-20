@@ -58,7 +58,11 @@ export function ambassadorzermattInitOffcanvasMenuGsap() {
     willChange: "transform, clip-path", force3D: true
   });
   gsap.set(cols, { autoAlpha: 0, y: -20 });
-  cols.forEach((col) => gsap.set(col.querySelectorAll("li"), { autoAlpha: 0, y: -10 }));
+  cols.forEach((col) => {
+    const items = col.querySelectorAll("li");
+    if (!items.length) return; // no <li> in this column – skip
+    gsap.set(items, { autoAlpha: 0, y: -10 });
+  });
 
   const setA11y = (open) => {
     btns.forEach(b => {
