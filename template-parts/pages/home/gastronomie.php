@@ -16,7 +16,7 @@
           $link_title = $link['title'];
           $link_target = $link['target'] ? $link['target'] : '_self';
         ?>
-        <a href="<?php echo esc_url($link_url); ?>" target="<?php echo esc_attr($link_target); ?>" class="btn btn-primary-light mb-10 md:mb-0 xl:mb-16">
+        <a href="<?php echo esc_url($link_url); ?>" target="<?php echo esc_attr($link_target); ?>" class="btn btn-primary-dark mb-10 md:mb-0 xl:mb-16">
           <?php echo esc_html($link_title); ?>
         </a>
         <?php endif; ?>

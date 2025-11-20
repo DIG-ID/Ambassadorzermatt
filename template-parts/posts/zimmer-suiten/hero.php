@@ -1,4 +1,4 @@
-<section id="section-hero" class="section-hero relative w-full z-10">
+<section id="section-hero" class="section-hero bg-White relative w-full z-10">
   <div class="theme-container">
     <div class="col-span-2 md:col-span-6 xl:col-span-12">
       <?php $bg_id  = get_field( 'hero_intro_image' ); ?>

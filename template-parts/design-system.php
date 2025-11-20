@@ -26,7 +26,10 @@
             <div class="col-span-2 md:col-span-2 xl:col-span-4 mt-12 px-8 border-Dark border-r-2">
                 <h1 class="title-main font-inria pb-8">Buttons</h1>
                 <a class="btn btn-primary mb-8">Mehr erfahren</a>
-                <a class="btn btn-primary-dark ">Mehr erfahren</a>
+                <div class="bg-Dark p-8 mb-8">
+                    <a class="btn btn-primary-dark ">Mehr erfahren</a>
+                </div>
+                <a class="btn btn-primary-brown mb-8">Mehr erfahren</a>
             </div>
         </div>
 </section>
