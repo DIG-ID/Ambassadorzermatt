@@ -20,7 +20,7 @@ mix
 
   .browserSync({
     proxy: {
-      target: "https://domain.digid/",
+      target: "https://local-ambassador-zermatt.digid/",
       ws: true,
     },
     https: true,

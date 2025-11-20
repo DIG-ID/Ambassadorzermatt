@@ -1,0 +1,22 @@
+.section-winter-and-summer
+  .winter-and-summer-content
+    @screen xl
+      @apply gap-5
+      grid-template-columns: repeat(2, 1fr)
+      grid-template-rows: 1fr 320px 1fr
+      grid-template-areas: "winter-content winter-image" "empty empty2" "summer-image summer-content"
+      gap: 2rem
+      .winter-content
+        grid-area: winter-content
+        align-self: start
+      .winter-image
+        grid-area: winter-image
+        grid-row-start: winter-image-start
+        grid-row-end: empty2-end
+      .summer-content
+        grid-area: summer-content
+        align-self: end
+      .summer-image
+        grid-area: summer-image
+        grid-row-start: empty-start
+        grid-row-end: summer-image-end

@@ -26,6 +26,8 @@ function ambassadorzermatt_theme_setup() {
 
 	add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption', 'style', 'script' ) );
 
+	add_post_type_support( 'page', 'excerpt' );
+
 	//add_image_size( 'zimmer-image', 1400, 770, array( 'center', 'center' ) );
 
 }
