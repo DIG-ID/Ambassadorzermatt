@@ -22,11 +22,11 @@
 							?>
 							<a href="<?php the_permalink(); ?>"><h3 class="title-main"><?php the_title(); ?></h3></a>
 						</header><!-- .entry-header -->
-						<div class="card-content">
-							<div class="xl:grid xl:grid-cols-6 mb-10 md:mb-14 xl:mb-12">
-								<div class="font-noto body xl:col-span-5"><?php the_excerpt(); ?></div>
+						<div class="card-content xl:grid xl:grid-cols-6 mb-10 md:mb-14 xl:mb-12">
+							<div class=" xl:col-span-5">
+								<div class="font-noto body"><?php the_excerpt(); ?></div>
+								<a href="<?php the_permalink(); ?>" class="btn btn-primary-dark "><?php esc_html_e( 'Mehr erfahren', 'ambassador' ); ?></a>
 							</div>
-							<a href="<?php the_permalink(); ?>" class="btn btn-primary-dark "><?php esc_html_e( 'Mehr erfahren', 'ambassador' ); ?></a>
 						</div>
 					</article>
 				</li>
