@@ -22,11 +22,14 @@
 							?>
 							<a href="<?php the_permalink(); ?>"><h3 class="title-main"><?php the_title(); ?></h3></a>
 						</header><!-- .entry-header -->
-						<div class="card-content xl:grid xl:grid-cols-6 mb-10 md:mb-14 xl:mb-12">
-							<div class=" xl:col-span-5">
+						<div class="card-content md:grid md:grid-cols-6 mb-10 md:mb-14 xl:mb-12">
+							<div class="md:col-span-6 xl:col-span-5">
 								<div class="font-noto body"><?php the_excerpt(); ?></div>
+							</div>
+							<div class="md:col-span-4 xl:col-span-5">
 								<a href="<?php the_permalink(); ?>" class="btn btn-primary-dark "><?php esc_html_e( 'Mehr erfahren', 'ambassador' ); ?></a>
 							</div>
+							
 						</div>
 					</article>
 				</li>
