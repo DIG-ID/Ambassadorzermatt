@@ -1,6 +1,6 @@
 <section class="section-winter-and-summer bg-LightGray py-16 md:py-20 xl:py-32">
-	<div class="theme-container">
-		<div class="winter-and-summer-content grid">
+	<div class="theme-container theme-grid">
+		<div class="winter-and-summer-content grid col-span-2 md:col-span-6 xl:col-span-11 xl:col-start-2">
 			<div class="winter-content order-1 mb-9 md:mb-24 xl:mb-0">
 				<h2 class="title-main font-inria mb-5 md:mb-8"><?php the_field( 'winter_and_summer_winter_title' ) ?></h2>
 				<p class="font-noto body"><?php the_field( 'winter_and_summer_winter_description' ) ?></p>
