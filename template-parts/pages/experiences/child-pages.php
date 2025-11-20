@@ -1,4 +1,4 @@
-<section class="section-child-pages bg-Dark text-white pt-16 pb-24 md:py-28 xl:py-36">
+<section class="section-child-pages bg-Dark text-white pt-16 pb-24 md:py-28 xl:py-36 border-b border-LightGray">
 	<div class="theme-container">
 		<div class="theme-grid">
 			<div class="col-span-12">
