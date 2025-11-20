@@ -1,4 +1,4 @@
-<section class="child-loop bg-Dark text-white pt-16 pb-24 md:py-28 xl:py-36">
+<section class="section-child-pages bg-Dark text-white pt-16 pb-24 md:py-28 xl:py-36">
 	<div class="theme-container">
 		<div class="theme-grid">
 			<div class="col-span-12">
@@ -6,7 +6,7 @@
 			</div>
 		</div>
 		<?php
-		$featured_posts = get_field( 'child' );
+		$featured_posts = get_field( 'child_pages' );
 		if ( $featured_posts ) :
 			?><ul class="theme-grid xl:[&>li:nth-child(2n+2)]:[--offset:16.25rem] xl:[&>li:nth-child(2n+2)]:mt-[var(--offset)] xl:[&>li:nth-child(2n+2)]:mb-[calc(var(--offset)*-1)] xl:pb-[16.25rem]"><?php
 			foreach ( $featured_posts as $post ) :

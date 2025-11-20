@@ -11,7 +11,7 @@ if ( have_posts() ) :
 			get_template_part( 'template-parts/modules/section', 'hero' );
 			get_template_part( 'template-parts/modules/section', 'intro' );
 			get_template_part( 'template-parts/pages/experiences/winter-and-summer' );
-			get_template_part( 'template-parts/pages/experiences/child-loop' );
+			get_template_part( 'template-parts/pages/experiences/child-pages' );
 		do_action( 'after_main_content' );
 	endwhile;
 endif;
