@@ -1,4 +1,4 @@
-<section id="section-intro" class="section-intro bg-White pt-[2.49rem] pb-[6.25rem] md:pt-[3.75rem] md:pb-[6.25rem] xl:pt-[6.25rem] xl:pb-[9.38rem]">
+<section id="section-intro" class="section-intro bg-White pt-[2.49rem] pb-[6.25rem] md:pt-[3.75rem] md:pb-[6.25rem] xl:pt-[6.25rem] xl:pb-20">
     <div class="theme-container">
         <div class="theme-grid">
             <div class="col-start-1 col-span-2 md:col-start-1 md:col-span-4 xl:col-start-2 xl:col-span-4">
@@ -15,16 +15,16 @@
                 <div class="body text-Brown pt-[1.25rem] md:pt-[1.88rem] xl:pt-0">
                     <p class="mb-8"><?php the_field( 'hero_intro_text' ); ?></p>
                     <?php
-                      $link = get_field('hero_intro_button');
+                      /*$link = get_field('hero_intro_button');
                       if ($link):
                       $link_url = $link['url'];
                       $link_title = $link['title'];
-                      $link_target = $link['target'] ? $link['target'] : '_self';
+                      $link_target = $link['target'] ? $link['target'] : '_self';*/
                     ?>
-                    <a href="<?php echo esc_url($link_url); ?>" target="<?php echo esc_attr($link_target); ?>" class="btn btn-primary-brown mb-10 md:mb-0 xl:mb-16">
-                      <?php echo esc_html($link_title); ?>
+                    <a href="<?php the_field( 'general_booking_url', 'option' ); ?>" target="_blank" class="btn btn-primary-brown mb-10 md:mb-0 xl:mb-0">
+                      <?php echo esc_html_e('Jetzt buchen','ambassador'); ?>
                     </a>
-                    <?php endif; ?>
+                    <?php /*endif;*/ ?>
                 </div>
             </div>
         </div>
