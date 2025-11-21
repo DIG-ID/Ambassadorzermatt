@@ -10,6 +10,8 @@ if ( have_posts() ) :
 		do_action( 'before_main_content' );
 			get_template_part( 'template-parts/modules/section', 'hero' );
 			get_template_part( 'template-parts/modules/section', 'intro' );
+			get_template_part( 'template-parts/pages/experiences/biking/trails' );
+			get_template_part( 'template-parts/pages/experiences/biking/family' );
 		do_action( 'after_main_content' );
 	endwhile;
 endif;

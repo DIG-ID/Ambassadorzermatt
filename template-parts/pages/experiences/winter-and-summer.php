@@ -2,39 +2,31 @@
 	<div class="theme-container theme-grid">
 		<div class="winter-and-summer-content grid col-span-2 md:col-span-6 xl:col-span-11 xl:col-start-2">
 			<div class="winter-content order-1 mb-9 md:mb-24 xl:mb-0">
-				<h2 class="title-main font-inria mb-5 md:mb-8"><?php the_field( 'winter_and_summer_winter_title' ) ?></h2>
-				<p class="font-noto body"><?php the_field( 'winter_and_summer_winter_description' ) ?></p>
+				<h2 class="title-main font-inria text-Dark mb-5 md:mb-8"><?php the_field( 'winter_and_summer_winter_title' ) ?></h2>
+				<p class="font-noto body text-Dark"><?php the_field( 'winter_and_summer_winter_description' ) ?></p>
 			</div>
 			<div class="winter-image xl:grid xl:grid-cols-6 xl:gap-x-5 order-2 mb-16 xl:mb-0">
-				<figure class="xl:col-span-5 xl:col-start-2">
+				<figure class="relative overflow-hidden xl:col-span-5 xl:col-start-2">
 					<?php
-					$winter_image_portrait  = get_field( 'winter_and_summer_winter_image_portrait' );
-					$winter_image_landscape = get_field( 'winter_and_summer_winter_image_landscape' );
-					if ( $winter_image_portrait ) :
-						echo wp_get_attachment_image( $winter_image_portrait, 'full', false, array( 'class' => 'w-full h-full max-h-[426px] xl:max-h-[682px] object-cover md:invisible md:hidden xl:visible xl:block' ) );
-					endif;
-					if ( $winter_image_landscape ) :
-						echo wp_get_attachment_image( $winter_image_landscape, 'full', false, array( 'class' => 'w-full object-cover hidden invisible md:visible md:block xl:invisible xl:hidden' ) );
+					$winter_image = get_field( 'winter_and_summer_winter_image' );
+					if ( $winter_image ) :
+						echo wp_get_attachment_image( $winter_image, 'full', false, array( 'class' => 'w-full h-full object-cover object-[35%_50%] mb:object-center xl:object-[35%_50%] min-h-[425px] max-h-[425px] xl:min-h-[682px] xl:max-h-[682px]' ) );
 					endif;
 					?>
 				</figure>
 			</div>
 			<div class="summer-content xl:grid xl:grid-cols-6 xl:gap-x-5 order-4 xl:order-3">
 				<div class="xl:col-span-5">
-					<h2 class="title-main font-inria mb-5 md:mb-8"><?php the_field( 'winter_and_summer_summer_title' ) ?></h2>
-					<p class="font-noto body"><?php the_field( 'winter_and_summer_summer_description' ) ?></p>
+					<h2 class="title-main font-inria text-Dark mb-5 md:mb-8"><?php the_field( 'winter_and_summer_summer_title' ) ?></h2>
+					<p class="font-noto body text-Dark"><?php the_field( 'winter_and_summer_summer_description' ) ?></p>
 				</div>
 			</div>
 			<div class="summer-image order-3 xl:order-4 mb-11 mb:mb-16 xl:mb-0">
-				<figure class="">
+				<figure class="relative overflow-hidden">
 					<?php
-					$summer_image_portrait  = get_field( 'winter_and_summer_summer_image_portrait' );
-					$summer_image_landscape = get_field( 'winter_and_summer_summer_image_landscape' );
-					if ( $summer_image_portrait ) :
-						echo wp_get_attachment_image( $summer_image_portrait, 'full', false, array( 'class' => 'w-full h-full max-h-[426px] xl:max-h-[682px] object-cover md:invisible md:hidden xl:visible xl:block' ) );
-					endif;
-					if ( $summer_image_landscape ) :
-						echo wp_get_attachment_image( $summer_image_landscape, 'full', false, array( 'class' => 'w-full object-cover hidden invisible md:visible md:block xl:invisible xl:hidden' ) );
+					$summer_image = get_field( 'winter_and_summer_summer_image' );
+					if ( $summer_image ) :
+						echo wp_get_attachment_image( $summer_image, 'full', false, array( 'class' => 'w-full h-full object-cover object-[45%_50%] mb:object-center xl:object-[45%_50%] min-h-[425px] max-h-[425px] xl:min-h-[682px] xl:max-h-[682px]' ) );
 					endif;
 					?>
 				</figure>
