@@ -1,6 +1,5 @@
 <div id="menu-offcanvas" class="menu-offcanvas" aria-hidden="true" inert>
-  <nav id="mega-menu-nav" class="primary-nav theme-container theme-grid md:mb-32 xl:mb-[74px] mt-32 md:mt-44 xl:mt-40 2xl:mt-44 overflow-visible"
-       aria-label="<?php esc_attr_e( 'Main Menu', 'ambassador' ); ?>" role="navigation">
+  <nav id="mega-menu-nav" class="primary-nav theme-container theme-grid mb-12 md:mb-32 xl:mb-[74px] mt-32 md:mt-44 xl:mt-40 2xl:mt-44 overflow-visible" aria-label="<?php esc_attr_e( 'Main Menu', 'ambassador' ); ?>" role="navigation">
     
     <!-- Left column: top-level only -->
     <div class="main-menu-col col-span-2 md:col-span-6 xl:col-span-6" data-menu-col>
@@ -56,7 +55,7 @@
   <hr class="border-t border-Brown">
   <div class="theme-container theme-grid mb-16 md:mb-0">
     <div class="col-span-12 flex flex-col md:flex-row justify-center items-center md:justify-between md:items-center py-6 md:pt-9 text-Brown gap-y-4">
-      <div class="flex flex-col md:flex-row items-center justify-around w-full">
+      <div class="flex flex-col md:flex-row items-center justify-around w-full gap-y-10 md:gap-y-0">
         <a href="<?php the_field( 'general_booking_url','option' ); ?>" target="_blank" class="btn btn-primary max-w-60"><?php esc_html_e( 'Jetzt buchen','ambassador' ); ?></a>
         <a href="<?php the_field( 'general_table_reservation_url','option' ); ?>" target="_blank" class="btn btn-primary max-w-60"><?php esc_html_e( 'Tisch reservieren','ambassador' ); ?></a>
       </div>
