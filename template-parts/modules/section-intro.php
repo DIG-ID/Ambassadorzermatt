@@ -1,4 +1,4 @@
-<section id="section-intro" class="section-intro bg-White pt-[2.49rem] pb-[6.25rem] md:pt-[3.75rem] md:pb-[6.25rem] xl:pt-[6.25rem] xl:pb-[9.38rem]">
+<section id="section-intro" class="section-intro bg-White pt-10 pb-24 md:pt-14 md:pb-24 xl:pt-24 xl:pb-20">
     <div class="theme-container">
         <div class="theme-grid">
             <?php if( get_field( 'intro_over_title' ) ) : ?>

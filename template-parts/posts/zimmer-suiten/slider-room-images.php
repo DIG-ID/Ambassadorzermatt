@@ -1,4 +1,4 @@
-<section id="section-details" class="section-details bg-White xl:pb-32">
+<section id="section-room-images" class="section-room-images bg-White pt-20 md:pt-24 xl:pt-0 pb-24 xl:pb-32">
   <div class="theme-container">
     <div class="theme-grid">
       <div class="room-images-swiper-col col-span-2 md:col-span-6 xl:col-span-12">
@@ -23,13 +23,7 @@
                       data-caption="<?php echo esc_attr( $image_alt ); ?>"
                       class="block h-full"
                     >
-                      <div
-                        class="slide-bg slide-bg--<?php echo esc_attr( $counter ); ?>
-                              w-full min-h-[574px] bg-cover bg-no-repeat bg-center
-                              transition-transform duration-500 ease-out
-                              group-hover:scale-[1.04]"
-                        style="background-image: url('<?php echo esc_url( $image_url ); ?>');"
-                      ></div>
+                      <div class="slide-bg slide-bg--<?php echo esc_attr( $counter ); ?> w-full min-h-[400px] md:min-h-[574px] bg-cover bg-no-repeat bg-center transition-transform duration-500 ease-out xl:group-hover:scale-[1.04]" style="background-image: url('<?php echo esc_url( $image_url ); ?>');"></div>
                     </a>
                   </div>
                   <?php

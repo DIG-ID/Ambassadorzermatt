@@ -1,20 +1,20 @@
 <section id="section-details" class="section-details bg-White xl:pb-32">
   <div class="theme-container">
     <div class="theme-grid">
-      <div class="col-span-2 md:col-span-6 xl:col-span-8 grid grid-cols-2 md:grid-cols-4 xl:grid-cols-8 gap-x-5">
-        <div class="col-span-2 md:col-span-6 xl:col-span-8">
+      <div class="col-span-2 md:col-span-4 xl:col-span-8 grid grid-cols-2 md:grid-cols-4 xl:grid-cols-8 gap-x-5">
+        <div class="col-span-2 md:col-span-4 xl:col-span-8">
           <figure>
           <?php
             $img1 = get_field('details_image_main');
             if ($img1) {
               echo wp_get_attachment_image($img1, 'full', false, [
-                'class' => 'w-full object-cover',
+                'class' => 'w-full object-cover object-center max-h-[200px] md:min-h-[200px] md:max-h-[440px] xl:min-h-none xl:max-h-[887px]',
               ]);
             }
           ?>
           </figure>
         </div>
-        <div class="col-span-2 md:col-span-3 xl:col-span-3 pt-10 xl:pt-24">
+        <div class="col-span-2 md:col-span-3 xl:col-span-3 pt-5 md:pt-8 xl:pt-24">
           <h2 class="title-main"><?php the_field( 'details_title' ); ?></h2>
         </div>
         <div class="col-span-2 md:col-span-4 xl:col-span-5 pt-10 xl:pt-24">
@@ -55,12 +55,12 @@
         </div>
 
       </div>
-      <div class="col-span-2 md:col-span-6 xl:col-span-4">
+      <div class="col-span-2 md:col-span-2 xl:col-span-4 md:col-start-5 xl:col-start-9 hidden md:block">
         <?php
           $img2 = get_field('details_image_secondary');
           if ($img2) {
             echo wp_get_attachment_image($img2, 'full', false, [
-              'class' => 'w-full object-cover xl:mt-56',
+              'class' => 'w-full object-cover md:mt-32 xl:mt-56',
             ]);
           }
         ?>

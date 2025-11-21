@@ -1,4 +1,4 @@
-<section id="section-content" class="section-content bg-White text-Dark pb-24 md:pb-28 xl:pb-36">
+<section id="section-content" class="section-content bg-White text-Dark pb-8 md:pb-8 xl:pb-20">
   <div class="theme-container">
     <?php
     // Query zimmer-suiten posts
@@ -43,7 +43,7 @@
                     'full',
                     false,
                     array(
-                      'class' => 'mb-8 max-h-[825px] w-full object-cover xl:object-[50%_50%] min-h-[400px] md:min-h-none md:max-h-none xl:min-h-[825px] xl:max-h-[825px]',
+                      'class' => 'mb-8 max-h-[825px] w-full object-cover xl:object-center min-h-[400px] md:min-h-none md:max-h-none xl:min-h-[825px] xl:max-h-[825px]',
                     )
                   );
                   echo '</a>';
