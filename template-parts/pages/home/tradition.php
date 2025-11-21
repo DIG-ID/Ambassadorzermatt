@@ -1,4 +1,4 @@
-<section id="section-tradition" class="section-tradition bg-LightGray relative h-[90dvh] md:h-screen w-full z-20 flex flex-col justify-end md:justify-center">
+<section id="section-tradition" class="section-tradition bg-LightGray relative h-[90dvh] md:min-h-[830] md:max-h-[830] xl:h-[785px] w-full z-20 flex flex-col justify-end md:justify-center">
   <?php
   $bg_id = get_field( 'tradition_image' );
   if ( $bg_id ) :
