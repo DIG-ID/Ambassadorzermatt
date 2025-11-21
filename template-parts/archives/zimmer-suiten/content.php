@@ -43,7 +43,7 @@
                     'full',
                     false,
                     array(
-                      'class' => 'mb-8 max-h-[825px] w-full object-cover xl:object-[50%_50%] xl:min-h-[825px] xl:max-h-[825px]',
+                      'class' => 'mb-8 max-h-[825px] w-full object-cover xl:object-[50%_50%] min-h-[400px] md:min-h-none md:max-h-none xl:min-h-[825px] xl:max-h-[825px]',
                     )
                   );
                   echo '</a>';
@@ -55,7 +55,7 @@
               </header><!-- .entry-header -->
 
               <div class="card-content md:grid md:grid-cols-6">
-                <div class="md:col-span-6 xl:col-span-5 mb-10 md:mb-14 xl:mb-12">
+                <div class="md:col-span-6 xl:col-span-5 mb-10 md:mb-14 xl:mb-12 pt-6 md:pt-9 border-t border-Dark">
                   <div class="overview-description mb-7">
                     <?php
                     if ( $description ) {
