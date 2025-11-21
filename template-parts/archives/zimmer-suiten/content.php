@@ -20,7 +20,7 @@
 
           // Get custom fields
           $image_field   = get_field( 'hero_intro_image' );
-          $description   = get_field( 'hero_intro_text' );
+          $description   = get_field( 'overview_small_description' );
 
           // Support both "ID" and "Image array" return formats
           $image_id = null;
@@ -68,15 +68,15 @@
                   <div class="overview-features">
                     <div class="flex flex-row items-center gap-7 mb-4">
                       <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/features_size.svg" alt="Size" title="Size" class="w-8" />
-                      <p><?php esc_html_e( 'Grösse: ','ambassador' ); ?><?php the_field( 'overview_size' ); ?></p>
+                      <p><?php the_field( 'overview_size' ); ?></p>
                     </div>
                     <div class="flex flex-row items-center gap-7 mb-4">
                       <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/features_bed.svg" alt="Size" title="Size" class="w-8" />
-                      <p><?php esc_html_e( 'Bett: ','ambassador' ); ?><?php the_field( 'overview_bed' ); ?></p>
+                      <p><?php the_field( 'overview_bed' ); ?></p>
                     </div>
                     <div class="flex flex-row items-center gap-7 mb-4">
                       <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/features_occupancy.svg" alt="Size" title="Size" class="w-8" />
-                      <p><?php esc_html_e( 'Belegung: ','ambassador' ); ?><?php the_field( 'overview_occupancy' ); ?></p>
+                      <p><?php the_field( 'overview_occupancy' ); ?></p>
                     </div>
                   </div>
                 </div>
