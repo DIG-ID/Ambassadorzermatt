@@ -12,6 +12,7 @@ if ( have_posts() ) :
 			get_template_part( 'template-parts/modules/section', 'intro' );
 			get_template_part( 'template-parts/pages/experiences/hiking/hiking' );
 			get_template_part( 'template-parts/pages/experiences/hiking/inspiration' );
+			get_template_part( 'template-parts/modules/section', 'outro' );
 		do_action( 'after_main_content' );
 	endwhile;
 endif;
