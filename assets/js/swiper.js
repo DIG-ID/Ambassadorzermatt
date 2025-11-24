@@ -28,8 +28,8 @@ window.addEventListener("load", () => {
       },
       effect: 'slide',
       navigation: {
-        nextEl: 'trails-swiper-button-next .swiper-button-next',
-        prevEl: 'trails-swiper-button-prev .swiper-button-prev',
+        nextEl: '.trails-swiper-button-next',
+        prevEl: '.trails-swiper-button-prev',
       },
     });
   }
