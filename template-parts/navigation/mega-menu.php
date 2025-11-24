@@ -33,7 +33,7 @@
         <?php
         // Collect up to 5 images from options: menu_item_1 ... menu_item_5
         $menu_images = array();
-        for ( $i = 1; $i <= 5; $i++ ) {
+        for ( $i = 1; $i <= 6; $i++ ) {
           $img_id = get_field( "menu_item_{$i}", 'option' );
           if ( $img_id ) {
             $menu_images[] = $img_id;
