@@ -163,45 +163,104 @@ function ambassadorBindMegaPanels() {
   const mainLinks = Array.from(root.querySelectorAll('.main-menu-col .mega-toplink'));
   const panels    = Array.from(root.querySelectorAll('.sub-menu-col .submenu-panel'));
   const empty     = root.querySelector('.sub-menu-col [data-empty]');
+  const photos    = Array.from(root.querySelectorAll('.mega-menu-photo')); // NEW
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // --- layout: lock a comfortable height (tallest panel) to prevent jumps ---
   const col = root.querySelector('.sub-menu-col');
   if (col) {
     let maxH = 0;
-    // temporarily make panels measurable
     panels.concat(empty || []).forEach(p => {
-      const prev = p.style.display;
-      p.style.display = 'block';
+      const prevDisplay = p.style.display;
+      const prevPos     = p.style.position;
+      const prevInset   = p.style.inset;
+
+      p.style.display  = 'block';
       p.style.position = 'absolute';
-      p.style.inset = '0';
+      p.style.inset    = '0';
       maxH = Math.max(maxH, p.scrollHeight);
-      p.style.display = prev; // revert
+
+      p.style.display  = prevDisplay;
+      p.style.position = prevPos;
+      p.style.inset    = prevInset;
     });
     if (maxH) col.style.minHeight = maxH + 'px';
-    // ensure sub-menu-col is relative (CSS)
   }
 
-  // --- initial states: pure fade (no y), keep display:block for all ---
+  // --- initial states for submenu panels ---
   panels.forEach(p => {
-    gsap.set(p, { autoAlpha: 0 });  // opacity:0, visibility:hidden
-    p.setAttribute('aria-hidden','true');
+    gsap.set(p, { autoAlpha: 0 });
+    p.setAttribute('aria-hidden', 'true');
     p.classList.remove('is-visible');
   });
   if (empty) {
     gsap.set(empty, { autoAlpha: 0 });
-    empty.setAttribute('aria-hidden','true');
+    empty.setAttribute('aria-hidden', 'true');
     empty.classList.remove('is-visible');
   }
+
+  // --- initial states + helpers for photos (right column) ---
+  let activePhoto = null;
+
+  const fadeInPhoto = (img) => {
+    if (!img) return;
+    gsap.killTweensOf(img);
+    img.classList.add('is-visible');
+    img.setAttribute('aria-hidden', 'false');
+
+    if (prefersReduced) {
+      gsap.set(img, { autoAlpha: 1 });
+    } else {
+      gsap.fromTo(
+        img,
+        { autoAlpha: 0 },
+        { autoAlpha: 1, duration: 0.45, ease: 'power2.out' } // smoother & slower
+      );
+    }
+  };
+
+  const fadeOutPhoto = (img) => {
+    if (!img) return;
+    gsap.killTweensOf(img);
+
+    if (prefersReduced) {
+      gsap.set(img, { autoAlpha: 0 });
+      img.classList.remove('is-visible');
+    } else {
+      gsap.to(img, {
+        autoAlpha: 0,
+        duration: 0.35,
+        ease: 'power2.out',
+        onComplete: () => img.classList.remove('is-visible'),
+      });
+    }
+    img.setAttribute('aria-hidden', 'true');
+  };
+
+  if (photos.length) {
+    photos.forEach((img, idx) => {
+      if (idx === 0) {
+        gsap.set(img, { autoAlpha: 1 });
+        img.classList.add('is-visible');
+        img.setAttribute('aria-hidden', 'false');
+        activePhoto = img;
+      } else {
+        gsap.set(img, { autoAlpha: 0 });
+        img.classList.remove('is-visible');
+        img.setAttribute('aria-hidden', 'true');
+      }
+    });
+  }
+
 
   const DUR_IN  = 0.25;
   const DUR_OUT = 0.20;
   const EASE    = 'power2.out';
   const HOVER_DELAY_MS = 100;
 
-  let activeLink = null;
+  let activeLink  = null;
   let activePanel = null;
-  let hoverTimer = null;
+  let hoverTimer  = null;
 
   const showEl = (el) => {
     gsap.killTweensOf(el);
@@ -211,18 +270,36 @@ function ambassadorBindMegaPanels() {
     } else {
       gsap.to(el, { autoAlpha: 1, duration: DUR_IN, ease: EASE });
     }
-    el.setAttribute('aria-hidden','false');
+    el.setAttribute('aria-hidden', 'false');
   };
 
   const hideEl = (el) => {
     gsap.killTweensOf(el);
     if (prefersReduced) {
       gsap.set(el, { autoAlpha: 0 });
+      el.classList.remove('is-visible');
     } else {
-      gsap.to(el, { autoAlpha: 0, duration: DUR_OUT, ease: EASE, onComplete: () => el.classList.remove('is-visible') });
+      gsap.to(el, {
+        autoAlpha: 0,
+        duration: DUR_OUT,
+        ease: EASE,
+        onComplete: () => el.classList.remove('is-visible'),
+      });
     }
-    el.setAttribute('aria-hidden','true');
+    el.setAttribute('aria-hidden', 'true');
   };
+
+  // --- photo helpers (NEW) ---
+  const showPhotoByIndex = (idx) => {
+    if (!photos.length) return;
+    const next = photos[idx] || photos[photos.length - 1];
+    if (!next || next === activePhoto) return;
+
+    if (activePhoto) fadeOutPhoto(activePhoto);
+    fadeInPhoto(next);
+    activePhoto = next;
+  };
+
 
   const clearUnderline = () => {
     mainLinks.forEach(a => {
@@ -235,8 +312,10 @@ function ambassadorBindMegaPanels() {
     clearUnderline();
     if (activePanel) hideEl(activePanel);
     if (empty) hideEl(empty);
-    activeLink = null;
+    activeLink  = null;
     activePanel = null;
+    // You can optionally reset the photo here:
+    // if (photos.length) showPhotoByIndex(0);
   };
 
   const activate = (link) => {
@@ -246,10 +325,16 @@ function ambassadorBindMegaPanels() {
     clearUnderline();
     link.classList.add('is-active');
 
-    const pid = link.getAttribute('data-parent-id');
+    const pid       = link.getAttribute('data-parent-id');
     const nextPanel = pid ? panels.find(p => p.dataset.parentId === String(pid)) : null;
 
-    // show new first, then fade out old (prevents “gap”)
+    // --- swap right-side photo based on link index ---  NEW
+    const linkIndex = mainLinks.indexOf(link);
+    if (linkIndex > -1) {
+      showPhotoByIndex(linkIndex);
+    }
+
+    // show new panel first, then fade out old (prevents “gap”)
     if (nextPanel) {
       showEl(nextPanel);
       if (empty) hideEl(empty);
@@ -259,7 +344,7 @@ function ambassadorBindMegaPanels() {
     if (activePanel && activePanel !== nextPanel) hideEl(activePanel);
 
     link.setAttribute('aria-expanded', nextPanel ? 'true' : 'false');
-    activeLink = link;
+    activeLink  = link;
     activePanel = nextPanel || null;
   };
 

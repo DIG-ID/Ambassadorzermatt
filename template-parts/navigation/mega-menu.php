@@ -31,26 +31,65 @@
     <div class="col-span-2 xl:col-span-3 overflow-visible hidden xl:block" data-menu-col>
       <div class="relative h-full flex justify-start overflow-visible">
         <?php
-        $mega_menu_image = get_field('mega_menu_image','option');
-        echo wp_get_attachment_image(
-          $mega_menu_image,
-          'full',
-          false,
-          array(
-            'class' => implode(' ', array(
-              'block', 'max-w-full', 'h-full', 'object-cover', 'select-none',
-              // align to start of column, bleed to the right as needed
-              '2xl:w-auto', '2xl:object-contain',
-              // never wider than viewport (tweak 85vw/900px to taste)
-              '2xl:max-w-[min(85vw,460px)]',
-              // keep image from exceeding viewport height (leave room for header)
-              '2xl:max-h-[calc(100vh-6rem)]'
-            ))
-          )
-        );
+        // Collect up to 5 images from options: menu_item_1 ... menu_item_5
+        $menu_images = array();
+        for ( $i = 1; $i <= 5; $i++ ) {
+          $img_id = get_field( "menu_item_{$i}", 'option' );
+          if ( $img_id ) {
+            $menu_images[] = $img_id;
+          }
+        }
+
+        // Fallback to old single image if needed
+        if ( empty( $menu_images ) ) {
+          $mega_menu_image = get_field( 'mega_menu_image', 'option' );
+          if ( $mega_menu_image ) {
+            echo wp_get_attachment_image(
+              $mega_menu_image,
+              'full',
+              false,
+              array(
+                'class' => implode( ' ', array(
+                  'mega-menu-photo',
+                  'mega-menu-photo--single',
+                  'block', 'max-w-full', 'h-full', 'object-cover', 'select-none',
+                  '2xl:w-auto', '2xl:object-contain',
+                  '2xl:max-w-[min(85vw,460px)]',
+                  '2xl:max-h-[calc(100vh-6rem)]',
+                  'is-visible',
+                ) ),
+                'aria-hidden' => 'false',
+              )
+            );
+          }
+        } else {
+          // Output one <img> per menu item, stacked; first is visible by default
+          foreach ( $menu_images as $index => $img_id ) {
+            $is_first = ( $index === 0 );
+            echo wp_get_attachment_image(
+              $img_id,
+              'full',
+              false,
+              array(
+                'class' => implode( ' ', array(
+                  'mega-menu-photo',
+                  'block', 'max-w-full', 'h-full', 'object-cover', 'select-none',
+                  '2xl:w-auto', '2xl:object-contain',
+                  '2xl:max-w-[min(85vw,460px)]',
+                  '2xl:max-h-[calc(100vh-6rem)]',
+                  'absolute', 'inset-0',
+                  $is_first ? 'is-visible' : '',
+                ) ),
+                'data-photo-index' => $index,      // 0-based index
+                'aria-hidden'       => $is_first ? 'false' : 'true',
+              )
+            );
+          }
+        }
         ?>
       </div>
     </div>
+
   </nav>
   <hr class="border-t border-Brown">
   <div class="theme-container theme-grid mb-16 md:mb-0">

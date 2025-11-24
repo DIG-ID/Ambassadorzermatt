@@ -6,9 +6,9 @@
         class="col-start-1 xl:col-start-2 col-span-2 md:col-span-6 xl:col-span-10 group flex flex-row h-[80vh] md:h-[80vh] max-h-[240px] md:max-h-[340px] xl:max-h-[546px] overflow-visible gap-1 md:gap-3 xl:gap-5" aria-label="<?php esc_attr_e('Highlight menu', 'ambassador'); ?>"
       >
         <?php while ( have_rows('hover_menu') ) : the_row();
-          $image_id = (int) get_sub_field('image');
-          $title    = (string) get_sub_field('title');
-          $desc     = (string) get_sub_field('description');
+          $image_id = get_sub_field('image');
+          $title    = get_sub_field('title');
+          $desc     = get_sub_field('description');
           $link     = get_sub_field('link');
           $href     = (is_array($link) && !empty($link['url'])) ? esc_url($link['url']) : '#';
           $target   = (is_array($link) && !empty($link['target'])) ? ' target="'.esc_attr($link['target']).'" rel="noopener"' : '';
@@ -25,7 +25,6 @@
                     array(
                       'class'         => 'absolute inset-0 w-full h-full object-cover origin-bottom',
                       'alt'           => $alt,
-                      'loading'       => 'lazy',
                     )
                   );
                 }
@@ -45,7 +44,6 @@
                   array(
                     'class'         => 'w-full h-10 object-contain',
                     'alt'           => $icon_alt ? esc_attr($icon_alt) : '',
-                    'loading'       => 'lazy',
                   )
                 );
               }

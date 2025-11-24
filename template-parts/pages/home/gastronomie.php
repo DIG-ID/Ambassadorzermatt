@@ -29,8 +29,8 @@
       <div class="col-start-1 xl:col-start-2 col-span-2 md:col-span-6 xl:col-span-10 group flex flex-row h-[80vh] md:h-[70vh] max-h-[264px] md:max-h-[340px] xl:max-h-[546px] overflow-visible gap-[20px]" aria-label="<?php esc_attr_e('Highlight menu', 'ambassador'); ?>"
       >
         <?php while ( have_rows('hover_gastronomie') ) : the_row();
-          $image_id = (int) get_sub_field('image');
-          $desc     = (string) get_sub_field('text');
+          $image_id = get_sub_field('image');
+          $desc     = get_sub_field('text');
           $alt_meta = $image_id ? get_post_meta($image_id, '_wp_attachment_image_alt', true) : '';
           $alt      = $alt_meta ? esc_attr($alt_meta) : esc_attr($title);
         ?>
@@ -43,7 +43,6 @@
                     array(
                       'class'         => 'absolute inset-0 w-full h-full object-cover origin-bottom',
                       'alt'           => $alt,
-                      'loading'       => 'lazy',
                     )
                   );
                 }
