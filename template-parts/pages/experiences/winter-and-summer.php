@@ -22,7 +22,7 @@
 				</div>
 			</div>
 			<div class="summer-image order-3 xl:order-4 mb-11 mb:mb-16 xl:mb-0">
-				<figure class="relative overflow-hidden">
+				<figure class="relative overflow-hidden xl:mr-6">
 					<?php
 					$summer_image = get_field( 'winter_and_summer_summer_image' );
 					if ( $summer_image ) :

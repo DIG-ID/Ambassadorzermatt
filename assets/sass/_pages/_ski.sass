@@ -1,0 +1,24 @@
+.section-storage-and-rental
+  .storage-and-rental-content
+    @screen xl
+      @apply gap-5
+      grid-template-columns: repeat(2, 1fr)
+      grid-template-rows: 1fr 420px 1fr
+      grid-template-areas: "storage-image storage-content" "empty empty2" "rental-content rental-image"
+      gap: 2rem
+      .storage-content
+        grid-area: storage-content
+        align-self: start
+      .storage-image
+        grid-area: storage-image
+        grid-row-start: storage-image-start
+        grid-row-end: empty-end
+        align-self: start
+      .rental-content
+        grid-area: rental-content
+        align-self: start
+      .rental-image
+        grid-area: rental-image
+        grid-row-start: empty2-start
+        grid-row-end: rental-image-end
+        align-self: start

@@ -10,7 +10,7 @@
 				?>
 			</figure>
 		</div>
-		<div class="col-span-2 md:col-span-5 xl:col-span-5">
+		<div class="col-span-2 md:col-span-4 xl:col-span-5">
 			<h2 class="title-main text-Dark mb-5 md:mb-8"><?php the_field( 'slopes_title' ); ?></h2>
 			<p class="font-noto body text-Dark"><?php the_field( 'slopes_description' ); ?></p>
 		</div>

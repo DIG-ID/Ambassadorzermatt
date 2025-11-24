@@ -19,15 +19,9 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       }
       
-      // Only on single (room) pages
+      // Only on experience biking page
       if (document.body.classList.contains("page-template-page-experience-biking")) {
-        console.log("JS biking: condição body OK");
-        Fancybox.bind('[data-fancybox="biker-gallery"]', {
-          // optional config
-          //groupAll: true,        // in case there are multiple containers
-          //hideScrollbar: false,
-          // You can add more options here if needed
-        });
+        Fancybox.bind('[data-fancybox="biker-gallery"]', {});
         const zoomBtn = document.querySelector(".trails-zoom-trigger");
 
         if (zoomBtn) {
