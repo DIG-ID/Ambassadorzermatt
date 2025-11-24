@@ -3,7 +3,7 @@
 		<div class="storage-and-rental-content grid col-span-2 md:col-span-6 xl:col-span-12 gap-x-5">
 
 			<div class="storage-image mb-24 md:mb-16 xl:mb-0 order-2 xl:order-1">
-				<figure class="relative overflow-hidden xl:mr-10">
+				<figure class="relative overflow-hidden">
 					<?php
 					$storage_image = get_field( 'storage_and_rental_storage_image' );
 					if ( $storage_image ) :
