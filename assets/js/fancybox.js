@@ -7,11 +7,11 @@ document.addEventListener("DOMContentLoaded", () => {
     "load",
     () => {
       // Only on single (room) pages
-      if (document.body.classList.contains("single")) {
-        Fancybox.bind('[data-fancybox="room-gallery"]', {
+      if (document.body.classList.contains("page-template-page-experience-biking")) {
+        Fancybox.bind('[data-fancybox="biker-gallery"]', {
           // optional config
-          groupAll: true,        // in case there are multiple containers
-          hideScrollbar: false,
+          //groupAll: true,        // in case there are multiple containers
+          //hideScrollbar: false,
           // You can add more options here if needed
         });
       }

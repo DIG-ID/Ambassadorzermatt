@@ -10,6 +10,10 @@ if ( have_posts() ) :
 		do_action( 'before_main_content' );
 			get_template_part( 'template-parts/modules/section', 'hero' );
 			get_template_part( 'template-parts/modules/section', 'intro' );
+			get_template_part( 'template-parts/pages/experiences/skiing/slopes' );
+			get_template_part( 'template-parts/pages/experiences/skiing/unique-experience' );
+			get_template_part( 'template-parts/pages/experiences/skiing/storage-and-rental' );
+			get_template_part( 'template-parts/modules/section', 'outro' );
 		do_action( 'after_main_content' );
 	endwhile;
 endif;
