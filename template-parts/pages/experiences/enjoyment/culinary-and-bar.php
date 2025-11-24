@@ -11,20 +11,20 @@
 			</figure>
 		</div>
 		<div class="col-span-2 md:col-span-6 xl:col-span-5 order-1 xl:order-2">
-			<h2 class="title-main text-DarkGray mb-5 md:mb-8 xl:max-w-[443px]"><?php the_field( 'culinary_title' ); ?></h2>
+			<h2 class="title-main text-Dark mb-5 md:mb-8 xl:max-w-[443px]"><?php the_field( 'culinary_title' ); ?></h2>
 			<div class="theme-grid">
 				<div class="col-span-2 md:col-span-4 xl:col-span-12">
-					<p class="font-noto body text-DarkGray mb-10 md:mb-16 xl:mb-0"><?php the_field( 'culinary_description' ); ?></p>
+					<p class="font-noto body text-Dark mb-10 md:mb-16 xl:mb-0"><?php the_field( 'culinary_description' ); ?></p>
 				</div>
 			</div>
 		</div>
 	</div>
 	<div class="theme-container theme-grid">
 		<div class="col-span-2 md:col-span-6 xl:col-span-5">
-			<h2 class="title-main text-DarkGray mb-5 md:mb-8 xl:max-w-[300px]"><?php the_field( 'bar_title' ); ?></h2>
+			<h2 class="title-main text-Dark mb-5 md:mb-8 xl:max-w-[300px]"><?php the_field( 'bar_title' ); ?></h2>
 			<div class="theme-grid">
 				<div class="col-span-2 md:col-span-4 xl:col-span-12">
-					<p class="font-noto body text-DarkGray mb-10 md:mb-16 xl:mb-0"><?php the_field( 'bar_description' ); ?></p>
+					<p class="font-noto body text-Dark mb-10 md:mb-16 xl:mb-0"><?php the_field( 'bar_description' ); ?></p>
 				</div>
 			</div>
 		</div>

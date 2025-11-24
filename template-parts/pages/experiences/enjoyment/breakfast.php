@@ -11,10 +11,10 @@
 			</figure>
 		</div>
 		<div class="col-span-2 md:col-span-6 xl:col-span-5 order-1 xl:order-2">
-			<h2 class="title-main text-DarkGray mb-5 md:mb-8 xl:max-w-[300px]"><?php the_field( 'breakfast_title' ); ?></h2>
+			<h2 class="title-main text-Dark mb-5 md:mb-8 xl:max-w-[300px]"><?php the_field( 'breakfast_title' ); ?></h2>
 			<div class="theme-grid">
 				<div class="col-span-2 md:col-span-4 xl:col-span-12">
-					<p class="font-noto body text-DarkGray mb-10 md:mb-16 xl:mb-0"><?php the_field( 'breakfast_description' ); ?></p>
+					<p class="font-noto body text-Dark mb-10 md:mb-16 xl:mb-0"><?php the_field( 'breakfast_description' ); ?></p>
 				</div>
 			</div>
 		</div>
