@@ -1,5 +1,27 @@
+body
+    height: auto
+
 .theme-container
   @apply px-6 md:px-16 xl:px-0 mx-auto w-full xl:max-w-[1360px]
 
 .theme-grid
   @apply grid grid-cols-2 md:grid-cols-6 xl:grid-cols-12 gap-x-5
+
+/* Reusable animated underline utility */
+.link-underline-anim
+  position: relative
+  display: inline-block
+  &::before
+    content: ""
+    position: absolute
+    left: 0
+    bottom: 0.25em
+    width: 100%
+    height: 1px
+    background-color: currentColor
+    transform: scaleX(0)
+    transform-origin: left center
+    transition: transform 250ms ease-out
+  &:hover::before,
+  &:focus-visible::before
+    transform: scaleX(1)

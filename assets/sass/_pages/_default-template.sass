@@ -1,0 +1,22 @@
+.default-content-wrapper
+  h2
+    @apply font-inria text-[1.875rem] md:text-[3.75rem] font-normal italic leading-[2.5rem] md:leading-[4.6875rem] tracking-[0.03125rem] text-Dark
+  p
+    @apply text-Dark pt-5 pb-10 md:pt-8 md:pb-16
+  a
+    position: relative
+    display: inline-block
+    &::before
+      content: ""
+      position: absolute
+      left: 0
+      bottom: 0.25em
+      width: 100%
+      height: 1px
+      background-color: currentColor
+      transform: scaleX(0)
+      transform-origin: left center
+      transition: transform 250ms ease-out
+    &:hover::before,
+    &:focus-visible::before
+      transform: scaleX(1)
