@@ -1,12 +1,28 @@
 footer
-    .footer-hotel-menu, .footer-gastronomie-menu, .footer-zermatt-erleben-menu
-        li.menu-item
-            @apply title-footer 
-        .sub-menu
-            @apply pt-10
-            li.menu-item
-                @apply footer-body
-    .uber-uns-hotel-menu
-        @apply title-footer pt-1
-    .footer-copyright-menu
-        @apply flex flex-wrap items-center justify-between gap-[16.65rem]
+  .footer-hotel-menu,
+  .footer-gastronomie-menu,
+  .footer-zermatt-erleben-menu,
+  .uber-uns-hotel-menu,
+  .footer-kontakt,
+  .footer-newsletter,
+  .footer-address,
+  .footer-logo
+    @apply mb-8 md:mb-16 xl:mb-20
+  .footer-newsletter
+    @apply md:mb-24 xl:mb-0
+  .footer-hotel-menu, .footer-gastronomie-menu, .footer-zermatt-erleben-menu
+    li.menu-item
+      @apply title-footer
+    li.menu-item-has-children
+      @apply flex md:block
+      a
+        @apply w-32 md:w-auto
+    .sub-menu
+      @apply md:pt-9 xl:pt-11
+      li.menu-item
+        @apply footer-body
+  .uber-uns-hotel-menu
+    @apply title-footer pt-1 flex flex-col gap-6 md:block md:gap-0
+    li.menu-item
+  .footer-copyright-menu
+    @apply flex items-center gap-6  xl:gap-12
