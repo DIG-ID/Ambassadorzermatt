@@ -4,7 +4,7 @@
       <div class="col-span-2 md:col-span-6 xl:col-span-10">
         <h1 class="font-inria text-[3.125rem] md:text-[5rem] xl:text-[5.625rem] font-normal xl:font-light italic xl:not-italic leading-[2.5rem] md:leading-[5.9375rem] xl:leading-[6.25rem] tracking-[0.03125rem] mb-14 md:mb-24"><?php the_title(); ?></h1>
       </div>
-			<div class="col-span-2 md:col-span-6 xl:col-span-10">
+			<div class="col-span-2 md:col-span-6 xl:col-span-7">
 				<div class="default-content-wrapper">
 					<?php the_content(); ?>
 				</div>
