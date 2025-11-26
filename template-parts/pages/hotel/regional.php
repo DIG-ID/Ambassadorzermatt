@@ -40,10 +40,10 @@
                     ?>
             </div>
             <div class="col-start-1 col-span-2 md:col-start-2 md:col-span-4 xl:col-start-8 xl:col-span-5 order-2 xl:order-none">
-                <div class="title-main text-Brown pt-[2.47rem] md:pt-[3.75rem] xl:pt-[6.5rem]">
+                <div class="title-main text-LightGray pt-[2.47rem] md:pt-[3.75rem] xl:pt-[6.5rem]">
                     <h1><?php the_field( 'regional_title' ); ?></h1>
                 </div>
-                <div class="body text-Brown pt-[1.25rem] md:pt-[1.87rem]">
+                <div class="body text-LightGray pt-[1.25rem] md:pt-[1.87rem]">
                     <p><?php the_field( 'regional_text' ); ?></p>
                 </div>
                 <?php
