@@ -44,10 +44,10 @@
             transform: rotate(0deg)
             transform-origin: center
         &:hover > a::after
-          @apply rotate-45
+          @apply rotate-90
         > a.is-active::after,
         > a[aria-expanded="true"]::after
-          @apply rotate-45
+          @apply rotate-90
 
 .sub-menu-col
   @apply relative
@@ -57,7 +57,7 @@
       @apply font-inria text-[1.125rem] md:text-[1.5625rem] font-normal leading-7 md:leading-[2.34375rem] tracking-[-0.02969rem]
 
       &:not(:last-child)
-        @apply mb-14
+        @apply mb-6
 
       a
         position: relative

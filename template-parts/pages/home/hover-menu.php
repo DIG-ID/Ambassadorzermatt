@@ -1,4 +1,4 @@
-<section id="hover-menu" class="hover-menu bg-White pb-[6.25rem] md:pb-[6.25rem] xl:pb-[9.38rem]">
+<section id="hover-menu" class="hover-menu bg-White pb-[6.25rem] md:pb-[6.25rem] xl:pb-[9.38rem] pt-20">
   <div class="theme-container">
     <div class="theme-grid">
     <?php if ( have_rows('hover_menu') ) : ?>
