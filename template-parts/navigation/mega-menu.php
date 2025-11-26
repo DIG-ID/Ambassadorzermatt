@@ -1,5 +1,45 @@
 <div id="menu-offcanvas" class="menu-offcanvas" aria-hidden="true" inert>
-  <nav id="mega-menu-nav" class="primary-nav theme-container theme-grid mb-12 md:mb-32 xl:mb-[74px] mt-32 md:mt-44 xl:mt-40 2xl:mt-44 overflow-visible" aria-label="<?php esc_attr_e( 'Main Menu', 'ambassador' ); ?>" role="navigation">
+
+  <!-- Mega menu header (customizable) -->
+  <header id="header-mega" class="header-main w-full relative z-[60] overflow-visible bg-White transition-opacity duration-700 ease-in-out border-b border-Brown" itemscope itemtype="http://schema.org/WebSite">
+    <div class="theme-container">
+      <div class="grid grid-cols-3">
+        <div class="col-span-1 flex items-center justify-start">
+          <!-- language selector mobile -->
+          <div class="language-selector flex xl:hidden items-center py-3 md:py-5 xl:pt-[1px]">
+            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/Ambassador-Zermatt-globe.svg"
+                  class="mr-2" alt="Language Selector Globe Icon" title="Language Selector Globe Icon" />
+            <?php do_action('wpml_add_language_selector'); ?>
+          </div>
+        </div>
+
+        <div class="col-span-1 flex items-center justify-center">
+          <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="header-logo max-w-36 md:max-w-56 xl:max-w-60 transition-all duration-500 ease-in-out" itemprop="url">
+            <?php do_action( 'theme_logo' ); ?>
+          </a>
+        </div>
+
+        <div class="col-span-1 flex items-center justify-end pt-[37px] pb-[37px]">
+          <div class="language-selector hidden xl:flex flex-row items-center mr-16">
+            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/Ambassador-Zermatt-globe.svg" class="mr-3" alt="Language Selector Globe Icon" title="Language Selector Globe Icon" />
+            <?php do_action('wpml_add_language_selector'); ?>
+          </div>
+          <div class="menu-toggle">
+            <button class="menu-toggle__button !outline-none" aria-label="Menu Toggle" aria-controls="menu-offcanvas" aria-expanded="false">
+              <span class="menu-toggle__bars">
+                <span class="menu-toggle__bar menu-toggle__bar--top"></span>
+                <span class="menu-toggle__bar menu-toggle__bar--middle"></span>
+                <span class="menu-toggle__bar menu-toggle__bar--bottom"></span>
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mega menu content -->
+  <nav id="mega-menu-nav" class="primary-nav theme-container theme-grid mb-16 md:mb-32 xl:mb-[74px] mt-16 md:mt-20 xl:mt-14 2xl:mt-16 overflow-visible" aria-label="<?php esc_attr_e( 'Main Menu', 'ambassador' ); ?>" role="navigation">
     
     <!-- Left column: top-level only -->
     <div class="main-menu-col col-span-2 md:col-span-6 xl:col-span-6" data-menu-col>
@@ -31,7 +71,7 @@
     <div class="col-span-2 xl:col-span-3 overflow-visible hidden xl:block" data-menu-col>
       <div class="relative h-full flex justify-start overflow-visible">
         <?php
-        // Collect up to 5 images from options: menu_item_1 ... menu_item_5
+        // Collect up to 6 images from options: menu_item_1 ... menu_item_6
         $menu_images = array();
         for ( $i = 1; $i <= 6; $i++ ) {
           $img_id = get_field( "menu_item_{$i}", 'option' );
@@ -80,7 +120,7 @@
                   'absolute', 'inset-0',
                   $is_first ? 'is-visible' : '',
                 ) ),
-                'data-photo-index' => $index,      // 0-based index
+                'data-photo-index' => $index,
                 'aria-hidden'       => $is_first ? 'false' : 'true',
               )
             );
@@ -91,7 +131,9 @@
     </div>
 
   </nav>
+
   <hr class="border-t border-Brown">
+
   <div class="theme-container theme-grid mb-16 md:mb-0">
     <div class="col-span-12 flex flex-col md:flex-row justify-center items-center md:justify-between md:items-center py-6 md:pt-9 text-Brown gap-y-4">
       <div class="flex flex-col md:flex-row items-center justify-around w-full gap-y-10 md:gap-y-0">

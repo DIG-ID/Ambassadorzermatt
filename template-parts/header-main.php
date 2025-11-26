@@ -1,4 +1,4 @@
-<header id="header-main" class="header-main w-full relative z-50 overflow-visible bg-White transition-opacity duration-700 ease-in-out" itemscope itemtype="http://schema.org/WebSite">
+<header id="header-main" class="header-main w-full relative z-40 overflow-visible bg-White transition-opacity duration-700 ease-in-out" itemscope itemtype="http://schema.org/WebSite">
   <div class="theme-container">
     <div class="grid grid-cols-3">
       <div class="col-span-1 flex items-center justify-start">
@@ -51,7 +51,7 @@
 
 <div id="sticky-trigger" class="h-0"></div>
 
-<header id="header-sticky" style="--slide-offset: 2.5rem;transition-duration: 1500ms;" class="fixed top-0 left-0 right-0 z-[60]
+<header id="header-sticky" style="--slide-offset: 2.5rem;transition-duration: 1500ms;" class="fixed top-0 left-0 right-0 z-40
          -translate-y-[calc(100%+var(--slide-offset))]
          data-[active=true]:translate-y-0
          transition-transform ease-in-out
