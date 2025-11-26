@@ -32,6 +32,14 @@
       &:hover a::before,
       a:focus-visible::before
         transform: scaleX(1)
+
+      // ACTIVE STATE (current page / ancestor)
+      &.current-menu-item a::before,
+      &.current-menu-ancestor a::before,
+      &.current_page_item a::before,
+      &.current_page_ancestor a::before
+        transform: scaleX(1)
+
       &.menu-item-has-children
         > a
           &::before

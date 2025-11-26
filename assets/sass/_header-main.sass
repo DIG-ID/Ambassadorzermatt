@@ -22,6 +22,11 @@
         &:hover > a::before,
         > a:focus-visible::before
           transform: scaleX(1)
+        &.current-menu-item > a::before,
+        &.current-menu-ancestor > a::before,
+        &.current_page_item > a::before,
+        &.current_page_ancestor > a::before
+          transform: scaleX(1)
 
 .header-main
   .primary-nav
