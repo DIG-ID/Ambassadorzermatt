@@ -1,4 +1,4 @@
-<section id="bar" class="bar bg-LightGray pt-[2.47rem] pb-[2.84rem] md:pt-[6.22rem] md:pb-[6.25rem] xl:pt-[4.56rem] xl:pb-[9.38rem]">
+<section id="bar" class="bar bg-LightGray pt-[2.47rem] pb-[2.84rem] md:pt-[6.22rem] md:pb-[6.25rem] xl:pt-[9.38rem] xl:pb-[9.38rem]">
     <div class="theme-container">
         <div class="theme-grid">
             <!-- Overtitle + Title  -->
