@@ -7,7 +7,7 @@ if ( $bg_image_id ) {
 }
 ?>
 
-<section id="section-erlebnisse" class="section-erlebnisse bg-LightGray py-11 md:pt-11 md:pb-16 xl:pt-16 xl:pb-36" <?php if ( $bg_image_url ) : ?> style="background-image: url('<?php echo esc_url( $bg_image_url ); ?>'); background-repeat:no-repeat; background-size:cover; background-position:center;" <?php endif; ?> >
+<section id="section-erlebnisse" class="section-erlebnisse bg-LightGray py-11 md:pt-11 md:pb-16 xl:pt-16 xl:pb-36" <?php if ( $bg_image_url ) : ?> style="background-image: url('<?php echo esc_url( $bg_image_url ); ?>'); background-repeat:no-repeat; background-size:cover; background-position:center top;" <?php endif; ?> >
   <div class="theme-container">
     <div class="theme-grid">
       <div class="col-span-2 md:col-span-6 xl:col-span-12">
