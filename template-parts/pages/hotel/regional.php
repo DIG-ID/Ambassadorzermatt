@@ -43,7 +43,7 @@
                 <div class="title-main text-LightGray pt-[2.47rem] md:pt-[3.75rem] xl:pt-[6.5rem]">
                     <h1><?php the_field( 'regional_title' ); ?></h1>
                 </div>
-                <div class="body text-LightGray pt-[1.25rem] md:pt-[1.87rem]">
+                <div class="body text-LightGray pt-[1.25rem] md:pt-[1.87rem] xl:max-w-[32rem]">
                     <p><?php the_field( 'regional_text' ); ?></p>
                 </div>
                 <?php
