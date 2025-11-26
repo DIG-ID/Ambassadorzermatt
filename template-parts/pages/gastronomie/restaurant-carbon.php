@@ -42,13 +42,13 @@
                     ?>
             </div>
             <div class="col-start-1 col-span-2 md:col-start-3 md:col-span-4 xl:col-start-5 xl:col-span-5 order-2 md:order-none">
-                <div class="title-secondary text-Brown pt-[2.5rem] md:pt-[2.78rem] xl:pt-[3.63rem]">
+                <div class="title-secondary text-White pt-[2.5rem] md:pt-[2.78rem] xl:pt-[3.63rem]">
                     <p><?php the_field( 'restaurant_carbon_overtitle' ); ?></p>
                 </div>
-                <div class="title-main text-Brown pt-[1.25rem] md:pt-[1.88rem] xl:pt-[1.87rem]">
+                <div class="title-main text-White pt-[1.25rem] md:pt-[1.88rem] xl:pt-[1.87rem]">
                     <h1><?php the_field( 'restaurant_carbon_title' ); ?></h1>
                 </div>
-                <div class="body text-Brown pt-[1.25rem] md:pt-[1.88rem] xl:pt-[1.87rem]">
+                <div class="body text-White pt-[1.25rem] md:pt-[1.88rem] xl:pt-[1.87rem]">
                     <p><?php the_field( 'restaurant_carbon_text' ); ?></p>
                 </div>
                 <?php
