@@ -120,7 +120,7 @@
 
 	<!-- Copyright menu -->
 	<div class="theme-container">
-		<div class="flex flex-col justify-center xl:flex-row xl:justify-between items-center gap-y-4 xl:gap-y-0 pb-32 xl:pb-40">
+		<div class="flex flex-col justify-center xl:flex-row xl:justify-between items-center gap-y-4 xl:gap-y-0 pb-8 xl:pb-8">
 
 			<!-- Copyright text -->
 			<p class="footer-small text-LightGray order-2 xl:order-1 text-center xl:text-end"><?php esc_html_e( '2025 © Hotel Ambassador Zermatt. All rights reserved', 'ambassador' ); ?></p>
