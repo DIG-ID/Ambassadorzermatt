@@ -31,7 +31,7 @@
           }
 
           ?>
-          <li class="col-span-6 mb-16 md:mb-20 xl:mb-16">
+          <li class="col-span-6 mb-16 md:mb-20 xl:mb-32">
             <article id="experience-<?php the_ID(); ?>" <?php post_class( 'card card__experience' ); ?>>
               <header class="card-header mb-5 md:mb-8">
                 <?php
