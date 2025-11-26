@@ -11,9 +11,9 @@
                 <h1><?php the_title(); ?></h1>
               </div>
             </div>
-            <div class="col-start-1 col-span-2 md:col-start-1 md:col-span-4 xl:col-start-7 xl:col-span-4">
-                <div class="body text-Brown pt-[1.25rem] md:pt-[1.88rem] xl:pt-0">
-                    <p class="mb-8"><?php the_field( 'hero_intro_text' ); ?></p>
+            <div class="col-start-1 col-span-2 md:col-start-1 md:col-span-4 xl:col-start-7 xl:col-span-5">
+                <div class="body text-Brown pt-[1.25rem] md:pt-[1.88rem] xl:pt-0 grid grid-cols-2 md:grid-cols-4 xl:grid-cols-5 gap-x-5">
+                    <p class="mb-8 col-span-2 md:col-span-4 xl:col-span-4"><?php the_field( 'hero_intro_text' ); ?></p>
                     <?php
                       /*$link = get_field('hero_intro_button');
                       if ($link):
@@ -21,7 +21,7 @@
                       $link_title = $link['title'];
                       $link_target = $link['target'] ? $link['target'] : '_self';*/
                     ?>
-                    <a href="<?php the_field( 'general_booking_url', 'option' ); ?>" target="_blank" class="btn btn-primary-brown mb-0">
+                    <a href="<?php the_field( 'general_booking_url', 'option' ); ?>" target="_blank" class="btn btn-primary-brown mb-0 col-span-2 md:col-span-4 xl:col-span-5">
                       <?php echo esc_html_e('Jetzt buchen','ambassador'); ?>
                     </a>
                     <?php /*endif;*/ ?>
