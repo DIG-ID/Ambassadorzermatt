@@ -27,7 +27,7 @@
 			<!-- Address -->
 			<div class="footer-address col-span-2 md:col-span-2 xl:col-start-5 xl:col-span-3 order-4 md:order-3 xl:order-none">
 				<div class="flex md:block">
-					<p class="title-footer md:pb-9 xl:pb-11 w-32 md:w-auto"><?php esc_html_e( 'Address', 'ambassador' ); ?></p>
+					<p class="title-footer md:pb-4 xl:pb-8 w-32 md:w-auto"><?php esc_html_e( 'Address', 'ambassador' ); ?></p>
 					<p class="footer-body"><?php the_field( 'general_address', 'option' ); ?></p>
 				</div>
 			</div>
@@ -71,7 +71,7 @@
 			<!-- Kontakt -->
 			<div class="footer-kontakt col-span-2 md:col-start-1 md:col-span-2 xl:col-start-5 xl:col-span-3 order-3 md:order-6 xl:order-none">
 				<div class="flex md:block">
-					<p class="title-footer md:pb-9 xl:pb-11 w-32 min-w-32 md:w-auto md:min-w-max"><?php esc_html_e( 'Kontakt', 'ambassador' ); ?></p>
+					<p class="title-footer md:pb-4 xl:pb-8 w-32 min-w-32 md:w-auto md:min-w-max"><?php esc_html_e( 'Kontakt', 'ambassador' ); ?></p>
 					<span>
 						<p class="footer-body break-words"><?php the_field( 'general_phone', 'option' ); ?></p>
 						<p class="footer-body break-all"><?php the_field( 'general_e-mail', 'option' ); ?></p>
