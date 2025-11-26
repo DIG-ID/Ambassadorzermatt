@@ -1,4 +1,4 @@
-<section id="restaurant-carbon" class="restaurant-carbon relative w-full bg-Dark pt-[3.63rem] pb-[3.56rem] md:pt-[4.75rem] md:pb-[4.85rem] xl:pt-[6.63rem] xl:pb-[8.36rem]">
+<section id="restaurant-carbon" class="restaurant-carbon overflow-hidden relative w-full bg-Dark pt-[3.63rem] pb-[3.56rem] md:pt-[4.75rem] md:pb-[4.85rem] xl:pt-[6.63rem] xl:pb-[8.36rem]">
     <div class="theme-container">
         <div class="theme-grid">
             <div class="col-start-1 col-span-2 md:col-span-2 xl:col-span-3 md:pt-[19.5rem] xl:pt-[20.06rem] block relative h-full order-3 md:order-none">
