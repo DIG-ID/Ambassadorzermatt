@@ -43,7 +43,7 @@
                     'full',
                     false,
                     array(
-                      'class' => 'mb-8 max-h-[825px] w-full object-cover xl:object-center min-h-[400px] md:min-h-none md:max-h-none xl:min-h-[825px] xl:max-h-[825px]',
+                      'class' => 'mb-8 max-h-[700px] w-full object-cover xl:object-center min-h-[400px] md:min-h-none md:max-h-none xl:min-h-[700px] xl:max-h-[700px]',
                     )
                   );
                   echo '</a>';
