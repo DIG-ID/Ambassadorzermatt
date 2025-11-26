@@ -17,7 +17,7 @@
 						<header class="card-header mb-5 md:mb-8">
 							<?php
 							if ( has_post_thumbnail() ) :
-								?><a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'full', array( 'class' => 'mb-8 max-h-[825px] w-full object-cover' ) ); ?></a><?php
+								?><a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'full', array( 'class' => 'mb-8 max-h-[650px] w-full object-cover' ) ); ?></a><?php
 							endif;
 							?>
 							<a href="<?php the_permalink(); ?>"><h3 class="title-main text-LightGray"><?php the_title(); ?></h3></a>
