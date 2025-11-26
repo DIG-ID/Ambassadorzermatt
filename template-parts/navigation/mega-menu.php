@@ -71,41 +71,37 @@
     <div class="col-span-2 xl:col-span-3 overflow-visible hidden xl:block" data-menu-col>
       <div class="relative h-full flex justify-start overflow-visible">
         <?php
-        // Collect up to 6 images from options: menu_item_1 ... menu_item_6
+        /**
+         * Build image list from ACF field on ALL menu items
+         * Field name: 'image'  (change if needed)
+         */
         $menu_images = array();
-        for ( $i = 1; $i <= 6; $i++ ) {
-          $img_id = get_field( "menu_item_{$i}", 'option' );
-          if ( $img_id ) {
-            $menu_images[] = $img_id;
+
+        $locations = get_nav_menu_locations();
+        if ( ! empty( $locations['main-mega-menu'] ) ) {
+          $menu_id    = $locations['main-mega-menu'];
+          $menu_items = wp_get_nav_menu_items( $menu_id );
+
+          if ( $menu_items ) {
+            foreach ( $menu_items as $item ) {
+              $img_id = get_field( 'image', $item ); // ACF on menu item
+
+              if ( $img_id ) {
+                $menu_images[] = array(
+                  'img_id'       => $img_id,
+                  'menu_item_id' => $item->ID,
+                );
+              }
+            }
           }
         }
 
-        // Fallback to old single image if needed
-        if ( empty( $menu_images ) ) {
-          $mega_menu_image = get_field( 'mega_menu_image', 'option' );
-          if ( $mega_menu_image ) {
-            echo wp_get_attachment_image(
-              $mega_menu_image,
-              'full',
-              false,
-              array(
-                'class' => implode( ' ', array(
-                  'mega-menu-photo',
-                  'mega-menu-photo--single',
-                  'block', 'max-w-full', 'h-full', 'object-cover', 'select-none',
-                  '2xl:w-auto', '2xl:object-contain',
-                  '2xl:max-w-[min(85vw,460px)]',
-                  '2xl:max-h-[calc(100vh-6rem)]',
-                  'is-visible',
-                ) ),
-                'aria-hidden' => 'false',
-              )
-            );
-          }
-        } else {
-          // Output one <img> per menu item, stacked; first is visible by default
-          foreach ( $menu_images as $index => $img_id ) {
-            $is_first = ( $index === 0 );
+        if ( ! empty( $menu_images ) ) {
+          foreach ( $menu_images as $index => $entry ) {
+            $img_id       = $entry['img_id'];
+            $menu_item_id = $entry['menu_item_id'];
+            $is_first     = ( $index === 0 );
+
             echo wp_get_attachment_image(
               $img_id,
               'full',
@@ -120,7 +116,7 @@
                   'absolute', 'inset-0',
                   $is_first ? 'is-visible' : '',
                 ) ),
-                'data-photo-index' => $index,
+                'data-menu-item-id' => $menu_item_id,
                 'aria-hidden'       => $is_first ? 'false' : 'true',
               )
             );
@@ -129,6 +125,8 @@
         ?>
       </div>
     </div>
+
+
 
   </nav>
 

@@ -12,8 +12,11 @@ class Ambassador_Top_Level_Walker extends Walker_Nav_Menu {
     if ( $depth > 0 ) return; // only top level
 
     $has_children = in_array('menu-item-has-children', (array) $item->classes, true);
-    $atts = '';
-    // We’ll use this in JS to map to the right panel
+
+    // always add data-menu-item-id
+    $atts = ' data-menu-item-id="' . esc_attr( $item->ID ) . '"';
+
+    // extra attributes only if it has children
     if ( $has_children ) {
       $atts .= ' data-parent-id="' . esc_attr( $item->ID ) . '" aria-haspopup="true" aria-expanded="false"';
       $atts .= ' aria-controls="submenu-panel-' . esc_attr( $item->ID ) . '"';
@@ -58,7 +61,13 @@ function ambassador_render_megamenu_panels( $theme_location ) {
     foreach ( $children as $child ) {
       $target = $child->target ? ' target="'. esc_attr($child->target) . '"' : '';
       $rel    = $child->xfn ? ' rel="'. esc_attr($child->xfn) . '"' : '';
-      echo '<li class="submenu-item"><a class="submenu-link" href="' . esc_url($child->url) . '"' . $target . $rel . '>' . esc_html($child->title) . '</a></li>';
+      echo '<li class="submenu-item">
+        <a class="submenu-link"
+           href="' . esc_url($child->url) . '"
+           data-menu-item-id="' . esc_attr( $child->ID ) . '"' . $target . $rel . '>'
+           . esc_html($child->title) .
+        '</a>
+      </li>';
     }
     echo '</ul>';
   }

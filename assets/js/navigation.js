@@ -166,6 +166,13 @@ function ambassadorBindMegaPanels() {
   const photos    = Array.from(root.querySelectorAll('.mega-menu-photo')); // NEW
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // Map menu-item-id -> <img>
+  const photosByMenuId = new Map();
+  photos.forEach(img => {
+    const mid = img.dataset.menuItemId;
+    if (mid) photosByMenuId.set(String(mid), img);
+  });
+
   // --- layout: lock a comfortable height (tallest panel) to prevent jumps ---
   const col = root.querySelector('.sub-menu-col');
   if (col) {
@@ -290,15 +297,16 @@ function ambassadorBindMegaPanels() {
   };
 
   // --- photo helpers (NEW) ---
-  const showPhotoByIndex = (idx) => {
-    if (!photos.length) return;
-    const next = photos[idx] || photos[photos.length - 1];
+  const showPhotoForMenuId = (menuId) => {
+    if (!menuId || !photosByMenuId.size) return;
+    const next = photosByMenuId.get(String(menuId));
     if (!next || next === activePhoto) return;
 
     if (activePhoto) fadeOutPhoto(activePhoto);
     fadeInPhoto(next);
     activePhoto = next;
   };
+
 
 
   const clearUnderline = () => {
@@ -329,10 +337,11 @@ function ambassadorBindMegaPanels() {
     const nextPanel = pid ? panels.find(p => p.dataset.parentId === String(pid)) : null;
 
     // --- swap right-side photo based on link index ---  NEW
-    const linkIndex = mainLinks.indexOf(link);
-    if (linkIndex > -1) {
-      showPhotoByIndex(linkIndex);
+    const menuId = link.dataset.menuItemId;
+    if (menuId) {
+      showPhotoForMenuId(menuId);
     }
+
 
     // show new panel first, then fade out old (prevents “gap”)
     if (nextPanel) {
@@ -354,6 +363,20 @@ function ambassadorBindMegaPanels() {
       hoverTimer = setTimeout(() => activate(link), HOVER_DELAY_MS);
     });
     link.addEventListener('focus', () => activate(link));
+  });
+  
+  // Submenu item hover → change photo too
+  const subLinks = Array.from(
+    root.querySelectorAll('.sub-menu-col .submenu-panel a[data-menu-item-id]')
+  );
+
+  subLinks.forEach(link => {
+    const handle = () => {
+      const menuId = link.dataset.menuItemId;
+      if (menuId) showPhotoForMenuId(menuId);
+    };
+    link.addEventListener('mouseenter', handle);
+    link.addEventListener('focus', handle);
   });
 
   root.addEventListener('mouseleave', () => {
