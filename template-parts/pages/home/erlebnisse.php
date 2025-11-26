@@ -30,7 +30,7 @@ if ( $bg_image_id ) {
               $alt_meta = $image_id ? get_post_meta($image_id, '_wp_attachment_image_alt', true) : '';
               $alt      = $alt_meta ? esc_attr($alt_meta) : esc_attr($title);
             ?>
-              <a href="<?php echo $href; ?>"<?php echo $target; ?> class="group/item col-span-1 relative md:odd:mt-10 md:even:mb-10 flex duration-700 ease-in-out hover:z-10">
+              <a href="<?php echo $link; ?>" class="group/item col-span-1 relative md:odd:mt-10 md:even:mb-10 flex duration-700 ease-in-out hover:z-10">
                 <div class="z-0">
                   <?php
                     if ( $image_id ) {

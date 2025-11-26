@@ -15,8 +15,7 @@
           $alt_meta = $image_id ? get_post_meta($image_id, '_wp_attachment_image_alt', true) : '';
           $alt      = $alt_meta ? esc_attr($alt_meta) : esc_attr($title);
         ?>
-          <a href="<?php echo $href; ?>"<?php echo $target; ?>
-             class="group/item relative flex-1 transition-[flex] duration-700 ease-in-out hover:flex-[2] group-hover:[&:not(:hover)]:flex-[1] hover:z-10">
+          <a href="<?php echo $link; ?>" class="group/item relative flex-1 transition-[flex] duration-700 ease-in-out hover:flex-[2] group-hover:[&:not(:hover)]:flex-[1] hover:z-10">
             <div class="absolute left-0 right-0 bottom-0 top-0 z-0 transition-[top] duration-700 group-hover/item:-top-[40px] will-change-[top]">
               <?php
                 if ( $image_id ) {
