@@ -30,9 +30,11 @@ footer
           transform: scaleX(0)
           transform-origin: left center
           transition: transform 250ms ease-out
-      &:hover > a::before,
-      > a:focus-visible::before
-        transform: scaleX(1)
+        &:hover
+          &::before,
+        &:focus-visible
+          &::before
+            transform: scaleX(1)
     li.menu-item-has-children
       @apply flex md:block
       a
