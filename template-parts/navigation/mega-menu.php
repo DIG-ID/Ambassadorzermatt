@@ -135,8 +135,8 @@
   <div class="theme-container theme-grid mb-16 md:mb-0">
     <div class="col-span-12 flex flex-col md:flex-row justify-center items-center md:justify-between md:items-center py-6 md:pt-9 text-Brown gap-y-4">
       <div class="flex flex-col md:flex-row items-center justify-around w-full gap-y-10 md:gap-y-0">
-        <a href="<?php the_field( 'general_booking_url','option' ); ?>" target="_blank" class="btn btn-primary max-w-60"><?php esc_html_e( 'Jetzt buchen','ambassador' ); ?></a>
-        <a href="<?php the_field( 'general_table_reservation_url','option' ); ?>" target="_blank" class="btn btn-primary max-w-60"><?php esc_html_e( 'Tisch reservieren','ambassador' ); ?></a>
+        <a href="<?php the_field( 'general_booking_url','option' ); ?>" target="_blank" class="btn btn-primary-light max-w-64"><?php esc_html_e( 'Jetzt buchen','ambassador' ); ?></a>
+        <a href="<?php the_field( 'general_table_reservation_url','option' ); ?>" target="_blank" class="btn btn-primary-light max-w-64"><?php esc_html_e( 'Tisch reservieren','ambassador' ); ?></a>
       </div>
     </div>
   </div>
