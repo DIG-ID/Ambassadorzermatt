@@ -101,19 +101,16 @@
     <!-- SECOND GRID: hover cards -->
     <?php if ( have_rows('unsere_kuche_hover') ) : ?>
       <div class="theme-grid">
-        <div
-          class="col-start-1 xl:col-start-2 col-span-2 md:col-span-6 xl:col-span-10 group flex flex-col md:flex-row h-[80vh] md:h-[70vh] max-h-[546px] overflow-visible gap-[20px]"
-          aria-label="<?php esc_attr_e('Highlight menu', 'ambassador'); ?>"
-        >
+        <div class="col-start-1 xl:col-start-2 col-span-2 md:col-span-6 xl:col-span-10 group flex flex-col md:flex-row h-[80vh] md:h-[70vh] max-h-[546px] overflow-visible gap-[20px]" aria-label="<?php esc_attr_e('Highlight menu', 'ambassador'); ?>">
           <?php while ( have_rows('unsere_kuche_hover') ) : the_row();
-            $image_id = (int) get_sub_field('image');
-            $desc     = (string) get_sub_field('text');
+            $image_id = get_sub_field('image');
+            $desc     = get_sub_field('text');
+            $link     = get_sub_field('link');
             $alt_meta = $image_id ? get_post_meta($image_id, '_wp_attachment_image_alt', true) : '';
-            // Avoid using $title (undefined); fall back to image title if alt is empty.
             $fallback_title = $image_id ? get_the_title($image_id) : '';
             $alt = $alt_meta ? esc_attr($alt_meta) : esc_attr($fallback_title);
           ?>
-            <div class="group/item relative flex-1 transition-[flex] duration-700 ease-in-out hover:flex-[2] group-hover:[&:not(:hover)]:flex-[1] hover:z-10">
+            <a <?php if (!empty($link)) : ?> href="<?php echo $link; ?>" target="_blank" <?php endif; ?> class="group/item relative flex-1 transition-[flex] duration-700 ease-in-out hover:flex-[2] group-hover:[&:not(:hover)]:flex-[1] hover:z-10">
               <div class="absolute left-0 right-0 bottom-0 top-0 z-0 transition-[top] duration-700 group-hover/item:-top-[40px] will-change-[top]">
                 <?php
                   if ( $image_id ) {
@@ -131,30 +128,28 @@
                 ?>
 
                 <!-- Dark overlay -->
+                <?php if (!empty($link)) : ?>
                 <span class="dark-overlay pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-700 group-hover/item:opacity-80 z-10"></span>
-
-                <!-- Text + Arrow overlay -->
-                <span class="pointer-events-none absolute inset-0 flex flex-row justify-between items-end opacity-0 transition-opacity duration-700 group-hover/item:opacity-100 z-20 pb-1 md:pb-3">
-
-                <!-- LEFT: Description text -->
-                <span class="pl-5 max-w-[45ch] min-w-[45ch] text-left text-white opacity-0 translate-y-2 transition-all duration-700 group-hover/item:opacity-100 group-hover/item:translate-y-0">
+                <?php endif; ?>
+                
+                <!-- Text overlay (bottom, fades in on hover) -->
+                <?php if (!empty($link)) : ?>
+                <span class="pointer-events-none absolute inset-0 flex flex-row justify-between items-end opacity-100 transition-opacity duration-700 group-hover/item:opacity-100 z-20">
+                  <span class="text-White pl-5 opacity-0 translate-y-0 transition-all duration-700 group-hover/item:opacity-100 group-hover/item:translate-y-6 pb-6 md:pb-11">
                     <?php if ( $desc ) : ?>
-                    <span class="block title-secondary text-LightGray">
-                        <?php echo esc_html( $desc ); ?>
-                    </span>
+                      <p class="title-secondary text-LightGray"><?php echo esc_html($desc); ?></p>
                     <?php endif; ?>
-                </span>
-
-                <!-- RIGHT: Arrow icon -->
-                <span class="pr-5 opacity-0 translate-y-2 transition-all duration-700 md:pb-[0.7rem] group-hover/item:opacity-100 group-hover/item:translate-y-0">
+                  </span>
+                  <span class="pr-5 opacity-0 translate-y-0 transition-all duration-700 group-hover/item:opacity-100 group-hover/item:translate-y-6 pb-6 md:pb-12">
                     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="23" viewBox="0 0 25 23" fill="none">
-                    <path d="M0.673828 1H23.6738M23.6738 1V22M23.6738 1L0.673828 22" stroke="#E7E5E5" stroke-width="2"/>
+                      <path d="M0.673828 1H23.6738M23.6738 1V22M23.6738 1L0.673828 22" stroke="#E7E5E5" stroke-width="2"/>
                     </svg>
+                  </span>
                 </span>
+                <?php endif; ?>
 
-                </span>
               </div>
-            </div>
+            </a>
           <?php endwhile; ?>
         </div>
       </div>
