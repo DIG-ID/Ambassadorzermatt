@@ -12,7 +12,7 @@
 .main-menu-col
   .menu-offcanvas__main-mega-menu
     li.menu-item
-      @apply font-inria text-[1.875rem] md:text-6xl italic text-Brown font-normal tracking-[0.03125rem] relative
+      @apply flex font-inria text-[1.875rem] min-h-[46px] md:min-h-[60px] md:text-6xl italic text-Brown font-normal tracking-[0.03125rem] relative
       &:not(:last-child)
         @apply mb-8 md:mb-10
       a
@@ -83,6 +83,30 @@
       &:hover a::before,
       a:focus-visible::before
         transform: scaleX(1)
+
+// Mobile submenu "screen"
+.submenu-mobile
+  @apply fixed inset-0 z-[60] bg-Brown text-White xl:hidden
+  transform: translate3d(100%, 0, 0)
+  transition: transform 300ms ease-out
+  will-change: transform
+  .submenu-panel,
+  [data-empty]
+    @apply relative pointer-events-auto
+    opacity: 0
+    transition: opacity 200ms ease-out
+    li.submenu-item
+        @apply font-noto text-[1.125rem] font-normal leading-[2rem] tracking-[-0.021]
+        &:not(:last-child)
+          @apply mb-12
+  .submenu-panel.is-visible,
+  [data-empty].is-visible
+    opacity: 1
+.menu-offcanvas--submenu-open
+  .submenu-mobile
+    transform: translate3d(0, 0, 0)
+  .main-menu-col
+    @apply opacity-0 pointer-events-none
 
 .menu-open #menu-offcanvas
   pointer-events: auto

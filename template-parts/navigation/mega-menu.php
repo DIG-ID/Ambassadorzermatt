@@ -126,14 +126,42 @@
       </div>
     </div>
 
-
-
   </nav>
+  <!-- Mobile submenu screen -->
+    <div class="submenu-mobile xl:hidden" data-submenu-mobile aria-hidden="true">
+      <div class="submenu-mobile__header border-b border-White flex items-center justify-between px-6 py-7 submenu-mobile__back">
+        <button class="back-arrow w-[35px] h-[33px]">
+          <svg xmlns="http://www.w3.org/2000/svg" width="35" height="33" viewBox="0 0 38 36" fill="none">
+            <path d="M36.5 34.0918L1.5 34.0918M1.5 34.0918L1.5 1.09179M1.5 34.0918L36.5 1.0918" stroke="#E7E5E5" stroke-width="3"/>
+          </svg>
+        </button>
+       
+      </div>
+
+      <div class="submenu-mobile__body px-6 py-8 min-h-[564px]" data-submenu-mobile-body>
+        <?php
+          ambassador_render_megamenu_panels( 'main-mega-menu' );
+        ?>
+        <div class="submenu-empty-state text-sm opacity-70" data-empty hidden>
+          <?php esc_html_e('No sub-items', 'ambassador'); ?>
+        </div>
+      </div>
+      <hr class="border-t border-White">
+
+      <div class="theme-container theme-grid mb-16 md:mb-0">
+        <div class="col-span-2 md:col-span-6 xl:col-span-12 flex flex-col md:flex-row justify-center items-center md:justify-between md:items-center py-6 md:pt-9 text-Brown gap-y-4">
+          <div class="flex flex-col md:flex-row items-center justify-around w-full gap-y-10 md:gap-y-0">
+            <a href="<?php the_field( 'general_booking_url','option' ); ?>" target="_blank" class="btn btn-sticky-bar-light max-w-64"><?php esc_html_e( 'Jetzt buchen','ambassador' ); ?></a>
+            <a href="<?php the_field( 'general_table_reservation_url','option' ); ?>" target="_blank" class="btn btn-sticky-bar-light max-w-64"><?php esc_html_e( 'Tisch reservieren','ambassador' ); ?></a>
+          </div>
+        </div>
+      </div>
+    </div>
 
   <hr class="border-t border-Brown">
 
   <div class="theme-container theme-grid mb-16 md:mb-0">
-    <div class="col-span-12 flex flex-col md:flex-row justify-center items-center md:justify-between md:items-center py-6 md:pt-9 text-Brown gap-y-4">
+    <div class="col-span-2 md:col-span-6 xl:col-span-12 flex flex-col md:flex-row justify-center items-center md:justify-between md:items-center py-6 md:pt-9 text-Brown gap-y-4">
       <div class="flex flex-col md:flex-row items-center justify-around w-full gap-y-10 md:gap-y-0">
         <a href="<?php the_field( 'general_booking_url','option' ); ?>" target="_blank" class="btn btn-primary-light max-w-64"><?php esc_html_e( 'Jetzt buchen','ambassador' ); ?></a>
         <a href="<?php the_field( 'general_table_reservation_url','option' ); ?>" target="_blank" class="btn btn-primary-light max-w-64"><?php esc_html_e( 'Tisch reservieren','ambassador' ); ?></a>

@@ -147,7 +147,13 @@ export function ambassadorzermattInitOffcanvasMenuGsap() {
 
   // Close when clicking any menu link
   wrap.addEventListener("click", (e) => {
-    if (e.target.closest("a")) closeMenu();
+    const link = e.target.closest("a");
+    if (!link) return;
+
+    // if this is a top-level mega link, do NOT close the menu
+    if (link.closest('.menu-item-has-children')) return;
+
+    closeMenu();
   });
 }
 
@@ -385,3 +391,82 @@ function ambassadorBindMegaPanels() {
   });
 }
 document.addEventListener('DOMContentLoaded', ambassadorBindMegaPanels);
+
+
+
+(function () {
+  const offcanvas = document.getElementById('menu-offcanvas');
+  if (!offcanvas) return;
+
+  const submenuMobile = offcanvas.querySelector('[data-submenu-mobile]');
+  const submenuBody   = offcanvas.querySelector('[data-submenu-mobile-body]');
+  const backBtn       = offcanvas.querySelector('.submenu-mobile__back');
+
+  if (!submenuMobile || !submenuBody || !backBtn) return;
+
+  const mqDesktop = window.matchMedia('(min-width: 1280px)');
+
+  const topLinks = offcanvas.querySelectorAll(
+    '.menu-offcanvas__main-mega-menu .menu-item-has-children > a'
+  );
+
+  const panels = submenuBody.querySelectorAll('.submenu-panel');
+  const emptyState = submenuBody.querySelector('[data-empty]');
+
+  function showMobileSubmenu(parentId, labelText) {
+    // Hide all panels
+    let anyVisible = false;
+    panels.forEach(panel => {
+      const match = panel.dataset.parentId === String(parentId);
+      panel.classList.toggle('is-visible', match);
+      panel.hidden = !match;
+      if (match) anyVisible = true;
+    });
+
+    // Empty state if nothing found
+    if (emptyState) {
+      emptyState.classList.toggle('is-visible', !anyVisible);
+      emptyState.hidden = anyVisible;
+    }
+    // Set label
+    offcanvas.classList.add('menu-offcanvas--submenu-open');
+    submenuMobile.setAttribute('aria-hidden', 'false');
+  }
+
+  function closeMobileSubmenu() {
+    offcanvas.classList.remove('menu-offcanvas--submenu-open');
+    submenuMobile.setAttribute('aria-hidden', 'true');
+  }
+
+  // Open submenu when tapping a top level item with children (mobile only)
+  topLinks.forEach(link => {
+    link.addEventListener('click', evt => {
+      if (mqDesktop.matches) {
+        // Desktop behaviour stays as you already have (hover panels)
+        return;
+      }
+
+      evt.preventDefault();
+
+      const parentId = link.dataset.parentId;
+      if (!parentId) return;
+
+      const labelText = link.textContent.trim();
+      showMobileSubmenu(parentId, labelText);
+    });
+  });
+
+  // Back button closes the screen
+  backBtn.addEventListener('click', evt => {
+    evt.preventDefault();
+    closeMobileSubmenu();
+  });
+
+  // Optional: close submenu when resizing to desktop
+  mqDesktop.addEventListener('change', e => {
+    if (e.matches) {
+      closeMobileSubmenu();
+    }
+  });
+  
+})();
