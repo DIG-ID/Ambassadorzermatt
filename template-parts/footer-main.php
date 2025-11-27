@@ -65,7 +65,13 @@
 			<!-- Desktop row 2 newsletter, kontakt, gastronomie and uber uns  -->
 			<!-- Newsletter -->
 			<div class="footer-newsletter col-span-2 md:col-start-5 md:col-span-2 xl:col-start-1 xl:col-span-3 order-2 md:order-2 xl:order-none">
-				<p class="title-footer pb-8"><?php esc_html_e( 'Newsletter', 'ambassador' ); ?></p>
+				<p class="title-footer md:pb-4 xl:pb-8"><?php esc_html_e( 'Newsletter', 'ambassador' ); ?></p>
+				<?php
+				$nl_sc = get_field( 'newsletter_shortcode', 'option' );
+				if ( $nl_sc ) :
+					echo do_shortcode( $nl_sc );
+				endif;
+				?>
 			</div>
 
 			<!-- Kontakt -->
