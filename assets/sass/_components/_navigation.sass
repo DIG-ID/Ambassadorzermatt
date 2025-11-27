@@ -59,41 +59,32 @@
 
 .sub-menu-col
   @apply relative
-
   .submenu-panel
     li.submenu-item
       @apply font-inria text-[1.125rem] md:text-[1.5625rem] font-normal leading-7 md:leading-[2.34375rem] tracking-[-0.02969rem]
-
       &:not(:last-child)
         @apply mb-6
-
       a
         position: relative
-        display: inline-block   // so underline just matches the text width
-
-        // animated underline
+        display: inline-block
         &::before
           content: ""
           position: absolute
           left: 0
-          bottom: 0.25em        // tweak distance from text
+          bottom: 0.25em
           width: 100%
-          height: 1px          // thinner than main menu
+          height: 1px
           background-color: currentColor
           transform: scaleX(0)
           transform-origin: left center
           transition: transform 250ms ease-out
-
-      // hover/focus states
       &:hover a::before,
       a:focus-visible::before
         transform: scaleX(1)
 
-
 .menu-open #menu-offcanvas
   pointer-events: auto
 
-/* Ensure hidden panels are really hidden */
 .sub-menu-col .submenu-panel,
 .sub-menu-col [data-empty]
   @apply absolute inset-0 pointer-events-none
@@ -102,7 +93,6 @@
 .sub-menu-col .is-visible
   pointer-events: auto
 
-/* Optional polish */
 .submenu-panel .submenu-link
   display:inline-block
   padding:.25rem 0
