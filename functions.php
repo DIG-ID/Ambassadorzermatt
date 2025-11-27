@@ -109,9 +109,11 @@ function ambassadorzermatt_theme_enqueue_styles() {
 	//https://use.typekit.net/evg0ous.css first loaded fonts library backup
 	//wp_enqueue_style( 'theme-fonts', 'https://use.typekit.net/buy6qwo.css', array(), $theme_version );
 
-	wp_enqueue_script( 'jquery', false, array(), $theme_version, true );
-	wp_enqueue_script( 'theme-scripts', get_stylesheet_directory_uri() . '/dist/js/main.js', array( 'jquery' ), $theme_version, true );
-
+	if ( is_page_template( 'page-templates/page-arrival-contacts.php' ) || is_admin() ) :
+		wp_enqueue_script( 'google-map-settings', get_stylesheet_directory_uri() . '/assets/js/google-maps.js', array( 'jquery' ), $theme_version, true );
+		wp_enqueue_script( 'google-map-api', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBAZN5TfX1aWmjodZ4e_6sOcaJV4D59jfo&callback=initMap', array(), $theme_version, true );
+	endif;
+	
 	// TEMP: always enqueue on frontend to debug
 	wp_enqueue_script(
 		'google-map-api',

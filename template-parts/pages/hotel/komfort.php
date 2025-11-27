@@ -7,7 +7,7 @@
                 </div>
                 <div class="xl:grid xl:grid-cols-6 xl:gap-x-5">
                     <div class="xl:col-span-5">
-                        <div class="body text-Dark pt-[1.25rem] md:pt-[1.87rem] xl:pt-[1.87rem] xl:max-w-[37.06rem]">
+                        <div class="body text-Dark pt-[1.25rem] md:pt-[1.87rem] xl:pt-[1.87rem]">
                             <?php the_field( 'komfort_text' ); ?>
                         </div>
                         <?php

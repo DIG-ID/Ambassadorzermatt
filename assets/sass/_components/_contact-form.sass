@@ -1,20 +1,24 @@
-.wpcf7 
+.wpcf7
+  ::placeholder 
+    @apply font-noto text-Brown text-[1.0625rem] font-normal tracking-[0.03125rem] leading-[1.5rem]
   table 
     @apply w-full
   .wpcf7-form-control-wrap
     @apply block mb-4 md:mb-6 relative
   .row-divided
-    @apply flex gap-5
+    @apply flex gap-[1.87rem]
     .half-width
       @apply w-full
   input[type=text],input[type=email]
-    @apply w-full h-[3.5rem]
+    @apply w-full h-[3.5rem] bg-LightGray mt-[0.75rem]
   textarea
-    @apply w-full
+    @apply w-full  bg-LightGray  max-h-[9.12rem] pt-[0.62rem]
   .button-wrapper
     @apply flex flex-row-reverse justify-start w-full
     input[type=submit]
-      @apply bg-LightGray px-[2rem] py-[1.19rem] text-Dark text-center text-[1.125rem] font-semibold leading-[0.8125rem] uppercase font-noto
+      @apply bg-LightGray px-[1.6rem] py-[1.19rem] text-Dark text-center text-[1.125rem] font-semibold leading-[0.8125rem] uppercase font-noto
+  input[type=text],input[type=email],input[type=tel],textarea
+    @apply font-noto text-Dark text-[1.0625rem] font-normal tracking-[0.03125rem] leading-[1.5rem] pl-4
 
   .wpcf7-spinner
     @apply bg-Dark 
@@ -23,14 +27,14 @@
   label
     @apply block font-noto text-[1.125rem] font-normal leading-[2rem] tracking-[0.03125rem]
   .form-title
-    @apply font-inria text-[1.5625rem] font-normal tracking-[-0.02969rem] leading-[2.34375rem] pb-[1.87rem]
+    @apply font-inria text-[1.5625rem] font-normal tracking-[-0.02969rem] leading-[2.34375rem] mb-[1.87rem]
 
   form
     .wpcf7-response-output
       @apply  text-sm font-noto font-normal tracking-[0.14px] rounded-[10px] mt-6
     &.sent
       .wpcf7-response-output
-        @apply border-green-400 bg-green-400
+        @apply text-Brown bg-LightGray border-LightGray
     &.failed,
     &.aborted
       .wpcf7-response-output
@@ -41,4 +45,4 @@
     &.invalid,
     &.unaccepted
       .wpcf7-response-output 
-        @apply border-yellow-400 bg-yellow-400
+        @apply bg-Brown border-Brown
