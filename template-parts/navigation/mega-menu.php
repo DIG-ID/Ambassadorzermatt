@@ -134,7 +134,7 @@
        
       </div>
 
-      <div class="submenu-mobile__body px-6 py-8 min-h-[564px]" data-submenu-mobile-body>
+      <div class="submenu-mobile__body px-6 pb-8 pt-16 min-h-[564px]" data-submenu-mobile-body>
         <?php
           ambassador_render_megamenu_panels( 'main-mega-menu' );
         ?>
