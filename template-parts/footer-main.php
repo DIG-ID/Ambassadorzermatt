@@ -128,10 +128,16 @@
 	<div class="theme-container">
 		<div class="flex flex-col justify-center xl:flex-row xl:justify-between items-center gap-y-4 xl:gap-y-0 pb-8 xl:pb-8">
 
-			<!-- Copyright text -->
-			<p class="footer-small text-LightGray order-2 xl:order-1 text-center xl:text-end"><?php esc_html_e( '2025 © Hotel Ambassador Zermatt. All rights reserved', 'ambassador' ); ?></p>
+					<!-- Socials  -->
+			<div class="flex items-center order-1 xl:order-3">
+				<div class="footer-socials text-LightGray">
+					<?php
+					do_action( 'socials' );
+					?>
+				</div>
+			</div>
 
-			<!-- Datenschutz and AGB  -->
+						<!-- Datenschutz and AGB  -->
 			<div class="flex items-center order-1 xl:order-2">
 				<div class="footer-small text-LightGray">
 					<?php
@@ -147,6 +153,9 @@
 					?>
 				</div>
 			</div>
+
+			<!-- Copyright text -->
+			<p class="footer-small text-LightGray order-2 xl:order-1 text-center xl:text-end"><?php esc_html_e( '2025 © All rights reserved.', 'ambassador' ); ?></p>
 
 		</div>
 	</div>
