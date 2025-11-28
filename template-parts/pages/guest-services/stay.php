@@ -16,7 +16,16 @@
             $text  = get_sub_field('text');
             $link  = get_sub_field('button');
           ?>
+          <?php if ($link):
+            $link_url = $link['url'];
+            $link_title = $link['title'];
+            $link_target = $link['target'] ? $link['target'] : '_self'; 
+          ?>
+          <a href="<?php echo esc_url($link_url); ?>" target="<?php echo esc_attr($link_target); ?>" class="btn-arrow-wrapper col-start-1 col-span-2 md:col-start-2 md:col-span-5 xl:col-start-5 xl:col-span-8 border-b-[1px] border-Dark last:border-b-0 md:pt-[2.02rem] md:pb-[3.7rem] xl:pt-[3.13rem] xl:pb-[6.25rem]">
+          <?php else: ?>
           <div class="col-start-1 col-span-2 md:col-start-2 md:col-span-5 xl:col-start-5 xl:col-span-8 border-b-[1px] border-Dark last:border-b-0 md:pt-[2.02rem] md:pb-[3.7rem] xl:pt-[3.13rem] xl:pb-[6.25rem]">
+          <?php endif; ?>
+          
             <!-- Inner grid  -->
             <div class="grid grid-cols-2 md:grid-cols-5 xl:grid-cols-8 gap-5">
               <!-- Title column -->
@@ -42,12 +51,16 @@
                     $link_title = $link['title'];
                     $link_target = $link['target'] ? $link['target'] : '_self';
                 ?>
-                    <a href="<?php echo esc_url($link_url); ?>" target="<?php echo esc_attr($link_target); ?>" class="btn btn-arrow">
+                    <div class="btn btn-arrow">
                         <?php echo esc_html($link_title); ?>
-                    </a>
+                    </div>
                 <?php endif; ?>
             </div>
+          <?php if ($link): ?>
+          </a>
+          <?php else: ?>
           </div>
+          <?php endif; ?>
         <?php endwhile; ?>
       <?php endif; ?>
     </div>
