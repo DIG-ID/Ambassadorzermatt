@@ -24,7 +24,7 @@
             <div class="grid grid-cols-2 md:grid-cols-5 xl:grid-cols-8 gap-5">
 
               <!-- Title column -->
-              <div class="col-span-2 md:col-span-2">
+              <div class="col-span-2 md:col-span-2 xl:col-span-3">
                 <?php if ( $title ) : ?>
                   <h2 class="text-Dark title-secondary">
                     <?php echo esc_html( $title ); ?>
