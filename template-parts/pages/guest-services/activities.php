@@ -1,5 +1,5 @@
-<section id="section-activities" class="section-activities bg-LightGray pb-[6.25rem] md:pb-[9.25rem] xl:pb-[12.5rem]">
-  <div class="theme-container border-black border-b-[1px] xl:pb-[6.25rem]">
+<section id="section-activities" class="section-activities bg-LightGray pb-[6.25rem] md:pb-[9.25rem] xl:pb-5">
+  <div class="theme-container border-black">
     <div class="theme-grid">
 
       <!-- Section title -->
