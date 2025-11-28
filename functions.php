@@ -146,8 +146,8 @@ add_filter( 'wpseo_metabox_prio', 'ambassadorzermatt_theme_lower_yoast_metabox_p
 function ambz_dynamic_favicons() {
 	?>
 	<!-- Dynamic favicons based on prefers-color-scheme -->
-	<link rel="icon" href="<?php echo esc_url( get_theme_file_uri( 'assets/img/favicon/favicon-light.png' ) ); ?>" media="(prefers-color-scheme: light)">
-	<link rel="icon" href="<?php echo esc_url( get_theme_file_uri( 'assets/img/favicon/favicon-dark.png' ) ); ?>" media="(prefers-color-scheme: dark)">
+	<link rel="icon" href="<?php echo esc_url( get_theme_file_uri( 'assets/img/favicon/favicon-dark.png' ) ); ?>" media="(prefers-color-scheme: light)">
+	<link rel="icon" href="<?php echo esc_url( get_theme_file_uri( 'assets/img/favicon/favicon-light.png' ) ); ?>" media="(prefers-color-scheme: dark)">
 	<?php
 }
 add_action( 'wp_head', 'ambz_dynamic_favicons' );
