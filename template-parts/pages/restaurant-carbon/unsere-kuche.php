@@ -1,10 +1,10 @@
-<section id="unsere-kuche" class="unsere-kuche bg-Dark pb-[6.26rem] md:pb-[6.32rem] xl:pb-[9.5rem]">
+<section id="unsere-kuche" class="unsere-kuche bg-Dark pb-[6.26rem] md:pb-[6.32rem] xl:pb-0">
   <div class="theme-container">
 
     <!-- FIRST GRID: images + title/text/schedule + bottom-right image -->
     <div class="theme-grid">
       <!-- Top left image -->
-      <div class="col-span-2 md:col-span-3 xl:col-start-1 xl:col-span-8 md:pt-[20.37rem] xl:pt-[25.06rem] xl:pb-[4.38rem]">
+      <div class="col-span-2 md:col-span-3 xl:col-start-2 xl:col-span-6 md:pt-[20.37rem] xl:pt-[9.5rem] xl:pb-[4.38rem]">
         <?php
           $imgLogo = get_field('unsere_kuche_image_top_left');
           if ( $imgLogo ) {
@@ -13,7 +13,7 @@
               'full',
               false,
               [
-                'class'    => 'w-full h-auto object-cover bleed-left-full',
+                'class'    => 'w-full h-auto object-cover',
                 'loading'  => 'eager',
                 'decoding' => 'async',
               ]
@@ -61,7 +61,7 @@
       </div>
 
       <!-- Text block (title, text, schedule) + bottom right image -->
-      <div class="col-span-2 md:col-start-3 md:col-span-4 xl:col-start-7 xl:col-span-5 md:pt-[4.06rem] xl:pt-0">
+      <div class="col-span-2 md:col-start-3 md:col-span-4 xl:col-start-7 xl:col-span-5 md:pt-[4.06rem] xl:pt-36">
         <!-- Title -->
         <div class="title-main text-LightGray pt-[1.85rem] md:pt-0">
           <h1><?php the_field( 'unsere_kuche_title' ); ?></h1>
