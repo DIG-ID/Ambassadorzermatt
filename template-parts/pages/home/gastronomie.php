@@ -1,5 +1,5 @@
 <section id="section-gastronomie" class="section-gastronomie bg-Dark py-11 md:py-24 xl:py-24">
-  <div class="theme-container mb-14 xl:mb-0">
+  <div class="theme-container md:mb-14 xl:mb-0">
     <div class="theme-grid">
       <div class="col-span-2 md:col-span-6 xl:col-span-10 col-start-1 md:col-start-1 xl:col-start-2">
         <p class="title-secondary text-LightGray"><?php the_field('gastronomie_overtitle'); ?></p>
@@ -26,7 +26,7 @@
   <div class="theme-container xl:pt-28">
     <div class="theme-grid">
     <?php if ( have_rows('hover_gastronomie') ) : ?>
-      <div class="col-start-1 xl:col-start-2 col-span-2 md:col-span-6 xl:col-span-10 group flex flex-row h-[80vh] md:h-[70vh] max-h-[264px] md:max-h-[340px] xl:max-h-[546px] overflow-visible gap-[20px]" aria-label="<?php esc_attr_e('Highlight menu', 'ambassador'); ?>"
+      <div class="col-start-1 xl:col-start-2 col-span-2 md:col-span-6 xl:col-span-10 group grid grid-cols-2 md:grid-cols-6 xl:flex flex-wrap xl:flex-nowrap xl:flex-row md:min-h-[90dvh] xl:min-h-[80dvh] xl:max-h-[546px] overflow-visible gap-5 md:gap-6 xl:gap-5" aria-label="<?php esc_attr_e('Highlight menu', 'ambassador'); ?>"
       >
         <?php while ( have_rows('hover_gastronomie') ) : the_row();
           $image_id = get_sub_field('image');
@@ -35,26 +35,24 @@
           $alt_meta = $image_id ? get_post_meta($image_id, '_wp_attachment_image_alt', true) : '';
           $alt      = $alt_meta ? esc_attr($alt_meta) : esc_attr($title);
         ?>
-          <a href="<?php echo $link; ?>" class="group/item relative flex-1 transition-[flex] duration-700 ease-in-out hover:flex-[2] group-hover:[&:not(:hover)]:flex-[1] hover:z-10">
-            <div class="absolute left-0 right-0 bottom-0 top-0 z-0 transition-[top] duration-700 group-hover/item:-top-[40px] will-change-[top]">
+          <a href="<?php echo $link; ?>" class="group/item col-span-2 md:col-span-6 relative md:flex-1 transition-[flex] duration-700 ease-in-out xl:hover:flex-[2] xl:group-hover:[&:not(:hover)]:flex-[1] hover:z-10">
+            <div class="xl:absolute left-0 right-0 bottom-0 top-0 z-0 transition-[top] duration-700 xl:group-hover/item:-top-[40px] xl:will-change-[top]">
               <?php
                 if ( $image_id ) {
                   echo wp_get_attachment_image(
                     $image_id, 'full', false,
                     array(
-                      'class'         => 'absolute inset-0 w-full h-full object-cover origin-bottom',
-                      'alt'           => $alt,
+                      'class' => 'md:absolute max-h-[200px] md:max-h-none inset-0 w-full h-full object-cover origin-bottom',
+                      'alt'   => $alt,
                     )
                   );
                 }
               ?>
 
-              <!-- Dark overlay (below text, below icon) -->
-              <span class="dark-overlay pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-700 group-hover/item:opacity-80 z-10"></span>
+              <span class="dark-overlay pointer-events-none absolute inset-0 opacity-80 xl:opacity-0 transition-opacity duration-700 group-hover/item:opacity-80 z-10"></span>
 
-              <!-- Text overlay (bottom, fades in on hover) -->
-              <span class="pointer-events-none absolute inset-0 flex flex-col justify-end items-center opacity-0 transition-opacity duration-700 group-hover/item:opacity-100 z-20 pb-6 md:pb-8">
-                <span class="max-w-[38ch] min-w-[38ch] text-center text-white px-6 opacity-0 translate-y-2 transition-all duration-700 group-hover/item:opacity-100 group-hover/item:translate-y-0">
+              <span class="pointer-events-none absolute inset-0 flex flex-col justify-end items-left xl:items-center opacity-100 xl:opacity-0 transition-opacity duration-700 group-hover/item:opacity-100 z-20 pb-6 md:pb-8">
+                <span class="max-w-[38ch] min-w-[38ch] text-left xl:text-center text-white px-6 opacity-100 translate-y-2 transition-all duration-700 group-hover/item:opacity-100 group-hover/item:translate-y-0">
                   <?php if ( $desc ) : ?>
                     <span class="block title-secondary text-LightGray !font-bold">
                       <?php echo $desc; ?>
