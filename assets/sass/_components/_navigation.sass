@@ -66,6 +66,8 @@
       @apply font-inria text-[1.125rem] md:text-[1.5625rem] font-normal leading-7 md:leading-[2.34375rem] tracking-[-0.02969rem]
       &:not(:last-child)
         @apply mb-6
+      &:is(:first-child)
+        @apply list-item xl:hidden
       a
         position: relative
         display: inline-block
@@ -99,9 +101,12 @@
         @apply font-noto text-[1.125rem] font-normal leading-[2rem] tracking-[-0.021]
         &:not(:last-child)
           @apply mb-12
+        &:is(:first-child)
+          @apply font-inria text-[1.875rem] md:text-[3.75rem] font-normal italic leading-[2.5rem] md:leading-[4.6875rem] tracking-[0.03125rem] list-item xl:hidden
   .submenu-panel.is-visible,
   [data-empty].is-visible
     opacity: 1
+    
 .menu-offcanvas--submenu-open
   .submenu-mobile
     transform: translate3d(0, 0, 0)
