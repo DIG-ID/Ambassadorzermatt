@@ -2,13 +2,14 @@
     <div class="theme-container">
         <div class="theme-grid">
             
-            <div class="col-start-1 col-span-2 md:col-start-1 md:col-span-3 xl:col-start-2 xl:col-span-6 pt-[2.47rem] md:pt-[11.53rem] xl:pt-0 order-3 md:order-2 xl:order-none">
-                <h1 class="text-Dark title-main"><?php the_field('indoor_pool_title')?></h1>
+            <div class="col-start-1 col-span-2 md:col-start-1 md:col-span-3 xl:col-start-2 xl:col-span-6 pb-[1.25rem] md:pb-[1.88rem] pt-[2.47rem] md:pt-[11.53rem] xl:pt-0 order-3 md:order-2 xl:order-none">
+                <h2 class="text-Dark title-main"><?php the_field('indoor_pool_title')?></h2>
             </div>
-            <div class="col-start-1 col-span-2 md:col-span-4 xl:col-start-2 xl:col-span-6 pt-[1.25rem] md:pt-[1.88rem] order-4 md:order-3 xl:order-none">
-                <h1 class="text-Dark body"><?php the_field('indoor_pool_text')?></h1>
-            </div>
-            <div class="col-start-1 col-span-2 md:col-span-3 xl:col-start-2 xl:col-span-5 xl:pt-[3.75rem] order-1 xl:order-none">
+            <div class="col-start-1 col-span-2 md:col-span-4 xl:col-start-2 xl:col-span-5">
+                <div class="order-2 md:order-3 xl:order-none">
+                    <h2 class="text-Dark body"><?php the_field('indoor_pool_text')?></h2>
+                </div>
+                <div class="xl:pt-[3.75rem] order-1 xl:order-none">
                 <?php
                     $imgLogo = get_field('indoor_pool_image_left');
                     $size  = 'full';
@@ -26,8 +27,10 @@
                     );
                     }
                 ?>
+                </div>
             </div>
-            <div class="col-start-1 col-span-2 md:col-start-4 md:col-span-3 xl:col-start-8 xl:col-span-5 pt-[2.56rem] md:pt-0 xl:pt-[12rem] order-2 xl:order-none">
+
+            <div class="col-start-1 col-span-2 md:col-start-4 md:col-span-3 xl:col-start-8 xl:col-span-5 pt-[2.56rem] md:pt-0 xl:pt-0 order-2 xl:order-none">
                 <?php
                     $imgLogo = get_field('indoor_pool_image_right');
                     $size  = 'full';
