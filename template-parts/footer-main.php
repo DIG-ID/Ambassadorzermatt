@@ -27,7 +27,7 @@
 			<!-- Address -->
 			<div class="footer-address col-span-2 md:col-span-2 xl:col-start-5 xl:col-span-3 order-4 md:order-3 xl:order-none">
 				<div class="flex md:block">
-					<p class="title-footer md:pb-4 xl:pb-8 w-32 md:w-auto"><?php esc_html_e( 'Adress', 'ambassador' ); ?></p>
+					<p class="title-footer md:pb-4 xl:pb-8 w-32 md:w-auto"><?php esc_html_e( 'Adresse', 'ambassador' ); ?></p>
 					<p class="footer-body"><?php the_field( 'general_address', 'option' ); ?></p>
 				</div>
 			</div>
@@ -79,8 +79,8 @@
 				<div class="flex md:block">
 					<p class="title-footer md:pb-4 xl:pb-8 w-32 min-w-32 md:w-auto md:min-w-max"><?php esc_html_e( 'Kontakt', 'ambassador' ); ?></p>
 					<span>
-						<p class="footer-body break-words"><?php the_field( 'general_phone', 'option' ); ?></p>
-						<p class="footer-body break-all"><?php the_field( 'general_e-mail', 'option' ); ?></p>
+						<p class="footer-body break-words"><a href="tel:<?php echo esc_url( antispambot( get_field( 'general_phone', 'option' ) ) ); ?>"><?php the_field( 'general_phone', 'option' ); ?></a></p> 
+						<p class="footer-body break-all"><a href="mailto:<?php echo esc_attr( get_field( 'general_e-mail', 'option' ) ); ?>"><?php the_field( 'general_e-mail', 'option' ); ?></a></p>
 					</span>
 				</div>
 			</div>
