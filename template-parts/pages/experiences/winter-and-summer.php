@@ -8,11 +8,11 @@
 			<div class="winter-image xl:grid xl:grid-cols-6 xl:gap-x-5 order-2 mb-16 xl:mb-0">
 				<figure class="relative overflow-hidden xl:col-span-5 xl:col-start-2">
 					<?php
-					$winter_image_landscape = get_field( 'winter_and_summer_winter_image' );
+					$winter_image_landscape = get_field( 'winter_and_summer_winter_image_landscape' );
 					if ( $winter_image_landscape ) :
 						echo wp_get_attachment_image( $winter_image_landscape, 'full', false, array( 'class' => 'w-full h-full object-cover min-h-[425px] hidden invisible md:block md:visible lg:hidden lg:invisible' ) );
 					endif;
-					$winter_image_portrait = get_field( 'winter_and_summer_winter_image' );
+					$winter_image_portrait = get_field( 'winter_and_summer_winter_image_portrait' );
 					if ( $winter_image_portrait ) :
 						echo wp_get_attachment_image( $winter_image_portrait, 'full', false, array( 'class' => 'w-full h-full object-cover min-h-[425px] xl:min-h-[682px] md:hidden md:invisible lg:block lg:visible' ) );
 					endif;
@@ -28,11 +28,11 @@
 			<div class="summer-image order-3 xl:order-4 mb-11 mb:mb-16 xl:mb-0">
 				<figure class="relative overflow-hidden xl:mr-6">
 					<?php
-					$summer_image_landscape = get_field( 'winter_and_summer_summer_image' );
+					$summer_image_landscape = get_field( 'winter_and_summer_summer_image_landscape' );
 					if ( $summer_image_landscape ) :
 						echo wp_get_attachment_image( $summer_image_landscape, 'full', false, array( 'class' => 'w-full h-full object-cover min-h-[425px] hidden invisible md:block md:visible lg:hidden lg:invisible' ) );
 					endif;
-					$summer_image_portrait = get_field( 'winter_and_summer_summer_image' );
+					$summer_image_portrait = get_field( 'winter_and_summer_summer_image_portrait' );
 					if ( $summer_image_portrait ) :
 						echo wp_get_attachment_image( $summer_image_portrait, 'full', false, array( 'class' => 'w-full h-full object-cover min-h-[425px] xl:min-h-[682px] md:hidden md:invisible lg:block lg:visible' ) );
 					endif;
