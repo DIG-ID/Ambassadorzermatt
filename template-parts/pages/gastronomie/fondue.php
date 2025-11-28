@@ -48,9 +48,28 @@
             <?php endif; ?>
             </div>
             </div>
-            <div class=" col-span-2 md:col-span-6 xl:col-span-12 ">
+            <div class="hidden md:block col-span-2 md:col-span-6 xl:col-span-12 ">
                     <?php
                         $imgLogo = get_field('fondue_image_full');
+                        $size  = 'full';
+
+                        if ( $imgLogo ) {
+                        echo wp_get_attachment_image(
+                        $imgLogo,
+                        $size,
+                        false,
+                        [
+                        'class'    => 'w-full max-h-auto',
+                        'loading'  => 'eager',
+                        'decoding' => 'async',
+                        ]
+                        );
+                        }
+                    ?>
+            </div>
+            <div class="block md:hidden col-span-2 md:col-span-6 xl:col-span-12 ">
+                    <?php
+                        $imgLogo = get_field('fondue_image_full_mobile');
                         $size  = 'full';
 
                         if ( $imgLogo ) {

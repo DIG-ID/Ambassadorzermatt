@@ -30,9 +30,21 @@
                 </div>
             </div>
             <!-- RIGHT IMAGE -->
-            <div class="col-start-1 col-span-2 md:col-span-6 xl:col-start-7 xl:col-span-6">
+            <div class="block md:hidden xl:block col-start-1 col-span-2 md:col-span-6 xl:col-start-7 xl:col-span-6">
                 <?php
                 $imgLogo = get_field('bar_image');
+                if ($imgLogo) {
+                    echo wp_get_attachment_image($imgLogo, 'full', false, [
+                    'class' => 'w-full h-auto',
+                    'loading' => 'eager',
+                    'decoding' => 'async',
+                    ]);
+                }
+                ?>
+            </div>
+            <div class="hidden md:block xl:hidden col-start-1 col-span-2 md:col-span-6 xl:col-start-7 xl:col-span-6">
+                <?php
+                $imgLogo = get_field('bar_image_tablet');
                 if ($imgLogo) {
                     echo wp_get_attachment_image($imgLogo, 'full', false, [
                     'class' => 'w-full h-auto',

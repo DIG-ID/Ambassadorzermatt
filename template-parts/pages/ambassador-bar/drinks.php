@@ -1,7 +1,8 @@
-<section id="section-drinks" class="section-drinks bg-LightGray pt-[3.09] md:pt-[7.06rem] xl:pt-[5.87rem] pb-[3.1rem] md:pb-[7.12rem] xl:pb-[9.44rem]">
+<section id="section-drinks" class="section-drinks bg-LightGray pt-[3.09rem] md:pt-[7.06rem] xl:pt-[5.87rem] pb-[3.1rem] md:pb-[7.12rem] xl:pb-[9.44rem]">
     <div class="theme-container">
         <div class="theme-grid">
             <div class="col-start-1 col-span-2 md:col-span-4 xl:col-span-8">
+                <div class="image-wrapper hidden xl:block">
                 <?php
                     $imgLogo = get_field('drinks_image_top_left');
                     $size  = 'full';
@@ -19,6 +20,45 @@
                     );
                     }
                 ?>
+                </div>
+                <div class="image-wrapper block xl:hidden">
+                <?php
+                    $imgLogo = get_field('drinks_image_top_left_tablet');
+                    $size  = 'full';
+
+                    if ( $imgLogo ) {
+                    echo wp_get_attachment_image(
+                    $imgLogo,
+                    $size,
+                    false,
+                    [
+                    'class'    => 'w-full max-h-auto min-h-[411px] md:min-h-[616px]',
+                    'loading'  => 'eager',
+                    'decoding' => 'async',
+                    ]
+                    );
+                    }
+                ?>
+                </div>
+                <div class="block md:hidden col-start-1 col-span-2 pt-[1.87rem]">
+                <?php
+                    $imgLogo = get_field('drinks_image_top_right_mobile');
+                    $size  = 'full';
+
+                    if ( $imgLogo ) {
+                    echo wp_get_attachment_image(
+                    $imgLogo,
+                    $size,
+                    false,
+                    [
+                    'class'    => 'w-full h-auto max-h-[376px] object-cover',
+                    'loading'  => 'eager',
+                    'decoding' => 'async',
+                    ]
+                    );
+                    }
+                ?>
+                </div>
                 <div class="title-main text-Dark pt-[2.47rem] md:pt-[3.78rem] xl:pt-[1.88rem]">
                     <h1><?php the_field('drinks_title') ?></h1>
                 </div>
@@ -29,7 +69,7 @@
                     <p><?php the_field('drinks_schedule') ?></p>
                 </div>
             </div>
-            <div class="col-start-1 col-span-2 md:col-start-5 xl:col-start-9 xl:col-span-4 pt-[1.87rem] md:pt-[22.31rem] xl:pt-[25.87rem]">
+            <div class="hidden md:block col-start-1 col-span-2 md:col-start-5 xl:col-start-9 xl:col-span-4 pt-[1.87rem] md:pt-[15.25rem] xl:pt-[20.125rem] order-2">
                 <?php
                     $imgLogo = get_field('drinks_image_top_right');
                     $size  = 'full';
@@ -40,7 +80,7 @@
                     $size,
                     false,
                     [
-                    'class'    => 'w-full max-h-auto',
+                    'class'    => 'w-full h-auto max-h-[376px] md:min-h-[617px] xl:min-h-[814px] object-cover',
                     'loading'  => 'eager',
                     'decoding' => 'async',
                     ]
@@ -50,7 +90,7 @@
             </div>
         </div>
     </div>
-    <div class="theme-container xl:pt-28">
+    <div class="theme-container pt-[5.19rem] md:pt-[7.75rem] xl:pt-[11.38rem]">
     <div class="theme-grid">
     <?php if ( have_rows('drinks_hover') ) : ?>
       <div class="col-start-1 xl:col-start-2 col-span-2 md:col-span-6 xl:col-span-10 group flex flex-row h-[80vh] md:h-[70vh] max-h-[264px] md:max-h-[340px] xl:max-h-[546px] overflow-visible gap-[20px]" aria-label="<?php esc_attr_e('Highlight menu', 'ambassador'); ?>"

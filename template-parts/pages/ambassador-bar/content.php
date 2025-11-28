@@ -1,9 +1,28 @@
 <section id="section-content" class="section-content bg-White pb-[3.75rem] md:pb-[6.25rem]">
     <div class="theme-container">
         <div class="theme-grid">
-            <div class="col-start-1 col-span-2 md:col-span-6 xl:col-span-12">
+            <div class="col-start-1 col-span-2 md:col-span-6 xl:col-span-12 hidden md:block">
                 <?php
                     $imgLogo = get_field('content_image');
+                    $size  = 'full';
+
+                    if ( $imgLogo ) {
+                    echo wp_get_attachment_image(
+                    $imgLogo,
+                    $size,
+                    false,
+                    [
+                    'class'    => 'w-full max-h-auto',
+                    'loading'  => 'eager',
+                    'decoding' => 'async',
+                    ]
+                    );
+                    }
+                ?>
+            </div>
+            <div class="col-start-1 col-span-2 md:col-span-6 xl:col-span-12 block md:hidden">
+                <?php
+                    $imgLogo = get_field('content_image_mobile');
                     $size  = 'full';
 
                     if ( $imgLogo ) {

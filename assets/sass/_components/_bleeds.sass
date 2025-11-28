@@ -59,3 +59,59 @@ $container-max: 1360px
     // only override container padding to 0;
     // --spread and --half-spread will pick up the new value
     --container-pad: 0px
+
+@media (min-width: 768px ) and ( max-width: 1280px )
+  .bleed-right-full-md
+    width: calc(100% + var(--spread))
+    // gap between viewport edge and container edge
+    --edge-gap: max(0px, calc((100vw - #{$container-max}) / 2))
+    // container horizontal padding on md: px-16 = 64px
+    --container-pad: 64px
+    // theme-grid gap-x-5 = 1.25rem = 20px
+    --grid-gap: 20px
+    // full bleed distance = edge gap + container padding + half grid gap
+    --spread: calc(var(--edge-gap) + var(--container-pad) + (var(--grid-gap) / 2))
+    max-width: none
+    overflow: visible
+
+  .bleed-left-full-md
+    margin-left: calc(-1 * var(--spread))
+    width: calc(100% + var(--spread))
+    --edge-gap: max(0px, calc((100vw - #{$container-max}) / 2))
+    // container horizontal padding on md: px-16 = 64px
+    --container-pad: 64px
+    // theme-grid gap-x-5 = 1.25rem = 20px
+    --grid-gap: 20px
+    // full bleed distance = edge gap + container padding + half grid gap
+    --spread: calc(var(--edge-gap) + var(--container-pad) + (var(--grid-gap) / 2))
+    max-width: none
+    overflow: visible
+
+@media (min-width: 1280px)
+  .bleed-right-half-xl
+    --half-spread: calc(var(--spread) / 2)
+    width: calc(100% + var(--half-spread))
+    // gap between viewport edge and container edge
+    --edge-gap: max(0px, calc((100vw - #{$container-max}) / 2))
+    // container horizontal padding on md: px-16 = 64px
+    --container-pad: 64px
+    // theme-grid gap-x-5 = 1.25rem = 20px
+    --grid-gap: 20px
+    // full bleed distance = edge gap + container padding + half grid gap
+    --spread: calc(var(--edge-gap) + var(--container-pad) + (var(--grid-gap) / 2))
+    max-width: none
+    overflow: visible
+
+  .bleed-left-full-xl
+    // gap between viewport edge and container edge
+    --edge-gap: max(0px, calc((100vw - #{$container-max}) / 2))
+    // container horizontal padding on md: px-16 = 64px
+    --container-pad: 64px
+    // theme-grid gap-x-5 = 1.25rem = 20px
+    --grid-gap: 20px
+    // full bleed distance = edge gap + container padding + half grid gap
+    --spread: calc(var(--edge-gap) + var(--container-pad) + (var(--grid-gap) / 2))
+    max-width: none
+    overflow: visible
+    margin-left: calc(-1 * var(--spread))
+    width: calc(100% + var(--spread))
