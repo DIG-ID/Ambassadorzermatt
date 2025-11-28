@@ -1,33 +1,53 @@
 .wpcf7
   ::placeholder 
     @apply font-noto text-Brown text-[1.0625rem] font-normal tracking-[0.03125rem] leading-[1.5rem]
+
   table 
     @apply w-full
+
   .wpcf7-form-control-wrap
     @apply block mb-4 md:mb-6 relative
+
   .row-divided
-    @apply flex gap-[1.87rem]
+    @apply flex flex-col md:flex-row md:gap-[1.87rem]
+
     .half-width
-      @apply w-full
-  input[type=text],input[type=email]
-    @apply w-full h-[3.5rem] bg-LightGray mt-[0.75rem]
+      @apply w-full flex justify-center md:block
+
+  .full-width
+    @apply flex justify-center md:block
+
+  input[type=text],
+  input[type=email],
+  input[type=tel]
+    @apply w-full h-[3.5rem] bg-LightGray mt-[0.75rem] max-w-[14.13rem] md:max-w-none
+
   textarea
-    @apply w-full  bg-LightGray  max-h-[9.12rem] pt-[0.62rem]
+    @apply w-full bg-LightGray max-h-[9.12rem] pt-[0.62rem] max-w-[14.13rem] md:max-w-none
+
   .button-wrapper
-    @apply flex flex-row-reverse justify-start w-full
+    @apply relative flex w-full justify-center md:flex-row-reverse md:justify-start
+
     input[type=submit]
-      @apply bg-LightGray px-[1.6rem] py-[1.19rem] text-Dark text-center text-[1.125rem] font-semibold leading-[0.8125rem] uppercase font-noto
-  input[type=text],input[type=email],input[type=tel],textarea
+      @apply bg-LightGray px-[1.6rem] py-[1.19rem] text-Dark text-center text-[1.125rem] font-semibold leading-[0.8125rem] uppercase font-noto w-full max-w-[14.13rem] md:w-auto md:max-w-none
+
+  input[type=text],
+  input[type=email],
+  input[type=tel],
+  textarea
     @apply font-noto text-Dark text-[1.0625rem] font-normal tracking-[0.03125rem] leading-[1.5rem] pl-4
 
   .wpcf7-spinner
-    @apply bg-Dark 
+    @apply bg-Dark absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5
+
   .wpcf7-not-valid-tip
-    @apply text-sm text-red-600 font-noto font-normal tracking-[0.14px] min-h-[20px] pl-6 relative xl:absolute
+    @apply text-sm text-red-600 font-noto font-normal tracking-[0.14px] min-h-[20px] pt-1 relative xl:absolute
+
   label
     @apply block font-noto text-[1.125rem] font-normal leading-[2rem] tracking-[0.03125rem]
+
   .form-title
-    @apply font-inria text-[1.5625rem] font-normal tracking-[-0.02969rem] leading-[2.34375rem] mb-[1.87rem]
+    @apply font-inria text-[1.5625rem] font-normal tracking-[-0.02969rem] leading-[2.34375rem] mb-[1.87rem] text-left w-full max-w-[14.13rem] mx-auto md:mx-0
 
   form
     .wpcf7-response-output
