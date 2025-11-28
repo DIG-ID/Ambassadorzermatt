@@ -3,8 +3,8 @@
   <!-- Mega menu header (customizable) -->
   <header id="header-mega" class="header-main w-full relative z-[60] overflow-visible bg-White transition-opacity duration-700 ease-in-out border-b border-Brown" itemscope itemtype="http://schema.org/WebSite">
     <div class="theme-container">
-      <div class="grid grid-cols-3">
-        <div class="col-span-1 flex items-center justify-start">
+      <div class="grid grid-cols-7 md:grid-cols-3">
+        <div class="col-span-2 md:col-span-1 flex items-center justify-start">
           <!-- language selector mobile -->
           <div class="language-selector flex xl:hidden items-center py-3 md:py-5 xl:pt-[1px]">
             <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/Ambassador-Zermatt-globe.svg"
@@ -13,13 +13,13 @@
           </div>
         </div>
 
-        <div class="col-span-1 flex items-center justify-center">
-          <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="header-logo max-w-36 md:max-w-56 xl:max-w-60 transition-all duration-500 ease-in-out" itemprop="url">
+        <div class="col-span-3 md:col-span-1 flex items-center justify-center">
+          <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="header-logo max-w-56 md:max-w-56 xl:max-w-60 transition-all duration-500 ease-in-out" itemprop="url">
             <?php do_action( 'theme_logo' ); ?>
           </a>
         </div>
 
-        <div class="col-span-1 flex items-center justify-end pt-[37px] pb-[37px]">
+        <div class="col-span-2 md:col-span-1 flex items-center justify-end pt-[37px] pb-[37px]">
           <div class="language-selector hidden xl:flex flex-row items-center mr-16">
             <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/Ambassador-Zermatt-globe.svg" class="mr-3" alt="Language Selector Globe Icon" title="Language Selector Globe Icon" />
             <?php do_action('wpml_add_language_selector'); ?>
@@ -128,13 +128,9 @@
 
   </nav>
   <!-- Mobile submenu screen -->
-    <div class="submenu-mobile xl:hidden" data-submenu-mobile aria-hidden="true">
-      <div class="submenu-mobile__header border-b border-White flex items-center justify-between px-6 py-7 submenu-mobile__back">
-        <button class="back-arrow w-[35px] h-[33px]">
-          <svg xmlns="http://www.w3.org/2000/svg" width="35" height="33" viewBox="0 0 38 36" fill="none">
-            <path d="M36.5 34.0918L1.5 34.0918M1.5 34.0918L1.5 1.09179M1.5 34.0918L36.5 1.0918" stroke="#E7E5E5" stroke-width="3"/>
-          </svg>
-        </button>
+    <div class="submenu-mobile xl:hidden mt-[93px]" data-submenu-mobile aria-hidden="true">
+      <div class="submenu-mobile__header border-b border-White flex items-center justify-between">
+        
        
       </div>
 
@@ -142,6 +138,11 @@
         <?php
           ambassador_render_megamenu_panels( 'main-mega-menu' );
         ?>
+        <button class="back-arrow w-[35px] h-[33px] mt-12 submenu-mobile__back">
+          <svg xmlns="http://www.w3.org/2000/svg" width="35" height="33" viewBox="0 0 38 36" fill="none">
+            <path d="M36.5 34.0918L1.5 34.0918M1.5 34.0918L1.5 1.09179M1.5 34.0918L36.5 1.0918" stroke="#E7E5E5" stroke-width="3"/>
+          </svg>
+        </button>
         <div class="submenu-empty-state text-sm opacity-70" data-empty hidden>
           <?php esc_html_e('No sub-items', 'ambassador'); ?>
         </div>
