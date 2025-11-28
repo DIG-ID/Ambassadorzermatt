@@ -13,7 +13,7 @@
     $zimmer_query = new WP_Query( $zimmer_args );
 
     if ( $zimmer_query->have_posts() ) : ?>
-      <ul class="theme-grid xl:[&>li:nth-child(2n+2)]:[--offset:16.25rem] xl:[&>li:nth-child(2n+2)]:mt-[var(--offset)] xl:[&>li:nth-child(2n+2)]:mb-[calc(var(--offset)*-1)] xl:pb-[16.25rem]">
+      <ul class="theme-grid xl:[&>li:nth-child(2n+2)]:[--offset:16.25rem] xl:[&>li:nth-child(2n+2)]:mt-[var(--offset)] xl:[&>li:nth-child(2n+2)]:mb-[calc(var(--offset)*-1)] xl:pb-[10.25rem]">
         <?php
         while ( $zimmer_query->have_posts() ) :
           $zimmer_query->the_post();
