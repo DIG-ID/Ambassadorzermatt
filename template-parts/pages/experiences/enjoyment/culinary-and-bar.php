@@ -3,9 +3,13 @@
 		<div class="col-span-2 md:col-span-6 order-2 xl:order-1">
 			<figure class="relative overflow-hidden">
 				<?php
-				$c_image = get_field( 'culinary_image' );
-				if ( $c_image ) :
-					echo wp_get_attachment_image( $c_image, 'full', false, array( 'class' => 'w-full h-full object-cover object-[70%_50%] md:object-center xl:object-[70%_50%] min-h-[425px] max-h-[425px] xl:min-h-[823px] xl:max-h-[823px]' ) );
+				$clandscape_image = get_field( 'culinary_image_landscape' );
+				if ( $clandscape_image ) :
+					echo wp_get_attachment_image( $clandscape_image, 'full', false, array( 'class' => 'w-full h-full object-cover min-h-[425px] hidden invisible md:block md:visible lg:hidden lg:invisible' ) );
+				endif;
+				$cportrait_image = get_field( 'culinary_image_portrait' );
+				if ( $cportrait_image ) :
+					echo wp_get_attachment_image( $cportrait_image, 'full', false, array( 'class' => 'w-full h-full object-cover min-h-[425px] xl:min-h-[823px] md:hidden md:invisible lg:block lg:visible' ) );
 				endif;
 				?>
 			</figure>
@@ -31,9 +35,13 @@
 		<div class="col-span-2 md:col-span-6 xl:col-start-7">
 			<figure class="relative overflow-hidden">
 				<?php
-				$b_image = get_field( 'bar_image' );
-				if ( $b_image ) :
-					echo wp_get_attachment_image( $b_image, 'full', false, array( 'class' => 'w-full h-full object-cover object-center min-h-[425px] max-h-[425px] xl:min-h-[823px] xl:max-h-[823px]' ) );
+				$blanscape_image = get_field( 'bar_image_landscape' );
+				if ( $blanscape_image ) :
+					echo wp_get_attachment_image( $blanscape_image, 'full', false, array( 'class' => 'w-full h-full object-cover min-h-[425px] hidden invisible md:block md:visible lg:hidden lg:invisible' ) );
+				endif;
+				$bportrait_image = get_field( 'bar_image_portrait' );
+				if ( $bportrait_image ) :
+					echo wp_get_attachment_image( $bportrait_image, 'full', false, array( 'class' => 'w-full h-full object-cover min-h-[425px] xl:min-h-[823px] md:hidden md:invisible lg:block lg:visible' ) );
 				endif;
 				?>
 			</figure>

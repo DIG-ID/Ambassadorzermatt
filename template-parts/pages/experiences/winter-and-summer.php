@@ -8,9 +8,13 @@
 			<div class="winter-image xl:grid xl:grid-cols-6 xl:gap-x-5 order-2 mb-16 xl:mb-0">
 				<figure class="relative overflow-hidden xl:col-span-5 xl:col-start-2">
 					<?php
-					$winter_image = get_field( 'winter_and_summer_winter_image' );
-					if ( $winter_image ) :
-						echo wp_get_attachment_image( $winter_image, 'full', false, array( 'class' => 'w-full h-full object-cover object-[35%_50%] mb:object-center xl:object-[35%_50%] min-h-[425px] max-h-[425px] xl:min-h-[682px] xl:max-h-[682px]' ) );
+					$winter_image_landscape = get_field( 'winter_and_summer_winter_image' );
+					if ( $winter_image_landscape ) :
+						echo wp_get_attachment_image( $winter_image_landscape, 'full', false, array( 'class' => 'w-full h-full object-cover min-h-[425px] hidden invisible md:block md:visible lg:hidden lg:invisible' ) );
+					endif;
+					$winter_image_portrait = get_field( 'winter_and_summer_winter_image' );
+					if ( $winter_image_portrait ) :
+						echo wp_get_attachment_image( $winter_image_portrait, 'full', false, array( 'class' => 'w-full h-full object-cover min-h-[425px] xl:min-h-[682px] md:hidden md:invisible lg:block lg:visible' ) );
 					endif;
 					?>
 				</figure>
@@ -24,9 +28,13 @@
 			<div class="summer-image order-3 xl:order-4 mb-11 mb:mb-16 xl:mb-0">
 				<figure class="relative overflow-hidden xl:mr-6">
 					<?php
-					$summer_image = get_field( 'winter_and_summer_summer_image' );
-					if ( $summer_image ) :
-						echo wp_get_attachment_image( $summer_image, 'full', false, array( 'class' => 'w-full h-full object-cover object-[45%_50%] mb:object-center xl:object-[45%_50%] min-h-[425px] max-h-[425px] xl:min-h-[682px] xl:max-h-[682px]' ) );
+					$summer_image_landscape = get_field( 'winter_and_summer_summer_image' );
+					if ( $summer_image_landscape ) :
+						echo wp_get_attachment_image( $summer_image_landscape, 'full', false, array( 'class' => 'w-full h-full object-cover min-h-[425px] hidden invisible md:block md:visible lg:hidden lg:invisible' ) );
+					endif;
+					$summer_image_portrait = get_field( 'winter_and_summer_summer_image' );
+					if ( $summer_image_portrait ) :
+						echo wp_get_attachment_image( $summer_image_portrait, 'full', false, array( 'class' => 'w-full h-full object-cover min-h-[425px] xl:min-h-[682px] md:hidden md:invisible lg:block lg:visible' ) );
 					endif;
 					?>
 				</figure>
