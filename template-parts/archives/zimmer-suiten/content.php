@@ -19,16 +19,8 @@
           $zimmer_query->the_post();
 
           // Get custom fields
-          $image_field   = get_field( 'hero_intro_image' );
-          $description   = get_field( 'overview_small_description' );
-
-          // Support both "ID" and "Image array" return formats
-          $image_id = null;
-          if ( is_array( $image_field ) && isset( $image_field['ID'] ) ) {
-            $image_id = $image_field['ID'];
-          } elseif ( is_numeric( $image_field ) ) {
-            $image_id = (int) $image_field;
-          }
+          $image_id    = get_post_thumbnail_id( get_the_ID() );
+          $description = get_field( 'overview_small_description' );
 
           ?>
           <li class="col-span-6 mb-16 md:mb-20 xl:mb-32">
@@ -36,7 +28,6 @@
               <header class="card-header mb-5 md:mb-8">
                 <?php
                 if ( $image_id ) :
-                  // You can also use wp_get_attachment_image() if you prefer
                   echo '<a href="' . esc_url( get_permalink() ) . '">';
                   echo wp_get_attachment_image(
                     $image_id,
