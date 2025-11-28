@@ -141,6 +141,18 @@ function ambassadorzermatt_theme_lower_yoast_metabox_priority( $priority ) {
 add_filter( 'wpseo_metabox_prio', 'ambassadorzermatt_theme_lower_yoast_metabox_priority' );
 
 
+
+// Add dynamic favicons for light/dark mode.
+function ambz_dynamic_favicons() {
+	?>
+	<!-- Dynamic favicons based on prefers-color-scheme -->
+	<link rel="icon" href="<?php echo esc_url( get_theme_file_uri( 'assets/img/favicon/favicon-light.png' ) ); ?>" media="(prefers-color-scheme: light)">
+	<link rel="icon" href="<?php echo esc_url( get_theme_file_uri( 'assets/img/favicon/favicon-dark.png' ) ); ?>" media="(prefers-color-scheme: dark)">
+	<?php
+}
+add_action( 'wp_head', 'ambz_dynamic_favicons' );
+
+
 // Theme custom template tags.
 require get_template_directory() . '/inc/theme-template-tags.php';
 
@@ -149,6 +161,8 @@ require get_template_directory() . '/inc/theme-admin-settings.php';
 
 // The theme custom menu walker settings.
 require get_template_directory() . '/inc/theme-custom-menu-walker.php';
+
+
 
 function my_console_log(...$data) {
 	$json = json_encode($data);
