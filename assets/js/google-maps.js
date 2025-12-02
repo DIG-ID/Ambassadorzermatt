@@ -109,14 +109,12 @@
   }
 
   //  Run after DOM is ready AND after Google Maps is available
-  $(document).ready(function () {
-    if (typeof google === 'undefined' || typeof google.maps === 'undefined') {
-      return;
-    }
-
-    $('.acf-map').each(function () {
-      initAcfMap($(this));
+  window.initMap = function () {
+    jQuery(function ($) {
+      $('.acf-map').each(function () {
+        initAcfMap($(this));
+      });
     });
-  });
+  };
 
 })(jQuery);
