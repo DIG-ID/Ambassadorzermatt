@@ -39,19 +39,19 @@
                 <?php endif; ?>
               </div>
               <?php
-                  if ($link):
-                  $link_url = $link['url'];
-                  $link_title = $link['title'];
-                  $link_target = $link['target'] ? $link['target'] : '_self';
+                if ($link):
+                $link_url = $link['url'];
+                $link_title = $link['title'];
+                $link_target = $link['target'] ? $link['target'] : '_self';
               ?>
-                  <div class="col-span-1 btn btn-arrow flex md:hidden">
-                      <?php echo esc_html($link_title); ?>
-                  </div>
+                <div class="col-span-1 btn btn-arrow flex md:hidden">
+                    <?php echo esc_html($link_title); ?>
+                </div>
               <?php endif; ?>
               <!-- Text column -->
               <div class="col-span-8 md:col-start-3 md:col-span-2 xl:col-start-4 xl:col-span-4">
                 <?php if ( $text ) : ?>
-                  <p class="text-Dark body">
+                  <p class="text-Dark">
                     <?php echo esc_html( $text ); ?>
                   </p>
                 <?php endif; ?>

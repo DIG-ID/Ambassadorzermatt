@@ -19,7 +19,7 @@ if ( $bg_image_id ) {
       </div>
       <div class="col-span-2 md:col-span-6 xl:col-span-12">
         <?php if ( have_rows('erlebnisse_activities') ) : ?>
-          <div class="group grid grid-cols-2 md:flex md:flex-row gap-5 md:gap-8 xl:gap-x-16" aria-label="<?php esc_attr_e('Highlight menu', 'ambassador'); ?>"
+          <div class="group grid grid-cols-2 md:flex md:flex-row gap-5 md:gap-5 xl:gap-x-16" aria-label="<?php esc_attr_e('Highlight menu', 'ambassador'); ?>"
           >
             <?php while ( have_rows('erlebnisse_activities') ) : the_row();
               $image_id = (int) get_sub_field('image');
@@ -51,12 +51,12 @@ if ( $bg_image_id ) {
 
                   <!-- Text overlay (bottom, fades in on hover) -->
                   <span class="pointer-events-none absolute inset-0 flex flex-row justify-between items-end opacity-100 transition-opacity duration-700 group-hover/item:opacity-100 z-20">
-                    <span class="text-White pl-5 opacity-100 translate-y-0 transition-all duration-700 group-hover/item:opacity-100 group-hover/item:translate-y-6 pb-6 md:pb-11">
+                    <span class="text-White pl-3 xl:pl-5 opacity-100 translate-y-0 transition-all duration-700 group-hover/item:opacity-100 xl:group-hover/item:translate-y-6 pb-3 xl:pb-11">
                       <?php if ( $title ) : ?>
                         <?php echo esc_html($title); ?>
                       <?php endif; ?>
                     </span>
-                    <span class="pr-5 opacity-0 translate-y-0 transition-all duration-700 group-hover/item:opacity-100 group-hover/item:translate-y-6 pb-6 md:pb-12">
+                    <span class="pr-3 xl:pr-5 opacity-100 xl:opacity-0 translate-y-0 transition-all duration-700 xl:group-hover/item:opacity-100 xl:group-hover/item:translate-y-6 pb-3 xl:pb-12">
                       <svg xmlns="http://www.w3.org/2000/svg" width="25" height="23" viewBox="0 0 25 23" fill="none">
                         <path d="M0.673828 1H23.6738M23.6738 1V22M23.6738 1L0.673828 22" stroke="#E7E5E5" stroke-width="2"/>
                       </svg>

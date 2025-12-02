@@ -10,7 +10,7 @@
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^10.4.21",
-    "baseline-browser-mapping": "^2.8.31",
+    "baseline-browser-mapping": "^2.8.32",
     "browser-sync": "^3.0.4",
     "browser-sync-webpack-plugin": "^2.4.0",
     "jquery": "^3.7.1",

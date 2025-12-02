@@ -56,7 +56,7 @@
 
               <!-- Text overlay (bottom, fades in on hover) -->
               <span class="pointer-events-none absolute inset-0 flex flex-col justify-end items-center opacity-100 xl:opacity-0 transition-opacity duration-700 group-hover/item:opacity-100 z-20 pb-6 md:pb-8">
-                <span class="min-w-[18ch] md:max-w-[34ch] md:min-w-[34ch] xl:max-w-[38ch] xl:min-w-[38ch] text-center text-white px-1 md:px-6 opacity-100 xl:opacity-0 transition-all duration-700 group-hover/item:opacity-100 group-hover/item:translate-y-0">
+                <span class="min-w-[18ch] md:max-w-[45ch] md:min-w-[34ch] xl:max-w-[38ch] xl:min-w-[38ch] text-center text-white px-1 md:px-6 opacity-100 xl:opacity-0 transition-all duration-700 group-hover/item:opacity-100 group-hover/item:translate-y-0">
                   <?php if ( $title ) : ?>
                     <span class="block title-secondary text-LightGray !font-bold">
                       <?php echo esc_html($title); ?>
