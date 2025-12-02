@@ -26,9 +26,21 @@
                 </div>
             </div>
                 <!-- RIGHT IMAGE -->
-            <div class="col-span-2 md:col-start-1 md:col-span-6 xl:col-start-7 xl:col-span-6 ">
+            <div class="md:hidden xl:block col-span-2 md:col-start-1 md:col-span-6 xl:col-start-7 xl:col-span-6 ">
                 <?php
                 $imgLogo = get_field('outro_image');
+                if ($imgLogo) {
+                    echo wp_get_attachment_image($imgLogo, 'full', false, [
+                    'class' => 'w-full h-auto',
+                    'loading' => 'eager',
+                    'decoding' => 'async',
+                    ]);
+                }
+                ?>
+            </div>
+            <div class="hidden md:block xl:hidden col-span-2 md:col-start-1 md:col-span-6 xl:col-start-7 xl:col-span-6 ">
+                <?php
+                $imgLogo = get_field('outro_image_tablet');
                 if ($imgLogo) {
                     echo wp_get_attachment_image($imgLogo, 'full', false, [
                     'class' => 'w-full h-auto',

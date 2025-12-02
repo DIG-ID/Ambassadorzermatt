@@ -12,7 +12,7 @@
                     $size,
                     false,
                     [
-                    'class'    => 'w-full max-h-auto',
+                    'class'    => 'w-full max-h-auto bleed-left-full-md',
                     'loading'  => 'eager',
                     'decoding' => 'async',
                     ]
@@ -21,7 +21,7 @@
                 ?>
             </div>
             <div class="col-start-1 col-span-2 md:col-start-2 md:col-span-5 xl:col-start-7 xl:col-span-6 order-1 md:order-none grid grid-cols-2 md:grid-cols-6 xl:grid-cols-6 gap-x-5">
-                <div class="col-span-2 md:col-span-6 xl:col-span-6 col-start-1 md:col-start-2 xl:col-start-1">
+                <div class="col-span-2 md:col-span-6 xl:col-span-6 col-start-1 md:col-start-1 xl:col-start-1">
                 <?php
                     $imgLogo = get_field('sauna_image_top');
                     $size  = 'full';

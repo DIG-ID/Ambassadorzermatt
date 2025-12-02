@@ -1,7 +1,26 @@
 <section id="reional" class="regional bg-Dark pt-[3.06rem] pb-[3.06rem] md:pt-[4.25rem] md:pb-[4.25rem] xl:pt-[6.12rem] xl:pb-[20.62rem]">
     <div class="theme-container">
         <div class="theme-grid">
-            <div class="col-start-1 col-span-2 md:col-span-6 xl:col-start-1 xl:col-span-6 xl:pt-[15.44rem] relative h-full order-4 xl:order-none">
+            <div class="block xl:hidden col-start-1 col-span-2 md:col-span-6 xl:col-start-1 xl:col-span-6 xl:pt-[15.44rem] relative h-full order-4 xl:order-none">
+                    <?php
+                        $imgLogo = get_field('regional_image_left_tablet_mobile');
+                        $size  = 'full';
+
+                        if ( $imgLogo ) {
+                        echo wp_get_attachment_image(
+                        $imgLogo,
+                        $size,
+                        false,
+                        [
+                        'class'    => 'xl:absolute w-auto max-h-[85.4375rem]',
+                        'loading'  => 'eager',
+                        'decoding' => 'async',
+                        ]
+                        );
+                        }
+                    ?>
+            </div>
+            <div class="hidden xl:block col-start-1 col-span-2 md:col-span-6 xl:col-start-1 xl:col-span-6 xl:pt-[15.44rem] relative h-full order-4 xl:order-none">
                     <?php
                         $imgLogo = get_field('regional_image_left');
                         $size  = 'full';
@@ -39,7 +58,7 @@
                         }
                     ?>
             </div>
-            <div class="col-start-1 col-span-2 md:col-start-2 md:col-span-4 xl:col-start-8 xl:col-span-5 order-2 xl:order-none">
+            <div class="col-start-1 col-span-2 md:col-start-1 md:col-span-4 xl:col-start-8 xl:col-span-5 order-2 xl:order-none">
                 <div class="title-main text-LightGray pt-[2.47rem] md:pt-[3.75rem] xl:pt-[6.5rem]">
                     <h1><?php the_field( 'regional_title' ); ?></h1>
                 </div>
