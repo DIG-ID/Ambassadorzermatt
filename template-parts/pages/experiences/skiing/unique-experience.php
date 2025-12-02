@@ -4,7 +4,7 @@
 			<?php
 			if ( have_rows( 'unique_experience_hover_menu' ) ) :
 				?>
-				<div class="col-span-2 md:col-span-6 xl:col-span-12 group flex flex-row h-[80vh] md:h-[80vh] max-h-[240px] md:max-h-[340px] xl:max-h-[546px] overflow-visible gap-1 md:gap-3 xl:gap-5" aria-label="<?php esc_attr_e( 'Highlight menu', 'ambassador' ); ?>" >
+				<div class="col-span-2 md:col-span-6 xl:col-span-12 group grid grid-cols-2 md:grid-cols-6 xl:flex flex-row xl:h-[80vh] xl:max-h-[546px] overflow-visible gap-1 md:gap-3 xl:gap-5" aria-label="<?php esc_attr_e( 'Highlight menu', 'ambassador' ); ?>" >
 					<?php
 					while ( have_rows( 'unique_experience_hover_menu' ) ) :
 						the_row();
@@ -17,8 +17,8 @@
 						$alt_meta = $image_id ? get_post_meta( $image_id, '_wp_attachment_image_alt', true ) : '';
 						$alt      = $alt_meta ? esc_attr( $alt_meta ) : esc_attr( $htitle );
 						?>
-						<a href="<?php echo $href; ?>" <?php echo $target; ?> class="group/item relative flex-1 transition-[flex] duration-700 ease-in-out hover:flex-[2] group-hover:[&:not(:hover)]:flex-[1] hover:z-10">
-							<div class="absolute left-0 right-0 bottom-0 top-0 z-0 transition-[top] duration-700 group-hover/item:-top-[40px] will-change-[top]">
+						<div class="group/item relative col-span-1 md:col-span-3 xl:flex-1 transition-[flex] duration-700 ease-in-out hover:xl:flex-[2] group-hover:xl:[&:not(:hover)]:flex-[1] hover:z-10">
+							<div class="xl:absolute left-0 right-0 bottom-0 top-0 z-0 transition-[top] duration-700 xl:group-hover/item:-top-[40px] xl:will-change-[top]">
 								<?php
 								if ( $image_id ) :
 									echo wp_get_attachment_image(
@@ -26,7 +26,7 @@
 										'full',
 										false,
 										array(
-											'class'   => 'absolute inset-0 w-full h-full object-cover origin-bottom',
+											'class'   => 'xl:absolute max-h-[235px] md:max-h-[550px] inset-0 w-full h-full object-cover origin-bottom',
 											'alt'     => $alt,
 											'loading' => 'lazy',
 										)
@@ -35,7 +35,7 @@
 								?>
 
 								<!-- Dark overlay (below text, below icon) -->
-								<span class="dark-overlay pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-700 group-hover/item:opacity-80 z-10"></span>
+								<span class="dark-overlay pointer-events-none absolute inset-0 opacity-80 xl:opacity-0 transition-opacity duration-700 group-hover/item:opacity-80 z-10"></span>
 
 								<?php
 								$icon_id = (int) get_sub_field( 'icon' ); // always ID.
@@ -66,8 +66,8 @@
 								</span>
 
 								<!-- Text overlay (bottom, fades in on hover) -->
-								<span class="pointer-events-none absolute inset-0 flex flex-col justify-end items-center opacity-0 transition-opacity duration-700 group-hover/item:opacity-100 z-20 pb-6 md:pb-8">
-									<span class="max-w-[18ch] min-w-[18ch] md:max-w-[34ch] md:min-w-[34ch] xl:max-w-[38ch] xl:min-w-[38ch] text-center text-white px-6 opacity-0 transition-all duration-700 group-hover/item:opacity-100 group-hover/item:translate-y-0">
+								<span class="pointer-events-none absolute inset-0 flex flex-col justify-end items-center opacity-100 xl:opacity-0 transition-opacity duration-700 group-hover/item:opacity-100 z-20 pb-6 md:pb-8">
+									<span class="max-w-[18ch] min-w-[18ch] md:max-w-[34ch] md:min-w-[34ch] xl:max-w-[38ch] xl:min-w-[38ch] text-center text-white px-6 opacity-100 xl:opacity-0 transition-all duration-700 group-hover/item:opacity-100 group-hover/item:translate-y-0">
 										<?php if ( $htitle ) : ?>
 											<span class="block title-secondary text-LightGray !font-bold">
 												<?php echo esc_html( $htitle ); ?>
@@ -81,7 +81,7 @@
 									</span>
 								</span>
 							</div>
-						</a>
+						</div>
 						<?php
 					endwhile;
 					?>

@@ -154,6 +154,7 @@
           <div class="flex flex-col md:flex-row items-center justify-around w-full gap-y-10 md:gap-y-0">
             <a href="<?php the_field( 'general_booking_url','option' ); ?>" target="_blank" class="btn btn-sticky-bar-light max-w-64"><?php esc_html_e( 'Jetzt buchen','ambassador' ); ?></a>
             <a href="<?php the_field( 'general_table_reservation_url','option' ); ?>" target="_blank" class="btn btn-sticky-bar-light max-w-64"><?php esc_html_e( 'Tisch reservieren','ambassador' ); ?></a>
+            <a href="<?php the_field( 'general_vouchers_url','option' ); ?>" target="_blank" class="btn btn-sticky-bar-light max-w-64"><?php esc_html_e( 'Gutscheine','ambassador' ); ?></a>
           </div>
         </div>
       </div>
