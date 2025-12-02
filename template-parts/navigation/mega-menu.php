@@ -163,9 +163,10 @@
 
   <div class="theme-container theme-grid pb-8 md:pb-0">
     <div class="col-span-2 md:col-span-6 xl:col-span-12 flex flex-col md:flex-row justify-center items-center md:justify-between md:items-center py-6 md:pt-9 text-Brown gap-y-4">
-      <div class="flex flex-col md:flex-row items-center justify-around w-full gap-y-10 md:gap-y-0">
+      <div class="flex flex-col md:flex-row items-center justify-between w-full gap-y-10 md:gap-y-0">
         <a href="<?php the_field( 'general_booking_url','option' ); ?>" target="_blank" class="btn btn-primary-light max-w-64"><?php esc_html_e( 'Jetzt buchen','ambassador' ); ?></a>
         <a href="<?php the_field( 'general_table_reservation_url','option' ); ?>" target="_blank" class="btn btn-primary-light max-w-64"><?php esc_html_e( 'Tisch reservieren','ambassador' ); ?></a>
+        <a href="<?php the_field( 'general_vouchers_url','option' ); ?>" target="_blank" class="btn btn-primary-light max-w-64"><?php esc_html_e( 'Gutscheine','ambassador' ); ?></a>
       </div>
     </div>
   </div>
