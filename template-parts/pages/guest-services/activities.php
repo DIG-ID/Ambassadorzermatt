@@ -1,10 +1,10 @@
-<section id="section-activities" class="section-activities bg-LightGray pb-[6.25rem] md:pb-[9.25rem] xl:pb-5">
+<section id="section-activities" class="section-activities bg-LightGray pb-[6.25rem] md:pb-5 xl:pb-5">
   <div class="theme-container border-black">
     <div class="theme-grid">
 
       <!-- Section title -->
-      <div class="col-start-1 col-span-2 md:col-span-6 xl:col-span-4 text-Dark title-main xl:pt-[3.19rem]">
-        <h1><?php the_field('activities_title'); ?></h1>
+      <div class="col-start-1 col-span-2 md:col-span-6 xl:col-span-4 text-Dark title-main pb-8 md:pb-10 xl:pb-0 pt-5 md:pt-8 xl:pt-12">
+        <h2><?php the_field('activities_title'); ?></h2>
       </div>
 
       <!-- Repeater rows -->
@@ -23,9 +23,9 @@
             $link_title = $link['title'];
             $link_target = $link['target'] ? $link['target'] : '_self'; 
           ?>
-          <a href="<?php echo esc_url($link_url); ?>" target="<?php echo esc_attr($link_target); ?>" class="btn-arrow-wrapper col-start-1 col-span-2 md:col-start-2 md:col-span-5 xl:col-start-5 xl:col-span-8 border-b-[1px] border-Dark last:border-b-0 xl:pt-[3.13rem] xl:pb-[6.25rem]">
+          <a href="<?php echo esc_url($link_url); ?>" target="<?php echo esc_attr($link_target); ?>" class="btn-arrow-wrapper col-start-1 col-span-2 md:col-start-2 md:col-span-5 xl:col-start-5 xl:col-span-8 border-b-[1px] border-Dark last:border-b-0 last:pb-[3.7rem] pb-10 pt-5 md:pt-[2.02rem] md:pb-[3.7rem] xl:pt-[3.13rem] xl:pb-[6.25rem]">
           <?php else: ?>
-          <div class="col-start-1 col-span-2 md:col-start-2 md:col-span-5 xl:col-start-5 xl:col-span-8 border-b-[1px] border-Dark last:border-b-0 xl:pt-[3.13rem] xl:pb-[6.25rem]">
+          <div class="col-start-1 col-span-2 md:col-start-2 md:col-span-5 xl:col-start-5 xl:col-span-8 border-b-[1px] border-Dark last:border-b-0 last:pb-[3.7rem] pb-10 pt-5 md:pt-[2.02rem] md:pb-[3.7rem] xl:pt-[3.13rem] xl:pb-[6.25rem]">
           <?php endif; ?>
             <!-- Inner grid to split title / text -->
             <div class="grid grid-cols-8 md:grid-cols-5 xl:grid-cols-8 gap-5">
