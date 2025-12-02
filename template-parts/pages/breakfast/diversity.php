@@ -1,7 +1,7 @@
 <section id="diversity" class="diversity bg-White pb-[3.74rem] xl:pb-[9.37rem]">
     <div class="theme-container">
         <div class="theme-grid">
-            <div class="col-start-1 col-span-2 md:col-start-1 md:col-span-2 xl:col-span-5 pt-[1.25rem] md:pt-[11.44rem] xl:pt-[21.12rem] order-2 md:order-none">
+            <div class="col-start-1 col-span-2 md:col-start-1 md:col-span-2 xl:col-span-5 pt-[1.25rem] md:pt-[11.44rem] xl:pt-[14.12rem] order-2 md:order-none">
                 <?php
                     $imgLogo = get_field('diversity_image_top_left');
                     $size  = 'full';
