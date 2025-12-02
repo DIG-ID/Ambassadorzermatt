@@ -1,10 +1,10 @@
-<section id="section-activities" class="section-activities bg-LightGray pt-20 md:pt-24 xl:pt-28">
+<section id="section-activities" class="section-activities bg-LightGray pt-12 md:pt-14 xl:pt-28">
   <div class="theme-container">
-    <div class="theme-grid pb-7 xl:pb-14">
+    <div class="theme-grid pb-14 xl:pb-14">
       <div class="col-span-2 md:col-span-6 xl:col-span-8">
         <h2 class="text-Dark title-main mb-4 xl:mb-8"><?php the_field('arrival_info_intro_title'); ?></h2>
       </div>
-      <div class="col-span-2 md:col-span-4 xl:col-span-5">
+      <div class="col-span-2 md:col-span-5 xl:col-span-5">
         <p class="text-Dark"><?php the_field( 'arrival_info_intro_text' ); ?></p>
       </div>
     </div>
