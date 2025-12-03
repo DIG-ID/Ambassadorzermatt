@@ -17,7 +17,7 @@
                 </div>
             </div>
             <div class="col-start-1 col-span-2 md:col-start-5 md:col-span-2 xl:col-start-7 xl:col-span-5">
-                <div class="title-secondary text-Dark pt-[1.25rem] md:pt-[1.87rem] md:max-w-[10rem] xl:max-w-none">
+                <div class="title-secondary text-Dark pt-[1.25rem] pb-5 md:pb-0 md:pt-[1.87rem] md:max-w-[10rem] xl:max-w-none">
                     <p><?php the_field( 'fondue_dates' ); ?></p>
                 </div>
                 <div class="hidden xl:block col-start-1 col-span-2 md:col-start-1 md:col-span-4 xl:col-start-7 xl:col-span-5">
@@ -48,7 +48,7 @@
             <?php endif; ?>
             </div>
             </div>
-            <div class="hidden md:block col-span-2 md:col-span-6 xl:col-span-12 pt-5 md:pt-0">
+            <div class="hidden md:block col-span-2 md:col-span-6 xl:col-span-12">
                     <?php
                         $imgLogo = get_field('fondue_image_full');
                         $size  = 'full';
