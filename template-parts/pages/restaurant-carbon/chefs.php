@@ -55,7 +55,7 @@
                     $size,
                     false,
                     [
-                    'class'    => 'w-full max-h-auto',
+                    'class'    => 'w-full max-h-auto object-cover xl:max-h-[758px]',
                     'loading'  => 'eager',
                     'decoding' => 'async',
                     ]

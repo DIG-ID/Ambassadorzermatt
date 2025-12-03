@@ -115,3 +115,34 @@ $container-max: 1360px
     overflow: visible
     margin-left: calc(-1 * var(--spread))
     width: calc(100% + var(--spread))
+
+
+
+//Alternative Bleeds
+
+@media (min-width: 768px)
+  .bleed-right-child-alt,
+  .bleed-left-child-alt
+    --edge-gap: max(0px, calc((100vw - #{$container-max}) / 2))
+    --container-pad: 24px
+    --shift: calc(var(--edge-gap) + var(--container-pad))
+    width: calc(100% + var(--shift))
+
+  .bleed-right-child-alt
+    margin-right: calc(-1 * var(--shift))
+
+  .bleed-left-child-alt
+    margin-left: calc(-1 * var(--shift))
+
+
+@media (min-width: 768px) and (max-width: 1024px)
+  .bleed-right-child-alt,
+  .bleed-left-child-alt
+    --container-pad: 16px
+
+@media (max-width: 767px)
+  .bleed-small-screen
+    width: 100dvw
+    margin-left: calc(50% - 50vw)
+    margin-right: calc(50% - 50vw)
+    max-width: none

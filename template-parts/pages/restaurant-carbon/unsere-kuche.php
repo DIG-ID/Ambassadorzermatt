@@ -24,6 +24,7 @@
 
       <!-- Top right image -->
       <div class="col-span-2 md:col-span-3 xl:col-start-9 xl:col-span-4 pt-[1.875rem] md:pt-0">
+        <figure class="bleed-right-child-alt h-full">
         <?php
           $imgLogo = get_field('unsere_kuche_image_top_right');
           if ( $imgLogo ) {
@@ -32,17 +33,19 @@
               'full',
               false,
               [
-                'class'    => 'w-full h-auto object-cover bleed-right-full',
+                'class'    => 'w-full h-auto object-cover bleed-small-screen max-h-[610px] xl:max-h-[1108px]',
                 'loading'  => 'eager',
                 'decoding' => 'async',
               ]
             );
           }
         ?>
+        </figure>
       </div>
 
       <!-- Bottom left image -->
-      <div class="col-span-2 xl:col-span-5 pt-[1.87rem] md:pt-[4.06rem] xl:pt-[1.94rem] overflow-hidden xl:overflow-visible">
+      <div class="col-span-2 xl:col-span-5 pt-[1.87rem] md:pt-[4.06rem] xl:pt-[1.94rem]">
+        <figure class="bleed-left-child-alt h-full negative-mt-image">
         <?php
           $imgLogo = get_field('unsere_kuche_image_bottom_left');
           if ( $imgLogo ) {
@@ -51,13 +54,14 @@
               'full',
               false,
               [
-                'class'    => 'w-full h-auto object-cover bleed-left-full min-h-0 md:min-h-[700px] xl:min-h-0 negative-mt-image',
+                'class'    => 'w-full h-full object-cover max-h-[880px]',
                 'loading'  => 'eager',
                 'decoding' => 'async',
               ]
             );
           }
         ?>
+        </figure>
       </div>
 
       <!-- Text block (title, text, schedule) + bottom right image -->
@@ -101,7 +105,7 @@
     <!-- SECOND GRID: hover cards -->
     <?php if ( have_rows('unsere_kuche_hover') ) : ?>
       <div class="theme-grid">
-        <div class="col-start-1 xl:col-start-2 col-span-2 md:col-span-6 xl:col-span-10 group flex flex-col md:flex-row h-[80vh] md:h-[70vh] max-h-[546px] overflow-visible gap-[20px]" aria-label="<?php esc_attr_e('Highlight menu', 'ambassador'); ?>">
+        <div class="col-start-1 xl:col-start-2 col-span-2 md:col-span-6 xl:col-span-10 group grid grid-cols-2 md:grid-cols-6 xl:flex flex-col md:flex-row h-[80vh] md:h-[80vh] xl:h-[60vh] overflow-visible gap-[20px]" aria-label="<?php esc_attr_e('Highlight menu', 'ambassador'); ?>">
           <?php while ( have_rows('unsere_kuche_hover') ) : the_row();
             $image_id = get_sub_field('image');
             $desc     = get_sub_field('text');
@@ -110,7 +114,7 @@
             $fallback_title = $image_id ? get_the_title($image_id) : '';
             $alt = $alt_meta ? esc_attr($alt_meta) : esc_attr($fallback_title);
           ?>
-            <a <?php if (!empty($link)) : ?> href="<?php echo $link; ?>" target="_blank" <?php endif; ?> class="group/item relative flex-1 transition-[flex] duration-700 ease-in-out hover:flex-[2] group-hover:[&:not(:hover)]:flex-[1] hover:z-10">
+            <a <?php if (!empty($link)) : ?> href="<?php echo $link; ?>" target="_blank" <?php endif; ?> class="group/item relative col-span-2 md:col-span-6 xl:flex-1 transition-[flex] duration-700 ease-in-out hover:flex-[2] group-hover:[&:not(:hover)]:flex-[1] hover:z-10">
               <div class="absolute left-0 right-0 bottom-0 top-0 z-0 transition-[top] duration-700 group-hover/item:-top-[40px] will-change-[top]">
                 <?php
                   if ( $image_id ) {
@@ -129,13 +133,13 @@
 
                 <!-- Dark overlay -->
                 <?php if (!empty($link)) : ?>
-                <span class="dark-overlay pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-700 group-hover/item:opacity-80 z-10"></span>
+                <span class="dark-overlay pointer-events-none absolute inset-0 opacity-80 xl:opacity-0 transition-opacity duration-700 group-hover/item:opacity-80 z-10"></span>
                 <?php endif; ?>
                 
                 <!-- Text overlay (bottom, fades in on hover) -->
                 <?php if (!empty($link)) : ?>
                 <span class="pointer-events-none absolute inset-0 flex flex-row justify-between items-end opacity-100 transition-opacity duration-700 group-hover/item:opacity-100 z-20">
-                  <span class="text-White pl-5 opacity-0 translate-y-0 transition-all duration-700 group-hover/item:opacity-100 group-hover/item:translate-y-6 pb-6 md:pb-11">
+                  <span class="text-White pl-5 opacity-100 xl:opacity-0 translate-y-0 transition-all duration-700 group-hover/item:opacity-100 group-hover/item:translate-y-6 pb-6 md:pb-11">
                     <?php if ( $desc ) : ?>
                       <p class="title-secondary text-LightGray"><?php echo esc_html($desc); ?></p>
                     <?php endif; ?>
