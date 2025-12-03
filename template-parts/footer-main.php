@@ -155,7 +155,7 @@
 			</div>
 
 			<!-- Copyright text -->
-			<p class="footer-small text-LightGray order-2 xl:order-1 text-center xl:text-end"><?php esc_html_e( '2025 © All rights reserved.', 'ambassador' ); ?></p>
+			<p class="footer-small text-LightGray order-2 xl:order-1 text-center xl:text-end"><?php esc_html_e( '2025 © Alle Rechte vorbehalten.', 'ambassador' ); ?></p>
 
 		</div>
 	</div>
