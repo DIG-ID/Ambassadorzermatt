@@ -13,6 +13,13 @@ document.addEventListener("DOMContentLoaded", () => {
           // optional config
           groupAll: true,        // in case there are multiple containers
           hideScrollbar: false,
+          Toolbar: {
+            display: {
+              left: [],
+              middle: [],
+              right: ["close"],
+            },
+          },
           //groupAll: true,        // in case there are multiple containers
           //hideScrollbar: false,
           // You can add more options here if needed

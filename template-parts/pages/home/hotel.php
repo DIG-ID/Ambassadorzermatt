@@ -37,7 +37,7 @@
             $imgHotel2 = get_field('hotel_image_2');
             if ($imgHotel2) {
               echo wp_get_attachment_image($imgHotel2, 'full', false, [
-                'class' => 'w-full h-auto object-cover object-left md:object-center float-right md:float-none max-h-[25dvh] md:max-h-none max-w-[80%] md:max-w-none',
+                'class' => 'w-full h-auto object-cover object-left md:object-center float-right md:float-none max-h-[25dvh] md:max-h-none',
               ]);
             }
           ?>

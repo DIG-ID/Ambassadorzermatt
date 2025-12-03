@@ -53,7 +53,7 @@
             </div>
 
             <!-- RIGHT IMAGE  -->
-            <div class="col-start-2 col-span-1 md:col-start-5 md:col-span-2 xl:col-start-8 xl:col-span-5 relative pb-[1.25rem] md:pb-0 order-2 md:order-none md:pt-[11.53rem] xl:pt-0">
+            <div class="col-start-2 col-span-1 md:col-start-5 md:col-span-2 xl:col-start-8 xl:col-span-5 relative pb-[1.25rem] md:pb-0 order-2 md:order-none md:pt-[11.53rem] xl:pt-0 hidden md:block">
                 <?php
                     $imgLogo = get_field('komfort_image_right');
                     $size    = 'full';
@@ -74,7 +74,7 @@
             </div>
 
             <!-- LEFT IMAGE (mobile / tablet) -->
-            <div class="block xl:hidden col-start-1 col-span-2 md:col-start-1 md:col-span-5 xl:col-start-2 xl:col-span-5 pb-[2.25rem] xl:pt-[8.62rem] order-3 md:order-3">
+            <div class="block xl:hidden col-start-1 col-span-2 md:col-start-1 md:col-span-5 xl:col-start-2 xl:col-span-5 pb-[2.25rem] pt-8 xl:pt-[8.62rem] order-3 md:order-3">
                 <?php
                     $imgLogo = get_field('komfort_image_left');
                     $size    = 'full';

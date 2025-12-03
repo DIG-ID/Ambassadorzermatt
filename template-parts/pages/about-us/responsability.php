@@ -13,7 +13,7 @@
 			</div>
 
 			<!-- RIGHT IMAGE -->
-			<div class="col-span-1 col-start-2 md:col-span-2 xl:col-span-4 md:order-3 xl:order-2">
+			<div class="col-span-1 col-start-2 md:col-span-2 xl:col-span-4 md:order-3 xl:order-2 hidden md:block">
 				<figure class="mt-5 md:mt-7 xl:mt-0 xl:translate-y-96">
 					<?php
 					$img_right = get_field( 'responsability_image_right' );
