@@ -48,7 +48,7 @@ add_filter( 'login_headertext', 'theme_login_title' );
 
 // Custom Backend Footer.
 function theme_custom_admin_footer() {
-	_e( '<span id="footer-thankyou">Developed by <a href="https://dig.id" target="_blank">dig.id</a></span>.', 'digid' );
+	_e( '<span id="footer-thankyou">Developed by <a href="https://dig.id" target="_blank">dig.id</a></span>.', 'ambassador' );
 }
 
 add_filter( 'admin_footer_text', 'theme_custom_admin_footer' );

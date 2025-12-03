@@ -2,17 +2,17 @@
 /**
  * Setup theme
  */
-function ambassadorzermatt_theme_setup() {
+function az_theme_setup() {
 
 	register_nav_menus(
 		array(
-			'main-menu'      => __( 'Main Menu', 'ambassadorzermatt' ),
-			'main-mega-menu' => __( 'Main Mega Menu', 'ambassadorzermatt' ),
-			'footer-copyright-menu' => __( 'Footer Copyright Menu', 'ambassadorzermatt' ),
-			'footer-hotel-menu' => __( 'Footer Hotel Menu', 'ambassadorzermatt' ),
-			'footer-gastronomie-menu' => __( 'Footer Gastronomie Menu', 'ambassadorzermatt' ),
-			'footer-uber-uns-menu' => __( 'Footer Uber Uns Menu', 'ambassadorzermatt' ),
-			'footer-zermatt-erleben-menu' => __( 'Footer Zermatt Erleben Menu', 'ambassadorzermatt' ),
+			'main-menu'      => __( 'Main Menu', 'ambassador' ),
+			'main-mega-menu' => __( 'Main Mega Menu', 'ambassador' ),
+			'footer-copyright-menu' => __( 'Footer Copyright Menu', 'ambassador' ),
+			'footer-hotel-menu' => __( 'Footer Hotel Menu', 'ambassador' ),
+			'footer-gastronomie-menu' => __( 'Footer Gastronomie Menu', 'ambassador' ),
+			'footer-uber-uns-menu' => __( 'Footer Uber Uns Menu', 'ambassador' ),
+			'footer-zermatt-erleben-menu' => __( 'Footer Zermatt Erleben Menu', 'ambassador' ),
 		)
 	);
 
@@ -32,12 +32,12 @@ function ambassadorzermatt_theme_setup() {
 
 }
 
-add_action( 'after_setup_theme', 'ambassadorzermatt_theme_setup' );
+add_action( 'after_setup_theme', 'az_theme_setup' );
 
 /**
  * Register our sidebars and widgetized areas.
  */
-function ambassadorzermatt_theme_footer_widgets_init() {
+function az_theme_footer_widgets_init() {
 
 	register_sidebar(
 		array(
@@ -63,38 +63,38 @@ function ambassadorzermatt_theme_footer_widgets_init() {
 
 }
 
-add_action( 'widgets_init', 'ambassadorzermatt_theme_footer_widgets_init' );
+add_action( 'widgets_init', 'az_theme_footer_widgets_init' );
 
-if ( ! function_exists( 'ambassadorzermatt_get_font_face_styles' ) ) :
+if ( ! function_exists( 'az_get_font_face_styles' ) ) :
 	/**
 	 * Get font face styles.
 	 * This is used by the theme or editor to inject @import for Google Fonts.
 	 */
-	function ambassadorzermatt_get_font_face_styles() {
+	function az_get_font_face_styles() {
 		return "
 			@import url('https://use.typekit.net/yjm6usa.css');
 		";
 	}
 endif;
 
-if ( ! function_exists( 'ambassadorzermatt_preload_webfonts' ) ) :
+if ( ! function_exists( 'az_preload_webfonts' ) ) :
 	/**
 	 * Preloads Google Fonts to improve performance.
 	 */
-	function ambassadorzermatt_preload_webfonts() {
+	function az_preload_webfonts() {
 		?>
 		<link rel="preconnect" href="use.typekit.net" crossorigin>
 		<?php
 	}
 endif;
 
-add_action( 'wp_head', 'ambassadorzermatt_preload_webfonts' );
+add_action( 'wp_head', 'az_preload_webfonts' );
 
 
 /**
  * Enqueue styles and scripts
  */
-function ambassadorzermatt_theme_enqueue_styles() {
+function az_theme_enqueue_styles() {
 
 	//Get the theme data
 	$the_theme     = wp_get_theme();
@@ -103,7 +103,7 @@ function ambassadorzermatt_theme_enqueue_styles() {
 	// Register Theme main style.
 	wp_register_style( 'theme-styles', get_template_directory_uri() . '/dist/css/main.css', array(), $theme_version );
 	// Add styles inline.
-	wp_add_inline_style( 'theme-styles', ambassadorzermatt_get_font_face_styles() );
+	wp_add_inline_style( 'theme-styles', az_get_font_face_styles() );
 	// Enqueue theme stylesheet.
 	wp_enqueue_style( 'theme-styles' );
 	//https://use.typekit.net/evg0ous.css first loaded fonts library backup
@@ -119,7 +119,7 @@ function ambassadorzermatt_theme_enqueue_styles() {
 	
 }
 
-add_action( 'wp_enqueue_scripts', 'ambassadorzermatt_theme_enqueue_styles' );
+add_action( 'wp_enqueue_scripts', 'az_theme_enqueue_styles' );
 
 
 /**
@@ -134,11 +134,11 @@ add_filter( 'wpcf7_autop_or_not', '__return_false' );
  *
  * @return string $priority The potentially altered priority.
  */
-function ambassadorzermatt_theme_lower_yoast_metabox_priority( $priority ) {
+function az_theme_lower_yoast_metabox_priority( $priority ) {
 	return 'core';
 }
 
-add_filter( 'wpseo_metabox_prio', 'ambassadorzermatt_theme_lower_yoast_metabox_priority' );
+add_filter( 'wpseo_metabox_prio', 'az_theme_lower_yoast_metabox_priority' );
 
 
 
