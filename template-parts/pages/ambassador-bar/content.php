@@ -39,7 +39,7 @@
                     }
                 ?>
             </div>
-            <div class="col-start-1 col-span-2 md:col-span-5 xl:col-span-6 pt-[2.47rem] md:pt-[3.75rem] xl:pt-[1.87rem] text-Dark title-main max-w-[300px] md:max-w-[500px] xl:max-w-none">
+            <div class="col-start-1 col-span-2 md:col-span-5 xl:col-span-6 pt-[2.47rem] md:pt-[3.75rem] xl:pt-[1.87rem] text-Dark title-main max-w-[280px] md:max-w-[500px] xl:max-w-none">
                 <h1><?php the_field('content_title')?></h1>
             </div>
             <div class="col-start-1 col-span-2 md:col-span-4 xl:col-start-1 xl:col-span-5 pt-[1.25rem] md:pt-[1.87rem] text-Dark body">
