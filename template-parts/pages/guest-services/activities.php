@@ -1,4 +1,4 @@
-<section id="section-activities" class="section-activities bg-LightGray pb-[6.25rem] md:pb-5 xl:pb-5">
+<section id="section-activities" class="section-activities bg-LightGray pb-5 md:pb-5 xl:pb-5">
   <div class="theme-container border-black">
     <div class="theme-grid">
 
