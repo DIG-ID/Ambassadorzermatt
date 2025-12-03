@@ -18,6 +18,20 @@ window.addEventListener("load", () => {
     });
   }
   if (document.querySelector(".page-template-page-experience-biking")) {
+    new Swiper('.trails-images-swiper', {
+      slidesPerView: 1,
+      loop: true,
+      speed: 900,
+      autoplay: {
+        delay: 10000,
+        disableOnInteraction: false,
+      },
+      effect: 'slide',
+      navigation: {
+        nextEl: '.trails-images-swiper-col .swiper-button-next',
+        prevEl: '.trails-images-swiper-col .swiper-button-prev',
+      },
+    });
     new Swiper('.trailsSwiper', {
       slidesPerView: 1,
       loop: true,

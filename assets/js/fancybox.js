@@ -28,7 +28,15 @@ document.addEventListener("DOMContentLoaded", () => {
       
       // Only on experience biking page
       if (document.body.classList.contains("page-template-page-experience-biking")) {
-        Fancybox.bind('[data-fancybox="biker-gallery"]', {});
+        Fancybox.bind('[data-fancybox="biker-gallery"]', {
+          Toolbar: {
+            display: {
+              left: [],
+              middle: [],
+              right: ["close"],
+            },
+          },
+        });
         const zoomBtn = document.querySelector(".trails-zoom-trigger");
 
         if (zoomBtn) {
