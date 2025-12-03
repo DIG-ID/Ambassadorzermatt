@@ -21,11 +21,11 @@
           <h2 class="title-secundary text-Dark"><?php the_field('contacts_address'); ?></h2>
         </div>
 
-        <div class="col-start-1 col-span-2 md:col-span-4 xl:col-start-5 xl:col-span-5">
+        <div class="col-start-1 col-span-2 md:col-span-4 xl:col-start-5 xl:col-span-5 pt-5 md:pt-0">
           <h2 class="title-secundary text-Dark"><?php the_field('contacts_phone_email'); ?></h2>
         </div>
       </div>
-      <div class="col-start-1 col-span-2 md:col-start-5 md:col-span-2 xl:col-start-10 xl:col-span-3">
+      <div class="col-start-1 col-span-2 md:col-start-5 md:col-span-2 xl:col-start-10 xl:col-span-3 pt-5 md:pt-0">
         <p class="body text-Dark"><?php the_field('contacts_text'); ?></p>
       </div>
     </div>
