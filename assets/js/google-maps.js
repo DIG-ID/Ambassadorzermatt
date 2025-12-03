@@ -65,46 +65,16 @@
     return isMobile() ? zMobile : zDesktop;
   }
 
-  function shouldOffset() {
-    return window.matchMedia('(min-width: 1280px)').matches;
-  }
-
-  function setOffsetCenter(map, latLng, offsetX, offsetY) {
-    var scale = Math.pow(2, map.getZoom());
-    var proj = map.getProjection();
-    if (!proj) {
-      google.maps.event.addListenerOnce(map, 'projection_changed', function(){
-        setOffsetCenter(map, latLng, offsetX, offsetY);
-      });
-      return;
-    }
-    var worldPoint = proj.fromLatLngToPoint(latLng);
-    var newPoint = new google.maps.Point(
-      worldPoint.x - (offsetX / scale),
-      worldPoint.y + (offsetY / scale)
-    );
-    map.setCenter(proj.fromPointToLatLng(newPoint));
-  }
-
   function centerMap(map) {
+    if (!map.markers.length) return;
     var bounds = new google.maps.LatLngBounds();
     map.markers.forEach(function (marker) {
-      bounds.extend({ lat: marker.position.lat(), lng: marker.position.lng() });
+      bounds.extend(marker.getPosition());
     });
-
     if (map.markers.length === 1) {
-      var c = bounds.getCenter();
-      map.setCenter(c);
-      if (shouldOffset()) {
-        setOffsetCenter(map, c, 270, 60);
-      } else {
-        setOffsetCenter(map, c, 130, 20);
-      }
+      map.setCenter(bounds.getCenter());
     } else {
       map.fitBounds(bounds);
-      google.maps.event.addListenerOnce(map, 'idle', function () {
-        if (shouldOffset()) map.panBy(270, 60);
-      });
     }
   }
 
