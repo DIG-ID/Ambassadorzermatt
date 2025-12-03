@@ -26,7 +26,7 @@
   <div class="theme-container xl:pt-28">
     <div class="theme-grid">
     <?php if ( have_rows('hover_gastronomie') ) : ?>
-      <div class="col-start-1 xl:col-start-2 col-span-2 md:col-span-6 xl:col-span-10 group grid grid-cols-2 md:grid-cols-6 xl:flex flex-wrap xl:flex-nowrap xl:flex-row md:min-h-[90dvh] xl:min-h-[80dvh] xl:max-h-[546px] overflow-visible gap-5 md:gap-6 xl:gap-5" aria-label="<?php esc_attr_e('Highlight menu', 'ambassador'); ?>"
+      <div class="col-start-1 xl:col-start-2 col-span-2 md:col-span-6 xl:col-span-10 group grid grid-cols-2 md:grid-cols-6 xl:flex flex-wrap xl:flex-nowrap xl:flex-row md:min-h-[90dvh] xl:min-h-[546px] xl:max-h-[546px] overflow-visible gap-5 md:gap-6 xl:gap-5" aria-label="<?php esc_attr_e('Highlight menu', 'ambassador'); ?>"
       >
         <?php while ( have_rows('hover_gastronomie') ) : the_row();
           $image_id = get_sub_field('image');
