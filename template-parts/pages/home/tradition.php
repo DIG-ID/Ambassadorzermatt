@@ -20,7 +20,7 @@
       'full',
       false,
       [
-        'class' => 'block md:hidden absolute inset-0 w-full h-1/2 md:h-full object-cover -z-10 min-h-[540px] md:min-h-[440px] object-[center_25%]',
+        'class' => 'block md:hidden absolute inset-0 w-full h-1/2 md:h-full object-cover -z-10 min-h-[540px] md:min-h-[440px] object-[10%_30%]',
       ]
     );
   endif;
