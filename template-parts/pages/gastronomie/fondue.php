@@ -48,7 +48,7 @@
             <?php endif; ?>
             </div>
             </div>
-            <div class="hidden md:block col-span-2 md:col-span-6 xl:col-span-12 ">
+            <div class="hidden md:block col-span-2 md:col-span-6 xl:col-span-12 pt-5 md:pt-0">
                     <?php
                         $imgLogo = get_field('fondue_image_full');
                         $size  = 'full';
