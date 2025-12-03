@@ -8,7 +8,7 @@
         <h2 class="title-main text-LightGray md:pt-5 xl:pt-4 md:mb-7 xl:mb-0"><?php the_field('gastronomie_title'); ?></h2>
       </div>
       <div class="col-span-2 md:col-span-4 xl:col-span-5">
-        <p class="text-LightGray pt-4 md:pt-0 xl:pt-8 pb-16"><?php the_field( 'gastronomie_description' ); ?></p>
+        <p class="text-LightGray pt-4 md:pt-0 xl:pt-8 pb-10"><?php the_field( 'gastronomie_description' ); ?></p>
         <?php
           $link = get_field('gastronomie_button');
           if ($link):
@@ -16,7 +16,7 @@
           $link_title = $link['title'];
           $link_target = $link['target'] ? $link['target'] : '_self';
         ?>
-        <a href="<?php echo esc_url($link_url); ?>" target="<?php echo esc_attr($link_target); ?>" class="btn btn-primary-dark mb-10 md:mb-0 xl:mb-16">
+        <a href="<?php echo esc_url($link_url); ?>" target="<?php echo esc_attr($link_target); ?>" class="btn btn-primary-dark mb-12 md:mb-0 xl:mb-16">
           <?php echo esc_html($link_title); ?>
         </a>
         <?php endif; ?>
