@@ -19,7 +19,7 @@
 				endif;
 				?>
 			</figure>
-			<h2 class="title-main text-LightGray mb-5 md:mb-8 md:max-w-[400px] xl:max-w-full "><?php the_field( 'restaurant_title' ); ?></h2>
+			<h2 class="title-main text-LightGray mb-5 md:mb-8 max-w-[150px] md:max-w-[400px] xl:max-w-full "><?php the_field( 'restaurant_title' ); ?></h2>
 			<p class="font-noto body text-LightGray mb-10 md:mb-0"><?php the_field( 'restaurant_description' ); ?></p>
 		</div>
 	</div>
