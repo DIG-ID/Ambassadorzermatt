@@ -4,7 +4,7 @@
       <div class="col-span-2 md:col-span-4 xl:col-span-5 md:mb-16 xl:mb-0">
         <p class="title-secondary text-Dark"><?php the_field('pool_sauna_overtitle'); ?></p>
         <h2 class="title-main text-Dark md:pt-5 xl:pt-4 md:mb-7 xl:mb-0"><?php the_field('pool_sauna_title'); ?></h2>
-        <p class="text-Dark pt-4 md:pt-0 xl:pt-8 pb-16"><?php the_field( 'pool_sauna_description' ); ?></p>
+        <p class="text-Dark pt-4 md:pt-0 xl:pt-8 pb-10"><?php the_field( 'pool_sauna_description' ); ?></p>
         <?php
           $link = get_field('pool_sauna_button');
           if ($link):
