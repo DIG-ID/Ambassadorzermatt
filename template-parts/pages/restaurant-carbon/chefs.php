@@ -1,4 +1,4 @@
-<section id="chefs" class="chefs bg-Dark pb-24 xl:pt-36"> 
+<section id="chefs" class="chefs bg-Dark xl:pt-36"> 
     <div class="theme-container">
         <div class="theme-grid pb-[6.2rem] xl:pb-[9.37rem]">
             <div class="col-span-2 xl:col-span-6 pt-[3.74rem] md:pt-0 order-2 md:order-none">
