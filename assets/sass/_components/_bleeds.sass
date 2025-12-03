@@ -120,10 +120,15 @@ $container-max: 1360px
 
 //Alternative Bleeds
 
-@media (min-width: 768px)
+$container-max-desktop: 1360px
+$container-max-tablet: 768px
+
+
+// TABLET BLEED (768px–1280px)
+@media (min-width: 768px) and (max-width: 1280px)
   .bleed-right-child-alt,
   .bleed-left-child-alt
-    --edge-gap: max(0px, calc((100vw - #{$container-max}) / 2))
+    --edge-gap: max(0px, calc((100vw - #{$container-max-tablet}) / 2))
     --container-pad: 24px
     --shift: calc(var(--edge-gap) + var(--container-pad))
     width: calc(100% + var(--shift))
@@ -135,10 +140,31 @@ $container-max: 1360px
     margin-left: calc(-1 * var(--shift))
 
 
-@media (min-width: 768px) and (max-width: 1024px)
+// DESKTOP BLEED (above 1280px)
+@media (min-width: 1281px)
   .bleed-right-child-alt,
   .bleed-left-child-alt
-    --container-pad: 16px
+    --edge-gap: max(0px, calc((100vw - #{$container-max-desktop}) / 2))
+    --container-pad: 24px
+    --shift: calc(var(--edge-gap) + var(--container-pad))
+    width: calc(100% + var(--shift))
+
+  .bleed-right-child-alt
+    margin-right: calc(-1 * var(--shift))
+
+  .bleed-left-child-alt
+    margin-left: calc(-1 * var(--shift))
+
+
+// MOBILE — no bleed
+@media (max-width: 767px)
+  .bleed-right-child-alt,
+  .bleed-left-child-alt
+    width: 100%
+    margin-left: 0
+    margin-right: 0
+
+
 
 @media (max-width: 767px)
   .bleed-small-screen

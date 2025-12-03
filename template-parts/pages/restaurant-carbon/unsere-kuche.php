@@ -33,7 +33,7 @@
               'full',
               false,
               [
-                'class'    => 'w-full h-auto object-cover bleed-small-screen max-h-[610px] xl:max-h-[1108px]',
+                'class'    => 'w-full h-auto object-cover max-h-[610px] xl:max-h-[1108px]',
                 'loading'  => 'eager',
                 'decoding' => 'async',
               ]
