@@ -11,9 +11,9 @@
 			</div>
 			<div class="md:hidden col-start-1 col-span-2 ">
 				<?php
-				$img_1 = get_field( 'content_image' );
-				if ( $img_1 ) :
-					echo wp_get_attachment_image( $img_1, 'full', false, array( 'class' => 'w-full max-h-auto' ) );
+				$img_2 = get_field( 'content_image_mobile' );
+				if ( $img_2 ) :
+					echo wp_get_attachment_image( $img_2, 'full', false, array( 'class' => 'w-full max-h-auto' ) );
 				endif;
 				?>
 			</div>
