@@ -44,7 +44,7 @@
                       </span>
                     <?php endif; ?>
 
-                    <span class="amenity-label">
+                    <span class="amenity-label text-lg">
                       <?php echo esc_html( $term->name ); ?>
                     </span>
                   </li>
