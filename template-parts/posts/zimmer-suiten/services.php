@@ -11,7 +11,7 @@
       <div class="col-span-2 md:col-span-2 xl:col-span-3">
         <p class="text-Dark"><?php the_field( 'services_services_list_2' ); ?></p>
       </div>
-      <div class="col-span-2 md:col-span-4 xl:col-span-5 col-start-1 md:col-start-1 xl:col-start-6 pt-14 xl:pt-14">
+      <div class="col-span-2 md:col-span-4 xl:col-span-5 col-start-1 md:col-start-1 xl:col-start-6 pt-8 xl:pt-14">
         <?php
           $link = get_field('services_button');
           if ($link):
