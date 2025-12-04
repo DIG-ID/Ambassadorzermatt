@@ -1,7 +1,20 @@
-<section id="section-outro" class="section-outro bg-LightGray relative h-[90dvh] md:min-h-[830] md:max-h-[830] xl:h-[785px] w-full z-20 flex flex-col justify-end md:justify-center">
+<section id="section-outro" class="section-outro bg-LightGray relative md:min-h-[830] md:max-h-[830] xl:h-[785px] w-full z-20 flex flex-col justify-end md:justify-center">
   <picture>
     <?php
     $bgOutro_id = get_field( 'outro_image' );
+    if ( $bgOutro_id ) :
+      echo wp_get_attachment_image(
+        $bgOutro_id,
+        'full',
+        false,
+        [
+          'class' => 'md:absolute inset-0 w-full h-1/2 md:h-full object-cover -z-10 object-center md:min-h-[440px]',
+        ]
+      );
+    endif;
+    ?>
+    <?php
+    $bgOutro_id = get_field( 'outro_image_tablet_mobile' );
     if ( $bgOutro_id ) :
       echo wp_get_attachment_image(
         $bgOutro_id,
