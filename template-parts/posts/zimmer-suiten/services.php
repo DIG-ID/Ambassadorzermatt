@@ -1,4 +1,4 @@
-<section id="section-services" class="section-services bg-LightGray pt-10 pb-7 md:py-12 xl:pt-20 xl:pb-24">
+<section id="section-services" class="section-services bg-LightGray pt-10 pb-10 md:py-12 xl:pt-20 xl:pb-24">
   <div class="theme-container">
     <div class="theme-grid">
       <div class="col-span-2 md:col-span-6 xl:col-span-5 mb-8 xl:mb-0">
