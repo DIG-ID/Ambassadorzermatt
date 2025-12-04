@@ -65,14 +65,14 @@
       </div>
 
       <!-- Text block (title, text, schedule) + bottom right image -->
-      <div class="col-span-2 md:col-start-3 md:col-span-4 xl:col-start-7 xl:col-span-5 md:pt-[4.06rem] xl:pt-36">
+      <div class="col-span-2 md:col-start-3 md:col-span-4 xl:col-start-7 xl:col-span-6 md:pt-[4.06rem] xl:pt-36">
         <!-- Title -->
         <div class="title-main text-LightGray pt-[1.85rem] md:pt-0">
           <h2><?php the_field( 'unsere_kuche_title' ); ?></h2>
         </div>
 
         <!-- Description text -->
-        <div class="text-LightGray pt-[1.87rem] xl:pt-[1.88rem]">
+        <div class="text-LightGray pt-[1.87rem] xl:pt-[1.88rem] xl:max-w-[537px]">
           <p><?php the_field( 'unsere_kuche_text' ); ?></p>
         </div>
 

@@ -8,7 +8,7 @@
         'full',
         false,
         [
-          'class' => 'hidden xl:block inset-0 w-full h-1/2 md:h-full object-cover -z-10 object-center md:min-h-[440px]',
+          'class' => 'hidden xl:block absolute inset-0 w-full h-1/2 md:h-full object-cover -z-10 object-center md:min-h-[440px]',
         ]
       );
     endif;
