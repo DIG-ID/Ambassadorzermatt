@@ -5,7 +5,7 @@
 				<?php
 				$f_image = get_field( 'family_image_1' );
 				if ( $f_image ) :
-					echo wp_get_attachment_image( $f_image, 'full', false, array( 'class' => 'w-full h-full object-cover min-h-[411px] md:min-h-[610px] xl:min-h-[807px]' ) );
+					echo wp_get_attachment_image( $f_image, 'full', false, array( 'class' => 'w-full h-full object-cover min-h-[411px] md:min-h-[610px] xl:min-h-[807px] md:object-[30%_0%] xl:oject-center' ) );
 				endif;
 				?>
 			</figure>
