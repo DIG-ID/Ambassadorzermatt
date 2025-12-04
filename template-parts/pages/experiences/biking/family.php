@@ -1,4 +1,4 @@
-<section class="section-family bg-Dark text-LightGray py-12 md:py-20 xl:py-24">
+<section class="section-family bg-Dark text-LightGray pt-12 pb-6 md:py-20 xl:py-24">
 	<div class="theme-container theme-grid">
 		<div class="col-span-2 md:col-span-3 xl:col-span-7">
 			<figure class="relative overflow-hidden mb-10 md:mb-16 xl:mb-10 md:-mr-4 xl:mr-10 ">
@@ -22,7 +22,7 @@
 					endif;
 					?>
 				</figure>
-				<figure class="relative overflow-hidden">
+				<figure class="relative overflow-hidden hidden md:block">
 					<?php
 					$f_image3 = get_field( 'family_image_3' );
 					if ( $f_image3 ) :
