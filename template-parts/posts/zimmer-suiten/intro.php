@@ -8,7 +8,7 @@
             </div>
             <div class="col-start-1 col-span-2 md:col-start-1 md:col-span-4 xl:col-start-2 xl:col-span-5">
               <div class="title-main text-Brown pt-[1.25rem] md:pt-[1.88rem] xl:pt-0">
-                <h1><?php the_title(); ?></h1>
+                <h1><?php the_field( 'hero_intro_title' ); ?></h1>
               </div>
             </div>
             <div class="col-start-1 col-span-2 md:col-start-1 md:col-span-4 xl:col-start-7 xl:col-span-5">
