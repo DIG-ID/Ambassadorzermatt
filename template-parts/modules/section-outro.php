@@ -7,20 +7,20 @@
       'full',
       false,
       [
-        'class' => 'hidden md:block md:absolute inset-0 w-full h-1/2 md:h-full object-cover -z-10 object-center md:min-h-[440px]',
+        'class' => 'hidden xl:block md:absolute inset-0 w-full h-1/2 md:h-full object-cover -z-10 object-center md:min-h-[440px]',
       ]
     );
   endif;
   ?>
   <?php
-  $bg_id = get_field( 'outro_image_mobile' );
+  $bg_id = get_field( 'outro_image_tablet_mobile' );
   if ( $bg_id ) :
     echo wp_get_attachment_image(
       $bg_id,
       'full',
       false,
       [
-        'class' => 'block md:hidden inset-0 w-full h-1/2 md:h-full object-cover -z-10 md:min-h-[440px] object-[0%_15%]',
+        'class' => 'block xl:hidden inset-0 w-full h-1/2 md:h-full object-cover -z-10 md:min-h-[440px] object-[0%_15%]',
       ]
     );
   endif;
