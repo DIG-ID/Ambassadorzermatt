@@ -7,7 +7,7 @@
       'full',
       false,
       [
-        'class' => 'hidden md:block absolute inset-0 w-full h-1/2 md:h-full object-cover -z-10 object-center min-h-[540px] md:min-h-[440px]',
+        'class' => 'hidden md:block md:absolute inset-0 w-full h-1/2 md:h-full object-cover -z-10 object-center md:min-h-[440px]',
       ]
     );
   endif;
@@ -20,7 +20,7 @@
       'full',
       false,
       [
-        'class' => 'block md:hidden absolute inset-0 w-full h-1/2 md:h-full object-cover -z-10 min-h-[540px] md:min-h-[440px] object-[10%_30%]',
+        'class' => 'block md:hidden md:absolute inset-0 w-full h-1/2 md:h-full object-cover -z-10 md:min-h-[440px] object-[10%_30%]',
       ]
     );
   endif;
