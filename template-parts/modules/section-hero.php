@@ -8,7 +8,7 @@
         'full',
         false,
         [
-          'class' => 'pointer-events-none w-full h-full object-cover object-center min-h-[230px] md:min-h-[440px]',
+          'class' => 'pointer-events-none w-full h-full object-cover object-right min-h-[330px] md:min-h-[440px]',
         ]
       );
     endif;
