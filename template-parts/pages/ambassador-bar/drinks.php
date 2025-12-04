@@ -1,97 +1,124 @@
 <section id="section-drinks" class="section-drinks bg-LightGray pt-[3.09rem] md:pt-[7.06rem] xl:pt-[5.87rem] pb-[3.1rem] md:pb-[7.12rem] xl:pb-[9.44rem]">
     <div class="theme-container">
         <div class="theme-grid">
+
+            <!-- LEFT IMAGE + TEXT COLUMN (ALL BREAKPOINTS) -->
             <div class="col-start-1 col-span-2 md:col-span-4 xl:col-span-8">
+
+                <!-- Desktop left image -->
                 <div class="image-wrapper hidden xl:block">
-                <?php
+                    <?php
                     $imgLogo = get_field('drinks_image_top_left');
-                    $size  = 'full';
-
                     if ( $imgLogo ) {
-                    echo wp_get_attachment_image(
-                    $imgLogo,
-                    $size,
-                    false,
-                    [
-                    'class'    => 'w-full max-h-auto',
-                    'loading'  => 'eager',
-                    'decoding' => 'async',
-                    ]
-                    );
+                        echo wp_get_attachment_image(
+                            $imgLogo,
+                            'full',
+                            false,
+                            [
+                                'class'    => 'w-full max-h-auto',
+                                'loading'  => 'eager',
+                                'decoding' => 'async',
+                            ]
+                        );
                     }
-                ?>
+                    ?>
                 </div>
+
+                <!-- Tablet + Mobile left image -->
                 <div class="image-wrapper block xl:hidden">
-                <?php
+                    <?php
                     $imgLogo = get_field('drinks_image_top_left_tablet');
-                    $size  = 'full';
-
                     if ( $imgLogo ) {
-                    echo wp_get_attachment_image(
-                    $imgLogo,
-                    $size,
-                    false,
-                    [
-                    'class'    => 'w-full max-h-auto min-h-[411px] md:min-h-[616px]',
-                    'loading'  => 'eager',
-                    'decoding' => 'async',
-                    ]
-                    );
+                        echo wp_get_attachment_image(
+                            $imgLogo,
+                            'full',
+                            false,
+                            [
+                                'class'    => 'w-full max-h-auto min-h-[411px] md:min-h-[616px]',
+                                'loading'  => 'eager',
+                                'decoding' => 'async',
+                            ]
+                        );
                     }
-                ?>
+                    ?>
                 </div>
-                <div class="block md:hidden col-start-1 col-span-2 pt-[1.87rem]">
-                <?php
+
+                <!-- MOBILE-ONLY RIGHT IMAGE (order #2 on mobile) -->
+                <div class="block md:hidden pt-[1.87rem]">
+                    <?php
                     $imgLogo = get_field('drinks_image_top_right_mobile');
-                    $size  = 'full';
-
                     if ( $imgLogo ) {
-                    echo wp_get_attachment_image(
-                    $imgLogo,
-                    $size,
-                    false,
-                    [
-                    'class'    => 'w-full h-auto max-h-[376px] object-cover',
-                    'loading'  => 'eager',
-                    'decoding' => 'async',
-                    ]
-                    );
+                        echo wp_get_attachment_image(
+                            $imgLogo,
+                            'full',
+                            false,
+                            [
+                                'class'    => 'w-full h-auto max-h-[376px] object-cover',
+                                'loading'  => 'eager',
+                                'decoding' => 'async',
+                            ]
+                        );
                     }
-                ?>
+                    ?>
                 </div>
-                <div class="title-main text-Dark pt-[2.47rem] md:pt-[3.78rem] xl:pt-[1.88rem]">
-                    <h1><?php the_field('drinks_title') ?></h1>
+
+                <!-- TEXT CONTENT (mobile order #3, tablet/desktop normal) -->
+                <div class="title-main text-Dark pt-[2.47rem] md:pt-[3.78rem] xl:pt-[1.88rem] md:max-w-[300px] xl:max-w-none">
+                    <h1><?php the_field('drinks_title'); ?></h1>
                 </div>
+
                 <div class="body text-Dark pt-[1.25rem] md:pt-[1.87rem] xl:max-w-[33.75rem]">
-                    <p><?php the_field('drinks_text') ?></p>
+                    <p><?php the_field('drinks_text'); ?></p>
                 </div>
+
                 <div class="title-secundary text-Dark pt-[1.25rem] md:pt-[1.87rem]">
-                    <p><?php the_field('drinks_schedule') ?></p>
+                    <p><?php the_field('drinks_schedule'); ?></p>
                 </div>
             </div>
-            <div class="hidden md:block col-start-1 col-span-2 md:col-start-5 xl:col-start-9 xl:col-span-4 pt-[1.87rem] md:pt-[15.25rem] xl:pt-[20.125rem] order-2">
-                <?php
-                    $imgLogo = get_field('drinks_image_top_right');
-                    $size  = 'full';
 
-                    if ( $imgLogo ) {
+            <!-- TABLET-ONLY RIGHT IMAGE -->
+            <div class="hidden md:block xl:hidden md:col-start-5 md:col-span-2 md:pt-60">
+                <?php
+                $imgLogo = get_field('drinks_image_top_right_tablet');
+                if ( $imgLogo ) {
                     echo wp_get_attachment_image(
-                    $imgLogo,
-                    $size,
-                    false,
-                    [
-                    'class'    => 'w-full h-auto max-h-[376px] md:min-h-[617px] xl:min-h-[814px] object-cover',
-                    'loading'  => 'eager',
-                    'decoding' => 'async',
-                    ]
+                        $imgLogo,
+                        'full',
+                        false,
+                        [
+                            'class'    => 'w-full h-auto max-h-[617px] object-cover',
+                            'loading'  => 'eager',
+                            'decoding' => 'async',
+                        ]
                     );
-                    }
+                }
                 ?>
             </div>
+
+            <!-- DESKTOP-ONLY RIGHT IMAGE -->
+            <div class="hidden xl:block col-start-9 col-span-4 pt-[1.87rem] xl:pt-[20.125rem]">
+                <?php
+                $imgLogo = get_field('drinks_image_top_right');
+                if ( $imgLogo ) {
+                    echo wp_get_attachment_image(
+                        $imgLogo,
+                        'full',
+                        false,
+                        [
+                            'class'    => 'w-full h-auto max-h-[376px] md:min-h-[617px] xl:min-h-[814px] object-cover',
+                            'loading'  => 'eager',
+                            'decoding' => 'async',
+                        ]
+                    );
+                }
+                ?>
+            </div>
+
         </div>
     </div> 
+
     <!-- ========================================================= -->
-    <!-- SECOND GRID — FULLY COMMENTED OUT (NOT REMOVED)          -->
+    <!-- SECOND GRID — STILL COMMENTED OUT                         -->
     <!-- ========================================================= -->
 
     <!--
