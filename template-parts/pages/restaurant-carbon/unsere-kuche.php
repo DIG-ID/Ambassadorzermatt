@@ -82,7 +82,7 @@
         </div>
 
         <!-- Bottom right image -->
-        <div class="pt-[1.88rem] pb-[6.24rem] md:pt-[4.82rem] md:pb-[6.19rem] xl:pt-[4.69rem] xl:pb-[8.25rem]">
+        <div class="pt-[1.88rem] md:pt-[4.82rem] xl:pt-[4.69rem]">
           <?php
             $imgLogo = get_field('unsere_kuche_image_bottom_right');
             if ( $imgLogo ) {
