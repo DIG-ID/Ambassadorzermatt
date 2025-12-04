@@ -22,7 +22,7 @@
 					endif;
 					?>
 				</figure>
-				<figure class="relative overflow-hidden">
+				<figure class="relative overflow-hidden hidden md:block">
 					<?php
 					$in_image3 = get_field( 'inspiration_image_3' );
 					if ( $in_image3 ) :
