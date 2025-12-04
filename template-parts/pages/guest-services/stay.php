@@ -1,5 +1,5 @@
-<section id="section-stay" class="section-stay bg-LightGray pt-[4.94rem] md:pt-[5.69rem] xl:pt-[6.5rem]">
-  <div class="theme-container border-t-[1px] border-black border-b-[1px]">
+<section id="section-stay" class="section-stay bg-LightGray pt-7 md:pt-10 xl:pt-[6.5rem]">
+  <div class="theme-container xl:border-t-[1px] border-black border-b-[1px]">
     <div class="theme-grid">
 
       <!-- Section title -->
