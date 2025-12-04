@@ -7,7 +7,7 @@
       'full',
       false,
       [
-        'class' => 'absolute inset-0 w-full h-1/2 md:h-full object-cover -z-10 object-center min-h-[540px] md:min-h-[440px]',
+        'class' => 'md:absolute inset-0 w-full h-1/2 md:h-full object-cover -z-10 object-center md:min-h-[440px]',
       ]
     );
   endif;
