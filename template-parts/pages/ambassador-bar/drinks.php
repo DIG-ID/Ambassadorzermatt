@@ -3,7 +3,7 @@
         <div class="theme-grid">
 
             <!-- LEFT IMAGE + TEXT COLUMN (ALL BREAKPOINTS) -->
-            <div class="col-start-1 col-span-2 md:col-span-4 xl:col-span-8">
+            <div class="col-start-1 col-span-2 md:col-span-4 xl:col-span-7">
 
                 <!-- Desktop left image -->
                 <div class="image-wrapper hidden xl:block">
@@ -96,7 +96,7 @@
             </div>
 
             <!-- DESKTOP-ONLY RIGHT IMAGE -->
-            <div class="hidden xl:block col-start-9 col-span-4 pt-[1.87rem] xl:pt-[20.125rem]">
+            <div class="hidden xl:block col-start-8 col-span-5 pt-[1.87rem] xl:pt-[20.125rem]">
                 <?php
                 $imgLogo = get_field('drinks_image_top_right');
                 if ( $imgLogo ) {
