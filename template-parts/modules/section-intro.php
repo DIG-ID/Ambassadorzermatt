@@ -1,4 +1,4 @@
-<section id="section-intro" class="section-intro bg-White pt-10 pb-24 md:pt-14 md:pb-24 xl:pt-24 xl:pb-20">
+<section id="section-intro" class="section-intro bg-White pt-10 <?php echo is_page_template('page-templates/page-arrival-contacts.php') ? 'pb-14' : 'pb-24'; ?> md:pt-14 md:pb-24 xl:pt-24 xl:pb-20">
     <div class="theme-container">
         <div class="theme-grid">
             <?php if( get_field( 'intro_over_title' ) ) : ?>
