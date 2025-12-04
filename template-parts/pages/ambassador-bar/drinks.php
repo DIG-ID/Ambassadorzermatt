@@ -46,7 +46,7 @@
                 <!-- MOBILE-ONLY RIGHT IMAGE (order #2 on mobile) -->
                 <div class="block md:hidden pt-[1.87rem]">
                     <?php
-                    $imgLogo = get_field('drinks_image_top_right_mobile');
+                    $imgLogo = get_field('drinks_image_top_right');
                     if ( $imgLogo ) {
                         echo wp_get_attachment_image(
                             $imgLogo,
