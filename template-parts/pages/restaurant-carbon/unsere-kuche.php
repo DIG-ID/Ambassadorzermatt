@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <?php
 /**
  * Unsere Kuche Section in the Restaurant Carbon Page Template.
@@ -81,6 +82,9 @@
 				<div class="title-main text-LightGray pt-[1.85rem] md:pt-0">
 					<h2><?php the_field( 'unsere_kuche_title' ); ?></h2>
 				</div>
+=======
+<section id="unsere-kuche" class="unsere-kuche bg-Dark pb-[6.26rem] md:pb-[6.32rem] xl:pb-0">
+>>>>>>> Stashed changes
   <div class="theme-container">
     <div class="theme-grid">
       <!-- Top left image -->
@@ -161,6 +165,7 @@
 					<p><?php the_field( 'unsere_kuche_schedule' ); ?></p>
 				</div>
 
+<<<<<<< Updated upstream
 				<!-- Bottom right image -->
 				<div class="pt-[1.88rem] md:pt-[4.82rem] xl:pt-[4.69rem]">
 					<?php
@@ -196,6 +201,8 @@
 						$alt = $alt_meta ? esc_attr($alt_meta) : esc_attr($fallback_title);
 					?>
 						<a <?php if (!empty($link)) : ?> href="<?php echo $link; ?>" target="_blank" <?php endif; ?> class="group/item relative col-span-2 md:col-span-6 xl:flex-1 transition-[flex] duration-700 ease-in-out hover:flex-[2] group-hover:[&:not(:hover)]:flex-[1] hover:z-10">
+=======
+>>>>>>> Stashed changes
         <!-- Bottom right image (hidden on mobile, visible md+) -->
         <div class="pt-[1.88rem] md:pt-[4.82rem] xl:pt-[4.69rem] hidden md:block">
           <?php
