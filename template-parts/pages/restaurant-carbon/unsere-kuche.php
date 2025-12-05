@@ -1,10 +1,8 @@
 <section id="unsere-kuche" class="unsere-kuche bg-Dark pb-[6.26rem] md:pb-[6.32rem] xl:pb-0">
   <div class="theme-container">
-
-    <!-- FIRST GRID: images + title/text/schedule + bottom-right image -->
     <div class="theme-grid">
       <!-- Top left image -->
-      <div class="col-span-2 md:col-span-3 xl:col-start-2 xl:col-span-6 md:pt-40 xl:pt-[9.5rem] xl:pb-[4.38rem]">
+      <div class="col-span-2 md:col-span-3 xl:col-start-2 xl:col-span-6 md:pt-40 xl:pt-[9.5rem] xl:pb-[4.38rem] order-1 md:order-none">
         <?php
           $imgLogo = get_field('unsere_kuche_image_top_left');
           if ( $imgLogo ) {
@@ -23,7 +21,7 @@
       </div>
 
       <!-- Top right image -->
-      <div class="col-span-2 md:col-span-3 xl:col-start-9 xl:col-span-4 pt-[1.875rem] md:pt-0">
+      <div class="col-span-2 md:col-span-3 xl:col-start-9 xl:col-span-4 pt-[1.875rem] md:pt-0 order-2 md:order-none">
         <figure class="bleed-right-child-alt h-full">
         <?php
           $imgLogo = get_field('unsere_kuche_image_top_right');
@@ -43,8 +41,8 @@
         </figure>
       </div>
 
-      <!-- Bottom left image -->
-      <div class="col-span-2 xl:col-span-5 pt-[1.87rem] md:pt-[4.06rem] xl:pt-[1.94rem]">
+      <!-- Bottom left image  -->
+      <div class="col-span-2 xl:col-span-5 pt-[1.87rem] md:pt-0 xl:pt-[1.94rem] order-4 md:order-none">
         <figure class="bleed-left-child-alt h-full negative-mt-image">
         <?php
           $imgLogo = get_field('unsere_kuche_image_bottom_left');
@@ -54,7 +52,7 @@
               'full',
               false,
               [
-                'class'    => 'w-full h-full object-cover max-h-[880px]',
+                'class'    => 'w-full h-full object-cover max-h-[880px] ',
                 'loading'  => 'eager',
                 'decoding' => 'async',
               ]
@@ -65,7 +63,7 @@
       </div>
 
       <!-- Text block (title, text, schedule) + bottom right image -->
-      <div class="col-span-2 md:col-start-3 md:col-span-4 xl:col-start-7 xl:col-span-6 md:pt-[4.06rem] xl:pt-36">
+      <div class="col-span-2 md:col-start-3 md:col-span-4 xl:col-start-7 xl:col-span-6 md:pt-[4.06rem] xl:pt-36 order-3 md:order-none">
         <!-- Title -->
         <div class="title-main text-LightGray pt-[1.85rem] md:pt-0">
           <h2><?php the_field( 'unsere_kuche_title' ); ?></h2>
@@ -81,8 +79,8 @@
           <p><?php the_field( 'unsere_kuche_schedule' ); ?></p>
         </div>
 
-        <!-- Bottom right image -->
-        <div class="pt-[1.88rem] md:pt-[4.82rem] xl:pt-[4.69rem]">
+        <!-- Bottom right image (hidden on mobile, visible md+) -->
+        <div class="pt-[1.88rem] md:pt-[4.82rem] xl:pt-[4.69rem] hidden md:block">
           <?php
             $imgLogo = get_field('unsere_kuche_image_bottom_right');
             if ( $imgLogo ) {
@@ -99,6 +97,25 @@
             }
           ?>
         </div>
+      </div>
+
+      <!-- Mobile-only bottom right image (order-5) -->
+      <div class="col-span-2 pt-[1.88rem] md:hidden order-5">
+        <?php
+          $imgLogo = get_field('unsere_kuche_image_bottom_right');
+          if ( $imgLogo ) {
+            echo wp_get_attachment_image(
+              $imgLogo,
+              'full',
+              false,
+              [
+                'class'    => 'w-full h-auto',
+                'loading'  => 'eager',
+                'decoding' => 'async',
+              ]
+            );
+          }
+        ?>
       </div>
     </div> <!-- /first theme-grid -->
    
