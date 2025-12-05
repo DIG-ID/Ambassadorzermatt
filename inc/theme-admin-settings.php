@@ -1,8 +1,13 @@
 <?php
 /**
- * Customize WordPress Admin look and feel.
+ * The Theme Custom Admin Settings.
+ *
+ * Customize WordPress Admin look and feel..
+ *
+ * @package ambassador-zermatt
+ * @subpackage Functionality
+ * @since 1.0.0
  */
-
 
 // Disable default dashboard widgets.
 function disable_default_dashboard_widgets() {

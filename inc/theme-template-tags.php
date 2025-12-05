@@ -1,4 +1,11 @@
 <?php
+/**
+ * The Theme template tags.
+ *
+ * @package ambassador-zermatt
+ * @subpackage Functionality
+ * @since 1.0.0
+ */
 
 /**
  * This function open the main content.

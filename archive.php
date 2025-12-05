@@ -1,4 +1,12 @@
 <?php
+/**
+ * The Default Archive Template for the Posts.
+ *
+ * @package ambassador-zermatt
+ * @subpackage Template
+ * @since 1.0.0
+ */
+
 get_header();
 do_action( 'before_main_content' );
 get_template_part( 'template-parts/pages/page-header' );

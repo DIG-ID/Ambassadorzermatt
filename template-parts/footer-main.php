@@ -1,3 +1,14 @@
+<?php
+/**
+ * The Section for the Footer Default Template.
+ *
+ * @package ambassador-zermatt
+ * @subpackage Section
+ * @since 1.0.0
+ */
+
+?>
+
 <footer id="footer-main" class="footer-main relative w-full bg-Dark text-LightGray pt-8 md:pt-16 z-30">
 
 	<!-- Top part of the footer -->

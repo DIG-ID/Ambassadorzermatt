@@ -1,4 +1,14 @@
 <?php
+/**
+ * The 404 Template.
+ *
+ * The template that the theme shows when requested page is not found.
+ *
+ * @package ambassador-zermatt
+ * @subpackage Template
+ * @since 1.0.0
+ */
+
 get_header();
 do_action( 'before_main_content' );
 ?>
@@ -35,12 +45,9 @@ do_action( 'before_main_content' );
 				<img class="img-tile" src="<?php echo esc_url( get_theme_file_uri( 'assets/img/hotel-ambassador-zermatt-404-bg-1.jpg' ) ); ?>" alt="bg-1">
 			</div>
 
-
 		</div>
 		
 	</div>
-
-
 
 </section>
 <?php
