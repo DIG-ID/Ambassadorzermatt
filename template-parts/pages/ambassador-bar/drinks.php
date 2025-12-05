@@ -1,6 +1,6 @@
 <?php
 /**
- * Dirnks Section that appears on Ambassador Bar Page Template.
+ * Drinks Section that appears on Ambassador Bar Page Template.
  *
  * @package ambassador-zermatt
  * @subpackage Section
