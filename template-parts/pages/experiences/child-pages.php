@@ -1,3 +1,13 @@
+<?php
+/**
+ * Child Pages Section in the Experiences Page Template.
+ *
+ * @package ambassador-zermatt
+ * @subpackage Section
+ * @since 1.0.0
+ */
+
+?>
 <section class="section-child-pages bg-Dark text-LightGray pt-16 pb-24 md:py-28 xl:py-36 border-b border-LightGray">
 	<div class="theme-container">
 		<div class="theme-grid">
