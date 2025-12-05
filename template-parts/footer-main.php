@@ -79,8 +79,17 @@
 				<div class="flex md:block">
 					<p class="title-footer md:pb-4 xl:pb-8 w-32 min-w-32 md:w-auto md:min-w-max"><?php esc_html_e( 'Kontakt', 'ambassador' ); ?></p>
 					<span>
-						<p class="footer-body break-words"><a href="tel:<?php echo esc_url( antispambot( get_field( 'general_phone', 'option' ) ) ); ?>"><?php the_field( 'general_phone', 'option' ); ?></a></p> 
-						<p class="footer-body break-all"><a href="mailto:<?php echo esc_attr( get_field( 'general_e-mail', 'option' ) ); ?>"><?php the_field( 'general_e-mail', 'option' ); ?></a></p>
+						<p class="footer-body break-words">
+							<a href="tel:<?php echo get_field( 'general_phone', 'option' ); ?>"><?php the_field( 'general_phone', 'option' ); ?></a>
+						</p>
+						<p class="footer-body break-all">
+							<?php 
+								$email = get_field( 'general_e-mail', 'option' );
+								$safe_email = antispambot( $email );
+							?>
+							<a href="mailto:<?php echo $safe_email; ?>"><?php echo $safe_email; ?></a>
+						</p>
+
 					</span>
 				</div>
 			</div>
