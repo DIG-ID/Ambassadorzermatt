@@ -57,9 +57,9 @@
 
 					<!-- FEATURES -->
 					<div>
-						<h2 class="title-secondary text-LightGray !leading-[40px] md:!leading-[48px]">
+						<p class="title-secondary text-LightGray !leading-[40px] md:!leading-[48px]">
 							<?php the_field( 'sauna_features' ); ?>
-						</h2>
+						</p>
 					</div>
 
 					<!-- BOTTOM IMAGE UNDER TEXT CONTENT (tablet/desktop) -->
