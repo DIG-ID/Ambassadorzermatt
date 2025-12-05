@@ -74,10 +74,10 @@
 			</div>
 			<div class="block md:hidden xl:block col-start-1 col-span-2 md:col-start-3 md:col-span-4 xl:col-start-5 xl:col-span-5 order-2 md:order-none">
 				<div class="pt-[2.5rem] md:pt-[2.78rem] xl:pt-[3.63rem]">
-					<p class="title-secondary text-White "><?php the_field( 'restaurant_carbon_overtitle' ); ?></p>
+					<h2 class="title-secondary text-White "><?php the_field( 'restaurant_carbon_overtitle' ); ?></h2>
 				</div>
 				<div class="pt-[1.25rem] md:pt-[1.88rem] xl:pt-[1.87rem]">
-					<h2 class="title-main text-White "><?php the_field( 'restaurant_carbon_title' ); ?></h2>
+					<h3 class="title-main text-White "><?php the_field( 'restaurant_carbon_title' ); ?></h3>
 				</div>
 				<div class="pt-[1.25rem] md:pt-[1.88rem] xl:pt-[1.87rem]">
 					<p class="body text-White"><?php the_field( 'restaurant_carbon_text' ); ?></p>
