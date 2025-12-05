@@ -1,3 +1,13 @@
+<?php
+/**
+ * Main header of the theme.
+ *
+ * @package ambassador-zermatt
+ * @subpackage Template
+ * @since 1.0.0
+ */
+
+?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 	<head>

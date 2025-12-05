@@ -1,4 +1,12 @@
 <?php
+/**
+ * Default Page Template.
+ *
+ * @package ambassador-zermatt
+ * @subpackage Template
+ * @since 1.0.0
+ */
+
 get_header();
 if ( have_posts() ) :
 	while ( have_posts() ) :

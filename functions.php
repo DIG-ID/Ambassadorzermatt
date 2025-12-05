@@ -1,17 +1,25 @@
 <?php
 /**
+ * Starter file for the theme default main functionality.
+ *
+ * @package ambassador-zermatt
+ * @subpackage Functionality
+ * @since 1.0.0
+ */
+
+/**
  * Setup theme
  */
 function az_theme_setup() {
 
 	register_nav_menus(
 		array(
-			'main-menu'      => __( 'Main Menu', 'ambassador' ),
-			'main-mega-menu' => __( 'Main Mega Menu', 'ambassador' ),
-			'footer-copyright-menu' => __( 'Footer Copyright Menu', 'ambassador' ),
-			'footer-hotel-menu' => __( 'Footer Hotel Menu', 'ambassador' ),
-			'footer-gastronomie-menu' => __( 'Footer Gastronomie Menu', 'ambassador' ),
-			'footer-uber-uns-menu' => __( 'Footer Uber Uns Menu', 'ambassador' ),
+			'main-menu'                   => __( 'Main Menu', 'ambassador' ),
+			'main-mega-menu'              => __( 'Main Mega Menu', 'ambassador' ),
+			'footer-copyright-menu'       => __( 'Footer Copyright Menu', 'ambassador' ),
+			'footer-hotel-menu'           => __( 'Footer Hotel Menu', 'ambassador' ),
+			'footer-gastronomie-menu'     => __( 'Footer Gastronomie Menu', 'ambassador' ),
+			'footer-uber-uns-menu'        => __( 'Footer Uber Uns Menu', 'ambassador' ),
 			'footer-zermatt-erleben-menu' => __( 'Footer Zermatt Erleben Menu', 'ambassador' ),
 		)
 	);
@@ -96,7 +104,7 @@ add_action( 'wp_head', 'az_preload_webfonts' );
  */
 function az_theme_enqueue_styles() {
 
-	//Get the theme data
+	// Get the theme data.
 	$the_theme     = wp_get_theme();
 	$theme_version = $the_theme->get( 'Version' );
 
@@ -116,11 +124,20 @@ function az_theme_enqueue_styles() {
 		wp_enqueue_script( 'google-map-settings', get_stylesheet_directory_uri() . '/assets/js/google-maps.js', array( 'jquery' ), $theme_version, true );
 		wp_enqueue_script( 'google-map-api', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBAZN5TfX1aWmjodZ4e_6sOcaJV4D59jfo&callback=initMap&loading=async', array(), $theme_version, true );
 	endif;
-	
+
 }
 
 add_action( 'wp_enqueue_scripts', 'az_theme_enqueue_styles' );
 
+/**
+ * Initialize Google Map API key for ACF in admin.
+ */
+function ambassador_google_map_init() {
+	if ( is_admin() ) :
+		acf_update_setting( 'google_api_key', 'AIzaSyBAZN5TfX1aWmjodZ4e_6sOcaJV4D59jfo' );
+	endif;
+}
+add_action( 'acf/init', 'ambassador_google_map_init' );
 
 /**
  * Remove <p> Tag From Contact Form 7.
@@ -140,9 +157,9 @@ function az_theme_lower_yoast_metabox_priority( $priority ) {
 
 add_filter( 'wpseo_metabox_prio', 'az_theme_lower_yoast_metabox_priority' );
 
-
-
-// Add dynamic favicons for light/dark mode.
+/**
+ * Add dynamic favicons for light/dark mode.
+ */
 function ambz_dynamic_favicons() {
 	?>
 	<!-- Dynamic favicons based on prefers-color-scheme -->
@@ -151,7 +168,6 @@ function ambz_dynamic_favicons() {
 	<?php
 }
 add_action( 'wp_head', 'ambz_dynamic_favicons' );
-
 
 // Theme custom template tags.
 require get_template_directory() . '/inc/theme-template-tags.php';
@@ -163,17 +179,17 @@ require get_template_directory() . '/inc/theme-admin-settings.php';
 require get_template_directory() . '/inc/theme-custom-menu-walker.php';
 
 
-
-function my_console_log(...$data) {
-	$json = json_encode($data);
-	add_action('shutdown', function() use ($json) {
-		 echo "<script>console.log({$json})</script>";
-	});
+/**
+ * Logs data to the browser console for debugging purposes.
+ *
+ * @param mixed ...$data The data to log to the console.
+ */
+function my_console_log( ...$data ) {
+	$json = wp_json_encode( $data );
+	add_action(
+		'shutdown',
+		function () use ( $json ) {
+			echo "<script>console.log({$json})</script>";
+		}
+	);
 }
-// Google Map Init.
-function ambassador_google_map_init() {
-  if ( is_admin() ) :
-    acf_update_setting( 'google_api_key', 'AIzaSyBAZN5TfX1aWmjodZ4e_6sOcaJV4D59jfo' );
-  endif;
-}
-add_action( 'acf/init', 'ambassador_google_map_init' );

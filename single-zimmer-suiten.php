@@ -1,4 +1,12 @@
 <?php
+/**
+ * Single Page Template for Custom Post Type Zimmer & Suiten.
+ *
+ * @package ambassador-zermatt
+ * @subpackage Template
+ * @since 1.0.0
+ */
+
 get_header();
 if ( have_posts() ) :
 	while ( have_posts() ) :
@@ -9,7 +17,7 @@ if ( have_posts() ) :
 			get_template_part( 'template-parts/posts/zimmer-suiten/details' );
 			get_template_part( 'template-parts/posts/zimmer-suiten/slider-room-images' );
 			get_template_part( 'template-parts/posts/zimmer-suiten/services' );
-			get_template_part( 'template-parts/modules/section','outro' );
+			get_template_part( 'template-parts/modules/section', 'outro' );
 		do_action( 'after_main_content' );
 	endwhile;
 endif;
