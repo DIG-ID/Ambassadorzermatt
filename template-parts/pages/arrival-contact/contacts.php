@@ -23,13 +23,13 @@
 
         <div class="col-start-1 col-span-2 md:col-span-4 xl:col-start-5 xl:col-span-5 pt-5 md:pt-0">
           <p class="title-secundary text-Dark">
-            <span><?php esc_html_e( 'Telefon: ' ); ?></span><a href="tel:<?php echo get_field( 'general_phone', 'option' ); ?>"><?php the_field( 'general_phone', 'option' ); ?></a></p>
+            <span><?php esc_html_e( 'Telefon: ', 'ambassador' ); ?></span><a href="tel:<?php echo get_field( 'general_phone', 'option' ); ?>"><?php the_field( 'general_phone', 'option' ); ?></a></p>
           <p class="title-secundary text-Dark">
             <?php 
               $email = get_field( 'general_e-mail', 'option' );
               $safe_email = antispambot( $email );
             ?>
-            <span><?php esc_html_e( 'E-Mail: ' ); ?><a href="mailto:<?php echo $safe_email; ?>"><?php echo $safe_email; ?></a>
+            <span><?php esc_html_e( 'E-Mail: ', 'ambassador' ); ?><a href="mailto:<?php echo $safe_email; ?>"><?php echo $safe_email; ?></a>
           </p>
         </div>
       </div>
