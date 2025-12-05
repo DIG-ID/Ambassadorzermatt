@@ -1,6 +1,6 @@
 <?php
 /**
- * Intro Module that appears on multiple page templates.
+ * Intro Module Section that appears on multiple page templates.
  *
  * @package ambassador-zermatt
  * @subpackage Module
