@@ -1,3 +1,13 @@
+<?php
+/**
+ * Tradition Section in the Home Page Template.
+ *
+ * @package ambassador-zermatt
+ * @subpackage Section
+ * @since 1.0.0
+ */
+
+?>
 <section id="section-tradition" class="section-tradition bg-LightGray relative h-[90dvh] md:min-h-[830] md:max-h-[830] xl:h-[785px] w-full z-20 flex flex-col justify-end md:justify-center">
 	<?php
 	$bg_id = get_field( 'tradition_image' );

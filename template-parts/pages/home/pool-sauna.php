@@ -1,3 +1,13 @@
+<?php
+/**
+ * Pool & Sauna Section in the Home Page Template.
+ *
+ * @package ambassador-zermatt
+ * @subpackage Section
+ * @since 1.0.0
+ */
+
+?>
 <section id="section-pool-sauna" class="section-pool-sauna bg-LightGray py-11 md:py-16 xl:pt-24 xl:pb-16">
 	<div class="theme-container">
 		<div class="theme-grid">

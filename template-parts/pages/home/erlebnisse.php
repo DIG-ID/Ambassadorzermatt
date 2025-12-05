@@ -1,4 +1,12 @@
 <?php
+/**
+ * Erlebnisse Section in the Home Page template.
+ *
+ * @package ambassador-zermatt
+ * @subpackage Section
+ * @since 1.0.0
+ */
+
 $bg_image_id  = get_field( 'erlebnisse_background' );
 $bg_image_url = '';
 
@@ -19,30 +27,24 @@ if ( $bg_image_id ) {
 			</div>
 			<div class="col-span-2 md:col-span-6 xl:col-span-12">
 				<?php if ( have_rows( 'erlebnisse_activities' ) ) : ?>
-					<div class="group grid grid-cols-2 md:flex md:flex-row gap-5 md:gap-5 xl:gap-x-16" aria-label="<?php esc_attr_e( 'Highlight menu', 'ambassador' ); ?>"
-					>
-						<?php while ( have_rows('erlebnisse_activities') ) : the_row();
-							$image_id = (int) get_sub_field('image');
-							$title    = (string) get_sub_field('title');
-							$link     = get_sub_field('link');
-							$href     = (is_array($link) && !empty($link['url'])) ? esc_url($link['url']) : '#';
-							$target   = (is_array($link) && !empty($link['target'])) ? ' target="'.esc_attr($link['target']).'" rel="noopener"' : '';
-							$alt_meta = $image_id ? get_post_meta($image_id, '_wp_attachment_image_alt', true) : '';
-							$alt      = $alt_meta ? esc_attr($alt_meta) : esc_attr($title);
-						?>
-							<a href="<?php echo $link; ?>" class="group/item col-span-1 relative md:odd:mt-10 md:even:mb-10 flex duration-700 ease-in-out hover:z-10">
+					<div class="group grid grid-cols-2 md:flex md:flex-row gap-5 md:gap-5 xl:gap-x-16" aria-label="<?php esc_attr_e( 'Highlight menu', 'ambassador' ); ?>" >
+						<?php
+						while ( have_rows( 'erlebnisse_activities' ) ) :
+							the_row();
+							$image_id = (int) get_sub_field( 'image' );
+							$etitle   = (string) get_sub_field( 'title' );
+							$elink    = get_sub_field( 'link' );
+							$href     = ( is_array( $elink ) && ! empty( $elink['url'] ) ) ? esc_url( $elink['url'] ) : '#';
+							$target   = ( is_array( $elink ) && ! empty( $$elink['target'] ) ) ? ' target="' . esc_attr( $elink['target'] ) . '" rel="noopener"' : '';
+							$alt_meta = $image_id ? get_post_meta( $image_id, '_wp_attachment_image_alt', true ) : '';
+							$alt      = $alt_meta ? esc_attr( $alt_meta ) : esc_attr( $etitle );
+							?>
+							<a href="<?php echo esc_url( $elink ); ?>" class="group/item col-span-1 relative md:odd:mt-10 md:even:mb-10 flex duration-700 ease-in-out hover:z-10">
 								<div class="z-0">
 									<?php
-										if ( $image_id ) {
-											echo wp_get_attachment_image(
-												$image_id, 'full', false,
-												array(
-													'class'         => 'inset-0 w-full h-full object-cover origin-bottom',
-													'alt'           => $alt,
-													'loading'       => 'lazy',
-												)
-											);
-										}
+									if ( $image_id ) :
+										echo wp_get_attachment_image( $image_id, 'full', false, array( 'class' => 'inset-0 w-full h-full object-cover origin-bottom' ) );
+									endif;
 									?>
 
 									<!-- Dark overlay (below text, below icon) -->

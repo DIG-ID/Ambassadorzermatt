@@ -1,3 +1,13 @@
+<?php
+/**
+ * Hover Menu Section in the Home Page Template.
+ *
+ * @package ambassador-zermatt
+ * @subpackage Section
+ * @since 1.0.0
+ */
+
+?>
 <section id="hover-menu" class="hover-menu bg-White pb-[6.25rem] md:pb-[6.25rem] xl:pb-[9.38rem] pt-0 md:pt-10 xl:pt-20">
 	<div class="theme-container">
 		<div class="theme-grid">

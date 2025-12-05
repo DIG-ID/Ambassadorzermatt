@@ -1,3 +1,13 @@
+<?php
+/**
+ * Hotel Section in the Home Page Template.
+ *
+ * @package ambassador-zermatt
+ * @subpackage Section
+ * @since 1.0.0
+ */
+
+?>
 <section id="section-hotel" class="section-hotel bg-LightGray py-11 md:py-16 xl:py-24">
 	<div class="theme-container">
 		<div class="theme-grid">

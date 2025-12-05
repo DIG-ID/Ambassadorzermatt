@@ -1,3 +1,13 @@
+<?php
+/**
+ * Gastronomie Section in the Home Page Template.
+ *
+ * @package ambassador-zermatt
+ * @subpackage Section
+ * @since 1.0.0
+ */
+
+?>
 <section id="section-gastronomie" class="section-gastronomie bg-Dark py-11 md:py-24 xl:py-24">
 	<div class="theme-container md:mb-14 xl:mb-0">
 		<div class="theme-grid">
