@@ -1,6 +1,11 @@
 <?php
 /**
+ *
  * Template Name: Experiences - Skiing Template
+ *
+ * @package ambassador-zermatt
+ * @subpackage Template
+ * @since 1.0.0
  */
 
 get_header();

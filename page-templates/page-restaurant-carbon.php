@@ -1,6 +1,11 @@
 <?php
 /**
+ *
  * Template Name: Restaurant Carbon Template
+ *
+ * @package ambassador-zermatt
+ * @subpackage Template
+ * @since 1.0.0
  */
 
 get_header();
@@ -8,11 +13,11 @@ if ( have_posts() ) :
 	while ( have_posts() ) :
 		the_post();
 		do_action( 'before_main_content' );
-			get_template_part( 'template-parts/modules/section','hero' );
-            get_template_part( 'template-parts/pages/restaurant-carbon/intro' );
-            get_template_part( 'template-parts/pages/restaurant-carbon/unsere-kuche' );
+			get_template_part( 'template-parts/modules/section', 'hero' );
+			get_template_part( 'template-parts/pages/restaurant-carbon/intro' );
+			get_template_part( 'template-parts/pages/restaurant-carbon/unsere-kuche' );
 			get_template_part( 'template-parts/pages/restaurant-carbon/chefs' );
-            get_template_part( 'template-parts/modules/section', 'outro' );
+			get_template_part( 'template-parts/modules/section', 'outro' );
 		do_action( 'after_main_content' );
 	endwhile;
 endif;

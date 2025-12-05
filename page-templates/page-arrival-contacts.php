@@ -1,6 +1,11 @@
 <?php
 /**
+ *
  * Template Name: Arrival and Contacts Template
+ *
+ * @package ambassador-zermatt
+ * @subpackage Template
+ * @since 1.0.0
  */
 
 get_header();
