@@ -1,3 +1,14 @@
+<?php
+/**
+ * Hiking Content Section in the Hiking Page Template.
+ *
+ * @package ambassador-zermatt
+ * @subpackage Section
+ * @since 1.0.0
+ */
+
+?>
+
 <section class="section-hiking-content bg-LightGray py-12 md:py-20 xl:py-24">
 	<div class="theme-container theme-grid mb-16 md:mb-24 xl:mb-32">
 		<div class="col-span-2 md:col-span-6 xl:col-span-4 xl:col-start-2">

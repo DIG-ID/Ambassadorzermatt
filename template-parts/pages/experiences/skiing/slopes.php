@@ -1,3 +1,14 @@
+<?php
+/**
+ * Slopes Section in the Skiing Page Template.
+ *
+ * @package ambassador-zermatt
+ * @subpackage Section
+ * @since 1.0.0
+ */
+
+?>
+
 <section class="section-slopes bg-LightGray text-DarkGray py-12 md:py-20 xl:py-24">
 	<div class="theme-container theme-grid">
 		<div class="col-span-2 md:col-span-6 xl:col-span-12">

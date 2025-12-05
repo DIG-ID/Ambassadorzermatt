@@ -1,3 +1,14 @@
+<?php
+/**
+ * Storage and Rental Section in the Skiing Page Template.
+ *
+ * @package ambassador-zermatt
+ * @subpackage Section
+ * @since 1.0.0
+ */
+
+?>
+
 <section class="section-storage-and-rental bg-Dark py-16 md:py-20 xl:py-32">
 	<div class="theme-container theme-grid">
 		<div class="storage-and-rental-content grid col-span-2 md:col-span-6 xl:col-span-12 gap-x-5">

@@ -1,3 +1,14 @@
+<?php
+/**
+ * Restaurant Carbon Section in the Enjoyment Page Template.
+ *
+ * @package ambassador-zermatt
+ * @subpackage Section
+ * @since 1.0.0
+ */
+
+?>
+
 <section class="section-restaurant-carbon bg-Dark py-12 md:py-20 xl:py-24">
 	<div class="theme-container theme-grid">
 		<div class="col-span-2 md:col-span-2 xl:col-span-6 order-2 md:order-2">

@@ -1,3 +1,14 @@
+<?php
+/**
+ * Inspiration Section in the Inspiration Page Template.
+ *
+ * @package ambassador-zermatt
+ * @subpackage Section
+ * @since 1.0.0
+ */
+
+?>
+
 <section class="section-inspiration bg-Dark text-LightGray pt-12 pb-6 md:py-20 xl:py-24">
 	<div class="theme-container theme-grid">
 		<div class="col-span-2 md:col-span-3 xl:col-span-7">
