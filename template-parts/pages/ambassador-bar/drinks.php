@@ -117,29 +117,25 @@
         </div>
     </div> 
 
-    <!-- ========================================================= -->
-    <!-- SECOND GRID — STILL COMMENTED OUT                         -->
-    <!-- ========================================================= -->
-
-    <!--
-    <div class="theme-container pt-[5.19rem] md:pt-[7.75rem] xl:pt-[11.38rem]">
-        <div class="theme-grid">
+    <div class="theme-container pt-[5.19rem] md:pt-[7.75rem] xl:pt-[11.38rem] hidden">
+      <div class="theme-grid">
         <?php if ( have_rows('drinks_hover') ) : ?>
-          <div class="col-start-1 xl:col-start-2 col-span-2 md:col-span-6 xl:col-span-10 group grid grid-cols-2 md:grid-cols-6 xl:flex flex-row xl:h-[80vh] xl:max-h-[546px] overflow-visible gap-5" aria-label="<?php esc_attr_e('Highlight menu', 'ambassador'); ?>">
+          <div class="col-start-1 xl:col-start-2 col-span-2 md:col-span-6 xl:col-span-10 group grid grid-cols-2 md:grid-cols-6 xl:flex flex-row xl:min-h-[546px] xl:max-h-[546px] overflow-visible gap-5" aria-label="<?php esc_attr_e('Highlight menu', 'ambassador'); ?>">
             <?php while ( have_rows('drinks_hover') ) : the_row();
-              $image_id = (int) get_sub_field('image');
-              $desc     = (string) get_sub_field('text');
+              $image_id = get_sub_field('image');
+              $desc     = get_sub_field('text');
+              $link     = get_sub_field('link');
               $alt_meta = $image_id ? get_post_meta($image_id, '_wp_attachment_image_alt', true) : '';
               $alt      = $alt_meta ? esc_attr($alt_meta) : esc_attr($title);
             ?>
-              <div class="group/item relative col-span-1 md:col-span-3 xl:flex-1 transition-[flex] duration-700 ease-in-out hover:xl:flex-[2] xl:group-hover:[&:not(:hover)]:flex-[1] hover:z-10">
-                <div class="xl:absolute left-0 right-0 bottom-0 top-0 z-0 transition-[top] duration-700 xl:group-hover/item:-top-[40px] xl:will-change-[top]">
+              <a <?php if (!empty($link)) : ?> href="<?php echo $link; ?>" target="_blank" <?php endif; ?> class="group/item relative col-span-1 md:col-span-3 xl:flex-1 transition-[flex] duration-700 ease-in-out hover:flex-[2] xl:group-hover:[&:not(:hover)]:flex-[1] hover:z-10">
+                <div class="xl:absolute left-0 right-0 bottom-0 top-0 z-0 transition-[top] duration-700 xl:group-hover/item:-top-[40px] will-change-[top]">
                   <?php
                     if ( $image_id ) {
                       echo wp_get_attachment_image(
                         $image_id, 'full', false,
                         [
-                          'class'         => 'xl:absolute inset-0 max-h-[235px] md:max-h-[550px] xl:max-h-none w-full h-full object-cover origin-bottom',
+                          'class'         => 'xl:absolute inset-0 max-h-[235px] md:max-h-[400px] xl:max-h-none w-full h-full object-cover origin-bottom',
                           'alt'           => $alt,
                           'loading'       => 'lazy',
                         ]
@@ -149,23 +145,25 @@
 
                   <span class="dark-overlay pointer-events-none absolute inset-0 opacity-80 xl:opacity-0 transition-opacity duration-700 group-hover/item:opacity-80 z-10"></span>
 
-                  <span class="pointer-events-none absolute inset-0 flex flex-col justify-end items-center opacity-100 xl:opacity-0 transition-opacity duration-700 group-hover/item:opacity-100 z-20 pb-6 md:pb-8">
-                    <span class="max-w-[38ch] min-w-[38ch] text-center text-white px-6 opacity-100 xl:opacity-0 translate-y-2 transition-all duration-700 group-hover/item:opacity-100 group-hover/item:translate-y-0">
+                  <span class="pointer-events-none absolute inset-0 flex flex-col md:flex-row justify-end md:justify-between items-center md:items-end opacity-100 transition-opacity duration-700 group-hover/item:opacity-100 z-20">
+                    <span class="text-White md:pl-5 opacity-100 xl:opacity-0 translate-y-0 transition-all duration-700 group-hover/item:opacity-100 xl:group-hover/item:translate-y-6 pb-3 md:pb-5 xl:pb-11">
                       <?php if ( $desc ) : ?>
-                        <span class="block title-secondary text-LightGray !font-bold">
-                          <?php echo $desc; ?>
-                        </span>
+                        <p class="title-secondary text-LightGray"><?php echo esc_html($desc); ?></p>
                       <?php endif; ?>
+                    </span>
+                    <span class="md:pr-5 opacity-100 xl:opacity-0 translate-y-0 transition-all duration-700 group-hover/item:opacity-100 xl:group-hover/item:translate-y-6 pb-3 md:pb-5 xl:pb-12">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="23" viewBox="0 0 25 23" fill="none" class="max-w-[18px] md:max-w-none">
+                        <path d="M0.673828 1H23.6738M23.6738 1V22M23.6738 1L0.673828 22" stroke="#E7E5E5" stroke-width="2"/>
+                      </svg>
                     </span>
                   </span>
 
                 </div>
-              </div>
+              </a>
             <?php endwhile; ?>
           </div>
         <?php endif; ?>
         </div>
     </div>
-    -->
 
 </section>
