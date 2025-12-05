@@ -81,6 +81,75 @@
 				<div class="title-main text-LightGray pt-[1.85rem] md:pt-0">
 					<h2><?php the_field( 'unsere_kuche_title' ); ?></h2>
 				</div>
+  <div class="theme-container">
+    <div class="theme-grid">
+      <!-- Top left image -->
+      <div class="col-span-2 md:col-span-3 xl:col-start-2 xl:col-span-6 md:pt-40 xl:pt-[9.5rem] xl:pb-[4.38rem] order-1 md:order-none">
+        <?php
+          $imgLogo = get_field('unsere_kuche_image_top_left');
+          if ( $imgLogo ) {
+            echo wp_get_attachment_image(
+              $imgLogo,
+              'full',
+              false,
+              [
+                'class'    => 'w-full h-auto object-cover',
+                'loading'  => 'eager',
+                'decoding' => 'async',
+              ]
+            );
+          }
+        ?>
+      </div>
+
+      <!-- Top right image -->
+      <div class="col-span-2 md:col-span-3 xl:col-start-9 xl:col-span-4 pt-[1.875rem] md:pt-0 order-2 md:order-none">
+        <figure class="bleed-right-child-alt h-full">
+        <?php
+          $imgLogo = get_field('unsere_kuche_image_top_right');
+          if ( $imgLogo ) {
+            echo wp_get_attachment_image(
+              $imgLogo,
+              'full',
+              false,
+              [
+                'class'    => 'w-full h-auto object-cover max-h-[610px] xl:max-h-[1108px]',
+                'loading'  => 'eager',
+                'decoding' => 'async',
+              ]
+            );
+          }
+        ?>
+        </figure>
+      </div>
+
+      <!-- Bottom left image  -->
+      <div class="col-span-2 xl:col-span-5 pt-[1.87rem] md:pt-0 xl:pt-[1.94rem] order-4 md:order-none">
+        <figure class="bleed-left-child-alt h-full negative-mt-image">
+        <?php
+          $imgLogo = get_field('unsere_kuche_image_bottom_left');
+          if ( $imgLogo ) {
+            echo wp_get_attachment_image(
+              $imgLogo,
+              'full',
+              false,
+              [
+                'class'    => 'w-full h-full object-cover max-h-[880px] ',
+                'loading'  => 'eager',
+                'decoding' => 'async',
+              ]
+            );
+          }
+        ?>
+        </figure>
+      </div>
+
+      <!-- Text block (title, text, schedule) + bottom right image -->
+      <div class="col-span-2 md:col-start-3 md:col-span-4 xl:col-start-7 xl:col-span-6 md:pt-[4.06rem] xl:pt-36 order-3 md:order-none">
+        <!-- Title -->
+        <div class="title-main text-LightGray pt-[1.85rem] md:pt-0">
+          <h2><?php the_field( 'unsere_kuche_title' ); ?></h2>
+        </div>
 
 				<!-- Description text -->
 				<div class="text-LightGray pt-[1.87rem] xl:pt-[1.88rem] xl:max-w-[537px]">
@@ -127,6 +196,65 @@
 						$alt = $alt_meta ? esc_attr($alt_meta) : esc_attr($fallback_title);
 					?>
 						<a <?php if (!empty($link)) : ?> href="<?php echo $link; ?>" target="_blank" <?php endif; ?> class="group/item relative col-span-2 md:col-span-6 xl:flex-1 transition-[flex] duration-700 ease-in-out hover:flex-[2] group-hover:[&:not(:hover)]:flex-[1] hover:z-10">
+        <!-- Bottom right image (hidden on mobile, visible md+) -->
+        <div class="pt-[1.88rem] md:pt-[4.82rem] xl:pt-[4.69rem] hidden md:block">
+          <?php
+            $imgLogo = get_field('unsere_kuche_image_bottom_right');
+            if ( $imgLogo ) {
+              echo wp_get_attachment_image(
+                $imgLogo,
+                'full',
+                false,
+                [
+                  'class'    => 'w-screen h-auto bleed-right-full',
+                  'loading'  => 'eager',
+                  'decoding' => 'async',
+                ]
+              );
+            }
+          ?>
+        </div>
+      </div>
+
+      <!-- Mobile-only bottom right image (order-5) -->
+      <div class="col-span-2 pt-[1.88rem] md:hidden order-5">
+        <?php
+          $imgLogo = get_field('unsere_kuche_image_bottom_right');
+          if ( $imgLogo ) {
+            echo wp_get_attachment_image(
+              $imgLogo,
+              'full',
+              false,
+              [
+                'class'    => 'w-full h-auto',
+                'loading'  => 'eager',
+                'decoding' => 'async',
+              ]
+            );
+          }
+        ?>
+      </div>
+    </div> <!-- /first theme-grid -->
+   
+    <!-- 
+    ======================================================================
+    SECOND GRID (HOVER CARDS) FULLY COMMENTED — NO CONTENT REMOVED
+    ======================================================================
+    -->
+    <!--
+    <?php if ( have_rows('unsere_kuche_hover') ) : ?>
+      <div class="theme-grid ">
+        <div class="col-start-1 xl:col-start-2 col-span-2 md:col-span-6 xl:col-span-10 group grid grid-cols-2 md:grid-cols-6 xl:flex flex-col md:flex-row h-[80vh] md:h-[80vh] xl:h-[60vh] overflow-visible gap-[20px]" aria-label="<?php esc_attr_e('Highlight menu', 'ambassador'); ?>">
+          
+          <?php while ( have_rows('unsere_kuche_hover') ) : the_row();
+            $image_id = get_sub_field('image');
+            $desc     = get_sub_field('text');
+            $link     = get_sub_field('link');
+            $alt_meta = $image_id ? get_post_meta($image_id, '_wp_attachment_image_alt', true) : '';
+            $fallback_title = $image_id ? get_the_title($image_id) : '';
+            $alt = $alt_meta ? esc_attr($alt_meta) : esc_attr($fallback_title);
+          ?>
+            <a <?php if (!empty($link)) : ?> href="<?php echo $link; ?>" target="_blank" <?php endif; ?> class="group/item relative col-span-2 md:col-span-6 xl:flex-1 transition-[flex] duration-700 ease-in-out hover:flex-[2] group-hover:[&:not(:hover)]:flex-[1] hover:z-10">
 
 							<div class="absolute left-0 right-0 bottom-0 top-0 z-0 transition-[top] duration-700 xl:group-hover/item:-top-[40px] will-change-[top]">
 
