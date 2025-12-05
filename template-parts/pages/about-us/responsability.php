@@ -1,3 +1,14 @@
+<?php
+/**
+ * Responsability Section that appears on About Us Page Template.
+ *
+ * @package ambassador-zermatt
+ * @subpackage Section
+ * @since 1.0.0
+ */
+
+?>
+
 <section id="section-responsability" class="section-responsability bg-LightGray pt-[2.28rem] pb-[2.33rem] md:pt-[3.75rem] md:pb-[3.69rem] xl:pt-[5.44rem] xl:pb-[5.37rem]">
 	<div class="theme-container">
 		<div class="theme-grid">

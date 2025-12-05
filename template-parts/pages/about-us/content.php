@@ -1,3 +1,14 @@
+<?php
+/**
+ * Content Section that appears on About Us Page Template.
+ *
+ * @package ambassador-zermatt
+ * @subpackage Section
+ * @since 1.0.0
+ */
+
+?>
+
 <section id="section-content" class="section-content bg-White pb-[3.75rem] md:pb-[6.25rem] xl:pb-[9.38rem]">
 	<div class="theme-container">
 		<div class="theme-grid">
@@ -18,10 +29,10 @@
 				?>
 			</div>
 			<div class="col-start-1 col-span-2 md:col-span-5 xl:col-span-6 pt-[2.47rem] md:pt-[3.75rem] xl:pt-[1.88rem]">
-				<h1 class="title-main text-Dark"><?php the_field( 'content_title' )?></h1>
+				<h2 class="title-main text-Dark"><?php the_field( 'content_title' ); ?></h2>
 			</div>
 			<div class="col-start-1 col-span-2 md:col-span-4 xl:col-start-1 xl:col-span-5 pt-[1.25rem] md:pt-[1.88rem]">
-				<p class="body text-Dark"><?php the_field( 'content_text' )?></p>
+				<p class="body text-Dark"><?php the_field( 'content_text' ); ?></p>
 			</div>
 		</div>
 	</div>
