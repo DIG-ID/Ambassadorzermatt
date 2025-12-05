@@ -30,8 +30,8 @@
 					<?php
 					$blink = get_field( 'tradition_button' );
 					if ( $blink ) :
-						$link_url = $blink['url'];
-						$link_title = $blink['title'];
+						$link_url    = $blink['url'];
+						$link_title  = $blink['title'];
 						$link_target = $blink['target'] ? $blink['target'] : '_self';
 						?>
 						<a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>" class="btn btn-primary">
