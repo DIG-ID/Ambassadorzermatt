@@ -131,3 +131,26 @@
 #header-sticky
   .header-logo > svg
     @apply max-w-20 md:max-w-36 xl:max-w-40 max-h-[57px] md:max-h-[102px] xl:max-h-none
+
+// low viewport height
+@media (min-width: 1280px) and (max-height: 900px)
+  .menu-offcanvas .main-menu-col .menu-offcanvas__main-mega-menu li.menu-item
+    font-size: 1.75rem
+    line-height: 1.2
+
+    &:not(:last-child)
+      margin-bottom: 0.5rem
+
+  #mega-menu-nav
+    margin-top: 1.5rem
+    margin-bottom: 1.5rem
+
+  .menu-offcanvas .header-main .language-selector,
+  .menu-offcanvas .header-main .menu-toggle
+    padding-top: 0.75rem
+    padding-bottom: 0.75rem
+
+  .menu-offcanvas .theme-container .btn.btn-primary-light,
+  .menu-offcanvas .theme-container .btn.btn-sticky-bar-light
+    padding-top: 0.5rem
+    padding-bottom: 0.5rem
