@@ -31,8 +31,8 @@ if ( $bg_image_id ) {
 						<?php
 						while ( have_rows( 'erlebnisse_activities' ) ) :
 							the_row();
-							$image_id = (int) get_sub_field( 'image' );
-							$etitle   = (string) get_sub_field( 'title' );
+							$image_id = get_sub_field( 'image' );
+							$etitle   = get_sub_field( 'title' );
 							$elink    = get_sub_field( 'link' );
 							$href     = ( is_array( $elink ) && ! empty( $elink['url'] ) ) ? esc_url( $elink['url'] ) : '#';
 							$target   = ( is_array( $elink ) && ! empty( $$elink['target'] ) ) ? ' target="' . esc_attr( $elink['target'] ) . '" rel="noopener"' : '';
@@ -54,8 +54,8 @@ if ( $bg_image_id ) {
 									<!-- Text overlay (bottom, fades in on hover) -->
 									<span class="pointer-events-none absolute inset-0 flex flex-row justify-between items-end opacity-100 transition-opacity duration-700 group-hover/item:opacity-100 z-20">
 										<span class="text-White pl-3 xl:pl-5 opacity-100 translate-y-0 transition-all duration-700 group-hover/item:opacity-100 xl:group-hover/item:translate-y-6 pb-3 xl:pb-11">
-											<?php if ( $title ) : ?>
-												<h4><?php echo esc_html( $title ); ?></h4>
+											<?php if ( $etitle ) : ?>
+												<h4><?php echo esc_html( $etitle ); ?></h4>
 											<?php endif; ?>
 										</span>
 										<span class="pr-3 xl:pr-5 opacity-100 xl:opacity-0 translate-y-0 transition-all duration-700 xl:group-hover/item:opacity-100 xl:group-hover/item:translate-y-6 pb-3 xl:pb-12">
