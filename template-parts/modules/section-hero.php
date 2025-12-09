@@ -14,7 +14,7 @@
 		<?php
 		$bg_id = get_field( 'hero_image' );
 		if ( $bg_id ) :
-			echo wp_get_attachment_image( $bg_id, 'full', false, array( 'class' => 'pointer-events-none w-full h-full object-cover object-right min-h-[330px] md:min-h-[440px]' ) );
+			echo wp_get_attachment_image( $bg_id, 'full', false, array( 'class' => 'pointer-events-none w-full h-full object-cover object-top min-h-[330px] md:min-h-[440px]' ) );
 		endif;
 		?>
 	</section>
