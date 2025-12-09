@@ -154,3 +154,11 @@
   .menu-offcanvas .theme-container .btn.btn-sticky-bar-light
     padding-top: 0.5rem
     padding-bottom: 0.5rem
+
+  .main-menu-col
+    .menu-offcanvas__main-mega-menu
+      li.menu-item
+        &.menu-item-has-children
+          > a
+            &::after
+              @apply w-8 h-[36px]
