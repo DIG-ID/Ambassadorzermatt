@@ -7,6 +7,9 @@
  * @since 1.0.0
  */
 
+
+global $post;
+$is_child = is_page() && $post->post_parent;
 $ot = get_field( 'intro_over_title' );
 
 ?>
@@ -16,7 +19,11 @@ $ot = get_field( 'intro_over_title' );
 			<?php if ( $ot ) : ?>
 				<div class="col-start-1 col-span-2 md:col-start-1 md:col-span-4 xl:col-start-2 xl:col-span-4">
 					<div class="title-secondary text-Brown">
-						<h1><?php the_field( 'intro_over_title' ); ?></h1>
+						<?php if ( $is_child ) : ?>
+							<h2><?php the_field( 'intro_over_title' ); ?></h2>
+						<?php else : ?>
+							<h1><?php the_field( 'intro_over_title' ); ?></h1>
+						<?php endif; ?>
 					</div>
 				</div>
 			<?php endif; ?>
@@ -29,7 +36,11 @@ $ot = get_field( 'intro_over_title' );
 
 				<div class="title-main text-Brown pt-[1.25rem] md:pt-[1.88rem] xl:pt-0">
 					<?php if ( $ot ) : ?>
-						<h2><?php the_field( 'intro_title' ); ?></h2>
+						<?php if ( $is_child ) : ?>
+								<h1><?php the_field( 'intro_title' ); ?></h2>
+							<?php else : ?>
+								<h2><?php the_field( 'intro_title' ); ?></h2>
+							<?php endif; ?>
 					<?php else : ?>
 						<h1><?php the_field( 'intro_title' ); ?></h1>
 					<?php endif; ?>
