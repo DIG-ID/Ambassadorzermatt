@@ -52,11 +52,11 @@
 					</div>
 
 					<div class="pt-[1.25rem] md:pt-[1.87rem] xl:max-w-[33.75rem]">
-						<p class="body text-Dark "><?php the_field( 'drinks_text' ); ?></p>
+						<p class="text-Dark "><?php the_field( 'drinks_text' ); ?></p>
 					</div>
 
 					<div class="pt-[1.25rem] md:pt-[1.87rem]">
-						<p class="title-secundary text-Dark"><?php the_field( 'drinks_schedule '); ?></p>
+						<p class="title-secondary text-Dark"><?php the_field( 'drinks_schedule' ); ?></p>
 					</div>
 			</div>
 
