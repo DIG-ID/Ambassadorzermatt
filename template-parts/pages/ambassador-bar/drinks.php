@@ -83,7 +83,7 @@
 		</div>
 	</div>
 
-	<div class="theme-container pt-[5.19rem] md:pt-[7.75rem] xl:pt-[11.38rem] hidden">
+	<div class="theme-container pt-[5.19rem] md:pt-[7.75rem] xl:pt-[11.38rem]">
 		<div class="theme-grid">
 			<?php if ( have_rows( 'drinks_hover' ) ) : ?>
 				<div class="col-start-1 xl:col-start-2 col-span-2 md:col-span-6 xl:col-span-10 group grid grid-cols-2 md:grid-cols-6 xl:flex flex-row xl:min-h-[546px] xl:max-h-[546px] overflow-visible gap-5" aria-label="<?php esc_attr_e( 'Highlight menu', 'ambassador' ); ?>">
