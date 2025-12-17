@@ -121,10 +121,9 @@
    
     <!-- 
     ======================================================================
-    SECOND GRID (HOVER CARDS) FULLY COMMENTED — NO CONTENT REMOVED
+    SECOND GRID (HOVER CARDS)
     ======================================================================
     -->
-    <!--
     <?php if ( have_rows('unsere_kuche_hover') ) : ?>
       <div class="theme-grid ">
         <div class="col-start-1 xl:col-start-2 col-span-2 md:col-span-6 xl:col-span-10 group grid grid-cols-2 md:grid-cols-6 xl:flex flex-col md:flex-row h-[80vh] md:h-[80vh] xl:h-[60vh] overflow-visible gap-[20px]" aria-label="<?php esc_attr_e('Highlight menu', 'ambassador'); ?>">
@@ -182,7 +181,6 @@
         </div>
       </div>
     <?php endif; ?>
-    -->
 
   </div>
 </section>
