@@ -85,6 +85,13 @@
 
 	<div class="theme-container pt-[5.19rem] md:pt-[7.75rem] xl:pt-[11.38rem]">
 		<div class="theme-grid">
+			<div class="col-span-2 md:col-span-6 xl:col-start-2 xl:col-span-12">
+				<div class="pt-[2.47rem] md:pt-[3.78rem] xl:pt-[1.88rem] md:max-w-[300px] xl:max-w-none">
+					<h2 class="title-main text-Dark mb-10"><?php the_field( 'drinks_hover_title' ); ?></h2>
+				</div>
+			</div>
+		</div>
+		<div class="theme-grid">
 			<?php if ( have_rows( 'drinks_hover' ) ) : ?>
 				<div class="col-start-1 xl:col-start-2 col-span-2 md:col-span-6 xl:col-span-10 group grid grid-cols-2 md:grid-cols-6 xl:flex flex-row xl:min-h-[546px] xl:max-h-[546px] overflow-visible gap-5" aria-label="<?php esc_attr_e( 'Highlight menu', 'ambassador' ); ?>">
 					<?php while ( have_rows( 'drinks_hover' ) ) : the_row();
