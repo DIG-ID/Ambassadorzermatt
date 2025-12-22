@@ -12,9 +12,9 @@
 .main-menu-col
   .menu-offcanvas__main-mega-menu
     li.menu-item
-      @apply flex font-inria text-[1.875rem] min-h-[46px] md:min-h-[60px] md:text-6xl italic text-Brown font-normal tracking-[0.03125rem] relative
+      @apply flex font-inria text-[1.5rem] md:text-[1.875rem] min-h-[46px] md:min-h-[60px] md:text-6xl italic text-Brown font-normal tracking-[0.03125rem] relative
       &:not(:last-child)
-        @apply mb-8 md:mb-10
+        @apply mb-1 md:mb-10
       a
         @apply inline-flex items-center
         position: relative
@@ -46,7 +46,7 @@
             right: 4.5rem
           &::after
             content:""
-            @apply ml-11 inline-block w-10 h-[46px] bg-no-repeat bg-center bg-contain
+            @apply ml-9 md:ml-11 inline-block w-7 md:w-10 h-9 md:h-[46px] bg-no-repeat bg-center bg-contain
             background-image: url('../../assets/svg/mega-menu-arrow.svg')
             @apply transition-all duration-300 ease-in-out
             transform: rotate(0deg)
@@ -90,26 +90,34 @@
 .submenu-mobile
   @apply fixed inset-0 z-[60] bg-Brown text-White xl:hidden
   transform: translate3d(100%, 0, 0)
-  transition: transform 300ms ease-out
+  transition: transform 300ms ease-out, visibility 0s linear 300ms
   will-change: transform
+  visibility: hidden
+  pointer-events: none
   .submenu-panel,
   [data-empty]
-    @apply relative pointer-events-auto
+    @apply relative
     opacity: 0
     transition: opacity 200ms ease-out
     li.submenu-item
         @apply font-noto text-[1.125rem] font-normal leading-[2rem] tracking-[-0.021]
         &:not(:last-child)
-          @apply mb-12
+          @apply mb-4
         &:is(:first-child)
           @apply font-inria text-[1.875rem] md:text-[3.75rem] font-normal italic leading-[2.5rem] md:leading-[4.6875rem] tracking-[0.03125rem] list-item xl:hidden
   .submenu-panel.is-visible,
   [data-empty].is-visible
     opacity: 1
-    
+  
+.submenu-mobile[hidden]
+  display: none
+
 .menu-offcanvas--submenu-open
   .submenu-mobile
     transform: translate3d(0, 0, 0)
+    visibility: visible
+    pointer-events: auto
+    transition: transform 300ms ease-out, visibility 0s linear 0s
   .main-menu-col
     @apply opacity-0 pointer-events-none
 

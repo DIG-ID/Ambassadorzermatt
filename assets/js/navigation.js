@@ -414,7 +414,11 @@ document.addEventListener('DOMContentLoaded', ambassadorBindMegaPanels);
   const emptyState = submenuBody.querySelector('[data-empty]');
 
   function showMobileSubmenu(parentId, labelText) {
-    // Hide all panels
+    // ensure it's in the DOM flow (display:block) BEFORE animating
+    submenuMobile.hidden = false;
+    submenuMobile.setAttribute('aria-hidden', 'false');
+
+    // Hide all panels / show matching
     let anyVisible = false;
     panels.forEach(panel => {
       const match = panel.dataset.parentId === String(parentId);
@@ -423,20 +427,33 @@ document.addEventListener('DOMContentLoaded', ambassadorBindMegaPanels);
       if (match) anyVisible = true;
     });
 
-    // Empty state if nothing found
     if (emptyState) {
       emptyState.classList.toggle('is-visible', !anyVisible);
       emptyState.hidden = anyVisible;
     }
-    // Set label
-    offcanvas.classList.add('menu-offcanvas--submenu-open');
-    submenuMobile.setAttribute('aria-hidden', 'false');
+
+    // next frame -> add class so transform animates in
+    requestAnimationFrame(() => {
+      offcanvas.classList.add('menu-offcanvas--submenu-open');
+    });
   }
 
   function closeMobileSubmenu() {
+    // start the slide-out
     offcanvas.classList.remove('menu-offcanvas--submenu-open');
     submenuMobile.setAttribute('aria-hidden', 'true');
+
+    const onDone = (e) => {
+      if (e.target !== submenuMobile) return;
+      if (e.propertyName !== 'transform') return;
+
+      submenuMobile.hidden = true; // now it's truly "gone"
+      submenuMobile.removeEventListener('transitionend', onDone);
+    };
+
+    submenuMobile.addEventListener('transitionend', onDone);
   }
+
 
   // Open submenu when tapping a top level item with children (mobile only)
   topLinks.forEach(link => {
