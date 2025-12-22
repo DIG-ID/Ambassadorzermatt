@@ -20,6 +20,7 @@
 			<div class="col-start-1 col-span-2 md:col-start-1 md:col-span-4 xl:col-start-8 xl:col-span-4">
 				<div class="body text-LightGray pt-[1.25rem] xl:pt-0">
 					<p><?php the_field( 'intro_text' ); ?></p>
+					<a href="<?php the_field( 'general_table_reservation_url', 'option' ); ?>" target="_blank" class="btn btn-primary-dark mt-[2.5rem] md:mt-[3.75rem] mb-0 xl:mt-[3.75rem]"><?php esc_html_e( 'Tisch reservieren', 'ambassador' ); ?></a>
 				</div>
 			</div>
 		</div>
