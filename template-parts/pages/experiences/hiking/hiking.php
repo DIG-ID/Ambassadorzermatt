@@ -21,10 +21,15 @@
 		</div>
 		<div class="col-span-2 md:col-span-6 xl:col-start-7">
 			<figure class="relative overflow-hidden">
+				<?php /*had to make these images different to prevent wordpress from using low quality res versions*/ ?>
 				<?php
 				$h_image = get_field( 'hiking_image' );
 				if ( $h_image ) :
-					echo wp_get_attachment_image( $h_image, 'full', false, array( 'class' => 'w-full h-full object-cover object-[80%_50%] md:object-center xl:object-[80%_50%] min-h-[425px] xl:min-h-[750px]' ) );
+					$img_url_h = wp_get_attachment_image_url( (int) $h_image, 'full' );
+					$img_alt_h = get_post_meta( (int) $h_image, '_wp_attachment_image_alt', true );
+
+					echo '<img src="' . esc_url( $img_url_h ) . '" alt="' . esc_attr( $img_alt_h ) . '" class="w-full h-full object-cover object-[80%_50%] md:object-center xl:object-[80%_50%] min-h-[425px] xl:min-h-[750px]" loading="lazy" decoding="async">';
+
 				endif;
 				?>
 			</figure>
@@ -36,7 +41,10 @@
 				<?php
 				$wh_image = get_field( 'winter_hiking_image' );
 				if ( $wh_image ) :
-					echo wp_get_attachment_image( $wh_image, 'full', false, array( 'class' => 'w-full h-full object-cover object-[95%_50%] md:object-center xl:object-[95%_50%] min-h-[425px] xl:min-h-[750px]' ) );
+					$img_url_wh = wp_get_attachment_image_url( (int) $wh_image, 'full' );
+					$img_alt_wh = get_post_meta( (int) $wh_image, '_wp_attachment_image_alt', true );
+
+					echo '<img src="' . esc_url( $img_url_wh ) . '" alt="' . esc_attr( $img_alt_wh ) . '" class="w-full h-full object-cover object-[95%_50%] md:object-center xl:object-[95%_50%] min-h-[425px] xl:min-h-[750px]" loading="lazy" decoding="async">';
 				endif;
 				?>
 			</figure>
