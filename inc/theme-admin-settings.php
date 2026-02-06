@@ -66,7 +66,7 @@ function theme_login_logo() {
 		background-image: url(' . get_template_directory_uri() . '/assets/svg/ambassadorzermatt-logo-transparent.png) !important; 			
 			background-repeat: no-repeat;
 			background-position: center;
-			background-size: 90% auto !important;
+			background-size: 100% auto !important;
 			width: 320px !important;
 			height: 140px !important;
 			margin: 0 auto;
