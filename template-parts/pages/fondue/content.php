@@ -21,11 +21,9 @@
             </div>
             <div class="col-span-2 md:col-span-5 xl:col-span-5 pt-9 md:pt-16 xl:pt-[275px]">
                 <h1 class="title-main text-Dark"><?php echo get_field('content_title');?></h1>
-            </div>
-            <div class="col-span-2 md:col-span-4 xl:col-span-5 pt-7 md:pt-10 xl:pt-[275px]">
                 <p class="text-Dark xl:pt-8"><?php echo get_field('content_text');?></p>
             </div>
-            <div class="col-start-1 col-span-2 md:col-start-3 md:col-span-4 xl:col-start-7 xl:col-span-6 pt-20 xl:pt-44 pb-28 xl:pb-52">
+            <div class="col-start-1 col-span-2 md:col-start-2 md:col-span-4 xl:col-start-7 xl:col-span-6 pt-20 xl:pt-44 pb-28 xl:pb-52">
                 <?php
 				$d_image_tl = get_field( 'content_image_right' );
 				if ( $d_image_tl ) :
@@ -36,7 +34,7 @@
         </div>
         <div class="theme-grid">
 			<?php if ( have_rows( 'content_hover' ) ) : ?>
-				<div class="col-start-1 xl:col-start-4 col-span-2 md:col-span-6 xl:col-span-6 group grid grid-cols-2 md:grid-cols-6 xl:flex flex-row xl:min-h-[546px] xl:max-h-[546px] overflow-visible gap-5 mb-24 xl:mb-36 " aria-label="<?php esc_attr_e( 'Highlight menu', 'ambassador' ); ?>">
+				<div class="col-start-1 xl:col-start-4 col-span-2 md:col-span-6 xl:col-span-6 group grid grid-cols-2 md:grid-cols-6 xl:flex flex-row xl:min-h-[546px] xl:max-h-[546px] overflow-visible gap-5 xl:mb-36 " aria-label="<?php esc_attr_e( 'Highlight menu', 'ambassador' ); ?>">
 					<?php while ( have_rows( 'content_hover' ) ) : the_row();
 						$image_id = get_sub_field('image');
 						$desc     = get_sub_field('text');
@@ -44,7 +42,7 @@
 						$alt_meta = $image_id ? get_post_meta($image_id, '_wp_attachment_image_alt', true) : '';
 						$alt      = $alt_meta ? esc_attr($alt_meta) : esc_attr($title);
 					?>
-						<a <?php if (!empty($link)) : ?> href="<?php echo $link; ?>" target="_blank" <?php endif; ?> class="group/item relative col-span-2 md:col-span-6 xl:flex-1 transition-[flex] duration-700 ease-in-out hover:flex-[2] xl:group-hover:[&:not(:hover)]:flex-[1] hover:z-10">
+						<a <?php if (!empty($link)) : ?> href="<?php echo $link; ?>" target="_blank" <?php endif; ?> class="group/item relative col-span-1 md:col-span-3 xl:flex-1 transition-[flex] duration-700 ease-in-out hover:flex-[2] xl:group-hover:[&:not(:hover)]:flex-[1] hover:z-10">
 							<div class="xl:absolute left-0 right-0 bottom-0 top-0 z-0 transition-[top] duration-700 xl:group-hover/item:-top-[40px] will-change-[top]">
 								<?php
 								if ( $image_id ) :
