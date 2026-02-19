@@ -32,6 +32,11 @@
 				?>
             </div>
         </div>
+		<div class="col-span-2 md:col-span-6 xl:col-start-2 xl:col-span-12">
+			<div class="pt-[2.47rem] md:pt-[3.78rem] xl:pt-[1.88rem] md:max-w-[300px] xl:max-w-none">
+				<h2 class="title-main text-Dark mb-10"><?php the_field( 'content_hover_title' ); ?></h2>
+			</div>
+		</div>
         <div class="theme-grid">
 			<?php if ( have_rows( 'content_hover' ) ) : ?>
 				<div class="col-start-1 xl:col-start-4 col-span-2 md:col-span-6 xl:col-span-6 group grid grid-cols-2 md:grid-cols-6 xl:flex flex-row xl:min-h-[546px] xl:max-h-[546px] overflow-visible gap-5 mb-24 xl:mb-36 " aria-label="<?php esc_attr_e( 'Highlight menu', 'ambassador' ); ?>">
