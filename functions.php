@@ -179,6 +179,9 @@ require get_template_directory() . '/inc/theme-admin-settings.php';
 require get_template_directory() . '/inc/theme-custom-menu-walker.php';
 
 
+// Debug function to log data to the browser console.
+require get_template_directory() . '/inc/theme-optimizations.php';
+
 /**
  * Logs data to the browser console for debugging purposes.
  *
