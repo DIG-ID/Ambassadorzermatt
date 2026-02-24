@@ -24,7 +24,7 @@
 			<div class="col-span-2 md:col-span-3 xl:col-start-9 xl:col-span-4 pt-[1.875rem] md:pt-0 order-2 md:order-none">
 				<figure class="bleed-right-child-alt h-full">
 				<?php
-					$imgLogo = get_field('unsere_kuche_image_top_right');
+					$imgLogo = get_field( 'unsere_kuche_image_top_right' );
 					if ( $imgLogo ) {
 						echo wp_get_attachment_image(
 							$imgLogo,
