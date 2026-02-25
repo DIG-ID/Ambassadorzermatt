@@ -19,7 +19,7 @@ $container-max: 1360px
   .bleed-left-half,
   .bleed-right-half
     // gap between viewport edge and container edge
-    --edge-gap: max(0px, calc((100vw - #{$container-max}) / 2))
+    --edge-gap: max(1px, calc((100vw - #{$container-max}) / 2))
     // container horizontal padding on md: px-16 = 64px
     --container-pad: 64px
     // theme-grid gap-x-5 = 1.25rem = 20px
@@ -58,13 +58,13 @@ $container-max: 1360px
   .bleed-right-half
     // only override container padding to 0;
     // --spread and --half-spread will pick up the new value
-    --container-pad: 0px
+    --container-pad: 1px
 
 @media (min-width: 768px ) and ( max-width: 1280px )
   .bleed-right-full-md
     width: calc(100% + var(--spread))
     // gap between viewport edge and container edge
-    --edge-gap: max(0px, calc((100vw - #{$container-max}) / 2))
+    --edge-gap: max(1px, calc((100vw - #{$container-max}) / 2))
     // container horizontal padding on md: px-16 = 64px
     --container-pad: 64px
     // theme-grid gap-x-5 = 1.25rem = 20px
@@ -77,7 +77,7 @@ $container-max: 1360px
   .bleed-left-full-md
     margin-left: calc(-1 * var(--spread))
     width: calc(100% + var(--spread))
-    --edge-gap: max(0px, calc((100vw - #{$container-max}) / 2))
+    --edge-gap: max(1px, calc((100vw - #{$container-max}) / 2))
     // container horizontal padding on md: px-16 = 64px
     --container-pad: 64px
     // theme-grid gap-x-5 = 1.25rem = 20px
@@ -92,7 +92,7 @@ $container-max: 1360px
     --half-spread: calc(var(--spread) / 2)
     width: calc(100% + var(--half-spread))
     // gap between viewport edge and container edge
-    --edge-gap: max(0px, calc((100vw - #{$container-max}) / 2))
+    --edge-gap: max(1px, calc((100vw - #{$container-max}) / 2))
     // container horizontal padding on md: px-16 = 64px
     --container-pad: 64px
     // theme-grid gap-x-5 = 1.25rem = 20px
@@ -104,7 +104,7 @@ $container-max: 1360px
 
   .bleed-left-full-xl
     // gap between viewport edge and container edge
-    --edge-gap: max(0px, calc((100vw - #{$container-max}) / 2))
+    --edge-gap: max(1px, calc((100vw - #{$container-max}) / 2))
     // container horizontal padding on md: px-16 = 64px
     --container-pad: 64px
     // theme-grid gap-x-5 = 1.25rem = 20px
@@ -128,7 +128,7 @@ $container-max-tablet: 768px
 @media (min-width: 768px) and (max-width: 1280px)
   .bleed-right-child-alt,
   .bleed-left-child-alt
-    --edge-gap: max(0px, calc((100vw - #{$container-max-tablet}) / 2))
+    --edge-gap: max(1px, calc((100vw - #{$container-max-tablet}) / 2))
     --container-pad: 24px
     --shift: calc(var(--edge-gap) + var(--container-pad))
     width: calc(100% + var(--shift))
@@ -144,7 +144,7 @@ $container-max-tablet: 768px
 @media (min-width: 1281px)
   .bleed-right-child-alt,
   .bleed-left-child-alt
-    --edge-gap: max(0px, calc((100vw - #{$container-max-desktop}) / 2))
+    --edge-gap: max(1px, calc((100vw - #{$container-max-desktop}) / 2))
     --container-pad: 24px
     --shift: calc(var(--edge-gap) + var(--container-pad))
     width: calc(100% + var(--shift))
