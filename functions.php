@@ -73,31 +73,6 @@ function az_theme_footer_widgets_init() {
 
 add_action( 'widgets_init', 'az_theme_footer_widgets_init' );
 
-if ( ! function_exists( 'az_get_font_face_styles' ) ) :
-	/**
-	 * Get font face styles.
-	 * This is used by the theme or editor to inject @import for Google Fonts.
-	 */
-	function az_get_font_face_styles() {
-		return "
-			@import url('https://use.typekit.net/yjm6usa.css');
-		";
-	}
-endif;
-
-if ( ! function_exists( 'az_preload_webfonts' ) ) :
-	/**
-	 * Preloads Google Fonts to improve performance.
-	 */
-	function az_preload_webfonts() {
-		?>
-		<link rel="preconnect" href="use.typekit.net" crossorigin>
-		<?php
-	}
-endif;
-
-add_action( 'wp_head', 'az_preload_webfonts' );
-
 
 /**
  * Enqueue styles and scripts
@@ -109,13 +84,10 @@ function az_theme_enqueue_styles() {
 	$theme_version = $the_theme->get( 'Version' );
 
 	// Register Theme main style.
-	wp_register_style( 'theme-styles', get_template_directory_uri() . '/dist/css/main.css', array(), $theme_version );
-	// Add styles inline.
-	wp_add_inline_style( 'theme-styles', az_get_font_face_styles() );
-	// Enqueue theme stylesheet.
-	wp_enqueue_style( 'theme-styles' );
-	//https://use.typekit.net/evg0ous.css first loaded fonts library backup
-	//wp_enqueue_style( 'theme-fonts', 'https://use.typekit.net/buy6qwo.css', array(), $theme_version );
+	wp_enqueue_style( 'theme-styles', get_template_directory_uri() . '/dist/css/main.css', array(), $theme_version );
+
+	// https://use.typekit.net/yjm6usa.css first loaded fonts library.
+	wp_enqueue_style( 'typekit-fonts', 'https://use.typekit.net/yjm6usa.css', array(), null );
 
 	wp_enqueue_script( 'jquery', false, array(), $theme_version, true );
 	wp_enqueue_script( 'theme-scripts', get_stylesheet_directory_uri() . '/dist/js/main.js', array( 'jquery' ), $theme_version, true );
@@ -128,6 +100,24 @@ function az_theme_enqueue_styles() {
 }
 
 add_action( 'wp_enqueue_scripts', 'az_theme_enqueue_styles' );
+
+
+/**
+ * Modificar o <link> gerado para ser não-bloqueante,
+ */
+add_filter(
+	'style_loader_tag',
+	function ( $html, $handle ) {
+		if ( 'typekit-fonts' === $handle ) {
+			return '<link rel="preconnect" href="https://use.typekit.net" crossorigin>
+			<link rel="preload" href="https://use.typekit.net/yjm6usa.css" as="style" onload="this.onload=null;this.rel=\'stylesheet\'">
+			<noscript><link rel="stylesheet" href="https://use.typekit.net/yjm6usa.css"></noscript>' . "\n";
+		}
+		return $html;
+	},
+	10,
+	2
+);
 
 /**
  * Initialize Google Map API key for ACF in admin.
