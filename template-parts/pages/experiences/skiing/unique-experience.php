@@ -28,7 +28,7 @@
 									?>
 									<div class="swiper-slide overflow-hidden">
 										<div class="block h-full">
-											<div class="slide-bg slide-bg--<?php echo esc_attr( $counter ); ?> w-full min-h-[400px] md:min-h-[574px] bg-cover bg-no-repeat bg-center transition-transform duration-500 ease-out xl:group-hover:scale-[1.04]" data-background="<?php echo esc_url( $image_url ); ?>"></div>
+											<div class="swiper-lazy slide-bg slide-bg--<?php echo esc_attr( $counter ); ?> w-full min-h-[400px] md:min-h-[574px] bg-cover bg-no-repeat bg-center transition-transform duration-500 ease-out xl:group-hover:scale-[1.04]" data-background="<?php echo esc_url( $image_url ); ?>"></div>
 										</div>
 									</div>
 									<?php

@@ -53,6 +53,9 @@ window.addEventListener("load", () => {
         nextEl: '.trails-images-swiper-col .swiper-button-next',
         prevEl: '.trails-images-swiper-col .swiper-button-prev',
       },
+      lazy: {
+        loadPrevNext: true,
+      },
     });
     new Swiper('.trailsSwiper', {
       slidesPerView: 1,
