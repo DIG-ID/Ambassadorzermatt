@@ -15,9 +15,6 @@ window.addEventListener("load", () => {
         nextEl: '.room-images-swiper-col .swiper-button-next',
         prevEl: '.room-images-swiper-col .swiper-button-prev',
       },
-      lazy: {
-        loadPrevNext: true, // pré-carrega o slide seguinte
-      },
     });
   }
   if (document.querySelector(".page-template-page-experience-skiing")) {
@@ -50,9 +47,6 @@ window.addEventListener("load", () => {
         nextEl: '.trails-images-swiper-col .swiper-button-next',
         prevEl: '.trails-images-swiper-col .swiper-button-prev',
       },
-      lazy: {
-        loadPrevNext: true,
-      },
     });
     new Swiper('.trailsSwiper', {
       slidesPerView: 1,
@@ -66,9 +60,6 @@ window.addEventListener("load", () => {
       navigation: {
         nextEl: '.trails-swiper-button-next',
         prevEl: '.trails-swiper-button-prev',
-      },
-      lazy: {
-        loadPrevNext: true, // pré-carrega o slide seguinte
       },
     });
   }
