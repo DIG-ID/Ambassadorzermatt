@@ -34,9 +34,6 @@ window.addEventListener("load", () => {
         nextEl: '.ski-images-swiper-col .swiper-button-next',
         prevEl: '.ski-images-swiper-col .swiper-button-prev',
       },
-      lazy: {
-        loadPrevNext: true, // pré-carrega o slide seguinte
-      },
     });
   }
   if (document.querySelector(".page-template-page-experience-biking")) {
