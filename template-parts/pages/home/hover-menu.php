@@ -74,7 +74,7 @@
 										<p class="block text-LightGray"><?php echo esc_html( $desc ); ?></p>
 									<?php endif; ?>
 								</span>
-								<button class="block xl:hidden mt-5">
+								<button class="block xl:hidden mt-5" aria-label="<?php echo esc_attr__( 'Weiterlesen', 'ambassador' ); ?>">
 									<svg xmlns="http://www.w3.org/2000/svg" width="20" height="19" viewBox="0 0 15 14" fill="none">
 										<path d="M0.673828 1H13.4731M13.4731 1V12.6863M13.4731 1L0.673828 12.6863" stroke="#E7E5E5" stroke-width="2"/>
 									</svg>
