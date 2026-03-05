@@ -150,7 +150,7 @@
 
 					<!-- Socials  -->
 			<div class="flex items-center order-1 xl:order-3">
-				<div class="footer-socials text-LightGray">
+				<div class="footer-socials bg-Dark text-LightGray">
 					<?php
 					do_action( 'socials' );
 					?>
@@ -159,7 +159,7 @@
 
 						<!-- Datenschutz and AGB  -->
 			<div class="flex items-center order-1 xl:order-2">
-				<div class="footer-small text-LightGray">
+				<div class="footer-small bg-Dark text-LightGray">
 					<?php
 					wp_nav_menu(
 						array(
@@ -175,7 +175,7 @@
 			</div>
 
 			<!-- Copyright text -->
-			<p class="footer-small text-LightGray order-2 xl:order-1 text-center xl:text-end"><?php esc_html_e( '2025 © Alle Rechte vorbehalten.', 'ambassador' ); ?></p>
+			<p class="footer-small bg-Dark text-LightGray order-2 xl:order-1 text-center xl:text-end"><?php esc_html_e( '2025 © Alle Rechte vorbehalten.', 'ambassador' ); ?></p>
 
 		</div>
 	</div>
