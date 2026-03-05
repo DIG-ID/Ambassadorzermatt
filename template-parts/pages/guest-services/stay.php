@@ -66,14 +66,14 @@
 								<?php endif; ?>
 							</div>
 								<?php
-										if ($link):
-										$link_url = $link['url'];
-										$link_title = $link['title'];
-										$link_target = $link['target'] ? $link['target'] : '_self';
-								?>
-										<div class="col-span-1 btn btn-arrow !hidden md:!flex">
-												<?php echo esc_html($link_title); ?>
-										</div>
+									if ($link):
+									$link_url = $link['url'];
+									$link_title = $link['title'];
+									$link_target = $link['target'] ? $link['target'] : '_self';
+									?>
+									<button class="col-span-1 btn btn-arrow !hidden md:!flex">
+										<?php echo esc_html($link_title); ?>
+									</button>
 								<?php endif; ?>
 						</div>
 					<?php if ($link): ?>

@@ -23,7 +23,7 @@
 					$alt_meta = $image_id ? get_post_meta($image_id, '_wp_attachment_image_alt', true) : '';
 					$alt      = $alt_meta ? esc_attr($alt_meta) : esc_attr($title);
 				?>
-					<a href="<?php echo $link; ?>" class="group/item col-span-2 md:col-span-3 relative md:flex-1 transition-[flex] duration-700 ease-in-out xl:hover:flex-[2] xl:group-hover:[&:not(:hover)]:flex-[1] hover:z-10">
+					<a href="<?php echo $link; ?>" class="group/item col-span-2 md:col-span-3 relative md:flex-1 transition-[flex] duration-700 ease-in-out xl:hover:flex-[2] xl:group-hover:[&:not(:hover)]:flex-[1] hover:z-10" aria-label="<?php echo esc_attr_e( 'Weiterlesen', 'ambassador' ); ?>">
 						<div class="xl:absolute left-0 right-0 bottom-0 top-0 z-0 transition-[top] duration-700 xl:group-hover/item:-top-[40px] xl:will-change-[top]">
 							<?php
 								if ( $image_id ) {
@@ -74,8 +74,8 @@
 										<p class="block text-LightGray"><?php echo esc_html( $desc ); ?></p>
 									<?php endif; ?>
 								</span>
-								<span class="block xl:hidden mt-5" aria-label="<?php echo esc_attr__( 'Weiterlesen', 'ambassador' ); ?>">
-									<svg xmlns="http://www.w3.org/2000/svg" width="20" height="19" viewBox="0 0 15 14" fill="none">
+								<span class="block xl:hidden mt-5">
+									<svg xmlns="http://www.w3.org/2000/svg" width="20" height="19" viewBox="0 0 15 14" fill="none" aria-hidden="true" focusable="false">
 										<path d="M0.673828 1H13.4731M13.4731 1V12.6863M13.4731 1L0.673828 12.6863" stroke="#E7E5E5" stroke-width="2"/>
 									</svg>
 								</span>

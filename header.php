@@ -20,4 +20,7 @@
 
 	<body <?php body_class( 'relative' ); ?>>
 		<?php do_action( 'wp_body_open' ); ?>
+		<a class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[999] focus:bg-white focus:p-4" href="#main-content">
+			<?php esc_html_e( 'Zum Inhalt springen', 'ambassador' ); ?>
+		</a>
 		<?php get_template_part( 'template-parts/header', 'main' ); ?>

@@ -54,9 +54,9 @@
 								$link_title = $link['title'];
 								$link_target = $link['target'] ? $link['target'] : '_self';
 							?>
-								<div class="col-span-1 btn btn-arrow flex md:hidden">
-										<?php echo esc_html($link_title); ?>
-								</div>
+								<button class="col-span-1 btn btn-arrow flex md:hidden">
+									<?php echo esc_html($link_title); ?>
+								</button>
 							<?php endif; ?>
 							<!-- Text column -->
 							<div class="col-span-8 md:col-start-3 md:col-span-2 xl:col-start-4 xl:col-span-4">

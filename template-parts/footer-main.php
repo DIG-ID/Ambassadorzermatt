@@ -27,8 +27,6 @@
 						false,
 						array(
 							'class'    => 'w-full h-auto',
-							'loading'  => 'eager',
-							'decoding' => 'async',
 						)
 					);
 				endif;

@@ -34,7 +34,7 @@
 											data-caption="<?php echo esc_attr( $image_alt ); ?>"
 											class="block h-full"
 										>
-											<div class="slide-bg slide-bg--<?php echo esc_attr( $counter ); ?> w-full min-h-[400px] md:min-h-[574px] bg-cover bg-no-repeat bg-center transition-transform duration-500 ease-out xl:group-hover:scale-[1.04]" style="background-image: url('<?php echo esc_url( $image_url ); ?>');"></div>
+											<div class="slide-bg slide-bg--<?php echo esc_attr( $counter ); ?> w-full min-h-[400px] md:min-h-[574px] bg-cover bg-no-repeat bg-center transition-transform duration-500 ease-out xl:group-hover:scale-[1.04]" data-background="<?php echo esc_url( $image_url ); ?>"></div>
 										</a>
 									</div>
 									<?php
@@ -58,8 +58,8 @@
 				?>
 
 				<div class="controls relative min-h-8 max-w-24 flex flex-row justify-between items-center mx-auto z-10 mt-8">
-					<div class="swiper-button-prev mr-7"></div>
-					<div class="swiper-button-next ml-7"></div>
+					<div class="swiper-button-prev mr-7" aria-label="<?php esc_attr_e( 'Vorheriges Bild', 'ambassador' ); ?>"></div>
+					<div class="swiper-button-next ml-7" aria-label="<?php esc_attr_e( 'Nächstes Bild', 'ambassador' ); ?>"></div>
 				</div>
 			</div>
 
