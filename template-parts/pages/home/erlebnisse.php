@@ -43,7 +43,7 @@ if ( $bg_image_id ) {
 								<div class="z-0">
 									<?php
 									if ( $image_id ) :
-										echo wp_get_attachment_image( $image_id, 'full', false, array( 'class' => 'inset-0 w-full h-full object-cover origin-bottom' ) );
+										echo wp_get_attachment_image( $image_id, 'full', false, array( 'class' => 'inset-0 w-full h-full object-cover origin-bottom max-h-[450px]' ) );
 									endif;
 									?>
 
