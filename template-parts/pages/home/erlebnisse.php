@@ -35,7 +35,7 @@ if ( $bg_image_id ) {
 							$etitle   = get_sub_field( 'title' );
 							$elink    = get_sub_field( 'link' );
 							$href     = ( is_array( $elink ) && ! empty( $elink['url'] ) ) ? esc_url( $elink['url'] ) : '#';
-							$target   = ( is_array( $elink ) && ! empty( $$elink['target'] ) ) ? ' target="' . esc_attr( $elink['target'] ) . '" rel="noopener"' : '';
+							$target   = ( is_array( $elink ) && ! empty( $elink['target'] ) ) ? ' target="' . esc_attr( $elink['target'] ) . '" rel="noopener"' : '';
 							$alt_meta = $image_id ? get_post_meta( $image_id, '_wp_attachment_image_alt', true ) : '';
 							$alt      = $alt_meta ? esc_attr( $alt_meta ) : esc_attr( $etitle );
 							?>
