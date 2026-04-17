@@ -19,7 +19,7 @@
 				'full',
 				false,
 				array(
-					'class'         => 'pointer-events-none w-full h-full object-cover object-top min-h-[330px] md:min-h-[440px]',
+					'class'         => 'pointer-events-none w-full h-full object-cover object-bottom min-h-[330px] md:min-h-[440px]',
 					'loading'       => 'eager',
 					'fetchpriority' => 'high',
 				)
