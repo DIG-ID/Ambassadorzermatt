@@ -37,3 +37,6 @@ function wpsites_disable_self_pingbacks( &$links ) {
 
 add_action( 'pre_ping', 'wpsites_disable_self_pingbacks' );
 
+
+// Remove hreflang from XML sitemap (handled in HTML head instead)
+add_filter( 'wpml_sitemap_hreflang', '__return_false' );
