@@ -24,7 +24,7 @@
 			</div>
 			<div class="col-start-1 col-span-2 md:col-start-1 md:col-span-4 xl:col-start-2 xl:col-span-4">
 				<div class="title-secondary text-Brown">
-					<h2><?php the_field( 'hero_intro_over_title' ); ?></h2>
+					<p><?php the_field( 'hero_intro_over_title' ); ?></p>
 				</div>
 			</div>
 			<div class="col-start-1 col-span-2 md:col-start-1 md:col-span-4 xl:col-start-2 xl:col-span-5">
