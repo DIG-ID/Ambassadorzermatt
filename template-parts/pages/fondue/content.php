@@ -20,7 +20,7 @@
 				?>
             </div>
             <div class="col-span-2 md:col-span-5 xl:col-span-5 pt-9 md:pt-16 xl:pt-[275px]">
-                <h1 class="title-main text-Dark"><?php echo get_field('content_title');?></h1>
+                <h2 class="title-main text-Dark"><?php echo get_field('content_title');?></h2>
                 <p class="text-Dark pt-7 md:pt-10 xl:pt-8 md:max-w-[459px]"><?php echo get_field('content_text');?></p>
             </div>
             <div class="col-start-1 col-span-2 md:col-start-3 md:col-span-4 xl:col-start-7 xl:col-span-6 pt-20 xl:pt-44 pb-28 xl:pb-52">

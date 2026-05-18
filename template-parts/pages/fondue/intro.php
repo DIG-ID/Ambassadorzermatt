@@ -26,7 +26,7 @@ $ot = get_field( 'intro_over_title' );
 					<?php if ( $ot ) : ?>
 						<h2><?php the_field( 'intro_title' ); ?></h2>
 					<?php else : ?>
-						<h1><?php the_field( 'intro_title' ); ?></h1>
+						<h2><?php the_field( 'intro_title' ); ?></h2>
 					<?php endif; ?>
 				</div>
 				<p class="text-Brown p-5 border-2 border-Brown mt-[1.25rem] md:mt-10 max-w-[440px] hidden xl:block"><?php the_field( 'intro_disclaimer'); ?></p>
