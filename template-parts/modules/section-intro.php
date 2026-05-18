@@ -20,7 +20,7 @@ $ot = get_field( 'intro_over_title' );
 				<div class="col-start-1 col-span-2 md:col-start-1 md:col-span-4 xl:col-start-2 xl:col-span-4">
 					<div class="title-secondary text-Brown">
 						<?php if ( $is_child ) : ?>
-							<h2><?php the_field( 'intro_over_title' ); ?></h2>
+							<p><?php the_field( 'intro_over_title' ); ?></p>
 						<?php else : ?>
 							<h1><?php the_field( 'intro_over_title' ); ?></h1>
 						<?php endif; ?>
