@@ -16,7 +16,7 @@ $ot = get_field( 'intro_over_title' );
 			<?php if ( $ot ) : ?>
 				<div class="col-start-1 col-span-2 md:col-start-1 md:col-span-4 xl:col-start-2 xl:col-span-4">
 					<div class="title-secondary text-Brown">
-						<span>— </span><h1><?php the_field( 'intro_over_title' ); ?></h1>
+						<div class="flex items-baseline gap-[0.4em]"><span>—</span><h1><?php the_field( 'intro_over_title' ); ?></h1></div>
 					</div>
 				</div>
 			<?php endif; ?>
