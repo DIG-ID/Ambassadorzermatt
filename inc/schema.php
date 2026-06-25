@@ -243,11 +243,13 @@ function az_schema_hotelroom( int $post_id = 0 ): array {
 	$image_url = $image_id ? wp_get_attachment_image_url( $image_id, 'full' ) : '';
 
 	// ── Schema skeleton ───────────────────────────────────────────────────────
+	$raw_name = get_field( 'hero_intro_title', $post_id ) ?: get_the_title( $post_id );
+
 	$schema = [
 		'@context' => 'https://schema.org',
 		'@type'    => 'HotelRoom',
 		'@id'      => get_permalink( $post_id ) . '#hotelroom',
-		'name'     => get_field( 'hero_intro_title', $post_id ) ?: get_the_title( $post_id ),
+		'name'     => wp_strip_all_tags( $raw_name ),
 		'url'      => get_permalink( $post_id ),
 		'isPartOf' => [
 			'@type' => 'Hotel',
@@ -309,7 +311,12 @@ function az_schema_hotelroom( int $post_id = 0 ): array {
 	}
 
 	// ── Offers ───────────────────────────────────────────────────────────────
-	$booking_url = get_field( 'general_booking_url', 'option' ) ?: get_permalink( $post_id );
+	// html_entity_decode: the stored URL may contain &amp; — decode to & for valid JSON-LD.
+	$booking_url = html_entity_decode(
+		get_field( 'general_booking_url', 'option' ) ?: get_permalink( $post_id ),
+		ENT_QUOTES,
+		'UTF-8'
+	);
 	$schema['offers'] = [
 		'@type'         => 'Offer',
 		'url'           => $booking_url,
