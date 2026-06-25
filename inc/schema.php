@@ -36,6 +36,35 @@ function az_schema_get_page_id_by_template( string $template ): int {
 	return $cache[ $template ];
 }
 
+/**
+ * Extract only the street line from a multi-line address block.
+ *
+ * The contacts_address ACF field stores a full formatted block, e.g.:
+ *   Hotel Ambassador Zermatt
+ *   Spissstrasse 10
+ *   CH-3920 Zermatt
+ *
+ * schema.org streetAddress expects only the street line ("Spissstrasse 10").
+ * Strategy: take the first line that contains a digit but is NOT a postal-code
+ * line (pattern: two-letter country code followed by digits, e.g. "CH-3920").
+ *
+ * @param string $raw Raw value from the ACF contacts_address field.
+ * @return string Street line only, or the full stripped string as fallback.
+ */
+function az_schema_extract_street_line( string $raw ): string {
+	$lines = array_filter( array_map( 'trim', preg_split( '/\r\n|\r|\n/', wp_strip_all_tags( $raw ) ) ) );
+
+	foreach ( $lines as $line ) {
+		// Has a digit, but is not a postal-code line like "CH-3920 Zermatt".
+		if ( preg_match( '/\d/', $line ) && ! preg_match( '/^[A-Z]{2}-?\d{4}/', $line ) ) {
+			return $line;
+		}
+	}
+
+	// Fallback: return everything on one line if no street line was identified.
+	return implode( ', ', $lines );
+}
+
 add_action( 'wp_head', 'az_output_schema', 5 );
 
 /**
@@ -115,9 +144,7 @@ function az_schema_hotel(): array {
 	if ( $contacts_page_id ) {
 		$street = get_field( 'contacts_address', $contacts_page_id );
 		if ( $street ) {
-			// contacts_address may contain the full formatted address; use as streetAddress
-			// and ask client to confirm if it should be street-line only.
-			$address['streetAddress'] = wp_strip_all_tags( $street );
+			$address['streetAddress'] = az_schema_extract_street_line( $street );
 		}
 	}
 
@@ -325,7 +352,7 @@ function az_schema_restaurant( string $which ): array {
 	if ( $contacts_page_id ) {
 		$street = get_field( 'contacts_address', $contacts_page_id );
 		if ( $street ) {
-			$address['streetAddress'] = wp_strip_all_tags( $street );
+			$address['streetAddress'] = az_schema_extract_street_line( $street );
 		}
 	}
 
