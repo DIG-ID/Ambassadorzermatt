@@ -372,6 +372,8 @@ function az_schema_restaurant( string $which ): array {
 	}
 
 	// ── Per-restaurant fields ─────────────────────────────────────────────────
+	$menu_url = '';
+
 	if ( 'carbon' === $which ) {
 		$name        = 'Restaurant Carbon';
 		$id          = AZ_SCHEMA_CARBON_ID;
@@ -381,6 +383,19 @@ function az_schema_restaurant( string $which ): array {
 		$image_id    = get_field( 'restaurant_carbon_image_left' )
 			?: get_field( 'hero_image' )
 			?: get_field( 'unsere_kuche_image_top_left' );
+
+		// Menu link: first non-empty link from the unsere_kuche_hover repeater.
+		$carbon_page_id = az_schema_get_page_id_by_template( 'page-templates/page-restaurant-carbon.php' );
+		$menu_url       = '';
+		if ( $carbon_page_id ) {
+			$hover_rows = get_field( 'unsere_kuche_hover', $carbon_page_id ) ?: [];
+			foreach ( $hover_rows as $row ) {
+				if ( ! empty( $row['link'] ) ) {
+					$menu_url = $row['link'];
+					break;
+				}
+			}
+		}
 	} else {
 		$name        = 'Fondue Igloo';
 		$id          = AZ_SCHEMA_FONDUE_ID;
@@ -407,7 +422,6 @@ function az_schema_restaurant( string $which ): array {
 		// TODO: 'servesCuisine' => [],   // e.g. ['Swiss', 'European'] — pending client data sheet
 		// TODO: 'priceRange'    => '',   // pending client data sheet
 		// TODO: 'openingHours'  => '',   // e.g. 'Mo-Su 18:00-23:00' — pending client data sheet
-		// TODO: 'menu'          => '',   // menu URL — pending client data sheet
 	];
 
 	if ( $description ) {
@@ -416,6 +430,10 @@ function az_schema_restaurant( string $which ): array {
 
 	if ( $image_url ) {
 		$schema['image'] = $image_url;
+	}
+
+	if ( ! empty( $menu_url ) ) {
+		$schema['menu'] = $menu_url;
 	}
 
 	// acceptsReservations accepts a boolean or a URL (schema.org).
