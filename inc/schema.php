@@ -372,7 +372,8 @@ function az_schema_restaurant( string $which ): array {
 	}
 
 	// ── Per-restaurant fields ─────────────────────────────────────────────────
-	$menu_url = '';
+	$menu_url      = '';
+	$opening_hours = '';
 
 	if ( 'carbon' === $which ) {
 		$name        = 'Restaurant Carbon';
@@ -383,6 +384,8 @@ function az_schema_restaurant( string $which ): array {
 		$image_id    = get_field( 'restaurant_carbon_image_left' )
 			?: get_field( 'hero_image' )
 			?: get_field( 'unsere_kuche_image_top_left' );
+
+		$opening_hours  = 'Mo-Su 18:30-22:00';
 
 		// Menu link: first non-empty link from the unsere_kuche_hover repeater.
 		$carbon_page_id = az_schema_get_page_id_by_template( 'page-templates/page-restaurant-carbon.php' );
@@ -403,6 +406,18 @@ function az_schema_restaurant( string $which ): array {
 		// Gastronomie page → fondue page fallback.
 		$description = get_field( 'fondue_text' ) ?: get_field( 'intro_text' );
 		$image_id    = get_field( 'fondue_image_full' ) ?: get_field( 'hero_image' );
+
+		// Menu link: first non-empty link from the content_hover repeater.
+		$fondue_page_id = az_schema_get_page_id_by_template( 'page-templates/page-fondue.php' );
+		if ( $fondue_page_id ) {
+			$hover_rows = get_field( 'content_hover', $fondue_page_id ) ?: [];
+			foreach ( $hover_rows as $row ) {
+				if ( ! empty( $row['link'] ) ) {
+					$menu_url = $row['link'];
+					break;
+				}
+			}
+		}
 	}
 
 	$image_url = $image_id ? wp_get_attachment_image_url( $image_id, 'full' ) : '';
@@ -434,6 +449,10 @@ function az_schema_restaurant( string $which ): array {
 
 	if ( ! empty( $menu_url ) ) {
 		$schema['menu'] = $menu_url;
+	}
+
+	if ( ! empty( $opening_hours ) ) {
+		$schema['openingHours'] = $opening_hours;
 	}
 
 	// acceptsReservations accepts a boolean or a URL (schema.org).
