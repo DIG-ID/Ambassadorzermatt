@@ -79,12 +79,15 @@ function az_output_schema(): void {
 	}
 
 	if ( is_post_type_archive( 'zimmer-suiten' ) ) {
+		// suppress_filters => false is required so WPML's language filter applies
+		// and only posts in the current language are returned (not all variants).
 		$rooms = get_posts( [
-			'post_type'      => 'zimmer-suiten',
-			'posts_per_page' => -1,
-			'post_status'    => 'publish',
-			'orderby'        => 'menu_order',
-			'order'          => 'ASC',
+			'post_type'        => 'zimmer-suiten',
+			'posts_per_page'   => -1,
+			'post_status'      => 'publish',
+			'orderby'          => 'menu_order',
+			'order'            => 'ASC',
+			'suppress_filters' => false,
 		] );
 		foreach ( $rooms as $room ) {
 			$schemas[] = az_schema_hotelroom( $room->ID );
@@ -244,12 +247,17 @@ function az_schema_hotelroom( int $post_id = 0 ): array {
 
 	// ── Schema skeleton ───────────────────────────────────────────────────────
 	$raw_name = get_field( 'hero_intro_title', $post_id ) ?: get_the_title( $post_id );
+	// Replace <br> variants with a space before stripping so "Doppelzimmer<br>Standard"
+	// doesn't collapse to "DoppelzimmerStandard".
+	$raw_name = trim( preg_replace( '/\s+/', ' ', wp_strip_all_tags(
+		str_ireplace( [ '<br>', '<br/>', '<br />' ], ' ', $raw_name )
+	) ) );
 
 	$schema = [
 		'@context' => 'https://schema.org',
 		'@type'    => 'HotelRoom',
 		'@id'      => get_permalink( $post_id ) . '#hotelroom',
-		'name'     => wp_strip_all_tags( $raw_name ),
+		'name'     => $raw_name,
 		'url'      => get_permalink( $post_id ),
 		'isPartOf' => [
 			'@type' => 'Hotel',
