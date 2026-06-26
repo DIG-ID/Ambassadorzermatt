@@ -7,27 +7,20 @@
  * @since 1.0.0
  */
 
-// Canonical entity identifiers — never use translated URLs for @id values.
+// @id values are always the canonical (DE) URLs — never translated variants.
 define( 'AZ_SCHEMA_HOST',      'https://www.ambassadorzermatt.com' );
 define( 'AZ_SCHEMA_HOTEL_ID',  AZ_SCHEMA_HOST . '/#hotel' );
 define( 'AZ_SCHEMA_CARBON_ID', AZ_SCHEMA_HOST . '/restaurant-carbon/#restaurant' );
 define( 'AZ_SCHEMA_FONDUE_ID', AZ_SCHEMA_HOST . '/fondue-igloo/#restaurant' );
 
-/**
- * Find a published page by its page template file.
- * Results are cached per request in a static array.
- *
- * @param string $template Relative template path, e.g. 'page-templates/page-hotel.php'.
- * @return int Post ID, or 0 if not found.
- */
 function az_schema_get_page_id_by_template( string $template ): int {
 	static $cache = [];
 
 	if ( ! isset( $cache[ $template ] ) ) {
-		$pages               = get_pages( [
-			'meta_key'   => '_wp_page_template',
-			'meta_value' => $template,
-			'number'     => 1,
+		$pages              = get_pages( [
+			'meta_key'    => '_wp_page_template',
+			'meta_value'  => $template,
+			'number'      => 1,
 			'post_status' => 'publish',
 		] );
 		$cache[ $template ] = ! empty( $pages ) ? (int) $pages[0]->ID : 0;
@@ -36,41 +29,22 @@ function az_schema_get_page_id_by_template( string $template ): int {
 	return $cache[ $template ];
 }
 
-/**
- * Extract only the street line from a multi-line address block.
- *
- * The contacts_address ACF field stores a full formatted block, e.g.:
- *   Hotel Ambassador Zermatt
- *   Spissstrasse 10
- *   CH-3920 Zermatt
- *
- * schema.org streetAddress expects only the street line ("Spissstrasse 10").
- * Strategy: take the first line that contains a digit but is NOT a postal-code
- * line (pattern: two-letter country code followed by digits, e.g. "CH-3920").
- *
- * @param string $raw Raw value from the ACF contacts_address field.
- * @return string Street line only, or the full stripped string as fallback.
- */
+// The contacts_address ACF field stores a multi-line block (hotel name, street, postal code).
+// Returns only the street line for schema.org streetAddress.
 function az_schema_extract_street_line( string $raw ): string {
 	$lines = array_filter( array_map( 'trim', preg_split( '/\r\n|\r|\n/', wp_strip_all_tags( $raw ) ) ) );
 
 	foreach ( $lines as $line ) {
-		// Has a digit, but is not a postal-code line like "CH-3920 Zermatt".
 		if ( preg_match( '/\d/', $line ) && ! preg_match( '/^[A-Z]{2}-?\d{4}/', $line ) ) {
 			return $line;
 		}
 	}
 
-	// Fallback: return everything on one line if no street line was identified.
 	return implode( ', ', $lines );
 }
 
 add_action( 'wp_head', 'az_output_schema', 5 );
 
-/**
- * Dispatch and output JSON-LD blocks for the current page.
- * is_page_template() is WPML-safe: it matches the template file regardless of language.
- */
 function az_output_schema(): void {
 	$schemas = [];
 
@@ -79,8 +53,7 @@ function az_output_schema(): void {
 	}
 
 	if ( is_post_type_archive( 'zimmer-suiten' ) ) {
-		// suppress_filters => false is required so WPML's language filter applies
-		// and only posts in the current language are returned (not all variants).
+		// suppress_filters => false lets WPML filter results to the current language only.
 		$rooms = get_posts( [
 			'post_type'        => 'zimmer-suiten',
 			'posts_per_page'   => -1,
@@ -106,7 +79,6 @@ function az_output_schema(): void {
 		$schemas[] = az_schema_restaurant( 'fondue' );
 	}
 
-	// Gastronomie overview outputs both restaurant entities (confirmed decision).
 	if ( is_page_template( 'page-templates/page-gastronomie.php' ) ) {
 		$schemas[] = az_schema_restaurant( 'carbon' );
 		$schemas[] = az_schema_restaurant( 'fondue' );
@@ -122,20 +94,10 @@ function az_output_schema(): void {
 	}
 }
 
-/**
- * Hotel schema — appears on homepage and /hotel/ page (all WPML language variants).
- *
- * Image and description come from the hotel page (not the current post),
- * so the schema is consistent whether rendered on the homepage or /hotel/.
- * Address and geo come from the arrival-contacts page (contacts_address + contacts_location).
- *
- * @return array<string, mixed>
- */
 function az_schema_hotel(): array {
 	$hotel_page_id    = az_schema_get_page_id_by_template( 'page-templates/page-hotel.php' );
 	$contacts_page_id = az_schema_get_page_id_by_template( 'page-templates/page-arrival-contacts.php' );
 
-	// ── Address ──────────────────────────────────────────────────────────────
 	$address = [
 		'@type'           => 'PostalAddress',
 		'addressLocality' => 'Zermatt',
@@ -151,22 +113,20 @@ function az_schema_hotel(): array {
 		}
 	}
 
-	// ── Schema skeleton ──────────────────────────────────────────────────────
 	$schema = [
-		'@context' => 'https://schema.org',
-		'@type'    => 'Hotel',
-		'@id'      => AZ_SCHEMA_HOTEL_ID,
-		'name'     => 'Hotel Ambassador Zermatt',
-		'url'      => AZ_SCHEMA_HOST,
-		'address'  => $address,
-		'starRating'   => [ '@type' => 'Rating', 'ratingValue' => '4' ],
-		// TODO: 'priceRange'     => '',   // e.g. '$$$$' — pending client data sheet
-		// TODO: 'checkInTime'    => '',   // e.g. '15:00' — pending client data sheet
-		// TODO: 'checkOutTime'   => '',   // e.g. '11:00' — pending client data sheet
-		// TODO: 'amenityFeature' => [],   // list of LocationFeatureSpecification — pending client data sheet
+		'@context'   => 'https://schema.org',
+		'@type'      => 'Hotel',
+		'@id'        => AZ_SCHEMA_HOTEL_ID,
+		'name'       => 'Hotel Ambassador Zermatt',
+		'url'        => AZ_SCHEMA_HOST,
+		'address'    => $address,
+		'starRating' => [ '@type' => 'Rating', 'ratingValue' => '4' ],
+		// TODO: 'priceRange'     => '',   // pending client data sheet
+		// TODO: 'checkInTime'    => '',   // pending client data sheet
+		// TODO: 'checkOutTime'   => '',   // pending client data sheet
+		// TODO: 'amenityFeature' => [],   // pending client data sheet
 	];
 
-	// ── Phone & email (options) ───────────────────────────────────────────────
 	$phone = get_field( 'general_phone', 'option' );
 	if ( $phone ) {
 		$schema['telephone'] = $phone;
@@ -177,7 +137,6 @@ function az_schema_hotel(): array {
 		$schema['email'] = $email;
 	}
 
-	// ── Image (hotel page hero) ───────────────────────────────────────────────
 	if ( $hotel_page_id ) {
 		$hero_id = get_field( 'hero_image', $hotel_page_id );
 		if ( $hero_id ) {
@@ -186,17 +145,13 @@ function az_schema_hotel(): array {
 				$schema['image'] = $image_url;
 			}
 		}
-	}
 
-	// ── Description (hotel page intro text) ──────────────────────────────────
-	if ( $hotel_page_id ) {
 		$description = get_field( 'intro_text', $hotel_page_id );
 		if ( $description ) {
 			$schema['description'] = wp_strip_all_tags( $description );
 		}
 	}
 
-	// ── Geo coordinates (contacts page ACF map field) ─────────────────────────
 	if ( $contacts_page_id ) {
 		$location = get_field( 'contacts_location', $contacts_page_id );
 		if ( ! empty( $location['lat'] ) && ! empty( $location['lng'] ) ) {
@@ -211,44 +166,25 @@ function az_schema_hotel(): array {
 	return $schema;
 }
 
-/**
- * HotelRoom schema — appears on each single zimmer-suiten post and on the archive.
- *
- * Accepts an explicit post ID so the archive handler can loop over all rooms
- * without touching the global post context. When called from is_singular(),
- * omit $post_id and the current post is used.
- *
- * Both image fields (details_image_main, hero_intro_image) return attachment IDs,
- * not arrays — converted to URL via wp_get_attachment_image_url().
- *
- * @param int $post_id Optional. Defaults to current post.
- * @return array<string, mixed>
- */
 function az_schema_hotelroom( int $post_id = 0 ): array {
 	if ( ! $post_id ) {
 		$post_id = (int) get_the_ID();
 	}
 
-	// ── Features repeater (bed, size, capacity, view) ────────────────────────
 	$features   = get_field( 'features', $post_id ) ?: [];
 	$row        = ! empty( $features ) ? $features[0] : [];
 	$bed_type   = $row['bed']      ?? '';
 	$capacity   = $row['capacity'] ?? '';
 	$floor_size = $row['size']     ?? '';
 
-	// Extract number from strings like "2 Personen" or "bis 4 Personen".
 	preg_match( '/\d+/', $capacity, $cap_matches );
 	$max_occupancy = ! empty( $cap_matches[0] ) ? (int) $cap_matches[0] : 0;
 
-	// ── Image — both fields return attachment IDs ─────────────────────────────
-	$image_id = get_field( 'details_image_main', $post_id )
-		?: get_field( 'hero_intro_image', $post_id );
+	$image_id  = get_field( 'details_image_main', $post_id ) ?: get_field( 'hero_intro_image', $post_id );
 	$image_url = $image_id ? wp_get_attachment_image_url( $image_id, 'full' ) : '';
 
-	// ── Schema skeleton ───────────────────────────────────────────────────────
 	$raw_name = get_field( 'hero_intro_title', $post_id ) ?: get_the_title( $post_id );
-	// Replace <br> variants with a space before stripping so "Doppelzimmer<br>Standard"
-	// doesn't collapse to "DoppelzimmerStandard".
+	// Replace <br> with a space before stripping — otherwise "Doppelzimmer<br>Standard" collapses to "DoppelzimmerStandard".
 	$raw_name = trim( preg_replace( '/\s+/', ' ', wp_strip_all_tags(
 		str_ireplace( [ '<br>', '<br/>', '<br />' ], ' ', $raw_name )
 	) ) );
@@ -274,15 +210,10 @@ function az_schema_hotelroom( int $post_id = 0 ): array {
 		$schema['image'] = $image_url;
 	}
 
-	// ── Bed ──────────────────────────────────────────────────────────────────
 	if ( $bed_type ) {
-		$schema['bed'] = [
-			'@type'     => 'BedDetails',
-			'typeOfBed' => $bed_type,
-		];
+		$schema['bed'] = [ '@type' => 'BedDetails', 'typeOfBed' => $bed_type ];
 	}
 
-	// ── Occupancy ────────────────────────────────────────────────────────────
 	if ( $max_occupancy > 0 ) {
 		$schema['occupancy'] = [
 			'@type'    => 'QuantitativeValue',
@@ -290,22 +221,13 @@ function az_schema_hotelroom( int $post_id = 0 ): array {
 			'unitText' => 'person',
 		];
 	} elseif ( $capacity ) {
-		// Fallback: raw text if no leading number was found.
-		$schema['occupancy'] = [
-			'@type'       => 'QuantitativeValue',
-			'description' => $capacity,
-		];
+		$schema['occupancy'] = [ '@type' => 'QuantitativeValue', 'description' => $capacity ];
 	}
 
-	// ── Floor size ───────────────────────────────────────────────────────────
 	if ( $floor_size ) {
-		$schema['floorSize'] = [
-			'@type'       => 'QuantitativeValue',
-			'description' => $floor_size,
-		];
+		$schema['floorSize'] = [ '@type' => 'QuantitativeValue', 'description' => $floor_size ];
 	}
 
-	// ── Amenities (taxonomy relationship → WP_Term objects) ──────────────────
 	$amenity_terms = get_field( 'details_amenities', $post_id ) ?: [];
 	if ( ! empty( $amenity_terms ) ) {
 		$schema['amenityFeature'] = array_map(
@@ -318,8 +240,7 @@ function az_schema_hotelroom( int $post_id = 0 ): array {
 		);
 	}
 
-	// ── Offers ───────────────────────────────────────────────────────────────
-	// html_entity_decode: the stored URL may contain &amp; — decode to & for valid JSON-LD.
+	// The stored booking URL may contain &amp; — decode to & for valid JSON-LD.
 	$booking_url = html_entity_decode(
 		get_field( 'general_booking_url', 'option' ) ?: get_permalink( $post_id ),
 		ENT_QUOTES,
@@ -335,27 +256,11 @@ function az_schema_hotelroom( int $post_id = 0 ): array {
 	return $schema;
 }
 
-/**
- * Restaurant schema — shared builder for Carbon and Fondue Igloo.
- *
- * @id and url are hardcoded to canonical (DE) URLs — never use get_permalink() here
- * since this function may be called from the gastronomie overview page.
- *
- * Field fallback chains handle all three calling contexts:
- *   - Gastronomie page: restaurant_carbon_text / fondue_text for description;
- *                       restaurant_carbon_image_left / fondue_image_full for image.
- *   - Individual page:  intro_text (same field on both) for description;
- *                       hero_image (shared section-hero module) for image.
- *
- * All image fields on these pages return attachment IDs (not arrays).
- *
- * @param 'carbon'|'fondue' $which Which restaurant entity to build.
- * @return array<string, mixed>
- */
+// @id and url are always canonical (DE) URLs — this function may be called from the
+// gastronomie overview page, so get_permalink() must never be used here.
 function az_schema_restaurant( string $which ): array {
 	$contacts_page_id = az_schema_get_page_id_by_template( 'page-templates/page-arrival-contacts.php' );
 
-	// ── Address (restaurants share the hotel's address) ───────────────────────
 	$address = [
 		'@type'           => 'PostalAddress',
 		'addressLocality' => 'Zermatt',
@@ -371,7 +276,6 @@ function az_schema_restaurant( string $which ): array {
 		}
 	}
 
-	// ── Per-restaurant fields ─────────────────────────────────────────────────
 	$menu_url      = '';
 	$opening_hours = '';
 
@@ -379,17 +283,14 @@ function az_schema_restaurant( string $which ): array {
 		$name        = 'Restaurant Carbon';
 		$id          = AZ_SCHEMA_CARBON_ID;
 		$url         = AZ_SCHEMA_HOST . '/restaurant-carbon/';
-		// Gastronomie page → carbon page fallback.
 		$description = get_field( 'restaurant_carbon_text' ) ?: get_field( 'intro_text' );
 		$image_id    = get_field( 'restaurant_carbon_image_left' )
 			?: get_field( 'hero_image' )
 			?: get_field( 'unsere_kuche_image_top_left' );
 
-		$opening_hours  = 'Mo-Su 18:30-22:00';
+		$opening_hours = 'Mo-Su 18:30-22:00'; // hardcoded — update here if hours change
 
-		// Menu link: first non-empty link from the unsere_kuche_hover repeater.
 		$carbon_page_id = az_schema_get_page_id_by_template( 'page-templates/page-restaurant-carbon.php' );
-		$menu_url       = '';
 		if ( $carbon_page_id ) {
 			$hover_rows = get_field( 'unsere_kuche_hover', $carbon_page_id ) ?: [];
 			foreach ( $hover_rows as $row ) {
@@ -403,11 +304,9 @@ function az_schema_restaurant( string $which ): array {
 		$name        = 'Fondue Igloo';
 		$id          = AZ_SCHEMA_FONDUE_ID;
 		$url         = AZ_SCHEMA_HOST . '/fondue-igloo/';
-		// Gastronomie page → fondue page fallback.
 		$description = get_field( 'fondue_text' ) ?: get_field( 'intro_text' );
 		$image_id    = get_field( 'fondue_image_full' ) ?: get_field( 'hero_image' );
 
-		// Menu link: first non-empty link from the content_hover repeater.
 		$fondue_page_id = az_schema_get_page_id_by_template( 'page-templates/page-fondue.php' );
 		if ( $fondue_page_id ) {
 			$hover_rows = get_field( 'content_hover', $fondue_page_id ) ?: [];
@@ -422,7 +321,6 @@ function az_schema_restaurant( string $which ): array {
 
 	$image_url = $image_id ? wp_get_attachment_image_url( $image_id, 'full' ) : '';
 
-	// ── Schema skeleton ───────────────────────────────────────────────────────
 	$schema = [
 		'@context' => 'https://schema.org',
 		'@type'    => 'Restaurant',
@@ -434,9 +332,8 @@ function az_schema_restaurant( string $which ): array {
 			'@type' => 'Hotel',
 			'@id'   => AZ_SCHEMA_HOTEL_ID,
 		],
-		// TODO: 'servesCuisine' => [],   // e.g. ['Swiss', 'European'] — pending client data sheet
+		// TODO: 'servesCuisine' => [],   // pending client data sheet
 		// TODO: 'priceRange'    => '',   // pending client data sheet
-		// TODO: 'openingHours'  => '',   // e.g. 'Mo-Su 18:00-23:00' — pending client data sheet
 	];
 
 	if ( $description ) {
@@ -455,8 +352,7 @@ function az_schema_restaurant( string $which ): array {
 		$schema['openingHours'] = $opening_hours;
 	}
 
-	// acceptsReservations accepts a boolean or a URL (schema.org).
-	// Use the table reservation URL from options when set; fall back to true.
+	// acceptsReservations accepts a URL or boolean true — use the options URL when available.
 	$reservation_url = get_field( 'general_table_reservation_url', 'option' );
 	$schema['acceptsReservations'] = $reservation_url ?: true;
 
