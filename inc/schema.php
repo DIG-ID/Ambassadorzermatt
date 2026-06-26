@@ -156,8 +156,8 @@ function az_schema_hotel(): array {
 		'name'     => 'Hotel Ambassador Zermatt',
 		'url'      => AZ_SCHEMA_HOST,
 		'address'  => $address,
+		'starRating'   => [ '@type' => 'Rating', 'ratingValue' => '4' ],
 		// TODO: 'priceRange'     => '',   // e.g. '$$$$' — pending client data sheet
-		// TODO: 'starRating'     => [ '@type' => 'Rating', 'ratingValue' => '' ], // pending client data sheet
 		// TODO: 'checkInTime'    => '',   // e.g. '15:00' — pending client data sheet
 		// TODO: 'checkOutTime'   => '',   // e.g. '11:00' — pending client data sheet
 		// TODO: 'amenityFeature' => [],   // list of LocationFeatureSpecification — pending client data sheet
