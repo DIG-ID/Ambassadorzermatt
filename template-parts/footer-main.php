@@ -173,7 +173,10 @@
 			</div>
 
 			<!-- Copyright text -->
-			<p class="footer-small bg-Dark text-LightGray order-2 xl:order-1 text-center xl:text-end"><?php esc_html_e( '2025 © Alle Rechte vorbehalten.', 'ambassador' ); ?></p>
+			<p class="footer-small bg-Dark text-LightGray order-2 xl:order-1 text-center xl:text-end"><?php
+				/* translators: %s: current year. */
+				printf( esc_html__( '%s © Alle Rechte vorbehalten.', 'ambassador' ), esc_html( gmdate( 'Y' ) ) );
+			?></p>
 
 		</div>
 	</div>
