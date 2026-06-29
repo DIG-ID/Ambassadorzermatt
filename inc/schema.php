@@ -121,10 +121,10 @@ function az_schema_hotel(): array {
 		'url'        => AZ_SCHEMA_HOST,
 		'address'    => $address,
 		'starRating' => [ '@type' => 'Rating', 'ratingValue' => '4' ],
-		// TODO: 'priceRange'     => '',   // pending client data sheet
-		// TODO: 'checkInTime'    => '',   // pending client data sheet
-		// TODO: 'checkOutTime'   => '',   // pending client data sheet
-		// TODO: 'amenityFeature' => [],   // pending client data sheet
+		'priceRange'     => '$$$ – (ca. CHF 300–600 pro Zimmer/Nacht je nach Saison und Zimmerkategorie)',
+		'checkInTime'    => '15:00',
+		'checkOutTime'   => '11:00',
+		'amenityFeature' => [ 'Indoorpool', 'Whirlpool', 'Finnische Sauna', 'kostenloses WLAN', 'Skiverleih im Haus (Glacier Sport)', 'Skiraum (beheizt)', 'Gepack-service', 'Bahnhoftransfer (kostenpflichtig)', 'Concierge-Service', 'Bergbahntickets an der Rezeption', 'Balkon in allen Zimmern', 'Fruehstuecksbuffet' ],
 	];
 
 	$phone = get_field( 'general_phone', 'option' );
@@ -288,6 +288,9 @@ function az_schema_restaurant( string $which ): array {
 			?: get_field( 'hero_image' )
 			?: get_field( 'unsere_kuche_image_top_left' );
 
+		$serves_cuisine = [ 'Modern-alpin', 'Mediterran', 'Europaeisch (Schweizer Produkte mit mediterraner Inspiration)' ];
+		$price_range    = '$$$ – gehoben (Vorspeisen CHF 18–36, Hauptgang CHF 36–60, Desserts CHF 12–16; ca. CHF 60–100 pro Person mit Getraenken)';
+
 		$opening_hours = 'Mo-Su 18:30-22:00'; // hardcoded — update here if hours change
 
 		$carbon_page_id = az_schema_get_page_id_by_template( 'page-templates/page-restaurant-carbon.php' );
@@ -306,6 +309,11 @@ function az_schema_restaurant( string $which ): array {
 		$url         = AZ_SCHEMA_HOST . '/fondue-igloo/';
 		$description = get_field( 'fondue_text' ) ?: get_field( 'intro_text' );
 		$image_id    = get_field( 'fondue_image_full' ) ?: get_field( 'hero_image' );
+
+		$serves_cuisine = [ 'Schweizer', 'Walliser', 'Traditionell (Kaesespezialitaeten: Moitié-Moitié, Walliser Horu, Trueffel, Champagner)' ];
+		$price_range    = '$$ – $$$ (Fondue CHF 36–52 pro Person; Vorspeisen CHF 12–36; Desserts CHF 12–14; alle Preise inkl. 8.1% MWST)';
+
+		$opening_hours = 'Dezember–Maerz'; // seasonal winter venue — update here if the season changes
 
 		$fondue_page_id = az_schema_get_page_id_by_template( 'page-templates/page-fondue.php' );
 		if ( $fondue_page_id ) {
@@ -332,8 +340,8 @@ function az_schema_restaurant( string $which ): array {
 			'@type' => 'Hotel',
 			'@id'   => AZ_SCHEMA_HOTEL_ID,
 		],
-		// TODO: 'servesCuisine' => [],   // pending client data sheet
-		// TODO: 'priceRange'    => '',   // pending client data sheet
+		'servesCuisine' => $serves_cuisine,
+		'priceRange'    => $price_range,
 	];
 
 	if ( $description ) {
