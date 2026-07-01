@@ -43,6 +43,32 @@ function az_schema_extract_street_line( string $raw ): string {
 	return implode( ', ', $lines );
 }
 
+/**
+ * Return the current or upcoming Fondue Igloo winter season as absolute dates.
+ *
+ * The season runs 15 December – 20 March and crosses the calendar-year boundary,
+ * so the concrete YYYY-MM-DD dates are computed relative to "today" and never go
+ * stale. Feeds schema.org openingHoursSpecification validFrom / validThrough.
+ *
+ * - In-season (15 Dec – 20 Mar): returns the season currently running.
+ * - Off-season (21 Mar – 14 Dec): returns the upcoming winter season.
+ *
+ * @return array{validFrom:string,validThrough:string} ISO 8601 dates.
+ */
+function az_schema_fondue_season(): array {
+	$year  = (int) current_time( 'Y' );
+	$today = current_time( 'Y-m-d' );
+
+	// If we're before this year's 20 March close, the running/upcoming season
+	// started on 15 December of the previous year.
+	$start_year = ( $today <= sprintf( '%d-03-20', $year ) ) ? $year - 1 : $year;
+
+	return [
+		'validFrom'    => sprintf( '%d-12-15', $start_year ),
+		'validThrough' => sprintf( '%d-03-20', $start_year + 1 ),
+	];
+}
+
 add_action( 'wp_head', 'az_output_schema', 5 );
 
 function az_output_schema(): void {
@@ -276,8 +302,9 @@ function az_schema_restaurant( string $which ): array {
 		}
 	}
 
-	$menu_url      = '';
-	$opening_hours = '';
+	$menu_url           = '';
+	$opening_hours      = '';
+	$opening_hours_spec = [];
 
 	if ( 'carbon' === $which ) {
 		$name        = 'Restaurant Carbon';
@@ -313,7 +340,21 @@ function az_schema_restaurant( string $which ): array {
 		$serves_cuisine = [ 'Schweizer', 'Walliser', 'Traditionell (Kaesespezialitaeten: Moitié-Moitié, Walliser Horu, Trueffel, Champagner)' ];
 		$price_range    = '$$ – $$$ (Fondue CHF 36–52 pro Person; Vorspeisen CHF 12–36; Desserts CHF 12–14; alle Preise inkl. 8.1% MWST)';
 
-		$opening_hours = 'Dezember–Maerz'; // seasonal winter venue — update here if the season changes
+		// Seasonal winter venue (15 Dec – 20 Mar). Expressed as a machine-readable
+		// openingHoursSpecification so Google can parse the season as structured
+		// hours; the concrete dates are computed dynamically in az_schema_fondue_season().
+		// Daily times mirror Restaurant Carbon (Mo–Su 18:30–22:00) — adjust if they differ.
+		$season             = az_schema_fondue_season();
+		$opening_hours_spec = [
+			[
+				'@type'        => 'OpeningHoursSpecification',
+				'dayOfWeek'    => [ 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday' ],
+				'opens'        => '18:30',
+				'closes'       => '22:00',
+				'validFrom'    => $season['validFrom'],
+				'validThrough' => $season['validThrough'],
+			],
+		];
 
 		$fondue_page_id = az_schema_get_page_id_by_template( 'page-templates/page-fondue.php' );
 		if ( $fondue_page_id ) {
@@ -356,7 +397,9 @@ function az_schema_restaurant( string $which ): array {
 		$schema['menu'] = $menu_url;
 	}
 
-	if ( ! empty( $opening_hours ) ) {
+	if ( ! empty( $opening_hours_spec ) ) {
+		$schema['openingHoursSpecification'] = $opening_hours_spec;
+	} elseif ( ! empty( $opening_hours ) ) {
 		$schema['openingHours'] = $opening_hours;
 	}
 
