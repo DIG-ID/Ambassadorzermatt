@@ -110,6 +110,10 @@ function az_output_schema(): void {
 		$schemas[] = az_schema_restaurant( 'fondue' );
 	}
 
+	if ( is_front_page() || is_page_template( 'page-templates/page-home.php' ) ) {
+		$schemas[] = az_schema_faq();
+	}
+
 	foreach ( $schemas as $schema ) {
 		if ( empty( $schema ) ) {
 			continue;
@@ -418,4 +422,67 @@ function az_schema_restaurant( string $which ): array {
 	}
 
 	return $schema;
+}
+
+// Reads the same ACF structure that template-parts/pages/home/faq.php renders
+// (faq → accordion_item → question/answer), so the schema always mirrors the
+// visible content. All groups are merged into a single FAQPage — Google expects
+// one FAQPage node per page. Returns [] when the field is empty or unassigned.
+function az_schema_faq( int $post_id = 0 ): array {
+	if ( ! $post_id ) {
+		$post_id = (int) get_the_ID();
+	}
+
+	// Google only parses this limited tag set inside acceptedAnswer.text.
+	$allowed_tags = [
+		'a'      => [ 'href' => true, 'title' => true ],
+		'br'     => [],
+		'p'      => [],
+		'div'    => [],
+		'b'      => [],
+		'strong' => [],
+		'i'      => [],
+		'em'     => [],
+		'ol'     => [],
+		'ul'     => [],
+		'li'     => [],
+		'h2'     => [],
+		'h3'     => [],
+		'h4'     => [],
+		'h5'     => [],
+		'h6'     => [],
+	];
+
+	$questions = [];
+
+	foreach ( (array) ( get_field( 'faq', $post_id ) ?: [] ) as $group ) {
+		foreach ( (array) ( $group['accordion_item'] ?? [] ) as $item ) {
+			$question = trim( wp_strip_all_tags( $item['question'] ?? '' ) );
+			$answer   = trim( wp_kses( $item['answer'] ?? '', $allowed_tags ) );
+
+			if ( '' === $question || '' === $answer ) {
+				continue;
+			}
+
+			$questions[] = [
+				'@type'          => 'Question',
+				'name'           => $question,
+				'acceptedAnswer' => [
+					'@type' => 'Answer',
+					'text'  => $answer,
+				],
+			];
+		}
+	}
+
+	if ( empty( $questions ) ) {
+		return [];
+	}
+
+	return [
+		'@context'   => 'https://schema.org',
+		'@type'      => 'FAQPage',
+		'@id'        => get_permalink( $post_id ) . '#faqpage',
+		'mainEntity' => $questions,
+	];
 }

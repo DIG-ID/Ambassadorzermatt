@@ -1,5 +1,16 @@
 // webpack.mix.js
 
+const os = require('os');
+const path = require('path');
+
+// Caminho para os certificados do Local by WPEngine
+const certPath = path.join(
+  os.homedir(),
+  os.platform() === 'win32'
+    ? 'AppData/Roaming/Local/run/router/nginx/certs'
+    : 'Library/Application Support/Local/run/router/nginx/certs'
+);
+
 const mix = require('laravel-mix');
 const tailwindcss = require('tailwindcss');
 
@@ -19,11 +30,15 @@ mix
   })
 
   .browserSync({
-    proxy: {
-      target: "https://local-ambassador-zermatt.digid/",
-      ws: true,
+    proxy: "https://local-ambassador-zermatt.digid/",
+    host: "local-ambassador-zermatt.digid",
+    open: "external",
+    port: 3000,
+    ws: true,
+    https: {
+      key: path.join(certPath, 'local-ambassador-zermatt.digid.key'),
+      cert: path.join(certPath, 'local-ambassador-zermatt.digid.crt'),
     },
-    https: true,
     files: ["./**/*.php", "./dist/js/*.js", "./dist/css/*.css"]
   })
   .disableNotifications();
