@@ -31,8 +31,7 @@
 					?>
 				</nav>
 				<div class="language-selector flex xl:hidden items-center py-3 md:py-5 xl:pt-[1px]">
-					<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/Ambassador-Zermatt-globe.svg"
-							 class="mr-2" alt="Language Selector Globe Icon" title="Language Selector Globe Icon" />
+					<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/Ambassador-Zermatt-globe.svg" class="mr-2" alt="Language Selector Globe Icon" title="Language Selector Globe Icon" />
 					<?php do_action('wpml_add_language_selector'); ?>
 				</div>
 			</div>
