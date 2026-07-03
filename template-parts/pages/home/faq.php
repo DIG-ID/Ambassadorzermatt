@@ -20,7 +20,7 @@
 									?>
 									<details id="faq-<?php echo esc_attr( $gi . '-' . $i ); ?>" class="accordion__item group border-b-[2px] border-Brown pb-8 md:pb-10" data-accordion-item>
 										<summary class="accordion__item-title flex justify-between items-center cursor-pointer pt-8 md:pt-10 [&::-webkit-details-marker]:hidden transition-all duration-500 ease-in-out title-secondary italic text-Dark gap-x-6">
-											<?php the_sub_field( 'question' ); ?>
+											<h3><?php the_sub_field( 'question' ); ?></h3>
 											<span class="accordion__item-icon transition-all duration-500 ease-in-out group-open:rotate-90">
 												<svg xmlns="http://www.w3.org/2000/svg" width="25" height="23" fill="none"><path stroke="#25211e" stroke-width="2" d="M23.674 22V1h-23m23 0-23 21"/></svg>
 											</span>
