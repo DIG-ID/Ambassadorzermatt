@@ -10,15 +10,15 @@
 ?>
 
 <?php
-if ( get_field( 'show_faq' ) ) :
+if ( get_field( 'show_faq', 'option' ) ) :
 	?>
 	<section class="section-faq bg-White pt-14 pb-24 xl:pt-32 xl:pb-32">
 		<div class="theme-container">
 			<div class="theme-grid">
 				<?php
 				$gi = 0;
-				if ( have_rows( 'faq' ) ) :
-					while ( have_rows( 'faq' ) ) :
+				if ( have_rows( 'faq', 'option' ) ) :
+					while ( have_rows( 'faq', 'option' ) ) :
 						the_row();
 						++$gi;
 						?>
