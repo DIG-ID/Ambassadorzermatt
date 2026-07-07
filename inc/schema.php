@@ -110,7 +110,9 @@ function az_output_schema(): void {
 		$schemas[] = az_schema_restaurant( 'fondue' );
 	}
 
-	if ( is_front_page() || is_page_template( 'page-templates/page-home.php' ) ) {
+	// az_schema_faq() returns [] when the page has no FAQ rows, so this is a
+	// no-op on pages without FAQ content — no per-template condition needed.
+	if ( is_singular() ) {
 		$schemas[] = az_schema_faq();
 	}
 
