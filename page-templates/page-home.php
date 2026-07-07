@@ -20,7 +20,7 @@ if ( have_posts() ) :
 			get_template_part( 'template-parts/pages/home/gastronomie' );
 			get_template_part( 'template-parts/pages/home/pool', 'sauna' );
 			get_template_part( 'template-parts/pages/home/erlebnisse' );
-			get_template_part( 'template-parts/pages/home/faq' );
+			get_template_part( 'template-parts/modules/section', 'faq' );
 			get_template_part( 'template-parts/pages/home/tradition' );
 		do_action( 'after_main_content' );
 	endwhile;
