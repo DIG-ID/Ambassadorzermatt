@@ -110,10 +110,17 @@ function az_output_schema(): void {
 		$schemas[] = az_schema_restaurant( 'fondue' );
 	}
 
-	// az_schema_faq() returns [] when the page has no FAQ rows, so this is a
-	// no-op on pages without FAQ content — no per-template condition needed.
+	// az_schema_faq() returns [] when the source has no FAQ rows, so these are
+	// no-ops on pages without FAQ content.
 	if ( is_singular() ) {
+		// Page/post FAQ: the repeater lives on the post itself
+		// (template-parts/pages/home/faq.php).
 		$schemas[] = az_schema_faq();
+	} elseif ( is_archive() && get_field( 'show_faq', 'option' ) ) {
+		// Archive FAQ: the repeater lives on the ACF options page, gated by the
+		// show_faq toggle (template-parts/archives/zimmer-suiten/faq.php).
+		$archive_url = get_post_type_archive_link( get_post_type() );
+		$schemas[]   = az_schema_faq( 'option', $archive_url ? $archive_url : '' );
 	}
 
 	foreach ( $schemas as $schema ) {
@@ -426,13 +433,22 @@ function az_schema_restaurant( string $which ): array {
 	return $schema;
 }
 
-// Reads the same ACF structure that template-parts/pages/home/faq.php renders
+// Reads the same ACF structure that the FAQ template parts render
 // (faq → accordion_item → question/answer), so the schema always mirrors the
 // visible content. All groups are merged into a single FAQPage — Google expects
 // one FAQPage node per page. Returns [] when the field is empty or unassigned.
-function az_schema_faq( int $post_id = 0 ): array {
-	if ( ! $post_id ) {
-		$post_id = (int) get_the_ID();
+//
+// $source: a post ID (default: current post) or 'option' for the ACF options
+// page, matching the second argument the FAQ templates pass to get_field().
+// $url: page URL used for @id — required when $source is 'option', since a
+// permalink can't be derived from the options page.
+function az_schema_faq( $source = 0, string $url = '' ): array {
+	if ( ! $source ) {
+		$source = (int) get_the_ID();
+	}
+
+	if ( '' === $url && is_numeric( $source ) ) {
+		$url = (string) get_permalink( (int) $source );
 	}
 
 	// Google only parses this limited tag set inside acceptedAnswer.text.
@@ -457,7 +473,12 @@ function az_schema_faq( int $post_id = 0 ): array {
 
 	$questions = [];
 
-	foreach ( (array) ( get_field( 'faq', $post_id ) ?: [] ) as $group ) {
+	$faq_groups = get_field( 'faq', $source );
+	if ( ! is_array( $faq_groups ) ) {
+		$faq_groups = array();
+	}
+
+	foreach ( $faq_groups as $group ) {
 		foreach ( (array) ( $group['accordion_item'] ?? [] ) as $item ) {
 			$question = trim( wp_strip_all_tags( $item['question'] ?? '' ) );
 			$answer   = trim( wp_kses( $item['answer'] ?? '', $allowed_tags ) );
@@ -478,13 +499,18 @@ function az_schema_faq( int $post_id = 0 ): array {
 	}
 
 	if ( empty( $questions ) ) {
-		return [];
+		return array();
 	}
 
-	return [
+	$schema = array(
 		'@context'   => 'https://schema.org',
 		'@type'      => 'FAQPage',
-		'@id'        => get_permalink( $post_id ) . '#faqpage',
 		'mainEntity' => $questions,
-	];
+	);
+
+	if ( '' !== $url ) {
+		$schema['@id'] = $url . '#faqpage';
+	}
+
+	return $schema;
 }
