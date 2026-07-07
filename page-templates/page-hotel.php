@@ -18,6 +18,7 @@ if ( have_posts() ) :
 			get_template_part( 'template-parts/pages/hotel/komfort' );
 			get_template_part( 'template-parts/pages/hotel/regional' );
 			get_template_part( 'template-parts/pages/hotel/outro' );
+			get_template_part( 'template-parts/modules/section', 'outro' );
 		do_action( 'after_main_content' );
 	endwhile;
 endif;
