@@ -82,6 +82,17 @@
 											<img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/svg/features_occupancy.svg" alt="Size" title="Size" class="w-8" />
 											<p><?php the_field( 'overview_occupancy' ); ?></p>
 										</div>
+										<?php
+										$view = get_field( 'overview_view' );
+										if ( $view ) :
+											?>
+											<div class="flex flex-row items-center gap-7 mb-4">
+												<img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/svg/view.svg" alt="Size" title="Size" class="w-8" />
+												<p><?php the_field( 'overview_view' ); ?></p>
+											</div>
+											<?php
+										endif;
+										?>
 									</div>
 								</div>
 
