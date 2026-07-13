@@ -24,8 +24,10 @@
 		<div class="theme-container">
 			<div class="theme-grid">
 				<div class="col-span-2 md:col-span-4 xl:col-span-5 col-start-1 md:col-start-3 xl:col-start-8">
-					<h3 class="title-secondary text-Dark"><?php the_field( 'outro_overtitle' ); ?></h3>
-					<h2 class="title-main text-Dark"><?php the_field( 'outro_title' ); ?></h2>
+					<?php if ( $overtitle = get_field( 'outro_overtitle' ) ) : ?>
+						<h2 class="title-secondary text-Dark"><?php echo esc_html( $overtitle ); ?></h2>
+					<?php endif; ?>
+					<h3 class="title-main text-Dark"><?php the_field( 'outro_title' ); ?></h3>
 					<p class="text-Dark pt-4 md:pt-0 xl:pt-8 pb-16"><?php the_field( 'outro_text' ); ?></p>
 					<?php
 					$olink = get_field( 'outro_button' );
