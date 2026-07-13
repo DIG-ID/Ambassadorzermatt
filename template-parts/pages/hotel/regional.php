@@ -36,6 +36,9 @@
 				?>
 			</div>
 			<div class="col-start-1 col-span-2 md:col-start-1 md:col-span-4 xl:col-start-8 xl:col-span-5 order-2 xl:order-none">
+				<div class="title-secondary text-LightGray ">
+					<h3><?php the_field( 'regional_overtitle' ); ?></h3>
+				</div>
 				<div class="pt-[2.47rem] md:pt-[3.75rem] xl:pt-[6.5rem]">
 					<h2 class="title-main text-LightGray "><?php the_field( 'regional_title' ); ?></h2>
 				</div>
