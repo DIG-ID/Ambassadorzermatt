@@ -15,10 +15,10 @@
 			<!-- TEXT + BUTTON -->
 			<div class="col-start-1 col-span-2 md:col-start-1 md:col-span-4 xl:col-start-2 xl:col-span-6 order-1 md:order-none">
 				<div class="title-secondary text-Dark">
-					<h3><?php the_field( 'komfort_overtitle' ); ?></h3>
+					<h2><?php the_field( 'komfort_overtitle' ); ?></h2>
 				</div>
 				<div class="title-main text-Dark">
-					<h2><?php the_field( 'komfort_title' ); ?></h2>
+					<h3><?php the_field( 'komfort_title' ); ?></h3>
 				</div>
 
 				<div class="xl:grid xl:grid-cols-6 xl:gap-x-5">
