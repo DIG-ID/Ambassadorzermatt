@@ -37,7 +37,7 @@
 			</div>
 			<div class="col-start-1 col-span-2 md:col-start-1 md:col-span-4 xl:col-start-8 xl:col-span-5 order-2 xl:order-none">
 				<div class=" pt-[2.47rem] md:pt-[3.75rem] xl:pt-[6.5rem]">
-					<div class="flex items-baseline gap-[0.4em]"><span>—</span><h2 class="title-secondary text-LightGray "><?php the_field( 'regional_overtitle' ); ?></h2></div>
+					<div class="flex items-baseline gap-[0.4em]"><span class="text-White">—</span><h2 class="title-secondary text-LightGray "><?php the_field( 'regional_overtitle' ); ?></h2></div>
 				</div>
 				<div class="">
 					<h3 class="title-main text-LightGray "><?php the_field( 'regional_title' ); ?></h3>
