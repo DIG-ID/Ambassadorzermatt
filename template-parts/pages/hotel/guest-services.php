@@ -13,7 +13,7 @@
 		<div class="theme-grid">
 			<div class="col-start-1 col-span-2 md:col-start-1 md:col-span-4 xl:col-start-1 xl:col-span-5 ">
 				<div class="max-w-[14rem] md:max-w-none">
-					<h2 class="title-secondary text-Dark "><?php the_field( 'guest-services_overtitle' ); ?></h2>
+					<div class="flex items-baseline gap-[0.4em]"><span>—</span><h2 class="title-secondary text-Dark "><?php the_field( 'guest-services_overtitle' ); ?></h2></div>
 				<div class="pt-[1.25rem] md:pt-[0.75rem] xl:pt-[1.87rem]">
 					<h3 class="title-main text-Dark"><?php the_field( 'guest-services_title' ); ?></h3>
 				</div>
