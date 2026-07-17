@@ -15,7 +15,7 @@
 			<!-- TEXT + BUTTON -->
 			<div class="col-start-1 col-span-2 md:col-start-1 md:col-span-4 xl:col-start-2 xl:col-span-6 order-1 md:order-none">
 				<div class="title-secondary text-Dark">
-					<div class="flex items-baseline gap-[0.4em]"><span>—</span><h2><?php the_field( 'komfort_overtitle' ); ?></h2></div>
+					<div class="flex items-baseline gap-[0.4em]"><span class="title-secondary">—</span><h2><?php the_field( 'komfort_overtitle' ); ?></h2></div>
 				</div>
 				<div class="title-main text-Dark">
 					<h3><?php the_field( 'komfort_title' ); ?></h3>
