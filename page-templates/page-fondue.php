@@ -17,6 +17,7 @@ if ( have_posts() ) :
 			get_template_part( 'template-parts/pages/fondue/intro' );
 			get_template_part( 'template-parts/pages/fondue/content' );
 			get_template_part( 'template-parts/modules/section', 'outro' );
+			get_template_part( 'template-parts/modules/section', 'faq' );
 		do_action( 'after_main_content' );
 	endwhile;
 endif;
