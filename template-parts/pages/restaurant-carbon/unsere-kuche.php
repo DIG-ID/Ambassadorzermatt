@@ -131,6 +131,11 @@
 						<h2 class="title-main text-LightGray mb-10"><?php the_field( 'unsere_kuche_hover_title' ); ?></h2>
 					</div>
 				</div>
+				<div class="col-span-2 md:col-span-6 xl:col-start-2 mt-16">
+					<div class="pt-[2.47rem] md:pt-[3.78rem] xl:pt-[1.88rem] md:max-w-[300px] xl:max-w-none">
+						<div class="text-LightGray mb-10"><?php echo wp_kses_post( get_field( 'unsere_kuche_hover_intro' ) ); ?></div>
+					</div>
+				</div>
 			</div>
 			<div class="theme-grid ">
 
