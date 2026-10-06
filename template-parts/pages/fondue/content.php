@@ -33,13 +33,8 @@
             </div>
         </div>
 		<div class="col-span-2 md:col-span-6 xl:col-start-2 xl:col-span-12">
-			<div class="title">
+			<div class="">
 				<h2 class="title-main text-Dark mb-10"><?php the_field( 'content_hover_title' ); ?></h2>
-			</div>
-		</div>
-		<div class="col-span-2 xl:col-start-2 md:col-span-4">
-			<div class="intro">
-				<p class="text-LightGray mb-10"><?php the_field( 'content_hover_intro' ); ?></p>
 			</div>
 		</div>
         <div class="theme-grid">
