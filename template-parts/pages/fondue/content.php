@@ -34,7 +34,12 @@
         </div>
 		<div class="col-span-2 md:col-span-6 xl:col-start-2 xl:col-span-12">
 			<div class="">
-				<h2 class="title-main text-Dark mb-10"><?php the_field( 'content_hover_title' ); ?></h2>
+				<h2 class="title-main text-Dark"><?php the_field( 'content_hover_title' ); ?></h2>
+			</div>
+		</div>
+		<div class="col-span-2 md:col-span-6 xl:col-start-2 xl:col-span-12">
+			<div class="pt-[2.47rem] md:pt-[3.78rem] xl:pt-[1.88rem]">
+				<p class="title-main text-Dark mb-10"><?php the_field( 'content_hover_intro' ); ?></p>
 			</div>
 		</div>
         <div class="theme-grid">
