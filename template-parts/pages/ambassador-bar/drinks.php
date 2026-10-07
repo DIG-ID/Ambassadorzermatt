@@ -91,7 +91,7 @@
 				</div>
 			</div>
 			<div class="col-span-2 md:col-span-6 xl:col-start-2">
-				<div class="pt-[1.9rem] md:pt-[1.87rem] xl:pt-[2.81rem]">
+				<div class="pt-7 md:pt-10 xl:pt-8">
 					<p class="text-Dark mb-10"><?php the_field( 'drinks_hover_intro' ); ?></p>
 				</div>
 			</div>

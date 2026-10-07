@@ -131,7 +131,7 @@
 						<h2 class="title-main text-LightGray"><?php the_field( 'unsere_kuche_hover_title' ); ?></h2>
 					</div>
 				</div>
-				<div class="col-span-2 md:col-span-6 xl:col-span-6 xl:col-start-2 pt-[1.9rem] md:pt-[1.87rem] xl:pt-[2.81rem]">
+				<div class="col-span-2 md:col-span-6 xl:col-span-6 xl:col-start-2 pt-7 md:pt-10 xl:pt-8">
 					<p class="text-LightGray mb-10"><?php the_field( 'unsere_kuche_hover_intro' ); ?></p>
 				</div>
 			</div>

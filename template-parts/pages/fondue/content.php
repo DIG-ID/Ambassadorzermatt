@@ -36,7 +36,7 @@
 			<div class="col-span-2 md:col-span-6 xl:col-start-2 xl:col-span-11">
 				<h2 class="title-main text-Dark"><?php the_field( 'content_hover_title' ); ?></h2>
 			</div>
-			<div class="col-span-2 md:col-span-6 xl:col-start-2 xl:col-span-6 pt-[1.9rem] md:pt-[1.87rem] xl:pt-[2.81rem]">
+			<div class="col-span-2 md:col-span-6 xl:col-start-2 xl:col-span-6 pt-[1.9rem] md:pt-[1.87rem] xl:pt-8">
 				<p class="text-Dark mb-10"><?php the_field( 'content_hover_intro' ); ?></p>
 			</div>
 		</div>
