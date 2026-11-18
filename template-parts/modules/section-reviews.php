@@ -32,10 +32,12 @@ $meta_review_url = add_query_arg(
 				</div>
 			<?php endif; ?>
 
-			<!-- TrustYou: Meta Review (height auto-adjusted by iframeResizer) -->
+			<!-- TrustYou: Meta Review (height auto-adjusted by iframeResizer).
+				The iframe is cross-origin, so its CSS can't be changed; mix-blend-multiply
+				makes its white background take the section's background colour. -->
 			<div class="col-span-2 md:col-span-6 xl:col-span-12">
 				<iframe
-					class="section-reviews__meta js-trustyou-meta"
+					class="section-reviews__meta js-trustyou-meta mix-blend-multiply"
 					src="<?php echo esc_url( $meta_review_url ); ?>"
 					title="<?php esc_attr_e( 'TrustYou Meta Review', 'ambassador' ); ?>"
 					scrolling="no"
