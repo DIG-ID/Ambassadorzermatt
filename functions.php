@@ -7,6 +7,10 @@
  * @since 1.0.0
  */
 
+// TrustYou widgets (public widget key, used in iframe URLs).
+define( 'AZ_TRUSTYOU_HOTEL_ID', '37cbf743-49b8-46e9-b1a6-ea26577395f0' );
+define( 'AZ_TRUSTYOU_KEY', 'ac59c67b-3a8e-4775-acad-83819af9028e' );
+
 /**
  * Setup theme
  */
@@ -95,6 +99,12 @@ function az_theme_enqueue_styles() {
 	if ( is_page_template( 'page-templates/page-arrival-contacts.php' ) || is_admin() ) :
 		wp_enqueue_script( 'google-map-settings', get_stylesheet_directory_uri() . '/assets/js/google-maps.js', array( 'jquery' ), $theme_version, true );
 		wp_enqueue_script( 'google-map-api', 'https://maps.googleapis.com/maps/api/js?key=' . AZ_GOOGLE_MAPS_API_KEY . '&callback=initMap&loading=async', array(), null, true );
+	endif;
+
+	// TrustYou Meta Review widget: iframeResizer keeps the iframe height in sync with its content.
+	if ( is_page_template( 'page-templates/page-home.php' ) ) :
+		wp_enqueue_script( 'trustyou-iframe-resizer', 'https://cdn.trustyou.com/v2/hotel/widget-ui/shared/iframeResizer/4.3.2/iframeResizer.min.js', array(), '4.3.2', true );
+		wp_add_inline_script( 'trustyou-iframe-resizer', "iFrameResize( { checkOrigin: false }, '.js-trustyou-meta' );" );
 	endif;
 
 }
