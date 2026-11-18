@@ -1,17 +1,20 @@
 <?php
 /**
- * Reviews Section (TrustYou widgets) in the Home Page template.
+ * Reviews Module Section (TrustYou widgets).
+ * Used on: Home template, Zimmer & Suiten archive and single.
  *
  * The iframeResizer script needed by the Meta Review widget is enqueued
- * in functions.php (az_theme_enqueue_styles).
+ * in functions.php (az_theme_enqueue_styles) — add new templates there too.
+ *
+ * Optional args: 'bg' => background class (default 'bg-LightGray').
  *
  * @package ambassador-zermatt
- * @subpackage Section
+ * @subpackage Module
  * @since 1.0.0
  */
 
-$reviews_overtitle = get_field( 'reviews_overtitle' );
-$reviews_title     = get_field( 'reviews_title' );
+$reviews_bg    = ( isset( $args['bg'] ) && $args['bg'] ) ? $args['bg'] : 'bg-LightGray';
+$reviews_title = get_field( 'reviews_title', 'option' ); // Global title, same on every page.
 
 $trustyou_base = 'https://api.trustyou.com/hotels/' . AZ_TRUSTYOU_HOTEL_ID;
 
@@ -34,17 +37,12 @@ $meta_review_url = add_query_arg(
 );
 ?>
 
-<section id="section-reviews" class="section-reviews bg-LightGray py-14 xl:py-24">
+<section id="section-reviews" class="section-reviews <?php echo esc_attr( $reviews_bg ); ?> py-14 xl:py-24">
 	<div class="theme-container">
 		<div class="theme-grid">
-			<?php if ( $reviews_overtitle || $reviews_title ) : ?>
+			<?php if ( $reviews_title ) : ?>
 				<div class="col-span-2 md:col-span-6 xl:col-span-12 text-Dark pb-10 xl:pb-16">
-					<?php if ( $reviews_overtitle ) : ?>
-						<p class="title-secondary"><?php echo esc_html( $reviews_overtitle ); ?></p>
-					<?php endif; ?>
-					<?php if ( $reviews_title ) : ?>
-						<h2 class="title-main md:pt-5 xl:pt-4"><?php echo esc_html( $reviews_title ); ?></h2>
-					<?php endif; ?>
+					<h2 class="title-main"><?php echo esc_html( $reviews_title ); ?></h2>
 				</div>
 			<?php endif; ?>
 

@@ -102,7 +102,7 @@ function az_theme_enqueue_styles() {
 	endif;
 
 	// TrustYou Meta Review widget: iframeResizer keeps the iframe height in sync with its content.
-	if ( is_page_template( 'page-templates/page-home.php' ) ) :
+	if ( is_page_template( 'page-templates/page-home.php' ) || is_post_type_archive( 'zimmer-suiten' ) || is_singular( 'zimmer-suiten' ) ) :
 		wp_enqueue_script( 'trustyou-iframe-resizer', 'https://cdn.trustyou.com/v2/hotel/widget-ui/shared/iframeResizer/4.3.2/iframeResizer.min.js', array(), '4.3.2', true );
 		wp_add_inline_script( 'trustyou-iframe-resizer', "iFrameResize( { checkOrigin: false }, '.js-trustyou-meta' );" );
 	endif;
